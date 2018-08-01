@@ -1,0 +1,89 @@
+### Observable - 可被监听的序列
+
+Observable 可以用于描述元素异步产生的序列
+
+     Observable<T> 这个类就是 Rx 框架的基础，我们可以称它为可观察序列。它的作用就是可以异步地产生一系列的 Event（事件），即一个 Observable<T> 对象会随着时间推移不定期地发出 event(element : T) 这样一个东西。
+    - 而且这些 Event 还可以携带数据，它的泛型 <T> 就是用来指定这个 Event 携带的数据的类型
+    - 有了可观察序列，我们还需要有一个 Observer（订阅者）来订阅它，这样这个订阅者才能收到 Observable<T> 不时发出的 Event。
+ 
+ #### Event - 事件
+ ```
+ public enum Event<Element> {
+ case next(Element)
+ case error(Swift.Error)
+ case completed
+ }
+ ```
+    next - 序列产生了一个新的元素
+    error - 创建序列时产生了一个错误，导致序列终止
+    completed - 序列的所有元素都已经成功产生，整个序列已经完成
+
+#### 如何创建序列
+
+    创建序列最直接的方法就是调用 Observable.create，然后在构建函数里面描述元素的产生过程
+
+
+代码
+```
+let observable = Observable<Any>.create { (observer) -> Disposable in
+
+observer.onNext("测试create1")
+observer.onNext("测试create2")
+observer.onNext("测试create3")
+observer.onCompleted()
+
+return Disposables.create()
+}
+
+//订阅测试
+observable.subscribe(onNext: { (result) in
+print(result)
+}, onError: { (error) in
+print(error)
+}, onCompleted: {
+print("结束")
+}).disposed(by: disposeBag)
+```
+打印结果
+```
+测试create1
+测试create2
+测试create3
+结束
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
