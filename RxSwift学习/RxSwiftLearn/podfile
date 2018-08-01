@@ -1,5 +1,6 @@
 use_frameworks!
 target 'RxSwiftLearn' do
     pod 'RxSwift'    
-    pod 'RxCocoa'   
+    pod 'RxCocoa'
+    pod 'SwiftyJSON'
 end

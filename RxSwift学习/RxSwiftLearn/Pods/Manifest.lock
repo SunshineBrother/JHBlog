@@ -2,20 +2,24 @@ PODS:
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
+  - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
   - RxCocoa
   - RxSwift
+  - SwiftyJSON
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - RxCocoa
     - RxSwift
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 8eddba87a4d15e9378cdc14204179aee804bb8fd
+PODFILE CHECKSUM: a2be59f904df190bae67401f0c2621a12b77e779
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.0

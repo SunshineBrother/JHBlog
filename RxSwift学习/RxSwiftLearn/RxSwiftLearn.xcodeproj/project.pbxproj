@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		280AC609211155A4009D536F /* create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC608211155A4009D536F /* create.swift */; };
+		280AC60B2111614A009D536F /* RxSwift.plist in Resources */ = {isa = PBXBuildFile; fileRef = 280AC60A2111614A009D536F /* RxSwift.plist */; };
+		280AC60E2111632A009D536F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC60C2111632A009D536F /* Model.swift */; };
+		280AC60F2111632A009D536F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC60D2111632A009D536F /* TableViewController.swift */; };
+		280AC6112111639C009D536F /* CreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC6102111639C009D536F /* CreateController.swift */; };
 		28F443DC2109C782000F2F53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F443DB2109C782000F2F53 /* AppDelegate.swift */; };
-		28F443DE2109C782000F2F53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F443DD2109C782000F2F53 /* ViewController.swift */; };
 		28F443E12109C782000F2F53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F443DF2109C782000F2F53 /* Main.storyboard */; };
 		28F443E32109C785000F2F53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F443E22109C785000F2F53 /* Assets.xcassets */; };
 		28F443E62109C785000F2F53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F443E42109C785000F2F53 /* LaunchScreen.storyboard */; };
@@ -37,10 +39,12 @@
 
 /* Begin PBXFileReference section */
 		1473BBF76DD62E1A8203C397 /* Pods-RxSwiftLearn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftLearn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftLearn/Pods-RxSwiftLearn.debug.xcconfig"; sourceTree = "<group>"; };
-		280AC608211155A4009D536F /* create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = create.swift; sourceTree = "<group>"; };
+		280AC60A2111614A009D536F /* RxSwift.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RxSwift.plist; sourceTree = "<group>"; };
+		280AC60C2111632A009D536F /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		280AC60D2111632A009D536F /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		280AC6102111639C009D536F /* CreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateController.swift; sourceTree = "<group>"; };
 		28F443D82109C782000F2F53 /* RxSwiftLearn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftLearn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F443DB2109C782000F2F53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		28F443DD2109C782000F2F53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		28F443E02109C782000F2F53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28F443E22109C785000F2F53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28F443E52109C785000F2F53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,7 +88,7 @@
 		280AC6072111557E009D536F /* Observable */ = {
 			isa = PBXGroup;
 			children = (
-				280AC608211155A4009D536F /* create.swift */,
+				280AC6102111639C009D536F /* CreateController.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -115,12 +119,14 @@
 			isa = PBXGroup;
 			children = (
 				28F443DB2109C782000F2F53 /* AppDelegate.swift */,
-				28F443DD2109C782000F2F53 /* ViewController.swift */,
+				280AC60D2111632A009D536F /* TableViewController.swift */,
+				280AC60C2111632A009D536F /* Model.swift */,
 				280AC6072111557E009D536F /* Observable */,
 				28F443DF2109C782000F2F53 /* Main.storyboard */,
 				28F443E22109C785000F2F53 /* Assets.xcassets */,
 				28F443E42109C785000F2F53 /* LaunchScreen.storyboard */,
 				28F443E72109C785000F2F53 /* Info.plist */,
+				280AC60A2111614A009D536F /* RxSwift.plist */,
 			);
 			path = RxSwiftLearn;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 			files = (
 				28F443E62109C785000F2F53 /* LaunchScreen.storyboard in Resources */,
 				28F443E32109C785000F2F53 /* Assets.xcassets in Resources */,
+				280AC60B2111614A009D536F /* RxSwift.plist in Resources */,
 				28F443E12109C782000F2F53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,11 +305,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftLearn/Pods-RxSwiftLearn-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -334,9 +343,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28F443DE2109C782000F2F53 /* ViewController.swift in Sources */,
-				280AC609211155A4009D536F /* create.swift in Sources */,
+				280AC6112111639C009D536F /* CreateController.swift in Sources */,
 				28F443DC2109C782000F2F53 /* AppDelegate.swift in Sources */,
+				280AC60F2111632A009D536F /* TableViewController.swift in Sources */,
+				280AC60E2111632A009D536F /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

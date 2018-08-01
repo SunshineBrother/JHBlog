@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Observable</key>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>创建一个序列</string>
+			<key>Class</key>
+			<string>CreateController</string>
+		</dict>
+	</array>
+	<key>操作符</key>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>创建一个序列</string>
+			<key>Class</key>
+			<string>CreateController</string>
+		</dict>
+	</array>
+</dict>
+</plist>
