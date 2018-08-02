@@ -28,7 +28,12 @@ class CreateController: UIViewController {
 //        setUPRepeatElement()
         
         
-        setUPDeferredt()
+//        setUPDeferredt()
+        
+        
+//        setUPInterval()
+        
+        setUPTimer()
     }
  
 }
@@ -131,8 +136,26 @@ extension CreateController {
         }.disposed(by: disposeBag)
     }
 
-    
-    
+    //MARK:Interval
+    //interval 操作符将创建一个 Observable，它每隔一段设定的时间，发出一个索引数的元素。它将发出无数个元素。
+    func setUPInterval() {
+        let observable = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+        observable.subscribe { event in
+            print(event)
+        }.disposed(by: disposeBag)
+        
+    }
+    //MARK:timer
+    func setUPTimer() {
+        //（1）这个方法有两种用法，一种是创建的 Observable 序列在经过设定的一段时间后，产生唯一的一个元素。
+        let observable = Observable<Int>.timer(5, scheduler: MainScheduler.instance)
+        //延时5秒种后，每隔1秒钟发出一个元素
+//        let observable = Observable<Int>.timer(5, period: 1, scheduler: MainScheduler.instance)
+        observable.subscribe { event in
+            print(event)
+        }.disposed(by: disposeBag)
+     
+    }
     
 }
 
