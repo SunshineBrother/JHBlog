@@ -22,8 +22,10 @@ class CreateController: UIViewController {
         
         
         
-        setUPFrom()
+//        setUPFrom()
         
+        
+//        setUPRepeatElement()
         
     }
  
@@ -69,7 +71,6 @@ extension CreateController {
     //MARK:from
     //将其他类型或者数据结构转换为 Observable
     //当你在使用 Observable 时，如果能够直接将其他类型转换为 Observable，这将是非常省事的。from 操作符就提供了这种功能。
-    
     func setUPFrom() {
         let observable = Observable.from([1,2,3,4,5])
 //        let observable = Observable.from(["1":"one","2":"two"])
@@ -84,8 +85,18 @@ extension CreateController {
   
     }
     
-    
-    
+    //MARK:repeatElement
+    //该方法创建一个可以无限发出给定元素的 Event 的 Observable 序列（永不终止）。
+    func setUPRepeatElement() {
+        let observable = Observable.repeatElement(2)
+        observable.subscribe(onNext: { (result) in
+            print(result)
+        }, onError: { (error) in
+            
+        }, onCompleted: {
+            print("结束")
+        }).disposed(by: disposeBag)
+    }
     
     
     
