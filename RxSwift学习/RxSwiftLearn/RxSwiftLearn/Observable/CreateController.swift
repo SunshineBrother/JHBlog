@@ -157,6 +157,13 @@ extension CreateController {
      
     }
     
+    
+    //MARK:empty
+    //该方法创建一个空内容的 Observable 序列。
+    func setUPEmpty() {
+        let _ = Observable<String>.empty()
+    }
+    
 }
 
 
