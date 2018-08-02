@@ -27,6 +27,8 @@ class CreateController: UIViewController {
         
 //        setUPRepeatElement()
         
+        
+        setUPDeferredt()
     }
  
 }
@@ -98,8 +100,37 @@ extension CreateController {
         }).disposed(by: disposeBag)
     }
     
-    
-    
+    //MARK:deferred
+    //直到订阅发生，才创建 Observable，并且为每位订阅者创建全新的 Observable
+    func setUPDeferredt() {
+        //用于标记是奇数、还是偶数
+        var isOdd = true
+        
+        //使用deferred()方法延迟Observable序列的初始化，通过传入的block来实现Observable序列的初始化并且返回。
+        let factory : Observable<Int> = Observable.deferred {
+            
+            //让每次执行这个block时候都会让奇、偶数进行交替
+            isOdd = !isOdd
+            
+            //根据isOdd参数，决定创建并返回的是奇数Observable、还是偶数Observable
+            if isOdd {
+                return Observable.of(1, 3, 5 ,7)
+            }else {
+                return Observable.of(2, 4, 6, 8)
+            }
+        }
+        
+        //第1次订阅测试
+        factory.subscribe { event in
+            print("\(isOdd)", event)
+        }.disposed(by: disposeBag)
+        
+        //第2次订阅测试
+        factory.subscribe { event in
+            print("\(isOdd)", event)
+        }.disposed(by: disposeBag)
+    }
+
     
     
     
