@@ -10,6 +10,18 @@
 			<key>Class</key>
 			<string>CreateController</string>
 		</dict>
+		<dict>
+			<key>Title</key>
+			<string>组合Observable</string>
+			<key>Class</key>
+			<string>mergeController</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>可被监听序列</string>
+			<key>Class</key>
+			<string>otherObservableController</string>
+		</dict>
 	</array>
 	<key>操作符</key>
 	<array>

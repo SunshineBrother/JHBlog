@@ -1,0 +1,107 @@
+//
+//  otherObservableController.swift
+//  RxSwiftLearn
+//
+//  Created by yunna on 2018/8/3.
+//  Copyright © 2018年 yunna. All rights reserved.
+//
+
+import UIKit
+import RxSwift
+class otherObservableController: UIViewController {
+    
+    let disposeBag = DisposeBag()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+
+    
+    @IBAction func single(_ sender: Any) {
+        getRepo("ReactiveX/RxSwift")
+            .subscribe(onSuccess: { data in
+                let dict = try? JSONSerialization.jsonObject(with: data as! Data, options: []) as! [String: AnyObject]
+                print("返回结果：\(String(describing: dict))")
+            }, onError: { error in
+                print("Error: ", error)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    
+    @IBAction func completable(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func Maybe(_ sender: Any) {
+    }
+    
+    
+    @IBAction func Driver(_ sender: Any) {
+    }
+    
+    
+    @IBAction func controlEvent(_ sender: Any) {
+    }
+    
+  
+}
+
+extension otherObservableController{
+    
+    //MARK:single
+    func getRepo(_ repo: String) -> Single<Any>{
+        let sing = Single<Any>.create { (single) -> Disposable in
+            
+            let url = URL(string: "https://api.github.com/repos/\(repo)")!
+            let task = URLSession.shared.dataTask(with: url) {
+                data, _, error in
+                
+                if let error = error {
+                    single(.error(error))
+                    return
+                }
+                
+                guard let data = data else {
+                    let dataError = "data解析错误" as! Error
+                    single(.error(dataError))
+                    return
+                }
+                
+                single(.success(data))
+                
+            }
+            
+            task.resume()
+            return Disposables.create()
+        }
+        
+       
+        return sing
+    }
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

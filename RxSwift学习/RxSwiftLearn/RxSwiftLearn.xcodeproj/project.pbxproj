@@ -11,6 +11,10 @@
 		280AC60E2111632A009D536F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC60C2111632A009D536F /* Model.swift */; };
 		280AC60F2111632A009D536F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC60D2111632A009D536F /* TableViewController.swift */; };
 		280AC6112111639C009D536F /* CreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC6102111639C009D536F /* CreateController.swift */; };
+		28E834702114462D00840532 /* mergeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E8346E2114462D00840532 /* mergeController.swift */; };
+		28E834712114462D00840532 /* mergeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E8346F2114462D00840532 /* mergeController.xib */; };
+		28E8347521144EE700840532 /* otherObservableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E8347321144EE700840532 /* otherObservableController.swift */; };
+		28E8347621144EE700840532 /* otherObservableController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E8347421144EE700840532 /* otherObservableController.xib */; };
 		28F443DC2109C782000F2F53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F443DB2109C782000F2F53 /* AppDelegate.swift */; };
 		28F443E12109C782000F2F53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F443DF2109C782000F2F53 /* Main.storyboard */; };
 		28F443E32109C785000F2F53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F443E22109C785000F2F53 /* Assets.xcassets */; };
@@ -43,6 +47,10 @@
 		280AC60C2111632A009D536F /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		280AC60D2111632A009D536F /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		280AC6102111639C009D536F /* CreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateController.swift; sourceTree = "<group>"; };
+		28E8346E2114462D00840532 /* mergeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mergeController.swift; sourceTree = "<group>"; };
+		28E8346F2114462D00840532 /* mergeController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = mergeController.xib; sourceTree = "<group>"; };
+		28E8347321144EE700840532 /* otherObservableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otherObservableController.swift; sourceTree = "<group>"; };
+		28E8347421144EE700840532 /* otherObservableController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = otherObservableController.xib; sourceTree = "<group>"; };
 		28F443D82109C782000F2F53 /* RxSwiftLearn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftLearn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F443DB2109C782000F2F53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28F443E02109C782000F2F53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,6 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				280AC6102111639C009D536F /* CreateController.swift */,
+				28E8346E2114462D00840532 /* mergeController.swift */,
+				28E8346F2114462D00840532 /* mergeController.xib */,
+				28E8347321144EE700840532 /* otherObservableController.swift */,
+				28E8347421144EE700840532 /* otherObservableController.xib */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -273,8 +285,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				28F443E62109C785000F2F53 /* LaunchScreen.storyboard in Resources */,
+				28E8347621144EE700840532 /* otherObservableController.xib in Resources */,
 				28F443E32109C785000F2F53 /* Assets.xcassets in Resources */,
 				280AC60B2111614A009D536F /* RxSwift.plist in Resources */,
+				28E834712114462D00840532 /* mergeController.xib in Resources */,
 				28F443E12109C782000F2F53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,10 +357,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E834702114462D00840532 /* mergeController.swift in Sources */,
 				280AC6112111639C009D536F /* CreateController.swift in Sources */,
 				28F443DC2109C782000F2F53 /* AppDelegate.swift in Sources */,
 				280AC60F2111632A009D536F /* TableViewController.swift in Sources */,
 				280AC60E2111632A009D536F /* Model.swift in Sources */,
+				28E8347521144EE700840532 /* otherObservableController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
