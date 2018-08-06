@@ -31,6 +31,22 @@ class otherObservableController: UIViewController {
     
     
     @IBAction func completable(_ sender: Any) {
+        let completable = Completable.create { (com) -> Disposable in
+            if arc4random()%2 == 1{
+                com(.completed)
+            }else{
+                com(.error(self.getError()))
+            }
+            return Disposables.create()
+        }
+        
+        
+        completable.subscribe(onCompleted: {
+            print("走到完成事件")
+        }) { (error) in
+            print("走到了错误事件")
+        }.disposed(by: disposeBag)
+        
         
     }
     
@@ -51,6 +67,14 @@ class otherObservableController: UIViewController {
 
 extension otherObservableController{
     
+    
+    func getError() -> NSError {
+        let userInfo = ["error":"获得一个错误"]
+        let error = NSError.init(domain: "error", code: 1, userInfo: userInfo)
+        return error
+    }
+    
+    
     //MARK:single
     func getRepo(_ repo: String) -> Single<Any>{
         let sing = Single<Any>.create { (single) -> Disposable in
@@ -65,8 +89,7 @@ extension otherObservableController{
                 }
                 
                 guard let data = data else {
-                    let dataError = "data解析错误" as! Error
-                    single(.error(dataError))
+                    single(.error(self.getError()))
                     return
                 }
                 
