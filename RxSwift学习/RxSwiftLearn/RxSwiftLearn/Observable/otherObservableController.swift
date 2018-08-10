@@ -50,17 +50,7 @@ class otherObservableController: UIViewController {
         
     }
     
-    
-    @IBAction func Maybe(_ sender: Any) {
-    }
-    
-    
-    @IBAction func Driver(_ sender: Any) {
-    }
-    
-    
-    @IBAction func controlEvent(_ sender: Any) {
-    }
+  
     
   
 }

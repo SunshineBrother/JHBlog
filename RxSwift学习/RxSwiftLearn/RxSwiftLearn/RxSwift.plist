@@ -22,6 +22,12 @@
 			<key>Class</key>
 			<string>otherObservableController</string>
 		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Observer</string>
+			<key>Class</key>
+			<string>ObserverControllerViewController</string>
+		</dict>
 	</array>
 	<key>操作符</key>
 	<array>
