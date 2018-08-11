@@ -13,6 +13,10 @@
 		280AC6112111639C009D536F /* CreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC6102111639C009D536F /* CreateController.swift */; };
 		28CD6A1B211D6FAC008944BD /* ObserverControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD6A19211D6FAC008944BD /* ObserverControllerViewController.swift */; };
 		28CD6A1C211D6FAC008944BD /* ObserverControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28CD6A1A211D6FAC008944BD /* ObserverControllerViewController.xib */; };
+		28CD6A20211D8A90008944BD /* rxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD6A1E211D8A90008944BD /* rxController.swift */; };
+		28CD6A21211D8A90008944BD /* rxController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28CD6A1F211D8A90008944BD /* rxController.xib */; };
+		28CD6A24211D9190008944BD /* SubjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD6A22211D9190008944BD /* SubjectsController.swift */; };
+		28CD6A25211D9190008944BD /* SubjectsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28CD6A23211D9190008944BD /* SubjectsController.xib */; };
 		28E834702114462D00840532 /* mergeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E8346E2114462D00840532 /* mergeController.swift */; };
 		28E834712114462D00840532 /* mergeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E8346F2114462D00840532 /* mergeController.xib */; };
 		28E8347521144EE700840532 /* otherObservableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E8347321144EE700840532 /* otherObservableController.swift */; };
@@ -51,6 +55,10 @@
 		280AC6102111639C009D536F /* CreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateController.swift; sourceTree = "<group>"; };
 		28CD6A19211D6FAC008944BD /* ObserverControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverControllerViewController.swift; sourceTree = "<group>"; };
 		28CD6A1A211D6FAC008944BD /* ObserverControllerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ObserverControllerViewController.xib; sourceTree = "<group>"; };
+		28CD6A1E211D8A90008944BD /* rxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rxController.swift; sourceTree = "<group>"; };
+		28CD6A1F211D8A90008944BD /* rxController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = rxController.xib; sourceTree = "<group>"; };
+		28CD6A22211D9190008944BD /* SubjectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsController.swift; sourceTree = "<group>"; };
+		28CD6A23211D9190008944BD /* SubjectsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubjectsController.xib; sourceTree = "<group>"; };
 		28E8346E2114462D00840532 /* mergeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mergeController.swift; sourceTree = "<group>"; };
 		28E8346F2114462D00840532 /* mergeController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = mergeController.xib; sourceTree = "<group>"; };
 		28E8347321144EE700840532 /* otherObservableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otherObservableController.swift; sourceTree = "<group>"; };
@@ -107,8 +115,19 @@
 				28E8347421144EE700840532 /* otherObservableController.xib */,
 				28CD6A19211D6FAC008944BD /* ObserverControllerViewController.swift */,
 				28CD6A1A211D6FAC008944BD /* ObserverControllerViewController.xib */,
+				28CD6A22211D9190008944BD /* SubjectsController.swift */,
+				28CD6A23211D9190008944BD /* SubjectsController.xib */,
 			);
 			path = Observable;
+			sourceTree = "<group>";
+		};
+		28CD6A1D211D8A7F008944BD /* RxUI */ = {
+			isa = PBXGroup;
+			children = (
+				28CD6A1E211D8A90008944BD /* rxController.swift */,
+				28CD6A1F211D8A90008944BD /* rxController.xib */,
+			);
+			path = RxUI;
 			sourceTree = "<group>";
 		};
 		28F443CF2109C782000F2F53 = {
@@ -139,6 +158,7 @@
 				28F443DB2109C782000F2F53 /* AppDelegate.swift */,
 				280AC60D2111632A009D536F /* TableViewController.swift */,
 				280AC60C2111632A009D536F /* Model.swift */,
+				28CD6A1D211D8A7F008944BD /* RxUI */,
 				280AC6072111557E009D536F /* Observable */,
 				28F443DF2109C782000F2F53 /* Main.storyboard */,
 				28F443E22109C785000F2F53 /* Assets.xcassets */,
@@ -292,11 +312,13 @@
 			files = (
 				28CD6A1C211D6FAC008944BD /* ObserverControllerViewController.xib in Resources */,
 				28F443E62109C785000F2F53 /* LaunchScreen.storyboard in Resources */,
+				28CD6A25211D9190008944BD /* SubjectsController.xib in Resources */,
 				28E8347621144EE700840532 /* otherObservableController.xib in Resources */,
 				28F443E32109C785000F2F53 /* Assets.xcassets in Resources */,
 				280AC60B2111614A009D536F /* RxSwift.plist in Resources */,
 				28E834712114462D00840532 /* mergeController.xib in Resources */,
 				28F443E12109C782000F2F53 /* Main.storyboard in Resources */,
+				28CD6A21211D8A90008944BD /* rxController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,10 +389,12 @@
 				28E834702114462D00840532 /* mergeController.swift in Sources */,
 				280AC6112111639C009D536F /* CreateController.swift in Sources */,
 				28F443DC2109C782000F2F53 /* AppDelegate.swift in Sources */,
+				28CD6A20211D8A90008944BD /* rxController.swift in Sources */,
 				28CD6A1B211D6FAC008944BD /* ObserverControllerViewController.swift in Sources */,
 				280AC60F2111632A009D536F /* TableViewController.swift in Sources */,
 				280AC60E2111632A009D536F /* Model.swift in Sources */,
 				28E8347521144EE700840532 /* otherObservableController.swift in Sources */,
+				28CD6A24211D9190008944BD /* SubjectsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

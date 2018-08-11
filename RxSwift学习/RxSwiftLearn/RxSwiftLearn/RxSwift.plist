@@ -28,14 +28,20 @@
 			<key>Class</key>
 			<string>ObserverControllerViewController</string>
 		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Subjects</string>
+			<key>Class</key>
+			<string>SubjectsController</string>
+		</dict>
 	</array>
-	<key>操作符</key>
+	<key>UI操作</key>
 	<array>
 		<dict>
 			<key>Title</key>
-			<string>创建一个序列</string>
+			<string>自定义可绑定属性</string>
 			<key>Class</key>
-			<string>CreateController</string>
+			<string>rxController</string>
 		</dict>
 	</array>
 </dict>
