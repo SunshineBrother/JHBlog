@@ -19,7 +19,7 @@ class SubjectsController: UIViewController {
 //        initAsyncSubject()
 //        initPublishSubject()
 //        initReplaySubject()
-        initBehaviorSubject()
+//        initBehaviorSubject()
         
         
     }
