@@ -16,7 +16,7 @@
 
 - [8、操作符](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/7、操作符.md)
     - [8.1、变换操作符](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/7.1、变换操作符.md)
-
+    - [8.2、过滤操作符](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/7.2、过滤操作符.md)
 
 
 

@@ -40,6 +40,12 @@
 			<key>Class</key>
 			<string>TransformOperatorController</string>
 		</dict>
+		<dict>
+			<key>Title</key>
+			<string>过滤操作符</string>
+			<key>Class</key>
+			<string>FilteringObservablesController</string>
+		</dict>
 	</array>
 	<key>UI操作</key>
 	<array>

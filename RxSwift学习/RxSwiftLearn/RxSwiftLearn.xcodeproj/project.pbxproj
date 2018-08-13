@@ -19,6 +19,7 @@
 		28CD6A21211D8A90008944BD /* rxController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28CD6A1F211D8A90008944BD /* rxController.xib */; };
 		28CD6A24211D9190008944BD /* SubjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD6A22211D9190008944BD /* SubjectsController.swift */; };
 		28CD6A25211D9190008944BD /* SubjectsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28CD6A23211D9190008944BD /* SubjectsController.xib */; };
+		28D00E9321215B560089235A /* FilteringObservablesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D00E9221215B560089235A /* FilteringObservablesController.swift */; };
 		28E834702114462D00840532 /* mergeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E8346E2114462D00840532 /* mergeController.swift */; };
 		28E834712114462D00840532 /* mergeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E8346F2114462D00840532 /* mergeController.xib */; };
 		28E8347521144EE700840532 /* otherObservableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E8347321144EE700840532 /* otherObservableController.swift */; };
@@ -63,6 +64,7 @@
 		28CD6A1F211D8A90008944BD /* rxController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = rxController.xib; sourceTree = "<group>"; };
 		28CD6A22211D9190008944BD /* SubjectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsController.swift; sourceTree = "<group>"; };
 		28CD6A23211D9190008944BD /* SubjectsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubjectsController.xib; sourceTree = "<group>"; };
+		28D00E9221215B560089235A /* FilteringObservablesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringObservablesController.swift; sourceTree = "<group>"; };
 		28E8346E2114462D00840532 /* mergeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mergeController.swift; sourceTree = "<group>"; };
 		28E8346F2114462D00840532 /* mergeController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = mergeController.xib; sourceTree = "<group>"; };
 		28E8347321144EE700840532 /* otherObservableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otherObservableController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				28CD6A23211D9190008944BD /* SubjectsController.xib */,
 				2846561B211EDB53000411F7 /* TransformOperatorController.swift */,
 				2846561C211EDB53000411F7 /* TransformOperatorController.xib */,
+				28D00E9221215B560089235A /* FilteringObservablesController.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			files = (
 				28E834702114462D00840532 /* mergeController.swift in Sources */,
 				280AC6112111639C009D536F /* CreateController.swift in Sources */,
+				28D00E9321215B560089235A /* FilteringObservablesController.swift in Sources */,
 				28F443DC2109C782000F2F53 /* AppDelegate.swift in Sources */,
 				28CD6A20211D8A90008944BD /* rxController.swift in Sources */,
 				28CD6A1B211D6FAC008944BD /* ObserverControllerViewController.swift in Sources */,
