@@ -46,6 +46,12 @@
 			<key>Class</key>
 			<string>FilteringObservablesController</string>
 		</dict>
+		<dict>
+			<key>Title</key>
+			<string>结合操作符</string>
+			<key>Class</key>
+			<string>CombiningController</string>
+		</dict>
 	</array>
 	<key>UI操作</key>
 	<array>

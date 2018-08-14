@@ -13,6 +13,7 @@
 		280AC6112111639C009D536F /* CreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC6102111639C009D536F /* CreateController.swift */; };
 		2846561D211EDB53000411F7 /* TransformOperatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846561B211EDB53000411F7 /* TransformOperatorController.swift */; };
 		2846561E211EDB53000411F7 /* TransformOperatorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2846561C211EDB53000411F7 /* TransformOperatorController.xib */; };
+		2869F8E52122F38D00A0B450 /* CombiningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869F8E42122F38D00A0B450 /* CombiningController.swift */; };
 		28CD6A1B211D6FAC008944BD /* ObserverControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD6A19211D6FAC008944BD /* ObserverControllerViewController.swift */; };
 		28CD6A1C211D6FAC008944BD /* ObserverControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28CD6A1A211D6FAC008944BD /* ObserverControllerViewController.xib */; };
 		28CD6A20211D8A90008944BD /* rxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD6A1E211D8A90008944BD /* rxController.swift */; };
@@ -58,6 +59,7 @@
 		280AC6102111639C009D536F /* CreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateController.swift; sourceTree = "<group>"; };
 		2846561B211EDB53000411F7 /* TransformOperatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorController.swift; sourceTree = "<group>"; };
 		2846561C211EDB53000411F7 /* TransformOperatorController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformOperatorController.xib; sourceTree = "<group>"; };
+		2869F8E42122F38D00A0B450 /* CombiningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombiningController.swift; sourceTree = "<group>"; };
 		28CD6A19211D6FAC008944BD /* ObserverControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverControllerViewController.swift; sourceTree = "<group>"; };
 		28CD6A1A211D6FAC008944BD /* ObserverControllerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ObserverControllerViewController.xib; sourceTree = "<group>"; };
 		28CD6A1E211D8A90008944BD /* rxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rxController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				2846561B211EDB53000411F7 /* TransformOperatorController.swift */,
 				2846561C211EDB53000411F7 /* TransformOperatorController.xib */,
 				28D00E9221215B560089235A /* FilteringObservablesController.swift */,
+				2869F8E42122F38D00A0B450 /* CombiningController.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				28F443DC2109C782000F2F53 /* AppDelegate.swift in Sources */,
 				28CD6A20211D8A90008944BD /* rxController.swift in Sources */,
 				28CD6A1B211D6FAC008944BD /* ObserverControllerViewController.swift in Sources */,
+				2869F8E52122F38D00A0B450 /* CombiningController.swift in Sources */,
 				280AC60F2111632A009D536F /* TableViewController.swift in Sources */,
 				2846561D211EDB53000411F7 /* TransformOperatorController.swift in Sources */,
 				280AC60E2111632A009D536F /* Model.swift in Sources */,
