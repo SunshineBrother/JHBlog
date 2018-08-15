@@ -73,6 +73,12 @@
 			<key>Class</key>
 			<string>TextController</string>
 		</dict>
+		<dict>
+			<key>Title</key>
+			<string>UIButton</string>
+			<key>Class</key>
+			<string>ButtonController</string>
+		</dict>
 	</array>
 </dict>
 </plist>
