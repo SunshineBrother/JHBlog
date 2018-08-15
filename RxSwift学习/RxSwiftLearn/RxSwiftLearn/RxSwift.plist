@@ -63,9 +63,9 @@
 	<array>
 		<dict>
 			<key>Title</key>
-			<string>自定义可绑定属性</string>
+			<string>label</string>
 			<key>Class</key>
-			<string>rxController</string>
+			<string>LabelController</string>
 		</dict>
 	</array>
 </dict>
