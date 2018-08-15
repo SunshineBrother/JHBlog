@@ -52,6 +52,12 @@
 			<key>Class</key>
 			<string>CombiningController</string>
 		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Driver</string>
+			<key>Class</key>
+			<string>DriverController</string>
+		</dict>
 	</array>
 	<key>UI操作</key>
 	<array>

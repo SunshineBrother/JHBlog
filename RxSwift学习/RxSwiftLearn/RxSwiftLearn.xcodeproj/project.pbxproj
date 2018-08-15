@@ -11,6 +11,7 @@
 		280AC60E2111632A009D536F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC60C2111632A009D536F /* Model.swift */; };
 		280AC60F2111632A009D536F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC60D2111632A009D536F /* TableViewController.swift */; };
 		280AC6112111639C009D536F /* CreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC6102111639C009D536F /* CreateController.swift */; };
+		2812A1482123CF2B00AE2E4F /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2812A1472123CF2B00AE2E4F /* NetworkTools.swift */; };
 		2846561D211EDB53000411F7 /* TransformOperatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846561B211EDB53000411F7 /* TransformOperatorController.swift */; };
 		2846561E211EDB53000411F7 /* TransformOperatorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2846561C211EDB53000411F7 /* TransformOperatorController.xib */; };
 		2869F8E52122F38D00A0B450 /* CombiningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869F8E42122F38D00A0B450 /* CombiningController.swift */; };
@@ -57,6 +58,7 @@
 		280AC60C2111632A009D536F /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		280AC60D2111632A009D536F /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		280AC6102111639C009D536F /* CreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateController.swift; sourceTree = "<group>"; };
+		2812A1472123CF2B00AE2E4F /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		2846561B211EDB53000411F7 /* TransformOperatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorController.swift; sourceTree = "<group>"; };
 		2846561C211EDB53000411F7 /* TransformOperatorController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformOperatorController.xib; sourceTree = "<group>"; };
 		2869F8E42122F38D00A0B450 /* CombiningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombiningController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				28F443DB2109C782000F2F53 /* AppDelegate.swift */,
 				280AC60D2111632A009D536F /* TableViewController.swift */,
 				280AC60C2111632A009D536F /* Model.swift */,
+				2812A1472123CF2B00AE2E4F /* NetworkTools.swift */,
 				28CD6A1D211D8A7F008944BD /* RxUI */,
 				280AC6072111557E009D536F /* Observable */,
 				28F443DF2109C782000F2F53 /* Main.storyboard */,
@@ -359,12 +362,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftLearn/Pods-RxSwiftLearn-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -399,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2812A1482123CF2B00AE2E4F /* NetworkTools.swift in Sources */,
 				28E834702114462D00840532 /* mergeController.swift in Sources */,
 				280AC6112111639C009D536F /* CreateController.swift in Sources */,
 				28D00E9321215B560089235A /* FilteringObservablesController.swift in Sources */,

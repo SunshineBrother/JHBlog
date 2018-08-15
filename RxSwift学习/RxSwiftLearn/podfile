@@ -3,4 +3,5 @@ target 'RxSwiftLearn' do
     pod 'RxSwift'    
     pod 'RxCocoa'
     pod 'SwiftyJSON'
+    pod 'Alamofire'
 end
