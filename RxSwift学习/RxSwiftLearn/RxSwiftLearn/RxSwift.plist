@@ -67,6 +67,12 @@
 			<key>Class</key>
 			<string>LabelController</string>
 		</dict>
+		<dict>
+			<key>Title</key>
+			<string>UITextField 与 UITextView</string>
+			<key>Class</key>
+			<string>TextController</string>
+		</dict>
 	</array>
 </dict>
 </plist>

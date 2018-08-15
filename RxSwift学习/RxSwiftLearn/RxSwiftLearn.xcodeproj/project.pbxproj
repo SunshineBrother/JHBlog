@@ -14,6 +14,8 @@
 		2812A1482123CF2B00AE2E4F /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2812A1472123CF2B00AE2E4F /* NetworkTools.swift */; };
 		2812A14F2124076800AE2E4F /* LabelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2812A14D2124076800AE2E4F /* LabelController.swift */; };
 		2812A1502124076800AE2E4F /* LabelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2812A14E2124076800AE2E4F /* LabelController.xib */; };
+		2812A15321240DB100AE2E4F /* TextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2812A15121240DB100AE2E4F /* TextController.swift */; };
+		2812A15421240DB100AE2E4F /* TextController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2812A15221240DB100AE2E4F /* TextController.xib */; };
 		2846561D211EDB53000411F7 /* TransformOperatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846561B211EDB53000411F7 /* TransformOperatorController.swift */; };
 		2846561E211EDB53000411F7 /* TransformOperatorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2846561C211EDB53000411F7 /* TransformOperatorController.xib */; };
 		2869F8E52122F38D00A0B450 /* CombiningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869F8E42122F38D00A0B450 /* CombiningController.swift */; };
@@ -61,6 +63,8 @@
 		2812A1472123CF2B00AE2E4F /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		2812A14D2124076800AE2E4F /* LabelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelController.swift; sourceTree = "<group>"; };
 		2812A14E2124076800AE2E4F /* LabelController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelController.xib; sourceTree = "<group>"; };
+		2812A15121240DB100AE2E4F /* TextController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextController.swift; sourceTree = "<group>"; };
+		2812A15221240DB100AE2E4F /* TextController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextController.xib; sourceTree = "<group>"; };
 		2846561B211EDB53000411F7 /* TransformOperatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorController.swift; sourceTree = "<group>"; };
 		2846561C211EDB53000411F7 /* TransformOperatorController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformOperatorController.xib; sourceTree = "<group>"; };
 		2869F8E42122F38D00A0B450 /* CombiningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombiningController.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 			children = (
 				2812A14D2124076800AE2E4F /* LabelController.swift */,
 				2812A14E2124076800AE2E4F /* LabelController.xib */,
+				2812A15121240DB100AE2E4F /* TextController.swift */,
+				2812A15221240DB100AE2E4F /* TextController.xib */,
 			);
 			path = RxUI;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 				2846561E211EDB53000411F7 /* TransformOperatorController.xib in Resources */,
 				28CD6A1C211D6FAC008944BD /* ObserverControllerViewController.xib in Resources */,
 				28F443E62109C785000F2F53 /* LaunchScreen.storyboard in Resources */,
+				2812A15421240DB100AE2E4F /* TextController.xib in Resources */,
 				28CD6A25211D9190008944BD /* SubjectsController.xib in Resources */,
 				28E8347621144EE700840532 /* otherObservableController.xib in Resources */,
 				28F443E32109C785000F2F53 /* Assets.xcassets in Resources */,
@@ -410,6 +417,7 @@
 				280AC6112111639C009D536F /* CreateController.swift in Sources */,
 				28D00E9321215B560089235A /* FilteringObservablesController.swift in Sources */,
 				28F443DC2109C782000F2F53 /* AppDelegate.swift in Sources */,
+				2812A15321240DB100AE2E4F /* TextController.swift in Sources */,
 				28CD6A1B211D6FAC008944BD /* ObserverControllerViewController.swift in Sources */,
 				2869F8E52122F38D00A0B450 /* CombiningController.swift in Sources */,
 				280AC60F2111632A009D536F /* TableViewController.swift in Sources */,
