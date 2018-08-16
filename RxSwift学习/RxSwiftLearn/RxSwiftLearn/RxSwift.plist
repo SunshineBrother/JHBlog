@@ -79,6 +79,12 @@
 			<key>Class</key>
 			<string>ButtonController</string>
 		</dict>
+		<dict>
+			<key>Title</key>
+			<string>MVVM</string>
+			<key>Class</key>
+			<string>MVVMController</string>
+		</dict>
 	</array>
 </dict>
 </plist>

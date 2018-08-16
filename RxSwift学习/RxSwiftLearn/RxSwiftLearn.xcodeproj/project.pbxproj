@@ -18,6 +18,9 @@
 		2812A15421240DB100AE2E4F /* TextController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2812A15221240DB100AE2E4F /* TextController.xib */; };
 		2812A15721241EA300AE2E4F /* ButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2812A15521241EA300AE2E4F /* ButtonController.swift */; };
 		2812A15821241EA300AE2E4F /* ButtonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2812A15621241EA300AE2E4F /* ButtonController.xib */; };
+		2812A15B2124443600AE2E4F /* MVVMController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2812A1592124443600AE2E4F /* MVVMController.swift */; };
+		2812A15C2124443600AE2E4F /* MVVMController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2812A15A2124443600AE2E4F /* MVVMController.xib */; };
+		2812A15E2124465800AE2E4F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2812A15D2124465800AE2E4F /* LoginViewModel.swift */; };
 		2846561D211EDB53000411F7 /* TransformOperatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846561B211EDB53000411F7 /* TransformOperatorController.swift */; };
 		2846561E211EDB53000411F7 /* TransformOperatorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2846561C211EDB53000411F7 /* TransformOperatorController.xib */; };
 		2869F8E52122F38D00A0B450 /* CombiningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869F8E42122F38D00A0B450 /* CombiningController.swift */; };
@@ -69,6 +72,9 @@
 		2812A15221240DB100AE2E4F /* TextController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextController.xib; sourceTree = "<group>"; };
 		2812A15521241EA300AE2E4F /* ButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonController.swift; sourceTree = "<group>"; };
 		2812A15621241EA300AE2E4F /* ButtonController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonController.xib; sourceTree = "<group>"; };
+		2812A1592124443600AE2E4F /* MVVMController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMController.swift; sourceTree = "<group>"; };
+		2812A15A2124443600AE2E4F /* MVVMController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MVVMController.xib; sourceTree = "<group>"; };
+		2812A15D2124465800AE2E4F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		2846561B211EDB53000411F7 /* TransformOperatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformOperatorController.swift; sourceTree = "<group>"; };
 		2846561C211EDB53000411F7 /* TransformOperatorController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformOperatorController.xib; sourceTree = "<group>"; };
 		2869F8E42122F38D00A0B450 /* CombiningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombiningController.swift; sourceTree = "<group>"; };
@@ -152,6 +158,9 @@
 				2812A15221240DB100AE2E4F /* TextController.xib */,
 				2812A15521241EA300AE2E4F /* ButtonController.swift */,
 				2812A15621241EA300AE2E4F /* ButtonController.xib */,
+				2812A1592124443600AE2E4F /* MVVMController.swift */,
+				2812A15A2124443600AE2E4F /* MVVMController.xib */,
+				2812A15D2124465800AE2E4F /* LoginViewModel.swift */,
 			);
 			path = RxUI;
 			sourceTree = "<group>";
@@ -349,6 +358,7 @@
 				2812A15821241EA300AE2E4F /* ButtonController.xib in Resources */,
 				28E834712114462D00840532 /* mergeController.xib in Resources */,
 				28F443E12109C782000F2F53 /* Main.storyboard in Resources */,
+				2812A15C2124443600AE2E4F /* MVVMController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +437,8 @@
 				2812A15321240DB100AE2E4F /* TextController.swift in Sources */,
 				2812A15721241EA300AE2E4F /* ButtonController.swift in Sources */,
 				28CD6A1B211D6FAC008944BD /* ObserverControllerViewController.swift in Sources */,
+				2812A15B2124443600AE2E4F /* MVVMController.swift in Sources */,
+				2812A15E2124465800AE2E4F /* LoginViewModel.swift in Sources */,
 				2869F8E52122F38D00A0B450 /* CombiningController.swift in Sources */,
 				280AC60F2111632A009D536F /* TableViewController.swift in Sources */,
 				2846561D211EDB53000411F7 /* TransformOperatorController.swift in Sources */,
