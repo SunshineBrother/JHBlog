@@ -12,6 +12,7 @@ import RxCocoa
 class MVVMController: UIViewController {
     let disposeBag = DisposeBag()
     
+    
     @IBOutlet weak var acountTF: UITextField!
     
     @IBOutlet weak var acoundDes: UILabel!
