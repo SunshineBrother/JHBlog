@@ -85,6 +85,12 @@
 			<key>Class</key>
 			<string>MVVMController</string>
 		</dict>
+		<dict>
+			<key>Title</key>
+			<string>UITableView 的基本用法</string>
+			<key>Class</key>
+			<string>tableViewController1</string>
+		</dict>
 	</array>
 </dict>
 </plist>

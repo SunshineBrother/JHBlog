@@ -11,6 +11,7 @@
 		280AC60E2111632A009D536F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC60C2111632A009D536F /* Model.swift */; };
 		280AC60F2111632A009D536F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC60D2111632A009D536F /* TableViewController.swift */; };
 		280AC6112111639C009D536F /* CreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AC6102111639C009D536F /* CreateController.swift */; };
+		28112B6C2125178600347557 /* tableViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28112B6B2125178600347557 /* tableViewController1.swift */; };
 		2812A1482123CF2B00AE2E4F /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2812A1472123CF2B00AE2E4F /* NetworkTools.swift */; };
 		2812A14F2124076800AE2E4F /* LabelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2812A14D2124076800AE2E4F /* LabelController.swift */; };
 		2812A1502124076800AE2E4F /* LabelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2812A14E2124076800AE2E4F /* LabelController.xib */; };
@@ -65,6 +66,7 @@
 		280AC60C2111632A009D536F /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		280AC60D2111632A009D536F /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		280AC6102111639C009D536F /* CreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateController.swift; sourceTree = "<group>"; };
+		28112B6B2125178600347557 /* tableViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewController1.swift; sourceTree = "<group>"; };
 		2812A1472123CF2B00AE2E4F /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		2812A14D2124076800AE2E4F /* LabelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelController.swift; sourceTree = "<group>"; };
 		2812A14E2124076800AE2E4F /* LabelController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelController.xib; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				2812A1592124443600AE2E4F /* MVVMController.swift */,
 				2812A15A2124443600AE2E4F /* MVVMController.xib */,
 				2812A15D2124465800AE2E4F /* LoginViewModel.swift */,
+				28112B6B2125178600347557 /* tableViewController1.swift */,
 			);
 			path = RxUI;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				28E834702114462D00840532 /* mergeController.swift in Sources */,
 				280AC6112111639C009D536F /* CreateController.swift in Sources */,
 				28D00E9321215B560089235A /* FilteringObservablesController.swift in Sources */,
+				28112B6C2125178600347557 /* tableViewController1.swift in Sources */,
 				28F443DC2109C782000F2F53 /* AppDelegate.swift in Sources */,
 				2812A15321240DB100AE2E4F /* TextController.swift in Sources */,
 				2812A15721241EA300AE2E4F /* ButtonController.swift in Sources */,
