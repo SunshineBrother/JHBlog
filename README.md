@@ -32,6 +32,7 @@
 
 ## 设计模式研究
 
+- [1、工厂模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/1、工厂模式/工厂模式.md)
 
 
 
