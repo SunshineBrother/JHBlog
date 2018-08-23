@@ -31,10 +31,10 @@
  *********************************************************
 
 ## 设计模式研究
- **援引《大话设计模式》**
+
  
 - [1、工厂模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/1、工厂模式/工厂模式.md)
-
+- [2、策略模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/2、策略模式/策略模式.md)
 
 
 
