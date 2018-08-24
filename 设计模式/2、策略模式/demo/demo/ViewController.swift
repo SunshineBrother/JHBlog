@@ -17,15 +17,12 @@ class ViewController: UIViewController {
     
     //工厂模式
     @IBAction func button1(_ sender: Any) {
-        let factory = OperationFactory().creatOperationWithSymbol(symbolStr: "+")
-        factory.numberA = 10
-        factory.numberB = 20
-        let result = factory.getResult()
-        print("result:\(result)")
+        let aLi = AliPay()
+        let pay = PayFactory(payProtocal: aLi)
+        pay.pay()
+      
     }
-    //策略模式
-    @IBAction func button2(_ sender: Any) {
-    }
+ 
 }
 
 

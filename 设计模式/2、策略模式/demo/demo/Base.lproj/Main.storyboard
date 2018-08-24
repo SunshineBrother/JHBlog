@@ -24,31 +24,17 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="bpB-qu-cY3"/>
                                 </constraints>
-                                <state key="normal" title="工厂模式"/>
-                                <connections>
-                                    <action selector="button1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xCT-91-DJo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGD-SZ-0sf">
-                                <rect key="frame" x="98" y="284" width="178" height="46"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="2AB-AL-srN"/>
-                                </constraints>
                                 <state key="normal" title="策略模式"/>
                                 <connections>
-                                    <action selector="button2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XPI-SB-0ko"/>
+                                    <action selector="button1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xCT-91-DJo"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TGD-SZ-0sf" secondAttribute="trailing" constant="99" id="0WL-SL-5b8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZNR-JO-gmd" secondAttribute="trailing" constant="99" id="2Yy-hS-OFS"/>
                             <constraint firstItem="ZNR-JO-gmd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="149" id="CZn-Vi-LuD"/>
-                            <constraint firstItem="TGD-SZ-0sf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="ie5-Ra-MNG"/>
                             <constraint firstItem="ZNR-JO-gmd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="ntT-Pb-LnS"/>
-                            <constraint firstItem="TGD-SZ-0sf" firstAttribute="top" secondItem="ZNR-JO-gmd" secondAttribute="bottom" constant="69" id="s1I-8Y-EIL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

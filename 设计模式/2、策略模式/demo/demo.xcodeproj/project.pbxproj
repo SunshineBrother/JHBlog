@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2825086F212FE23E003E7AB5 /* PayFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825086E212FE23E003E7AB5 /* PayFactory.swift */; };
+		28250871212FE364003E7AB5 /* AliPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28250870212FE364003E7AB5 /* AliPay.swift */; };
+		28250873212FE36E003E7AB5 /* WXPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28250872212FE36E003E7AB5 /* WXPay.swift */; };
+		28250875212FE3A7003E7AB5 /* UnionPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28250874212FE3A7003E7AB5 /* UnionPay.swift */; };
 		2826AB72212E98AF00CBBE2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2826AB71212E98AF00CBBE2D /* AppDelegate.swift */; };
 		2826AB74212E98AF00CBBE2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2826AB73212E98AF00CBBE2D /* ViewController.swift */; };
 		2826AB77212E98AF00CBBE2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2826AB75212E98AF00CBBE2D /* Main.storyboard */; };
@@ -14,9 +18,6 @@
 		2826AB7C212E98B000CBBE2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2826AB7A212E98B000CBBE2D /* LaunchScreen.storyboard */; };
 		2826AB87212E98B000CBBE2D /* demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2826AB86212E98B000CBBE2D /* demoTests.swift */; };
 		2826AB92212E98B000CBBE2D /* demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2826AB91212E98B000CBBE2D /* demoUITests.swift */; };
-		2826ABA0212E9D1F00CBBE2D /* OperationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2826AB9F212E9D1F00CBBE2D /* OperationFactory.swift */; };
-		2826ABA2212E9DF400CBBE2D /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2826ABA1212E9DF400CBBE2D /* Operation.swift */; };
-		2826ABA4212EA93500CBBE2D /* OperationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2826ABA3212EA93500CBBE2D /* OperationContext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2825086E212FE23E003E7AB5 /* PayFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayFactory.swift; sourceTree = "<group>"; };
+		28250870212FE364003E7AB5 /* AliPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliPay.swift; sourceTree = "<group>"; };
+		28250872212FE36E003E7AB5 /* WXPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXPay.swift; sourceTree = "<group>"; };
+		28250874212FE3A7003E7AB5 /* UnionPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnionPay.swift; sourceTree = "<group>"; };
 		2826AB6E212E98AF00CBBE2D /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2826AB71212E98AF00CBBE2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2826AB73212E98AF00CBBE2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,9 +55,6 @@
 		2826AB8D212E98B000CBBE2D /* demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = demoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2826AB91212E98B000CBBE2D /* demoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = demoUITests.swift; sourceTree = "<group>"; };
 		2826AB93212E98B000CBBE2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2826AB9F212E9D1F00CBBE2D /* OperationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationFactory.swift; sourceTree = "<group>"; };
-		2826ABA1212E9DF400CBBE2D /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
-		2826ABA3212EA93500CBBE2D /* OperationContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationContext.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +107,10 @@
 			children = (
 				2826AB71212E98AF00CBBE2D /* AppDelegate.swift */,
 				2826AB73212E98AF00CBBE2D /* ViewController.swift */,
-				2826ABA3212EA93500CBBE2D /* OperationContext.swift */,
-				2826AB9F212E9D1F00CBBE2D /* OperationFactory.swift */,
-				2826ABA1212E9DF400CBBE2D /* Operation.swift */,
+				2825086E212FE23E003E7AB5 /* PayFactory.swift */,
+				28250870212FE364003E7AB5 /* AliPay.swift */,
+				28250872212FE36E003E7AB5 /* WXPay.swift */,
+				28250874212FE3A7003E7AB5 /* UnionPay.swift */,
 				2826AB75212E98AF00CBBE2D /* Main.storyboard */,
 				2826AB78212E98B000CBBE2D /* Assets.xcassets */,
 				2826AB7A212E98B000CBBE2D /* LaunchScreen.storyboard */,
@@ -265,11 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2826ABA4212EA93500CBBE2D /* OperationContext.swift in Sources */,
+				28250875212FE3A7003E7AB5 /* UnionPay.swift in Sources */,
+				28250873212FE36E003E7AB5 /* WXPay.swift in Sources */,
 				2826AB74212E98AF00CBBE2D /* ViewController.swift in Sources */,
-				2826ABA0212E9D1F00CBBE2D /* OperationFactory.swift in Sources */,
+				2825086F212FE23E003E7AB5 /* PayFactory.swift in Sources */,
 				2826AB72212E98AF00CBBE2D /* AppDelegate.swift in Sources */,
-				2826ABA2212E9DF400CBBE2D /* Operation.swift in Sources */,
+				28250871212FE364003E7AB5 /* AliPay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
