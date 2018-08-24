@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OneBaseCell: UITableViewCell {
+class OneBaseCell: FactoryCell {
 
     var IV = UIImageView()
     var label = UILabel()
@@ -27,10 +27,19 @@ class OneBaseCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+
+    
+    override func configUI(model: Model, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell =  tableView.dequeueReusableCell(withIdentifier: model.reuseId!, for: indexPath)
+        self.configCell(model)
+        return cell
+    }
+    
     func configCell(_ model: Model) {
         self.IV.image = UIImage.init(named: model.imagePath)
         self.label.text = model.title
         self.backgroundColor = UIColor.gray
     }
 
+    
 }

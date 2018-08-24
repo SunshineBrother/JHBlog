@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TwoBaseCell: UITableViewCell {
+class TwoBaseCell: FactoryCell {
     
     var IV = UIImageView()
     
@@ -20,6 +20,12 @@ class TwoBaseCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func configUI(model: Model, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell =  tableView.dequeueReusableCell(withIdentifier: model.reuseId!, for: indexPath)
+        self.configCell(model)
+        return cell
     }
     
     func configCell(_ model: Model) {

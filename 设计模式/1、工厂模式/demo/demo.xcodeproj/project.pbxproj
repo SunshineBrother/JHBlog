@@ -14,11 +14,12 @@
 		28120CD0212D0ABB0053FA3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28120CCE212D0ABB0053FA3F /* LaunchScreen.storyboard */; };
 		28120CDB212D0ABB0053FA3F /* demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28120CDA212D0ABB0053FA3F /* demoTests.swift */; };
 		28120CE6212D0ABB0053FA3F /* demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28120CE5212D0ABB0053FA3F /* demoUITests.swift */; };
-		28120CF4212D0CE10053FA3F /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28120CF3212D0CE10053FA3F /* BaseCell.swift */; };
 		28120CF6212D0DAF0053FA3F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28120CF5212D0DAF0053FA3F /* Model.swift */; };
-		28120CF8212D0ED50053FA3F /* OneBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28120CF7212D0ED50053FA3F /* OneBaseCell.swift */; };
 		28120CFA212D0EE00053FA3F /* TwoBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28120CF9212D0EE00053FA3F /* TwoBaseCell.swift */; };
 		28120CFC212D0EF00053FA3F /* ThreeBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28120CFB212D0EF00053FA3F /* ThreeBaseCell.swift */; };
+		28250869212FB7CD003E7AB5 /* simpleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28250868212FB7CD003E7AB5 /* simpleFactory.swift */; };
+		2825086B212FBAD8003E7AB5 /* OneBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825086A212FBAD8003E7AB5 /* OneBaseCell.swift */; };
+		2825086D212FD65A003E7AB5 /* FactoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825086C212FD65A003E7AB5 /* FactoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,11 +53,12 @@
 		28120CE1212D0ABB0053FA3F /* demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = demoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28120CE5212D0ABB0053FA3F /* demoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = demoUITests.swift; sourceTree = "<group>"; };
 		28120CE7212D0ABB0053FA3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28120CF3212D0CE10053FA3F /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		28120CF5212D0DAF0053FA3F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		28120CF7212D0ED50053FA3F /* OneBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneBaseCell.swift; sourceTree = "<group>"; };
 		28120CF9212D0EE00053FA3F /* TwoBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoBaseCell.swift; sourceTree = "<group>"; };
 		28120CFB212D0EF00053FA3F /* ThreeBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeBaseCell.swift; sourceTree = "<group>"; };
+		28250868212FB7CD003E7AB5 /* simpleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simpleFactory.swift; sourceTree = "<group>"; };
+		2825086A212FBAD8003E7AB5 /* OneBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneBaseCell.swift; sourceTree = "<group>"; };
+		2825086C212FD65A003E7AB5 /* FactoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +112,11 @@
 				28120CC5212D0AB90053FA3F /* AppDelegate.swift */,
 				28120CC7212D0AB90053FA3F /* ViewController.swift */,
 				28120CF5212D0DAF0053FA3F /* Model.swift */,
-				28120CF3212D0CE10053FA3F /* BaseCell.swift */,
-				28120CF7212D0ED50053FA3F /* OneBaseCell.swift */,
+				2825086A212FBAD8003E7AB5 /* OneBaseCell.swift */,
 				28120CF9212D0EE00053FA3F /* TwoBaseCell.swift */,
 				28120CFB212D0EF00053FA3F /* ThreeBaseCell.swift */,
+				28250868212FB7CD003E7AB5 /* simpleFactory.swift */,
+				2825086C212FD65A003E7AB5 /* FactoryCell.swift */,
 				28120CC9212D0AB90053FA3F /* Main.storyboard */,
 				28120CCC212D0ABB0053FA3F /* Assets.xcassets */,
 				28120CCE212D0ABB0053FA3F /* LaunchScreen.storyboard */,
@@ -271,10 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28250869212FB7CD003E7AB5 /* simpleFactory.swift in Sources */,
+				2825086B212FBAD8003E7AB5 /* OneBaseCell.swift in Sources */,
 				28120CC8212D0AB90053FA3F /* ViewController.swift in Sources */,
-				28120CF4212D0CE10053FA3F /* BaseCell.swift in Sources */,
-				28120CF8212D0ED50053FA3F /* OneBaseCell.swift in Sources */,
 				28120CFA212D0EE00053FA3F /* TwoBaseCell.swift in Sources */,
+				2825086D212FD65A003E7AB5 /* FactoryCell.swift in Sources */,
 				28120CFC212D0EF00053FA3F /* ThreeBaseCell.swift in Sources */,
 				28120CC6212D0AB90053FA3F /* AppDelegate.swift in Sources */,
 				28120CF6212D0DAF0053FA3F /* Model.swift in Sources */,

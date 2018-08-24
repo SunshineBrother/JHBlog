@@ -50,7 +50,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = BaseCell().configUI(model: self.dataArr[indexPath.row], tableView: tableView, indexPath: indexPath)
+        let cell = simpleFactory().configUI(model: self.dataArr[indexPath.row], tableView: tableView, indexPath: indexPath)
+        
         return cell
     }
 }

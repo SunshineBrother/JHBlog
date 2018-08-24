@@ -1,26 +1,14 @@
 //
-//  BaseCell.swift
+//  simpleFactory.swift
 //  demo
 //
-//  Created by yunna on 2018/8/22.
+//  Created by yunna on 2018/8/24.
 //  Copyright © 2018年 yunna. All rights reserved.
 //
 
 import UIKit
 
-class BaseCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+class simpleFactory: NSObject {
     func configUI(model: Model, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         print(model.reuseId)
         let cell = tableView.dequeueReusableCell(withIdentifier: model.reuseId!, for: indexPath)
@@ -34,6 +22,8 @@ class BaseCell: UITableViewCell {
         
         return cell
     }
+    
+    
     
     
 }
