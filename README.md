@@ -44,9 +44,9 @@
  - [UML了解](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/UML/UML类图几种关系的总结.md)
  
 - Creational 创建型 5
+    - [Factory Method 工厂方法模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/1、工厂模式/工厂模式.md)
     - Abstract Factory 抽象工厂模式
     - Builder 建造者模式
-    - [Factory Method 工厂方法模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/1、工厂模式/工厂模式.md)
     - Prototype 原型模式
     - Singleton 单例模式
 
