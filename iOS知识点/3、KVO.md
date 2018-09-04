@@ -2,6 +2,8 @@
 
 `KVO(key value observing)`键值监听是我们在开发中常使用的用于监听特定对象属性值变化的方法，常用于监听数据模型的变化 
 
+KVO是为了监听一个对象的某个属性值是否发生变化。在属性值发生变化的时候，肯定会调用其setter方法。所以`KVO的本质就是监听对象有没有调用被监听属性对应的setter方法`
+
 在学习实现原理之前我们首先先了解一下`KVO`常用的有哪些方法
 
 ### KVO常用方法
@@ -204,6 +206,113 @@ NSLog(@"person1添加KVO监听之后 - %p %p",
 
 **使用KVO监听的对象**
 ![KVO4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/KVO4.png)
+
+
+- 1、重写class方法是为了我们调用它的时候返回跟重写继承类之前同样的内容。KVO底层交换了 NSKVONotifying_Person 的 class 方法，让其返回 Person
+- 2、重写setter方法:在新的类中会重写对应的set方法，是为了在set方法中增加另外两个方法的调用
+```
+- (void)willChangeValueForKey:(NSString *)key
+- (void)didChangeValueForKey:(NSString *)key
+```
+在didChangeValueForKey:方法再调用
+```
+- (void)observeValueForKeyPath:(NSString *)keyPath
+ofObject:(id)object
+change:(NSDictionary *)change
+context:(void *)context
+```
+
+- 3、重写dealloc方法，销毁新生成的NSKVONotifying_类。
+- 4、重写_isKVOA方法，这个私有方法估计可能是用来标示该类是一个 KVO 机制声称的类。
+
+### _NSSetLongLongValueAndNotify
+
+在添加KVO监听方法以后`setAge`方法变成了`_NSSetLongLongValueAndNotify`,所以我们可以大概猜测动态监听方法主要就是在这里面实现的
+
+我们可以在终端使用`nm -a /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation | grep ValueAndNotify`命令来查看`NSSet*ValueAndNotify`的类型
+![KVO6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/KVO6.png)
+
+我们可以在`Person`类中重写`willChangeValueForKey`和`didChangeValueForKey`,来猜测一下`_NSSetLongLongValueAndNotify`的内部实现
+
+```
+- (void)setAge:(NSInteger)age{
+_age = age;
+NSLog(@"调用set方法");
+}
+
+
+- (void)willChangeValueForKey:(NSString *)key{
+[super willChangeValueForKey:key];
+NSLog(@"willChangeValueForKey");
+}
+
+- (void)didChangeValueForKey:(NSString *)key{
+
+NSLog(@"didChangeValueForKey - begin");
+
+[super didChangeValueForKey:key];
+
+NSLog(@"didChangeValueForKey - end");
+}
+
+```
+
+![KVO7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/KVO7.png)
+
+根据打印结果我们可以推断`_NSSetLongLongValueAndNotify`内部实现为
+- 1、调用`willChangeValueForKey`方法
+- 2、调用`setAge`方法
+- 3、调用'didChangeValueForKey'方法
+- 4、'didChangeValueForKey'方法内部调用`oberser`的`observeValueForKeyPath:ofObject:change:context:`方法
+```
+// 伪代码
+void _NSSetIntValueAndNotify()
+{
+[self willChangeValueForKey:@"age"];
+[super setAge:age];
+[self didChangeValueForKey:@"age"];
+}
+
+- (void)didChangeValueForKey:(NSString *)key
+{
+// 通知监听器，某某属性值发生了改变
+[oberser observeValueForKeyPath:key ofObject:self change:nil context:nil];
+}
+```
+
+### 面试题
+讲了这些，我们来讨论面试题吧
+
+**1、iOS用什么方式实现对一个对象的KVO？(KVO的本质是什么？)**
+- 1、利用RuntimeAPI动态生成一个子类`NSKVONotifying_XXX`，并且让instance对象的isa指向这个全新的子类`NSKVONotifying_XXX`
+- 2、当修改对象的属性时，会在子类`NSKVONotifying_XXX`调用Foundation的`_NSSetXXXValueAndNotify`函数
+- 3、在`_NSSetXXXValueAndNotify`函数中依次调用
+        - 1、willChangeValueForKey
+        - 2、父类原来的setter
+        - 3、didChangeValueForKey，didChangeValueForKey:内部会触发监听器（Oberser）的监听方法( observeValueForKeyPath:ofObject:change:context:）
+ 
+ 
+**2、如何手动触发KVO方法**
+手动调用`willChangeValueForKey`和`didChangeValueForKey`方法
+
+键值观察通知依赖于 NSObject 的两个方法: `willChangeValueForKey:` 和 `didChangeValueForKey`。在一个被观察属性发生改变之前， `willChangeValueForKey:` 一定会被调用，这就
+会记录旧的值。而当改变发生后， `didChangeValueForKey` 会被调用，继而 `observeValueForKey:ofObject:change:context: `也会被调用。如果可以手动实现这些调用，就可以实现“手动触发”了
+
+ 有人可能会问只调用`didChangeValueForKey`方法可以触发KVO方法，其实是不能的，因为`willChangeValueForKey:` 记录旧的值，如果不记录旧的值，那就没有改变一说了
+
+
+**3、直接修改成员变量会触发KVO吗**
+不会触发KVO，因为`KVO的本质就是监听对象有没有调用被监听属性对应的setter方法`，直接修改成员变量，是在内存中修改的，不走`set`方法
+
+
+
+
+**4、不移除KVO监听，会发生什么**
+- 不移除会造成内存泄漏
+- 但是多次重复移除会崩溃。系统为了实现KVO，为NSObject添加了一个名为NSKeyValueObserverRegistration的Category，KVO的add和remove的实现都在里面。在移除的时候，系统会判断当前KVO的key是否已经被移除，如果已经被移除，则主动抛出一个NSException的异常
+
+
+
 
 
 
