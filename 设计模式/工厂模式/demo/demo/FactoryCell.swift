@@ -12,6 +12,7 @@ import UIKit
 class FactoryCell: UITableViewCell {
     func configUI(model: Model, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
+       
         return UITableViewCell()
     }
 }
