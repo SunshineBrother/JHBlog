@@ -78,7 +78,7 @@
 
 ### iOS底层
 - [1、一个NSObject对象占用多少内存](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/1、一个NSObject对象占用多少内存.md)
-
+- [2、OC对象的分类](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/5、OC对象的分类.md)
 - [3、KVO实现原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/3、KVO.md)
 - [4、KVC实现原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/4、KVC.md)
 
