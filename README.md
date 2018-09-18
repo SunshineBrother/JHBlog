@@ -78,11 +78,12 @@
 
 ### iOS底层
 - [1、一个NSObject对象占用多少内存](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/1、一个NSObject对象占用多少内存.md)
-- [2、OC对象的分类](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/5、OC对象的分类.md)
+- [2、OC对象的分类](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/2、OC对象的分类.md)
 - [3、KVO实现原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/3、KVO.md)
 - [4、KVC实现原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/4、KVC.md)
-
-
+- [5、分类](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/5、分类.md)
+- [7、Block底层解密](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/7、Block底层解密.md)
+ 
 
 ## 工具
 这里记载了一些常用的工具，有许多都是转载的别人的博客，里面我有写转载地址，如果有作者感觉不适，请联系我，我会及时停止转载的
