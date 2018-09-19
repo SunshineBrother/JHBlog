@@ -235,7 +235,9 @@ block();
 - 当使用`__weak`修饰的时:`Person *__weak weakP = __cself->weakP; // bound by copy`
 我们运行` xcrun  -sdk  iphoneos  clang  -arch  arm64  -rewrite-objc main.m`出错了，我们需要支持ARC，指定运行时系统版本，`xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc -fobjc-arc -fobjc-runtime=ios-8.0.0 main.m
 `
-`Block会自动copy自动变量的修饰属性`
+
+
+***`Block会自动copy自动变量的修饰属性`***
 
 
 
