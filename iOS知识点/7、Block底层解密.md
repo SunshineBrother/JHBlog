@@ -67,7 +67,7 @@ static void __main_block_func_0(struct __main_block_impl_0 *__cself) {
 NSLog((NSString *)&__NSConstantStringImpl__var_folders_2r__m13fp2x2n9dvlr8d68yry500000gn_T_main_c60393_mi_0);
 }
 ```
-** __main_block_desc_0_DATA**
+**__main_block_desc_0_DATA**
 ```
 static struct __main_block_desc_0 {
 size_t reserved;
@@ -96,10 +96,14 @@ void (*block)(void) = &__main_block_impl_0(__main_block_func_0,
 
 
 **Block底层结构图**
- ![Block1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block1.png)
+
+![Block1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block1.png)
+
 
 ### 成员变量的捕获
 为了保证block内部能够正常的访问外部变量，block有个变量捕获机制,这里我们先说结果，然后在进行证明
+
+
 ![Block2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block2.png)
 
 
@@ -162,6 +166,7 @@ block有3种类型，可以通过调用class方法或者isa指针查看具体的
 
 ![Block3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block3.png)
 
+
 每一种类型的Block调用copy后的结果
 - 1、__NSStackBlock__原来在栈区，copy以后从栈复制到堆
 - 2、__NSGlobalBlock__原来在程序的数据段，copy以后什么也不做
@@ -187,6 +192,7 @@ NSLog(@"block1:%@---->block2:%@----->block3:%@",[block1 class],[block2 class],[b
 打印结果为
 
 ![Block4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block4.png)
+
 为什么`block2`打印类型为`__NSMallocBlock__`,而不是`__NSStackBlock__`，因为ARC环境导致了，ARC会自动帮我们copy了一下`__NSStackBlock__`
 
 
