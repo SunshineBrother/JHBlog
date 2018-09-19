@@ -230,9 +230,9 @@ block();
 
 
 我们还是老方法，把main文件转化为c++文件，我们找到`__main_block_func_0`执行函数，
-当不用修饰符修饰的时：`Person *p = __cself->p; // bound by copy`
-当使用`__strong`修饰时：`Person *strongP = __cself->strongP; // bound by copy`
-当使用`__weak`修饰的时:`Person *__weak weakP = __cself->weakP; // bound by copy`
+- 当不用修饰符修饰的时：`Person *p = __cself->p; // bound by copy`
+- 当使用`__strong`修饰时：`Person *strongP = __cself->strongP; // bound by copy`
+- 当使用`__weak`修饰的时:`Person *__weak weakP = __cself->weakP; // bound by copy`
 我们运行` xcrun  -sdk  iphoneos  clang  -arch  arm64  -rewrite-objc main.m`出错了，我们需要支持ARC，指定运行时系统版本，`xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc -fobjc-arc -fobjc-runtime=ios-8.0.0 main.m
 `
 `Block会自动copy自动变量的修饰属性`
