@@ -199,6 +199,76 @@ NSLog(@"block1:%@---->block2:%@----->block3:%@",[block1 class],[block2 class],[b
 
 
 
+### auto变量修饰符__weak
+
+在开始之前，我先说一下结论，然后我们在去印证
+- 1、当Block内部访问了auto变量时，如果block是在栈上，将不会对auto变量产生强引用
+- 2、如果block被拷贝到堆上，会根据auto变量的修饰符（__strong，__weak，__unsafe_unretained），对auto变量惊醒强引用或者弱引用
+- 3、如果block从堆上移除的时候，会调用block内部的dispose函数，该函数自动释放auto变量
+- 4、在多个block相互嵌套的时候，auto属性的释放取决于最后的那个强引用什么时候释放
+
+我们创建一个`Person`类，里面有一个`age`属性，然后我们在重写`Person`类里面`dealloc`方法，在`main`函数里面写一下方法
+```
+重写的dealloc方法
+- (void)dealloc{
+NSLog(@"person--->dealloc");
+}
+
+main函数方法
+Person *p = [[Person alloc]init];
+p.age = 10;
+void (^block)(void) =  ^(){
+NSLog(@"age-->%d",p.age);
+};
+block();
+```
+
+我们执行代码，打印结果为
+
+
+![Block5](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block5.png)
+
+
+我们还是老方法，把main文件转化为c++文件，我们找到`__main_block_func_0`执行函数，
+当不用修饰符修饰的时：`Person *p = __cself->p; // bound by copy`
+当使用`__strong`修饰时：`Person *strongP = __cself->strongP; // bound by copy`
+当使用`__weak`修饰的时:`Person *__weak weakP = __cself->weakP; // bound by copy`
+我们运行` xcrun  -sdk  iphoneos  clang  -arch  arm64  -rewrite-objc main.m`出错了，我们需要支持ARC，指定运行时系统版本，`xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc -fobjc-arc -fobjc-runtime=ios-8.0.0 main.m
+`
+`Block会自动copy自动变量的修饰属性`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
