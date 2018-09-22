@@ -268,22 +268,22 @@ NSLog(@"--------");
 ![Block6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block6.png)
 
 
-注意打印顺序：
-- MRC环境下，是先dealloc，然后
+**注意打印顺序：**
+- MRC环境下，是先打印`dealloc`，然后在打印`p`的
+- ARC环境下，是先打印`p`，然后在打印`dealloc`的
 
 
+`当Block内部访问了auto变量时，如果block是在栈上，将不会对auto变量产生强引用,因为当Block在栈上的时候，他自己都不能保证自己什么时候被释放，所以block也就不会对自动变量进行强引用了`
 
 
-
-
-
+ 
+在ARC环境下如果我们对自动变量进行一些修饰符，那么block对auto变量是进行怎么引用呢
 我们还是老方法，把main文件转化为c++文件，我们找到`__main_block_func_0`执行函数，
 - 当不用修饰符修饰的时：`Person *p = __cself->p; // bound by copy`
 - 当使用`__strong`修饰时：`Person *strongP = __cself->strongP; // bound by copy`
 - 当使用`__weak`修饰的时:`Person *__weak weakP = __cself->weakP; // bound by copy`
 我们运行` xcrun  -sdk  iphoneos  clang  -arch  arm64  -rewrite-objc main.m`出错了，我们需要支持ARC，指定运行时系统版本，`xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc -fobjc-arc -fobjc-runtime=ios-8.0.0 main.m
 `
-
 
 ***`Block会自动copy自动变量的修饰属性`***
 
