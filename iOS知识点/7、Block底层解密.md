@@ -289,19 +289,45 @@ NSLog(@"--------");
 
 
 
+### __Block修饰
+
+我们都知道想要修改Block外边的变量，我们都会用`__Block`来修饰自动变量，但是为什么使用`__Block`修饰就可以在Block内部来更改自动变量了呢。
+
+我们先写一小段代码
+```
+__block int age = 10;
+NSLog(@"block前age地址1：%p",&age);
+Block block = ^{
+age = 20;
+NSLog(@"block内%d-->age地址2：%p",age,&age);
+};
+block();
+NSLog(@"block后%d-->age地址3：%p",age,&age);
+```
+
+打印结果为
+
+![Block7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block7.png)
+
+```
+根据内存地址变化可见，__block所起到的作用就是只要观察到该变量被 block 所持有，就将“外部变量”在栈中的内存地址放到了堆中。
+```
+
+我们把`main`函数转化为C++代码，然后在age使用`__Block`前后，对Block结构体进行分析
+
+![Block8](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block8.png)
+
+在`__Block`所起到的作用就是只要观察到该变量被 block 所持有之后，`age`其实变成了OC对象，里面含有`isa`指针
+
+**__Block的内存管理原则**
+- 1、当Block在栈上的时候，并不会对`__Block`变量进行强饮用
+- 2、当当block被copy到堆时,会调用block内部的copy函数,copy函数内部会调用_Block_object_assign函数,_Block_object_assign函数会对__block变量形成强引用（retain）
+- 3、当block从堆中移除时，会调用block内部的dispose函数，dispose函数内部会调用_Block_object_dispose函数，_Block_object_dispose函数会自动释放引用的__block变量（release)
 
 
+![Block9](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block9.png)
 
-
-
-
-
-
-
-
-
-
-
+![Block10](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block10.png)
 
 
 
