@@ -330,18 +330,52 @@ NSLog(@"block后%d-->age地址3：%p",age,&age);
 ![Block10](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block10.png)
 
 
+![Block11](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block11.png)
 
 
+我们先看到了结果，这里我们在来分析一下源码
+`__block int age = 10;`转化为C++代码，会变成这样
+```
+ __attribute__((__blocks__(byref))) __Block_byref_age_0 age = {(void*)0,(__Block_byref_age_0 *)&age, 0, sizeof(__Block_byref_age_0), 10};
+ 
+ //为了便于观察，我们可以将强制转化去掉
+ __Block_byref_age_0 age = {
+ 0,
+ &age,
+ 0,
+ sizeof(__Block_byref_age_0),
+ 10};
+ 
+```
+唯一我们不太清除的就是`__Block_byref_age_0`了，我们查找一下发现
+```
+typedef void (*Block)(void);
+struct __Block_byref_age_0 {
+void *__isa;
+__Block_byref_age_0 *__forwarding;
+int __flags;
+int __size;
+int age;
+};
+```
+
+然后我们在来查找Block实现代码
+```
+static void __main_block_func_0(struct __main_block_impl_0 *__cself) {
+__Block_byref_age_0 *age = __cself->age; // bound by ref
+
+(age->__forwarding->age) = 20;
+NSLog((NSString *)&__NSConstantStringImpl__var_folders_nb_9qtf99yd2qlbx2m97hdjf2yr0000gn_T_main_1757f5_mi_0,(age->__forwarding->age));
+}
+```
+我们来查看一下age是怎么变成20的`(age->__forwarding->age) = 20;`，先是找到`__forwarding`结构体，然后在找到结构提里面的`age`
 
 
-
-
-
-
-
-
-
-
+**总结**
+- 1、在ARC环境下，Block被引用的时候，会被Copy一次，由栈区copy到了堆
+- 2、在Block被copy的时候，Block内部被引用的`变量`也同样被copy一份到了堆上面
+- 3、被__Block修饰的变量，在被Block引用的时候，会变成结构体也就是OC对象，里面的`__forwarding`也会由栈copy道对上面
+- 4、栈上__block变量结构体中`__forwarding`的指针指向堆上面__block变量结构体，堆上__block变量结构体中`__forwarding`指针指向自己
 
 
 
