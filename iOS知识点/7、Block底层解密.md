@@ -203,30 +203,78 @@ NSLog(@"block1:%@---->block2:%@----->block3:%@",[block1 class],[block2 class],[b
 
 在开始之前，我先说一下结论，然后我们在去印证
 - 1、当Block内部访问了auto变量时，如果block是在栈上，将不会对auto变量产生强引用
-- 2、如果block被拷贝到堆上，会根据auto变量的修饰符（__strong，__weak，__unsafe_unretained），对auto变量惊醒强引用或者弱引用
+- 2、如果block被拷贝到堆上，会根据auto变量的修饰符（__strong，__weak，__unsafe_unretained），对auto变量进行强引用或者弱引用
 - 3、如果block从堆上移除的时候，会调用block内部的dispose函数，该函数自动释放auto变量
 - 4、在多个block相互嵌套的时候，auto属性的释放取决于最后的那个强引用什么时候释放
 
-我们创建一个`Person`类，里面有一个`age`属性，然后我们在重写`Person`类里面`dealloc`方法，在`main`函数里面写一下方法
+
+下面我们把ARC环境变成MRC环境，同时稍微修改一下代码，我们在看看`dealloc`什么时候打印
+`选择项目 Target -> Build Sttings -> All -> 搜索‘automatic’ -> 把 Objective-C Automatic Reference Counting 设置为 NO`
+
+
+我们写一个`Person`类，在MRC环境，重写`dealloc`方法
 ```
-重写的dealloc方法
 - (void)dealloc{
+[super dealloc];
 NSLog(@"person--->dealloc");
 }
-
-main函数方法
-Person *p = [[Person alloc]init];
-p.age = 10;
-void (^block)(void) =  ^(){
-NSLog(@"age-->%d",p.age);
-};
-block();
 ```
+我们在`main`函数里面写下这个方法
+```
+{
+Person *p = [[Person alloc] init];
+[p release];
+}
+NSLog(@"--------");
+```
+我们肯定都知道打印结果吧：先打印`person--->dealloc`，然后打印`--------`
 
-我们执行代码，打印结果为
+如果我们添加一个Block呢,
+```
+typedef void (^Block)(void);
 
+Block block;
+{
+Person *p = [[Person alloc] init];
+block = ^{
+NSLog(@"%@",p);
+};
+[p release];
+}
+block();
+NSLog(@"--------");
+```
+打印结果为
 
 ![Block5](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block5.png)
+
+
+在ARC环境下，代码稍微的改变一下
+```
+Block block;
+{
+Person *p = [[Person alloc] init];
+block = ^{
+NSLog(@"%@",p);
+};
+
+}
+block();
+NSLog(@"--------");
+```
+
+打印结果为
+
+![Block6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block6.png)
+
+
+注意打印顺序：
+- MRC环境下，是先dealloc，然后
+
+
+
+
+
 
 
 我们还是老方法，把main文件转化为c++文件，我们找到`__main_block_func_0`执行函数，
