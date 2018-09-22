@@ -376,6 +376,40 @@ NSLog((NSString *)&__NSConstantStringImpl__var_folders_nb_9qtf99yd2qlbx2m97hdjf2
 - 2、在Block被copy的时候，Block内部被引用的`变量`也同样被copy一份到了堆上面
 - 3、被__Block修饰的变量，在被Block引用的时候，会变成结构体也就是OC对象，里面的`__forwarding`也会由栈copy道对上面
 - 4、栈上__block变量结构体中`__forwarding`的指针指向堆上面__block变量结构体，堆上__block变量结构体中`__forwarding`指针指向自己
+- 5、当block从堆中移除时，会调用block内部的dispose函数，dispose函数内部会调用_Block_object_dispose函数，_Block_object_dispose函数会自动释放引用的__block变量（release)
+ 
+### 解决循环引用
+
+我们看了那么长时间的源码了，一定还记得在auto变量为OC对象的时候，在没有修饰符修饰的时候Block内部会强引用OC对象，而对象如果也持有Block的时候就会造成相互引用，也就是循环引用的问题。
+ 
+![Block12](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block12.png)
+
+我们也只能在Block持有OC对象的时候，给OC对象添加弱引用修饰符才比较合适，有两个弱引用修饰符`__weak`和`__unsafe_unretained`
+- 1、 __weak：不会产生强引用，指向的对象销毁时，会自动让指针置为nil
+- 2、__unsafe_unretained：不会产生强引用，不安全，指向的对象销毁时，指针存储的地址值不变
+
+
+其实还有一种解决方法，那就是使用`__Block`,需要在Block内部吧OC对象设置为nil
+
+![Block13](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block13.png)
+
+```
+__block id weakSelf = self;
+self.block = ^{
+weakSelf = nil;
+}
+self.block();
+```
+使用`__Block`解决必须调用Block
+
+
+
+
+
+
+
+
+
 
 
 
