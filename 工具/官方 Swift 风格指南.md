@@ -1002,12 +1002,7 @@
  </div>
  
  <div class="ui horizontal list topic-operations" style="margin-bottom: 0px;margin-top:10px">
- 
- 
- 
- 
- 
- 
+  
  </div>
  </div>
  </div>
