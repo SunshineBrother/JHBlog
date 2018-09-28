@@ -12,46 +12,7 @@
  </a>
  </span>
  
- <span style="line-height: 34px;">Linkedin 官方 Swift 风格指南 </span>
- 
- 
- 
- </div>
- 
- <div class="pull-right ui buttons tiny">
- <div class="ui labeled kb-star button" tabindex="0" style="margin-right:15px" data-id="91">
- <div class="ui basic  button  login_required">
- <i class="thumbs up icon"></i> <span class="state">点赞</span>
- </div>
- <a class="ui basic left pointing label star_count">
- 6
- </a>
- </div>
- 
- <div class="ui labeled button" tabindex="0">
- <div class="ui icon basic button  login_required" style="border-top-right-radius: 0.28571429rem;border-bottom-right-radius: 0.28571429rem;">
- <i class="heart icon"></i>
- </div>
- </div>
- </div>
- <div class="clearfix"></div>
- </h1>                    <p class="book-article-meta" style="margin-bottom: 10px;">
- <a class="" data-inverted="" data-tooltip="2018-07-30 12:46:45">
- 创建于  <span title="2018-07-30 12:46:45">1个月前</span>
- </a>
- 
- <span class="divider">/</span>
- <a>
- 阅读数 2401
- </a>
- <span class="divider">/</span>
- <a>
- 评论数 0
- </a>
- <span class="divider">/</span>
- <a class="" data-inverted="" data-tooltip="2018-08-20 04:46:05">更新于 1个月前</a>
- 
- </p>
+ <span style="line-height: 34px;"> 官方 Swift 风格指南 </span>
  
  <div class="ui divider"></div>
  
