@@ -63,8 +63,8 @@ iOS中有2套API来访问和使用RunLoop
 
 **获取RunLoop对象**
 - 1、Fundation
-        - 1、获取当前线程的RunLoop对象`[NSRunLoop currentRunLoop]`
-        - 2、获取主线程的RunLoop对象`[NSRunLoop mainRunLoop]`
+    - 1、获取当前线程的RunLoop对象`[NSRunLoop currentRunLoop]`
+    - 2、获取主线程的RunLoop对象`[NSRunLoop mainRunLoop]`
 - 2、Core Foundation
     - 1、获取当前线程的RunLoop对象`CFRunLoopGetCurrent()`
     - 2、获取主线程的RunLoop对象`CFRunLoopGetMain()`
