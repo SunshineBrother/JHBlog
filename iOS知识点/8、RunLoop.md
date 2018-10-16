@@ -262,14 +262,37 @@ CFRelease(observer);
 
 
 
+### RunLoop的运行逻辑
+
+![RunLoop7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/RunLoop7.png)
+
+
+每次运行RunLoop，线程的RunLoop会自动处理之前未处理的消息，并通知相关的观察者。具体顺序
+- 1、通知观察者（observers）RunLoop即将启动
+- 2、通知观察者（observers）任何即将要开始的定时器
+- 3、通知观察者（observers）即将处理source0事件
+- 4、处理source0
+- 5、如果有source1，跳到第9步
+- 6、通知观察者（observers）线程即将进入休眠
+- 7、将线程置于休眠知道任一下面的事件发生
+    - 1、source0事件触发
+    - 2、定时器启动
+    - 3、外部手动唤醒
+- 8、通知观察者（observers）线程即将唤醒
+- 9、处理唤醒时收到的时间，之后跳回2
+    - 1、如果用户定义的定时器启动，处理定时器事件
+    - 2、如果source0启动，传递相应的消息
+- 10、通知观察者RunLoop结束
 
 
 
+**RunLoop休眠原理**
 
+![RunLoop8](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/RunLoop8.png)
 
-
-
-
+在RunLoop即将休眠的时候，通过`mach_msg()`方法来让软件和硬件交互
+- 1、即将休眠的时候，程序调用`mach_msg()`传递给CPU，告诉CPU停止运行
+- 2、即将启动RunLoop的时候，程序调用`mach_msg()`传递给CPU，告诉CPU开始工作
 
 
 
