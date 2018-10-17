@@ -327,6 +327,22 @@ NSLog(@"%d",count++);
 ```
 NSRunLoopCommonModes并不是一个真的模式，它只是一个标记,timer能在_commonModes数组中存放的模式下工作
 
+#### 线程保活(常驻线程)
+开始之前先介绍几个概念
+- 1、线程刚创建时，并没有RunLoop对象，RunLoop会在第一次获取她时创建
+    - 1、获取线程：[NSRunLoop currentRunLoop]
+    - 2、获取线程：CFRunLoopGetCurrent()
+- 2、启动RunLoop的三种方法
+    - 1、`- (void)run; `,
+        这种方法runloop会一直运行下去，在此期间会处理来自输入源的数据，并且会在NSDefaultRunLoopMode模式下重复调用runMode:beforeDate:方法；
+    - 2、`- (void)runUntilDate:(NSDate *)limitDate；`
+        可以设置超时时间，在超时时间到达之前，runloop会一直运行，在此期间runloop会处理来自输入源的数据，并且也会在NSDefaultRunLoopMode模式下重复调用runMode:beforeDate:方法；
+    - 3、`- (void)runMode:(NSString *)mode beforeDate:(NSDate *)limitDate;`
+        runloop会运行一次，超时时间到达或者第一个input source被处理，则runloop就会退出
+
+
+
+
 
 
 
@@ -339,7 +355,7 @@ NSRunLoopCommonModes并不是一个真的模式，它只是一个标记,timer能
 
 [iOS RunLoop入门小结](http://www.cocoachina.com/ios/20180515/23380.html)
 
-
+[iOS-Runloop常驻线程／性能优化](https://www.jianshu.com/p/f3079ea36775)
 
 
 
