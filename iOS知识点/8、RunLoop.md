@@ -298,6 +298,46 @@ CFRelease(observer);
 
 
 
+### RunLoop简单应用
+
+#### 滚动视图上面NSTimer不失效
+
+我们写一个简单的定时器,然后视图上面创建一个TextView,然后滚动TextView
+```
+static int count = 0;
+[NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
+NSLog(@"%d",count++);
+}];
+```
+
+
+![RunLoop9](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/RunLoop9.png)
+
+我们观察可以发现在打印的第二秒和第三秒之间其实相差了`5s`，因为一个线程只会有一个RunLoop，默认情况下是`kCFRunLoopDefaultMode`，在滚动`UITextView`的时候，RunLoop切换到了`UITrackingRunLoopMode`,这个时候定时器就会停止，在滚动`UITextView`结束的时候，RunLoop切换到了`kCFRunLoopDefaultMode`，定时器继续开始启动了。
+
+解决这个问题的方法就是把这个`NSTimer`添加到两种RunLoop中
+- 1、
+```
+[[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+[[NSRunLoop currentRunLoop] addTimer:timer forMode:UITrackingRunLoopMode];
+```
+- 2、还有一个NSRunLoopCommonModes，我们用`NSRunLoopCommonModes`标记的时候，就可以实现上面效果
+```
+[[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+```
+NSRunLoopCommonModes并不是一个真的模式，它只是一个标记,timer能在_commonModes数组中存放的模式下工作
+
+
+
+
+
+
+
+
+
+[iOS 多线程：『RunLoop』详尽总结](https://www.jianshu.com/p/d260d18dd551)
+[iOS RunLoop入门小结](http://www.cocoachina.com/ios/20180515/23380.html)
+
 
 
 
