@@ -366,9 +366,8 @@ isLoopRunning = NO;
 CFRunLoopStop(CFRunLoopGetCurrent());
 }
 ```
-我们这里就来验证一下第三种方法
 
-
+因为代码证明是一大堆代码逻辑，我就放到了[这了]()
 
 
 
