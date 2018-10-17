@@ -339,7 +339,34 @@ NSRunLoopCommonModes并不是一个真的模式，它只是一个标记,timer能
         可以设置超时时间，在超时时间到达之前，runloop会一直运行，在此期间runloop会处理来自输入源的数据，并且也会在NSDefaultRunLoopMode模式下重复调用runMode:beforeDate:方法；
     - 3、`- (void)runMode:(NSString *)mode beforeDate:(NSDate *)limitDate;`
         runloop会运行一次，超时时间到达或者第一个input source被处理，则runloop就会退出
+- 3、退出RunLoop的方式
+    - 1、启动方式的退出方法，如果runloop没有input sources或者附加的timer，runloop就会退出。
+    - 2、启动方式runUntilDate，可以通过设置超时时间来退出runloop。
+    - 3、启动方式runMode:beforeDate，通过这种方式启动，runloop会运行一次，当超时时间到达或者第一个输入源被处理，runloop就会退出。
+        
 
+如果我们想控制runloop的退出时机，而不是在处理完一个输入源事件之后就退出，那么就要重复调用runMode:beforeDate:，
+具体可以参考苹果文档给出的方案，如下：
+```
+NSRunLoop *myLoop  = [NSRunLoop currentRunLoop];
+myPort = (NSMachPort *)[NSMachPort port];
+[myLoop addPort:_port forMode:NSDefaultRunLoopMode];
+
+BOOL isLoopRunning = YES; // global
+
+while (isLoopRunning && [myLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
+ 
+```
+
+```
+//关闭runloop的地方
+- (void)quitLoop
+{
+isLoopRunning = NO;
+CFRunLoopStop(CFRunLoopGetCurrent());
+}
+```
+我们这里就来验证一下第三种方法
 
 
 
