@@ -90,7 +90,7 @@
 *********************************************************
 ## 小零碎
 
-[LLDB使用](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/LLDB.md)
+[LLDB使用](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/LLDB/LLDB.md)
 
 
 
