@@ -367,7 +367,12 @@ CFRunLoopStop(CFRunLoopGetCurrent());
 }
 ```
 
- 
+做了一个简单的RunLoop的封装，我们可以更加方便的时候保活线程，并且能够及时的销毁,需要的可以点击[这里]()
+
+
+
+
+
 
 
 
