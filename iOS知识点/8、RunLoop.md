@@ -367,15 +367,66 @@ CFRunLoopStop(CFRunLoopGetCurrent());
 }
 ```
 
-做了一个简单的RunLoop的封装，我们可以更加方便的时候保活线程，并且能够及时的销毁,需要的可以点击[这里]()
+做了一个简单的RunLoop的封装，我们可以更加方便的时候保活线程，并且能够及时的销毁,需要的可以点击[这里](https://github.com/SunshineBrother/JHBlog/tree/master/iOS知识点/RunLoop封装)
 
 
 
+### 面试题
+1、讲讲RunLoop项目中有用到吗？
 
+- 1、定时器切换的时候，为了保证定时器的准确性，需要添加runLoop
+- 2、在聊天界面，我们需要持续的把聊天信息存到数据库中，这个时候需要开启一个保活线程，在这个线程中处理
 
+2、RunLoop内部实现逻辑？
 
+- 1、通知观察者（observers）RunLoop即将启动
+- 2、通知观察者（observers）任何即将要开始的定时器
+- 3、通知观察者（observers）即将处理source0事件
+- 4、处理source0
+- 5、如果有source1，跳到第9步
+- 6、通知观察者（observers）线程即将进入休眠
+- 7、将线程置于休眠知道任一下面的事件发生
+- 1、source0事件触发
+- 2、定时器启动
+- 3、外部手动唤醒
+- 8、通知观察者（observers）线程即将唤醒
+- 9、处理唤醒时收到的时间，之后跳回2
+- 1、如果用户定义的定时器启动，处理定时器事件
+- 2、如果source0启动，传递相应的消息
+- 10、通知观察者RunLoop结束
 
+3、RunLoop和线程的关系？
 
+- 1、每一条线程都有唯一的一个与之对应的RunLoop对象
+- 2、RunLoop保存在一个全局的Dictionary里，线程作为Key，RunLoop作为Value
+- 3、线程刚创建时，并没有RunLoop对象，RunLoop会在第一次获取她时创建
+- 4、RunLoop会在线程结束的时候销毁
+- 5、主线程的RunLoop已经自动获取（创建），子线程默认没有开启RunLoop
+ 
+4、RunLoop有几种状态
+
+kCFRunLoopEntry = (1UL << 0),   //   即将进入RunLoop
+kCFRunLoopBeforeTimers = (1UL << 1), // 即将处理Timer
+kCFRunLoopBeforeSources = (1UL << 2), // 即将处理Source
+kCFRunLoopBeforeWaiting = (1UL << 5), //即将进入休眠
+kCFRunLoopAfterWaiting = (1UL << 6),// 刚从休眠中唤醒
+kCFRunLoopExit = (1UL << 7),// 即将退出RunLoop
+
+5、RunLoop的mode的作用
+系统注册了5中mode
+```
+kCFRunLoopDefaultMode //App的默认Mode，通常主线程是在这个Mode下运行
+UITrackingRunLoopMode //界面跟踪 Mode，用于 ScrollView 追踪触摸滑动，保证界面滑动时不受其他 Mode 影响
+UIInitializationRunLoopMode // 在刚启动 App 时第进入的第一个 Mode，启动完成后就不再使用
+GSEventReceiveRunLoopMode // 接受系统事件的内部 Mode，通常用不到
+kCFRunLoopCommonModes //这是一个占位用的Mode，不是一种真正的Mode
+
+```
+但是我们只能使用两种mode
+```
+kCFRunLoopDefaultMode //App的默认Mode，通常主线程是在这个Mode下运行
+UITrackingRunLoopMode //界面跟踪 Mode，用于 ScrollView 追踪触摸滑动，保证界面滑动时不受其他 Mode 影响
+```
 
 
 
