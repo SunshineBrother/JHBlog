@@ -3,7 +3,7 @@
 ### Crash分类
 一般是由 Mach异常或 Objective-C 异常（NSException）引起的。我们可以针对这两种情况抓取对应的 Crash 事件
  
- [crash2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/crash2.png)
+![crash2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/crash2.png)
  
  - 1、Mach异常是最底层的内核级异常，如EXC_BAD_ACCESS（内存访问异常)
  - 2、Unix Signal是Unix系统中的一种异步通知机制，Mach异常在host层被ux_exception转换为相应的Unix Signal，并通过threadsignal将信号投递到出错的线程
@@ -25,7 +25,7 @@ Mach 异常是指最底层的内核级异常，被定义在 <mach/exception_type
 
 **Mach异常方式**
 
-[crash1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/crash.png)
+![crash1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/crash.png)
 
 Mach提供少量API
 ```
@@ -67,7 +67,7 @@ NSLog(@"********** Make a [BAD MEM ACCESS] now. **********");
 `mach异常`即便注册了对应的处理，也不会导致影响原有的投递流程。此外，即便不去注册`mach异常`的处理，最终经过一系列的处理，`mach异常`会被转换成对应的`UNIX信号`，一种`mach异常`对应了一个或者多个信号类型。因此在`捕获crash要提防二次采集的可能`。
 
 
-[crash3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/crash3.png)
+![crash3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/crash3.png)
 
 
 
