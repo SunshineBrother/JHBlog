@@ -1,10 +1,16 @@
  ## Crash分析
 
 ### Crash分类
-`crash`可以分为三种类型，每一种类型表示不同分层上的crash，也拥有各自的捕获方式。
-- `mach exception`异常
-- `signal`异常
-- `NSException`异常，Objective-C 异常
+一般是由 Mach异常或 Objective-C 异常（NSException）引起的。我们可以针对这两种情况抓取对应的 Crash 事件
+ 
+ [crash2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/crash2.png)
+ 
+ - 1、Mach异常是最底层的内核级异常，如EXC_BAD_ACCESS（内存访问异常)
+ - 2、Unix Signal是Unix系统中的一种异步通知机制，Mach异常在host层被ux_exception转换为相应的Unix Signal，并通过threadsignal将信号投递到出错的线程
+ - 3、 NSException是OC层，由iOS库或者各种第三方库或Runtime验证出错误而抛出的异常。如NSRangeException（数组越界异常）
+ - 4、当错误发生时候，先在最底层产生Mach异常；Mach异常在host层被转换为相应的Unix Signal; 在OC层如果有对应的NSException（OC异常），就转换成OC异常，OC异常可以在OC层得到处理；如果OC异常一直得不到处理，程序会强行发送SIGABRT信号中断程序。在OC层如果没有对应的NSException，就只能让Unix标准的signal机制来处理了。
+ - 5、在捕获Crash事件时，优选Mach异常。因为Mach异常处理会先于Unix信号处理发生，如果Mach异常的handler让程序exit了，那么Unix信号就永远不会到达这个进程了。而转换Unix信号是为了兼容更为流行的POSIX标准(SUS规范)，这样就不必了解Mach内核也可以通过Unix信号的方式来兼容开发
+ 
 
 #### Mach异常
 
@@ -19,28 +25,49 @@ Mach 异常是指最底层的内核级异常，被定义在 <mach/exception_type
 
 **Mach异常方式**
 
+[crash1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/crash.png)
 
+Mach提供少量API
+```
+// 内核中创建一个消息队列，获取对应的port
+mach_port_allocate();
+// 授予task对port的指定权限
+mach_port_insert_right();
+// 通过设定参数：MACH_RSV_MSG/MACH_SEND_MSG用于接收/发送mach message
+mach_msg();
+```
 
+**Mach异常捕获**
+`task_set_exception_ports()`，设置内核接收Mach异常消息的`Port`，替换为自定义的Port后，即可捕获程序执行过程中产生的异常消息。
 
+```
++ (void)createAndSetExceptionPort {
+mach_port_t server_port;
+kern_return_t kr = mach_port_allocate(mach_task_self(), MACH_PORT_RIGHT_RECEIVE, &server_port);
+assert(kr == KERN_SUCCESS);
+NSLog(@"create a port: %d", server_port);
 
+kr = mach_port_insert_right(mach_task_self(), server_port, server_port, MACH_MSG_TYPE_MAKE_SEND);
+assert(kr == KERN_SUCCESS);
 
+kr = task_set_exception_ports(mach_task_self(), EXC_MASK_BAD_ACCESS | EXC_MASK_CRASH, server_port, EXCEPTION_DEFAULT | MACH_EXCEPTION_CODES, THREAD_STATE_NONE);
+
+[self setMachPortListener:server_port];
+}
+
+// 构造BAD MEM ACCESS Crash
+- (void)makeCrash {
+NSLog(@"********** Make a [BAD MEM ACCESS] now. **********");
+*((int *)(0x1234)) = 122;
+}
+```
+以上代码参考[iOS Mach异常和signal信号](https://yq.aliyun.com/articles/499180)
  
 
+`mach异常`即便注册了对应的处理，也不会导致影响原有的投递流程。此外，即便不去注册`mach异常`的处理，最终经过一系列的处理，`mach异常`会被转换成对应的`UNIX信号`，一种`mach异常`对应了一个或者多个信号类型。因此在`捕获crash要提防二次采集的可能`。
 
 
-
-
-### Crash捕获
-
-
-
-
-
-
-
-
-
-### Crash分析
+[crash3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/crash3.png)
 
 
 

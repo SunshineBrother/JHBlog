@@ -90,7 +90,7 @@
 - 1、[LLDB使用](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/LLDB/LLDB.md)
 - 2、[打印各种数据类型](https://github.com/SunshineBrother/JHBlog/blob/master/iOS%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%89%93%E5%8D%B0%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
 - 3、[App信息监控](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/App需要监控信息.md)
-- 4、[Crash分析](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集.md)
+- 4、[Crash分析](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/Crash收集.md)
 
 
 
