@@ -15,9 +15,9 @@ Mach操作系统微内核，是许多新操作系统的设计基础。Mach微内
 - Message，有类型的数据对象集合，只可以发送到port。
 
 
-`mach`异常由处理器陷阱引发，在异常发生后会被异常处理程序转换成`Mach消息`，接着依次投递到`thread、task和host端口`。如果没有一个端口处理这个异常并返回`KERN_SUCCESS`，那么应用将被终止。每个端口拥有一个异常端口数组，系统暴露了后缀为`_set_exception_ports`的多个`API`让我们注册对应的异常处理到端口中
+Mach 异常是指最底层的内核级异常，被定义在 <mach/exception_types.h>下。`mach`异常由处理器陷阱引发，在异常发生后会被异常处理程序转换成`Mach消息`，接着依次投递到`thread、task和host端口`。如果没有一个端口处理这个异常并返回`KERN_SUCCESS`，那么应用将被终止。每个端口拥有一个异常端口数组，系统暴露了后缀为`_set_exception_ports`的多个`API`让我们注册对应的异常处理到端口中
 
-
+**Mach异常方式**
 
 
 
