@@ -325,7 +325,9 @@ UIViewAutoresizingFlexibleBottomMargin = 1 << 5
 
 
 ### 最后
+
 ![isa](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/isa.png)
+
 最后我们在看一下isa结构吧
 - 1、nonpointer：0，代表普通的指针，存储着Class、Meta-Class对象的内存地址；1，代表优化过，使用位域存储更多的信息
 - 2、has_assoc：是否有设置过关联对象，如果没有，释放时会更快
