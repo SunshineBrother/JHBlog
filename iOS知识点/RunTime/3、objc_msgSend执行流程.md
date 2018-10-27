@@ -210,7 +210,7 @@ anInvocation.target = [[Student alloc]init];
 ```
 
 
-
+其实这个方法还是比较有用的，像网上一些对bug处理都会用到这个方法
 
 
 
