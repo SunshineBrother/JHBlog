@@ -120,14 +120,18 @@ return [super resolveInstanceMethod:sel];
 ```
 
 
+### 消息转发
+
+ ![消息发送6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/消息发送6.png)
 
 
+- 调用`forwardingTargetForSelector`，返回值不为nil时，会调用`objc_msgSend(返回值, SEL)`
+- 调用`methodSignatureForSelector`,返回值不为nil，调用`forwardInvocation:`方法；返回值为nil时，调用`doesNotRecognizeSelector:`方法
+- 开发者可以在forwardInvocation:方法中自定义任何逻辑
+- 以上方法都有对象方法、类方法2个版本（前面可以是加号+，也可以是减号-）
 
 
-
-
-
-
+**forwardingTargetForSelector**
 
 
 
