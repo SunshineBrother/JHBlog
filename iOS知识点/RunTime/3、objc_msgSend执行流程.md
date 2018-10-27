@@ -122,6 +122,8 @@ return [super resolveInstanceMethod:sel];
 
 ### 消息转发
 
+如果方法一个方法在`消息发送阶段`没有找到相关方法，也没有进行`动态方法解析`，这个时候就会走到消息转发阶段了。
+
  ![消息发送6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/消息发送6.png)
 
 
@@ -130,26 +132,82 @@ return [super resolveInstanceMethod:sel];
 - 开发者可以在forwardInvocation:方法中自定义任何逻辑
 - 以上方法都有对象方法、类方法2个版本（前面可以是加号+，也可以是减号-）
 
-
 **forwardingTargetForSelector**
 
+我们创建一个命令行项目，创建两个类，`person`和`Student`,在`person.h`里面写一个实例方法，但是不去实现相关方法。
+
+```
+@interface Person : NSObject
+- (void)test;
+@end
+
+
+@interface Student : NSObject
+- (void)test;
+@end
+#import "Student.h"
+
+@implementation Student
+- (void)test{
+NSLog(@"%s",__func__);
+}
+@end
+```
+调用的时候回报出我们最常见的错误`unrecognized selector sent to instance 0x100747a50`
+
+如果我们在`person`里面实现这个方法
+```
+- (id)forwardingTargetForSelector:(SEL)aSelector{
+if (aSelector == @selector(test)) {
+return [[Student alloc]init];
+}
+return nil;
+}
+```
+ 
+ ![消息发送7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/消息发送7.png)
+
+调用`forwardingTargetForSelector`，返回值不为nil时，会调用`objc_msgSend(返回值, SEL)`，结果就是调用了`objc_msgSend(Student,test)`
 
 
 
+**methodSignatureForSelector（方法签名）**
 
+当`forwardingTargetForSelector`返回值为nil，或者都没有调用该方法的时候，系统会调用`methodSignatureForSelector`方法。调用`methodSignatureForSelector`,返回值不为nil，调用`forwardInvocation:`方法；返回值为nil时，调用`doesNotRecognizeSelector:`方法
 
+对于方法签名的生成方式
+- 1、`[NSMethodSignature signatureWithObjCTypes:"i@:i"]`
+- 2、`[[[Student alloc]init] methodSignatureForSelector:aSelector];`
 
+ 实现方法签名以后我们还要实现`forwardInvocation`方法，当调用`person`的`test`的方法的时候，就会走到这个方法中
+ 
+  ![消息发送8](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/消息发送8.png)
+ 
+ NSInvocation封装了一个方法调用，包括：方法调用者、方法名、方法参数
+ - anInvocation.target 方法调用者
+ - anInvocation.selector 方法名
+ - [anInvocation getArgument:NULL atIndex:0]
 
+ 我们也可以先执行`NSLog(@"========");`在执行Student的test方法
+ ```
+ - (void)forwardInvocation:(NSInvocation *)anInvocation
+ {
+ NSLog(@"========");
+ anInvocation.target = [[Student alloc]init];
+ [anInvocation invoke];
+ 
+ //    [anInvocation invokeWithTarget:[[Student alloc] init]];
+ }
+ ```
+  ![消息发送9](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/消息发送9.png)
+ 
+其中这两个方法是一样的
+`[anInvocation invokeWithTarget:[[Student alloc] init]];`
 
-
-
-
-
-
-
-
-
-
+```
+anInvocation.target = [[Student alloc]init];
+[anInvocation invoke];
+```
 
 
 
