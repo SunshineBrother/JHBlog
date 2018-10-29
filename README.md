@@ -97,6 +97,7 @@
 
 
 ### iOS大杂烩
+
 - 1、[LLDB使用](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/LLDB/LLDB.md)
 - 2、[基本数据类型](https://github.com/SunshineBrother/JHBlog/blob/master/iOS%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%89%93%E5%8D%B0%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
 - 3、[App信息监控](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/App需要监控信息.md)
@@ -111,7 +112,7 @@
 ## 第三方
 
 - 1、[启动页](https://github.com/CoderZhuXH/XHLaunchAd )
-- - 2、[国际化](https://github.com/igorkulman/iOSLocalizationEditor)
+-  2、[国际化](https://github.com/igorkulman/iOSLocalizationEditor)
 通常 iPhone 上的一些应用需要支持多国语言，这要确保所有内容都已翻译，任何语言都不能丢失任何字符串，这是一件比较痛苦的事情。而 iOSLocalizationEditor 是一款在 macOS 上帮助用户编辑和管理 app localizations 的图形化工具，它会显示每种语言的所有本地化版本，并能方便快捷的找出你缺失的 key 。如果想要试试看的朋友，也可以参考下这篇[文章](https://blog.kulman.sk/checking-for-missing-translations-in-ios/)
 
  
