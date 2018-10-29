@@ -90,7 +90,7 @@
     - [9.3、objc_msgSend执行流程](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/3、objc_msgSend执行流程.md)
     - [9.4、@dynamic关键字](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/4、@dynamic关键字.md)
     - [9.5、Class和SuperClass区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/5、Class%26SuperClass.md)
-    - [9.6、isKindOfClass和isMemberOfClass区别 ]()
+    - [9.6、isKindOfClass和isMemberOfClass区别 ](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/6、isMemberOfClass%26.isKindOfClassmd.md)
     
     
     
@@ -105,7 +105,60 @@
 - 6、[Crash日志分析](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/Crash日志分析.md)
 - 7、[armv7,armv7s,arm64,i386,x86_64 简单了解](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/armv7%2Carmv7s%2Carm64%2Ci386%2Cx86_64.md)
 
+  
 
+*********************************************************
+## 第三方
+
+- 1、[启动页](https://github.com/CoderZhuXH/XHLaunchAd )
+- - 2、[国际化](https://github.com/igorkulman/iOSLocalizationEditor)
+通常 iPhone 上的一些应用需要支持多国语言，这要确保所有内容都已翻译，任何语言都不能丢失任何字符串，这是一件比较痛苦的事情。而 iOSLocalizationEditor 是一款在 macOS 上帮助用户编辑和管理 app localizations 的图形化工具，它会显示每种语言的所有本地化版本，并能方便快捷的找出你缺失的 key 。如果想要试试看的朋友，也可以参考下这篇[文章](https://blog.kulman.sk/checking-for-missing-translations-in-ios/)
+
+ 
+
+
+
+
+
+
+
+*********************************************************
+## 实用文章
+**WebView**
+- 1、[iOS WebView生成长截图的第三种解决方案](https://juejin.im/post/5b9d145ae51d450e7579d1e5)
+- 2、[WKWebView使用指南](https://www.jianshu.com/p/97faf098e673)
+
+**国家化**
+
+- 1、[iOS国际化详解](https://www.jianshu.com/p/7e1c7c210ec2)
+- 2、[3分钟实现iOS语言本地化/国际化（图文详解）](https://www.jianshu.com/p/88c1b65e3ddb)
+
+
+**Crash分析**
+
+- 1、[手把手教你查看和分析iOS的crash崩溃](https://juejin.im/post/5b8f8e726fb9a05d185ec651)
+- 2、[漫谈 iOS Crash 收集框架](https://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=208483273&idx=1&sn=37ee88e06e7426f59f3074c536370317&scene=21)
+- 3、[全面的理解和分析iOS的崩溃日志](http://www.cocoachina.com/ios/20171026/20921.html)
+- 4、[iOS实录14：浅谈iOS Crash（一）](https://www.jianshu.com/p/3261493e6d9e)
+- 5、[质量监控-保护你的crash](https://www.jianshu.com/p/c8f731d18518)
+- 6、[深入iOS系统底层之crash解决方法介绍](https://www.jianshu.com/p/cf0945f9c1f8)
+- 7、[Baymax：网易iOS App运行时Crash自动防护实践](https://mp.weixin.qq.com/s?__biz=MzUxMzcxMzE5Ng==&mid=2247488311&amp;idx=1&amp;sn=0db090c8d4a5efafa47f00af4b3f174f&source=41#wechat_redirect)
+
+
+**锁**
+
+- 1、[lock](https://github.com/bestswifter/blog/blob/master/articles/ios-lock.md)
+
+**安全性**
+
+- 1、[从爬虫攻击者角度谈客户端 API 安全设计](https://mp.weixin.qq.com/s/yv9Ph_8pzej3Wasbsc-fXQ)
+ 
+ 
+ **导航栏**
+ - 1、[iOS系统中导航栏的转场解决方案与最佳实践](https://juejin.im/post/5bd2bf936fb9a05cef177644)
+ 
+*********************************************************
+ 
 ## 工具
 这里记载了一些常用的工具，有许多都是转载的别人的博客，里面我有写转载地址，如果有作者感觉不适，请联系我，我会及时停止转载的
 
