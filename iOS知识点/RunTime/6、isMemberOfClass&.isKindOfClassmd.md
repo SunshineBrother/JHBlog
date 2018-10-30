@@ -25,7 +25,7 @@ return NO;
 }
 ```
 
-**- isMemberOfClass**
+### isMemberOfClass
 
 一个对象是否是指定类的实例对象
 ```
@@ -41,7 +41,7 @@ return object_getClass((id)self) == cls;
 
  
 
-**- isKindOfClass**
+### isKindOfClass
 
 判断一个对象是否是指定类或者某个从该类继承类的实例对象。
 
