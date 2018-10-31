@@ -144,6 +144,7 @@
 - 5、[质量监控-保护你的crash](https://www.jianshu.com/p/c8f731d18518)
 - 6、[深入iOS系统底层之crash解决方法介绍](https://www.jianshu.com/p/cf0945f9c1f8)
 - 7、[Baymax：网易iOS App运行时Crash自动防护实践](https://mp.weixin.qq.com/s?__biz=MzUxMzcxMzE5Ng==&mid=2247488311&amp;idx=1&amp;sn=0db090c8d4a5efafa47f00af4b3f174f&source=41#wechat_redirect)
+- 8、[iOS 启动连续闪退保护方案](https://wereadteam.github.io/2016/05/23/GYBootingProtection/)
 
 
 **锁**
@@ -164,11 +165,11 @@
 这里记载了一些常用的工具，有许多都是转载的别人的博客，里面我有写转载地址，如果有作者感觉不适，请联系我，我会及时停止转载的
 
 
-[如何优雅地使用Sublime Text](https://github.com/SunshineBrother/JHBlog/blob/master/工具/如何优雅地使用Sublime%20Text.md)
+- 1、[如何优雅地使用Sublime Text](https://github.com/SunshineBrother/JHBlog/blob/master/工具/如何优雅地使用Sublime%20Text.md)
 
-[官方 Swift 风格指南](https://github.com/SunshineBrother/JHBlog/blob/master/工具/官方%20Swift%20风格指南.md)
+- 2、[官方 Swift 风格指南](https://github.com/SunshineBrother/JHBlog/blob/master/工具/官方%20Swift%20风格指南.md)
 
-
+- 3、[iOS 程序员效率提升利器之 AppleScript](http://mrpeak.cn/blog/ios-applescript/)
 
 
 
