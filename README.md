@@ -91,6 +91,7 @@
     - [9.4、@dynamic关键字](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/4、@dynamic关键字.md)
     - [9.5、Class和SuperClass区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/5、Class%26SuperClass.md)
     - [9.6、isKindOfClass和isMemberOfClass区别 ](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/6、isMemberOfClass%26.isKindOfClassmd.md)
+    - [9.7、RunTime的相关API](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/7、API.md)
     
     
     
