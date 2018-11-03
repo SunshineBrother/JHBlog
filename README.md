@@ -98,7 +98,9 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - [8.7、RunTime的相关API](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/7、API.md)
 - [9、多线程](1、多线程面试题)
     - [9.1、多线程面试题](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/1、多线程面试题.md)
-    - [9.2、多线程简单介绍](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/2、基础概念.md)
+    - [9.2、NSThread介绍](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/2、NSThread介绍.md)
+    - [9.3、GCD介绍](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/3、GCD介绍.md)
+    - [9.4、NSOperation介绍](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/4、NSOperation介绍.md)
     
     
 
