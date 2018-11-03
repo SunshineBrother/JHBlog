@@ -51,21 +51,66 @@ NSLog(@"Thread Task Complete");
 }
 ```
 
+![NSThread1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/NSThread1.png)
 
 
+#### 常见API
+```
+// 获得主线程
++ (NSThread *)mainThread;    
+
+// 判断是否为主线程(对象方法)
+- (BOOL)isMainThread;
+
+// 判断是否为主线程(类方法)
++ (BOOL)isMainThread;    
+
+// 获得当前线程
+NSThread *current = [NSThread currentThread];
+
+// 线程的名字——setter方法
+- (void)setName:(NSString *)n;    
+
+// 线程的名字——getter方法
+- (NSString *)name;
+
+```
 
 
+#### 线程状态控制方法
 
+```
+// 线程进入就绪状态 -> 运行状态。当线程任务执行完毕，自动进入死亡状态
+- (void)start;
 
+// 线程进入阻塞状态
++ (void)sleepUntilDate:(NSDate *)date;
++ (void)sleepForTimeInterval:(NSTimeInterval)ti;
 
+//强制停止线程  线程进入死亡状态
++ (void)exit;
+```
 
+#### 线程之间的通信
 
+在开发中，我们经常会在子线程进行耗时操作，操作结束后再回到主线程去刷新 UI。这就涉及到了子线程和主线程之间的通信。我们先来了解一下官方关于 NSThread 的线程间通信的方法。
 
+```
+// 在主线程上执行操作
+- (void)performSelectorOnMainThread:(SEL)aSelector withObject:(id)arg waitUntilDone:(BOOL)wait;
+- (void)performSelectorOnMainThread:(SEL)aSelector withObject:(id)arg waitUntilDone:(BOOL)wait modes:(NSArray<NSString *> *)array;
+// equivalent to the first method with kCFRunLoopCommonModes
 
+// 在指定线程上执行操作
+- (void)performSelector:(SEL)aSelector onThread:(NSThread *)thr withObject:(id)arg waitUntilDone:(BOOL)wait modes:(NSArray *)array NS_AVAILABLE(10_5, 2_0);
+- (void)performSelector:(SEL)aSelector onThread:(NSThread *)thr withObject:(id)arg waitUntilDone:(BOOL)wait NS_AVAILABLE(10_5, 2_0);
 
+// 在当前线程上执行操作，调用 NSObject 的 performSelector:相关方法
+- (id)performSelector:(SEL)aSelector;
+- (id)performSelector:(SEL)aSelector withObject:(id)object;
+- (id)performSelector:(SEL)aSelector withObject:(id)object1 withObject:(id)object2;
 
-
-
+```
 
 
 
