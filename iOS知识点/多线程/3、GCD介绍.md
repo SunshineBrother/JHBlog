@@ -150,20 +150,52 @@ NSLog(@"2---%@",[NSThread currentThread]);
 根据两种打印我们发现：`同步函数`既不会开启新的线程，也不会执行并发任务
 
 
+**异步串行队列**
 
+```
+NSLog(@"主线程：%@",[NSThread currentThread]);
+dispatch_queue_t queue = dispatch_queue_create("test", DISPATCH_QUEUE_CONCURRENT);
+dispatch_async(queue, ^{
+for (int i = 0; i < 2; ++i) {
+NSLog(@"1====%@",[NSThread currentThread]);      // 打印当前线程
+}
 
+});
+dispatch_async(queue, ^{
+for (int i = 0; i < 2; ++i) {
+NSLog(@"2====%@",[NSThread currentThread]);      // 打印当前线程
+}
 
+});
+```
+![GCD2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/GCD2.png)
 
+结果：`有开启新的线程，串行执行任务`
 
+**异步并行队列**
 
+```
+NSLog(@"主线程：%@",[NSThread currentThread]);
+dispatch_queue_t queue = dispatch_queue_create("test", DISPATCH_QUEUE_CONCURRENT);
+dispatch_async(queue, ^{
+for (int i = 0; i < 2; ++i) {
+[NSThread sleepForTimeInterval:2];
+NSLog(@"1====%@",[NSThread currentThread]);      // 打印当前线程
+}
 
+});
+dispatch_async(queue, ^{
+for (int i = 0; i < 2; ++i) {
+[NSThread sleepForTimeInterval:2];
+NSLog(@"2====%@",[NSThread currentThread]);      // 打印当前线程
+}
 
+});
+```
 
+![GCD3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/GCD3.png)
 
-
-
-
-
+结果：`有开启新的线程，并发执行任务`。想要出现明显的并发执行效果，可以`sleep`一下
 
 
 
