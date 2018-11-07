@@ -178,6 +178,6 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 
 - 3、[iOS 程序员效率提升利器之 AppleScript](http://mrpeak.cn/blog/ios-applescript/)
 
-
+- [4、NPM 使用介绍](http://www.runoob.com/nodejs/nodejs-npm.html)
 
 
