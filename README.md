@@ -166,6 +166,14 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
  **导航栏**
  - 1、[iOS系统中导航栏的转场解决方案与最佳实践](https://juejin.im/post/5bd2bf936fb9a05cef177644)
  
+ 
+ **组件化**
+ - 1、[Category 特性在 iOS 组件化中的应用与管控](https://mp.weixin.qq.com/s/5ucpVa6ku4b9_pfMP9CqlQ)
+ 
+ 
+ 
+ 
+ 
 *********************************************************
  
 ## 工具
