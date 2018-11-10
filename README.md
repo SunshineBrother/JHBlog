@@ -101,6 +101,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - [9.2、多线程之NSThread](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/2、NSThread介绍.md)
     - [9.3、多线程之GCD](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/3、GCD介绍.md)
     - [9.4、多线程之NSOperation](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/4、NSOperation介绍.md)
+    - [9.4、多线程之线程安全](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/5、线程安全.md)
     
     
 
@@ -134,7 +135,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 2、[WKWebView使用指南](https://www.jianshu.com/p/97faf098e673)
 - 3、[UITableViewCell含有WebView的自适应高度新解决方案](https://juejin.im/post/5be3960af265da616f6f7468)
 
-**国家化**
+**国际化**
 
 - 1、[iOS国际化详解](https://www.jianshu.com/p/7e1c7c210ec2)
 - 2、[3分钟实现iOS语言本地化/国际化（图文详解）](https://www.jianshu.com/p/88c1b65e3ddb)
@@ -163,9 +164,29 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
  **性能优化**
  
  - 1、[深入剖析Swift性能优化](https://mp.weixin.qq.com/s/U95QmOOjeXkk-yC23cuZCQ)
- 
- **导航栏**
+ - 2、[iOS 性能优化的探索](https://www.jianshu.com/p/b8346c1a4145)
+ - 3、[如何将 iOS 项目的编译速度提高5倍](https://link.jianshu.com/?t=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F27584726)
+- 4、[使用 ASDK 性能调优 - 提升 iOS 界面的渲染性能](https://link.jianshu.com/?t=http%3A%2F%2Fdraveness.me%2Fasdk-rendering)
+- 5、[微信读书 iOS 性能优化总结](https://link.jianshu.com/?t=https%3A%2F%2Fwereadteam.github.io%2F2016%2F05%2F03%2FWeRead-Performance%2F)
+- 6、[微信读书 iOS 质量保证及性能监控](https://link.jianshu.com/?t=https%3A%2F%2Fwereadteam.github.io%2F2016%2F12%2F12%2FMonitor%2F)
+- 7、[页面间跳转的性能优化(一)](https://www.jianshu.com/p/77847c0027c9)
+- 8、[页面间跳转的性能优化(二)](https://www.jianshu.com/p/92532c2b1d55)
+
+
+**导航栏**
  - 1、[iOS系统中导航栏的转场解决方案与最佳实践](https://juejin.im/post/5bd2bf936fb9a05cef177644)
+ 
+ **调试**
+ - 1、[iOS调试-LLDB学习总结](https://www.jianshu.com/p/d6a0a5e39b0e)
+ 
+ **组件化**
+- 1、[iOS 从零到一搭建组件化项目框架](https://www.jianshu.com/p/59c2d2c4b737)
+- 2、[iOS 响应式架构](https://link.jianshu.com/?t=http%3A%2F%2Fblog.mrriddler.com%2F2017%2F06%2F28%2FiOS%25E5%2593%258D%25E5%25BA%2594%25E5%25BC%258F%25E6%259E%25B6%25E6%259E%2584%2F)
+- 3、[iOS 组件化方案探索](https://link.jianshu.com/?t=http%3A%2F%2Fwereadteam.github.io%2F2016%2F03%2F19%2FiOS-Component%2F)
+- 4、[iOS 组件化 —— 路由设计思路分析](https://www.jianshu.com/p/76da56b3bd55)
+
+ **事件执行**
+ - 1、[iOS触摸事件全家桶](https://www.jianshu.com/p/c294d1bd963d)
  
  
  **设计模式**
@@ -184,6 +205,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
  - 1、[计算机网络:物理层、链路层、网络层、运输层、应用层](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/计算机网络.md)
  - 2、[HTTP:方法、状态码、Cookie、缓存、连接管理、HTTPs、HTTP 2.0](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/HTTP.md)
  - 3、[Socket:I/O 模型、I/O 多路复用](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/Socket.md)
+ - 4、[移动App 网络优化细节探讨](https://www.jianshu.com/p/0d5c574b8eff)
  
 *********************************************************
  
