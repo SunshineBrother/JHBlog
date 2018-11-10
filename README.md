@@ -132,6 +132,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 **WebView**
 - 1、[iOS WebView生成长截图的第三种解决方案](https://juejin.im/post/5b9d145ae51d450e7579d1e5)
 - 2、[WKWebView使用指南](https://www.jianshu.com/p/97faf098e673)
+- 3、[UITableViewCell含有WebView的自适应高度新解决方案](https://juejin.im/post/5be3960af265da616f6f7468)
 
 **国家化**
 
@@ -167,12 +168,22 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
  - 1、[iOS系统中导航栏的转场解决方案与最佳实践](https://juejin.im/post/5bd2bf936fb9a05cef177644)
  
  
- **组件化**
+ **设计模式**
  - 1、[Category 特性在 iOS 组件化中的应用与管控](https://mp.weixin.qq.com/s/5ucpVa6ku4b9_pfMP9CqlQ)
+ - 2、[设计模式:实现了 Gof 的 23 种设计模式](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/设计模式.md)
+ - 3、[面向对象思想:三大原则（继承、封装、多态）、类图、设计原则](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/面向对象思想.md)
+ 
+ **算法**
+ - 1、[剑指 Offer 题解:目录根据原书第二版进行编排，代码和原书有所不同，尽量比原书更简洁](https://github.com/CyC2018/CS-Notes/blob/master/notes/剑指%20offer%20题解.md)
+ - 2、[Leetcode 题解](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/Leetcode%20题解.md)
+ - 3、[算法:排序、并查集、栈和队列、红黑树、散列表。](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/算法.md)
  
  
+ **网络**
  
- 
+ - 1、[计算机网络:物理层、链路层、网络层、运输层、应用层](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/计算机网络.md)
+ - 2、[HTTP:方法、状态码、Cookie、缓存、连接管理、HTTPs、HTTP 2.0](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/HTTP.md)
+ - 3、[Socket:I/O 模型、I/O 多路复用](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/Socket.md)
  
 *********************************************************
  
@@ -186,6 +197,25 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 
 - 3、[iOS 程序员效率提升利器之 AppleScript](http://mrpeak.cn/blog/ios-applescript/)
 
-- [4、NPM 使用介绍](http://www.runoob.com/nodejs/nodejs-npm.html)
+- 4、[NPM 使用介绍](http://www.runoob.com/nodejs/nodejs-npm.html)
+
+- 5、[Git：一些 Git 的使用和概念](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/Git.md)
+
+- 6、[正则表达式](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/正则表达式.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
