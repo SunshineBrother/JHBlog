@@ -192,6 +192,8 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 7、[页面间跳转的性能优化(一)](https://www.jianshu.com/p/77847c0027c9)
 - 8、[页面间跳转的性能优化(二)](https://www.jianshu.com/p/92532c2b1d55)
 
+**性能检测工具**
+- 1、[Allocations:分析静态内存分配](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Instruments/Allocations.md)
 
 **导航栏**
  - 1、[iOS系统中导航栏的转场解决方案与最佳实践](https://juejin.im/post/5bd2bf936fb9a05cef177644)
@@ -199,7 +201,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
  **调试**
  - 1、[iOS调试-LLDB学习总结](https://www.jianshu.com/p/d6a0a5e39b0e)
  - 2、[iOS各种调试技巧豪华套餐](http://www.cnblogs.com/daiweilai/p/4421340.html)
- 
+ - 3、[Safari/Chrome调试WebView](https://blog.csdn.net/hello_hwc/article/details/80721246)
  
  **组件化**
 - 1、[iOS 从零到一搭建组件化项目框架](https://www.jianshu.com/p/59c2d2c4b737)
