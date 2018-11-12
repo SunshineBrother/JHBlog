@@ -126,12 +126,30 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 1、[启动页](https://github.com/CoderZhuXH/XHLaunchAd )
 -  2、[国际化](https://github.com/igorkulman/iOSLocalizationEditor)
 通常 iPhone 上的一些应用需要支持多国语言，这要确保所有内容都已翻译，任何语言都不能丢失任何字符串，这是一件比较痛苦的事情。而 iOSLocalizationEditor 是一款在 macOS 上帮助用户编辑和管理 app localizations 的图形化工具，它会显示每种语言的所有本地化版本，并能方便快捷的找出你缺失的 key 。如果想要试试看的朋友，也可以参考下这篇[文章](https://blog.kulman.sk/checking-for-missing-translations-in-ios/)
-
+- 3、[lottie-ios](https://github.com/airbnb/lottie-ios)
  
 
 
 *********************************************************
 ## 实用文章
+ **博客**
+- 1、[Swift 文章精选](https://github.com/ipader/SwiftGuide/blob/master/Featured-Articles.md)
+
+
+
+**UI界面**
+- 1、[UITableView]()
+    - [如何在 iOS 中实现一个可展开的 Table View](https://swift.gg/2015/12/03/expandable-table-view/)
+- 2、[iOS设计指南](https://www.ui.cn/detail/32167.html)
+
+
+**布局**
+- 1、[ios中的UI自适应](https://academy.realm.io/cn/posts/gotocph-sam-davies-adaptive-ui-ios/)
+
+**动画**
+- 1、[内存恶鬼drawRect](https://bihongbo.com/2016/01/03/memoryGhostdrawRect/)
+
+
 **WebView**
 - 1、[iOS WebView生成长截图的第三种解决方案](https://juejin.im/post/5b9d145ae51d450e7579d1e5)
 - 2、[WKWebView使用指南](https://www.jianshu.com/p/97faf098e673)
@@ -180,6 +198,8 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
  
  **调试**
  - 1、[iOS调试-LLDB学习总结](https://www.jianshu.com/p/d6a0a5e39b0e)
+ - 2、[iOS各种调试技巧豪华套餐](http://www.cnblogs.com/daiweilai/p/4421340.html)
+ 
  
  **组件化**
 - 1、[iOS 从零到一搭建组件化项目框架](https://www.jianshu.com/p/59c2d2c4b737)
@@ -190,6 +210,9 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
  **事件执行**
  - 1、[iOS触摸事件全家桶](https://www.jianshu.com/p/c294d1bd963d)
  
+ **数据库**
+ - 1、[core Data线程大揭秘](https://academy.realm.io/cn/posts/marcus-zarra-core-data-threading/)
+ - 2、[Realm数据库基础教程](http://www.cocoachina.com/ios/20150505/11756.html)
  
  **设计模式**
  - 1、[Category 特性在 iOS 组件化中的应用与管控](https://mp.weixin.qq.com/s/5ucpVa6ku4b9_pfMP9CqlQ)
@@ -209,6 +232,13 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
  - 3、[Socket:I/O 模型、I/O 多路复用](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/Socket.md)
  - 4、[移动App 网络优化细节探讨](https://www.jianshu.com/p/0d5c574b8eff)
  
+ **Git**
+ - 1、[Git：一些 Git 的使用和概念](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/Git.md)
+ - 2、[如何利用GitHub进行代码审查](https://academy.realm.io/cn/posts/codereview-howto/)
+ 
+  **其他**
+  - 1、[聊聊移动端跨平台开发的各种技术](http://fex.baidu.com/blog/2015/05/cross-mobile/)
+ 
 *********************************************************
  
 ## 工具
@@ -223,9 +253,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 
 - 4、[NPM 使用介绍](http://www.runoob.com/nodejs/nodejs-npm.html)
 
-- 5、[Git：一些 Git 的使用和概念](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/Git.md)
-
-- 6、[正则表达式](https://github.com/CyC2018/InnterviewNotes/blob/master/notes/正则表达式.md)
+ 
 
 
 
