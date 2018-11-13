@@ -8,12 +8,9 @@
 - [2、除了Observable其他的可被监听的序列](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/1.1、可被监听的序列.md)
 - [3、subscribe订阅](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/2、subscribe订阅.md)
 - [4、观察者（Observer）](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/3、observer.md)
-
 - [5、Subjects介绍](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/4、Subjects介绍.md)
-
 - [6、Schedulers - 调度器](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/5、Schedulers%20-%20调度器.md)
 - [7、Error Handling 错误处理 ](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/6、ErrorHandling错误处理.md)
-
 - [8、操作符]()
     - [8.1、变换操作符](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/7.1、变换操作符.md)
     - [8.2、过滤操作符](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/7.2、过滤操作符.md)
@@ -28,7 +25,8 @@
 - [4、RxSwift接收事件](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/13、rxswift接收事件.md)
 - [5、MVVM案例：登录](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/14、MVVM.md)
 - [6、UITableView 的基本用法](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/15、UITableView%20的基本用法.md)
- *********************************************************
+
+ ******************************************************************************************************************
 
 ## 设计模式研究
 **什么是设计模式**
@@ -122,7 +120,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 
   
 
-*********************************************************
+******************************************************************************************************************
 ## 第三方
 
 - 1、[启动页](https://github.com/CoderZhuXH/XHLaunchAd )
@@ -133,7 +131,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 5、[CYLTabBarController : 号称低耦合集成TabBarControlle](https://github.com/ChenYilong/CYLTabBarController)
 
 
-*********************************************************
+******************************************************************************************************************
 ## 实用文章
  **博客**
 - 1、[Swift 文章精选](https://github.com/ipader/SwiftGuide/blob/master/Featured-Articles.md)
@@ -194,6 +192,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 6、[微信读书 iOS 质量保证及性能监控](https://link.jianshu.com/?t=https%3A%2F%2Fwereadteam.github.io%2F2016%2F12%2F12%2FMonitor%2F)
 - 7、[页面间跳转的性能优化(一)](https://www.jianshu.com/p/77847c0027c9)
 - 8、[页面间跳转的性能优化(二)](https://www.jianshu.com/p/92532c2b1d55)
+- 9、[iOS 瘦包常见方式梳理](https://mp.weixin.qq.com/s?__biz=MzA5NzMwODI0MA==&mid=2647761547&idx=1&sn=2f84d8b9eeb134ed0c5cb7142ef0caa9&chksm=8887d9b4bff050a2cc850ab243282f25894cc5eae5596e1b3ad52a6a69de030bbc571d1f74be#rd)
 
 **性能检测工具**
 - 1、[Allocations:分析静态内存分配](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Instruments/Allocations.md)
@@ -211,6 +210,10 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 2、[iOS 响应式架构](https://link.jianshu.com/?t=http%3A%2F%2Fblog.mrriddler.com%2F2017%2F06%2F28%2FiOS%25E5%2593%258D%25E5%25BA%2594%25E5%25BC%258F%25E6%259E%25B6%25E6%259E%2584%2F)
 - 3、[iOS 组件化方案探索](https://link.jianshu.com/?t=http%3A%2F%2Fwereadteam.github.io%2F2016%2F03%2F19%2FiOS-Component%2F)
 - 4、[iOS 组件化 —— 路由设计思路分析](https://www.jianshu.com/p/76da56b3bd55)
+- 5、[iOS组件化方案](https://mp.weixin.qq.com/s?__biz=MzA5NzMwODI0MA==&mid=2647761549&idx=1&sn=90880890bb0de4c03bc94a9105ce78bc&chksm=8887d9b2bff050a4b42dbef4e69635dc53d3360e88ce7f6fef30bb8b257b59321c9a13ef0f34#rd)
+
+
+
 
  **事件执行**
  - 1、[iOS触摸事件全家桶](https://www.jianshu.com/p/c294d1bd963d)
