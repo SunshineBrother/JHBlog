@@ -102,7 +102,8 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - [9.3、多线程之GCD](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/3、GCD介绍.md)
     - [9.4、多线程之NSOperation](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/4、NSOperation介绍.md)
     - [9.4、多线程之线程安全](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/5、线程安全.md)
-    
+  - [10、内存管理]()  
+  
     
 
 
@@ -127,7 +128,8 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 -  2、[国际化](https://github.com/igorkulman/iOSLocalizationEditor)
 通常 iPhone 上的一些应用需要支持多国语言，这要确保所有内容都已翻译，任何语言都不能丢失任何字符串，这是一件比较痛苦的事情。而 iOSLocalizationEditor 是一款在 macOS 上帮助用户编辑和管理 app localizations 的图形化工具，它会显示每种语言的所有本地化版本，并能方便快捷的找出你缺失的 key 。如果想要试试看的朋友，也可以参考下这篇[文章](https://blog.kulman.sk/checking-for-missing-translations-in-ios/)
 - 3、[lottie-ios](https://github.com/airbnb/lottie-ios)
- 
+- 4、[TabBar 的超多样式](https://github.com/eggswift/ESTabBarController)
+- 5、[CYLTabBarController : 号称低耦合集成TabBarControlle](https://github.com/ChenYilong/CYLTabBarController)
 
 
 *********************************************************
