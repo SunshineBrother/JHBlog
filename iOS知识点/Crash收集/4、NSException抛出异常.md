@@ -137,6 +137,26 @@ NSLog(@"异常名称:%@   异常原因:%@",exception.name, exception.reason);
 
 
 
+### NSError
+
+每个程序都必须处理运行时发生的错误。例如，程序可能无法打开文件，或者可能无法解析XML文档。通常这些错误需要程序通知用户它们。 在程序中我们可以通过`NSError`把导致错误的原因回调给调用者
+
+NSError对象里封装了三条信息：
+- 1、**Error domain**：错误范围，其类型为字符串
+ 错误发生的范围，也就是产生错误的根源，通常用一个特有的全局变量来定义。比方说，“处理URL的子系统”在从URL中解析或者取得数据时如果出错了，那么就会使用NSURLErrorDomain来表示错误范围。
+- 2、**Error code**：错误码，其类型为整数
+独有的错误代码，用以指明在某个范围内具体发生了何种错误。某个特定的范围内可能会发生一系列相关错误，这些错误情况通常采用enum来定义。例如当http请求出错时，可能会把http状态码设为错误码。
+
+- 3、**User info**：用户信息，其类型为字典
+有关此错误的额外信息，其中或许包含一段“本地化的描述”，获取还含有导致该错误发生的另外一个错误，经由此种信息，可将相关错误串成一条“错误链”。
+
+```
+NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:121 userInfo:@{NSLocalizedDescriptionKey:@"本地化的错误描述"}];
+NSLog(@"error.userInfo:%@\nerror.code:%ld", error.userInfo,error.code);
+```
+
+
+
 
 
 [Error官网](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ErrorHandlingCocoa/ErrorHandling/ErrorHandling.html#//apple_ref/doc/uid/TP40001806)
