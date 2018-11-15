@@ -3,6 +3,11 @@
 
 ### NSException的简单介绍
 
+![NSException1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/NSException1.png)
+
+上面这张图想必大家都不陌生吧
+其实控制台输出的日志信息就是NSException产生的，一旦程序抛出异常，程序就会崩溃，控制台就会有这些崩溃日志。
+
  这个类是专门表示异常的，Cocoa框架要求所有的异常都是它或者是它子类的实例，当实例调用raise或者throw方法时就会出现我们如上图之类的崩溃，并给出它的一些相关信息。下面介绍NSException对象的几个重要的属性。
 
 - name :  用于唯一地识别异常的短字符串。名称是必需的
@@ -11,17 +16,122 @@
 
 **异常处理**
 
+![NSException](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/NSException.png)
+
+上面这幅图是官网给出的一个图
+
+- @try - 定义一个代码块，它是一个异常处理域：可能引发异常的代码。
+- @catch()- 定义一个包含代码的块，用于处理块中抛出的异常@try。参数@catch是本地抛出的异常对象; 这通常是一个NSException对象，但也可以是其他类型的对象，例如NSString对象。
+- @finally - 定义一个相关代码块，无论是否抛出异常，随后都会执行该代码块。
+- @throw - 抛出异常; 这个指令的行为几乎与raise方法相同NSException。您通常会抛出NSException对象
 
 
+最简单的使用
+```
+//异常的名称
+NSString *exceptionName = @"异常的名称";
+//异常的原因
+NSString *exceptionReason = @"我异常的原因";
+//异常的信息
+NSDictionary *exceptionUserInfo = nil;
+
+NSException *exception = [NSException exceptionWithName:exceptionName reason:exceptionReason userInfo:exceptionUserInfo];
+
+NSString *test = @"test";
+
+if ([test isEqualToString:@"test"]) {
+//抛异常
+@throw exception;
+}
+```
+![NSException2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/NSException2.png)
 
 
+系统也给我们提供了很多种异常可以直接使用
+```
+//系统提供了很多异常可以直接使用
+FOUNDATION_EXPORT NSString * const NSGenericException;
+FOUNDATION_EXPORT NSString * const NSRangeException;
+FOUNDATION_EXPORT NSString * const NSInvalidArgumentException;
+FOUNDATION_EXPORT NSString * const NSInternalInconsistencyException;
+
+FOUNDATION_EXPORT NSString * const NSMallocException;
+
+FOUNDATION_EXPORT NSString * const NSObjectInaccessibleException;
+FOUNDATION_EXPORT NSString * const NSObjectNotAvailableException;
+FOUNDATION_EXPORT NSString * const NSDestinationInvalidException;
+
+FOUNDATION_EXPORT NSString * const NSPortTimeoutException;
+FOUNDATION_EXPORT NSString * const NSInvalidSendPortException;
+FOUNDATION_EXPORT NSString * const NSInvalidReceivePortException;
+FOUNDATION_EXPORT NSString * const NSPortSendException;
+FOUNDATION_EXPORT NSString * const NSPortReceiveException;
+
+FOUNDATION_EXPORT NSString * const NSOldStyleException;
 
 
+```
+
+**用途**
+
+- 1、可以用来捕获异常，防止程序的崩溃。当你意识到某段代码可能存在崩溃的危险，那么你就可以通过捕获异常来防止程序的崩溃
+- 2、分类(category) + runtime + 异常的捕获 来防止Foundation一些常用方法使用不当而导致的崩溃。其原理就是利用category、runtime来交换两个方法，并且在方法中捕获异常进行相应的处理
 
 
+数组越界这是一个十分常见的问题，这里我们就来简单的解决一下数组越界问题
+```
+NSMutableArray *arr = [NSMutableArray arrayWithObject:@[@"1"]];
+NSLog(@"%@",arr[2]);
+
+NSLog(@"%s",__func__);
+```
+上面的代码肯定会出现下面这个错误
+![NSException3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/NSException3.png)
+
+但是我们可以在数组越界的时候进行一个`NSException`处理，那么我们的程序就不会闪退
 
 
+```
+#import "NSMutableArray+Extension.h"
+#import <objc/runtime.h>
+@implementation NSMutableArray (Extension)
 
++ (void)load {
+
+Class arrayMClass = NSClassFromString(@"__NSArrayM");
+//获取系统的添加元素的方法
+Method addObject = class_getInstanceMethod(arrayMClass, @selector(objectAtIndexedSubscript:));
+
+//获取我们自定义添加元素的方法
+Method avoidCrash = class_getInstanceMethod(arrayMClass, @selector(avoidCrashobjectAtIndexedSubscript:));
+
+method_exchangeImplementations(addObject, avoidCrash);
+
+
+}
+
+- (id)avoidCrashobjectAtIndexedSubscript:(NSUInteger)idx {
+
+@try {
+return [self avoidCrashobjectAtIndexedSubscript:idx];
+}
+@catch (NSException *exception) {
+//你可以在这里进行相应的操作处理
+NSLog(@"这里数组越界");
+NSLog(@"异常名称:%@   异常原因:%@",exception.name, exception.reason);
+}
+@finally {
+
+}
+}
+ 
+
+@end
+```
+
+![NSException4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/NSException4.png)
+
+我们可以根据`NSException`的特性写一些简单的防止崩溃的框架。
 
 
 
@@ -30,6 +140,9 @@
 
 
 [Error官网](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ErrorHandlingCocoa/ErrorHandling/ErrorHandling.html#//apple_ref/doc/uid/TP40001806)
+
 [NSException官网](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Exceptions/Tasks/RaisingExceptions.html#//apple_ref/doc/uid/20000058-BBCCFIBF)
+
 [NSException:错误处理机制---调试中以及上架后的产品如何收集错误日志](https://blog.csdn.net/lcl130/article/details/41891273)
+
 [iOS被开发者遗忘在角落的NSException-其实它很强大](https://www.jianshu.com/p/05aad21e319e)
