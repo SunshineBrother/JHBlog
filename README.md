@@ -96,13 +96,13 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - [8.7、RunTime的相关API](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/7、API.md)
 - [9、多线程](1、多线程面试题)
     - [9.1、多线程面试题](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/1、多线程面试题.md)
-    - [9.2、多线程之NSThread](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/iOS底层/2、NSThread介绍.md)
-    - [9.3、多线程之GCD](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/iOS底层/3、GCD介绍.md)
-    - [9.4、多线程之NSOperation](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/iOS底层/4、NSOperation介绍.md)
-    - [9.5、多线程之线程安全](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/iOS底层/5、线程安全.md)
-    - [9.6、死锁](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/iOS底层/6、死锁.md)
+    - [9.2、多线程之NSThread](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/2、NSThread介绍.md)
+    - [9.3、多线程之GCD](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/3、GCD介绍.md)
+    - [9.4、多线程之NSOperation](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/4、NSOperation介绍.md)
+    - [9.5、多线程之线程安全](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/5、线程安全.md)
+    - [9.6、死锁](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/6、死锁.md)
 - [10、内存管理]()  
-    - [10.1、定时器target的内存泄漏](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/内存管理/iOS底层/1、定时器.md)
+    - [10.1、定时器target的内存泄漏](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/1、定时器.md)
   
     
 
