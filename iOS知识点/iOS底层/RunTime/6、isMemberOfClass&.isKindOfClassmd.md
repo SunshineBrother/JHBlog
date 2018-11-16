@@ -37,7 +37,7 @@ return [self class] == cls;
 return object_getClass((id)self) == cls;
 }
 ```
-![isMemberOfClass](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/isMemberOfClass.png)
+![isMemberOfClass](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/isMemberOfClass.png)
 
  
 
@@ -54,7 +54,7 @@ return NO;
 }
 
 ```
-![isKindOfClass](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/isKindOfClass.png)
+![isKindOfClass](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/isKindOfClass.png)
 
 
 需要注意类的查找方式：

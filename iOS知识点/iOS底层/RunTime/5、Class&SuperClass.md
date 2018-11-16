@@ -9,7 +9,7 @@
  NSLog(@"[super superclass] = %@",[super superclass]);
  ```
  
- ![class](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/class.png)
+ ![class](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/class.png)
  
  
  要想知道为什么会出现这种打印结果，我们首先需要知道`self`、`super`、`class`、`superclass`、都代表了什么意思

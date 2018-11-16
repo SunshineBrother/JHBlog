@@ -8,7 +8,7 @@ OC中的方法调用，其实都是转化为`objc_msgSend`函数的调用，`obj
 
 ### 消息发送
 
-![消息发送1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/消息发送1.png)
+![消息发送1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/消息发送1.png)
 
 消息发送流程是我们平时最经常使用的流程，其他的像`动态方法解析`和`消息转发`其实是补救措施。具体流程如下
 - 1、首先判断消息接受者`receiver`是否为nil，如果为nil直接退出消息发送
@@ -21,7 +21,7 @@ OC中的方法调用，其实都是转化为`objc_msgSend`函数的调用，`obj
 
 ### 动态方法解析
 
-![消息发送2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/消息发送2.png)
+![消息发送2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/消息发送2.png)
 
 - 开发者可以实现以下方法，来动态添加方法实现
     - +resolveInstanceMethod:
@@ -37,7 +37,7 @@ OC中的方法调用，其实都是转化为`objc_msgSend`函数的调用，`obj
 
 我们看一下`resolveInstanceMethod`的解释，在我们需要执行`动态方法解析`的时候我们最好返回`YES`。
 
-![消息发送3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/消息发送3.png)
+![消息发送3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/消息发送3.png)
 
 ```
 - (void)other{
@@ -59,7 +59,7 @@ return [super resolveInstanceMethod:sel];
 
  在`class_addMethod`方法中我们需要`imp`，`types`，但是OC并没有提供相关属性，所有我们可以调用相关方法来获取相关参数
  
- ![消息发送4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/消息发送4.png)
+ ![消息发送4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/消息发送4.png)
 
 
 **动态方法解析2**
@@ -94,7 +94,7 @@ return [super resolveInstanceMethod:sel];
 }
 ```
 
- ![消息发送5](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/消息发送5.png)
+ ![消息发送5](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/消息发送5.png)
 
 
 **动态方法解析3**
@@ -124,7 +124,7 @@ return [super resolveInstanceMethod:sel];
 
 如果方法一个方法在`消息发送阶段`没有找到相关方法，也没有进行`动态方法解析`，这个时候就会走到消息转发阶段了。
 
- ![消息发送6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/消息发送6.png)
+ ![消息发送6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/消息发送6.png)
 
 
 - 调用`forwardingTargetForSelector`，返回值不为nil时，会调用`objc_msgSend(返回值, SEL)`
@@ -165,7 +165,7 @@ return nil;
 }
 ```
  
- ![消息发送7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/消息发送7.png)
+ ![消息发送7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/消息发送7.png)
 
 调用`forwardingTargetForSelector`，返回值不为nil时，会调用`objc_msgSend(返回值, SEL)`，结果就是调用了`objc_msgSend(Student,test)`
 
@@ -181,7 +181,7 @@ return nil;
 
  实现方法签名以后我们还要实现`forwardInvocation`方法，当调用`person`的`test`的方法的时候，就会走到这个方法中
  
-  ![消息发送8](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/消息发送8.png)
+  ![消息发送8](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/消息发送8.png)
  
  NSInvocation封装了一个方法调用，包括：方法调用者、方法名、方法参数
  - anInvocation.target 方法调用者
@@ -199,7 +199,7 @@ return nil;
  //    [anInvocation invokeWithTarget:[[Student alloc] init]];
  }
  ```
-  ![消息发送9](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/消息发送9.png)
+  ![消息发送9](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/消息发送9.png)
  
 其中这两个方法是一样的
 `[anInvocation invokeWithTarget:[[Student alloc] init]];`

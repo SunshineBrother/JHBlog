@@ -15,7 +15,7 @@
 
 
 
-我在[方法缓存](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/2、方法缓存.md)讲过，在创建一个实例对象以后，里面的成员变量就固定了，不能在修改了。因此我们在用`objc_registerClassPair`注册类的时候，我们必须把成员变量写在注册之前。
+我在[方法缓存](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/2、方法缓存.md)讲过，在创建一个实例对象以后，里面的成员变量就固定了，不能在修改了。因此我们在用`objc_registerClassPair`注册类的时候，我们必须把成员变量写在注册之前。
 简单使用，因为这里面的都是runtime底层方法写的，所有点语法和set方法都不可以使用，如果想要遍历里面的属性和方法还是需要使用`runtime`提供的方法
 
 **创建类**
@@ -50,7 +50,7 @@ object_setClass(p, [Cat class]);
 NSLog(@"%@",p);
 ```
 
-![RunTime](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/RunTime.png)
+![RunTime](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/RunTime.png)
 
 
 ### 成员变量 
@@ -82,7 +82,7 @@ free(ivars);
 - 2、常看写控件都有哪些元素，然后进行修改
 
 
-![RunTime1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/RunTime1.png)
+![RunTime1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/RunTime1.png)
 
 
 
