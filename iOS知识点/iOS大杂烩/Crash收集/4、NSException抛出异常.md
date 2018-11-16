@@ -3,7 +3,7 @@
 
 ### NSException的简单介绍
 
-![NSException1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/NSException1.png)
+![NSException1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/NSException1.png)
 
 上面这张图想必大家都不陌生吧
 其实控制台输出的日志信息就是NSException产生的，一旦程序抛出异常，程序就会崩溃，控制台就会有这些崩溃日志。
@@ -16,7 +16,7 @@
 
 **异常处理**
 
-![NSException](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/NSException.png)
+![NSException](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/NSException.png)
 
 上面这幅图是官网给出的一个图
 
@@ -44,7 +44,7 @@ if ([test isEqualToString:@"test"]) {
 @throw exception;
 }
 ```
-![NSException2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/NSException2.png)
+![NSException2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/NSException2.png)
 
 
 系统也给我们提供了很多种异常可以直接使用
@@ -86,7 +86,7 @@ NSLog(@"%@",arr[2]);
 NSLog(@"%s",__func__);
 ```
 上面的代码肯定会出现下面这个错误
-![NSException3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/NSException3.png)
+![NSException3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/NSException3.png)
 
 但是我们可以在数组越界的时候进行一个`NSException`处理，那么我们的程序就不会闪退
 
@@ -129,7 +129,7 @@ NSLog(@"异常名称:%@   异常原因:%@",exception.name, exception.reason);
 @end
 ```
 
-![NSException4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/NSException4.png)
+![NSException4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/NSException4.png)
 
 我们可以根据`NSException`的特性写一些简单的防止崩溃的框架。
 

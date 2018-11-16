@@ -9,14 +9,14 @@ LLDB 是一个有着 REPL 的特性和 C++ ,Python 插件的开源调试器。LL
 - 1、查询当前堆栈变量的值
 - 2、动态修改当前线程堆栈变量的值
 
-![LLDB1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/LLDB/LLDB1.png)
+![LLDB1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB1.png)
 
 我们在调试数据的时候，有的时候需要动态修改变量值，使用`expression`那是十分方便的调试
 
 #### `po` & `p`
 
 `po`的作用为打印对象，事实上，我们可以通过`help po`得知，`po`是`expression -O --`的简写，我们可以通过它打印出对象，而不是打印对象的指针。而值得一提的是，在 `help expression` 返回的帮助信息中，我们可以知道，`po`命令会尝试调用对象的 `description` 方法来取得对象信息，因此我们也可以重载某个对象的`description方法`，使我们调试的时候能获得可读性更强，更全面的信息
-![LLDB2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/LLDB/LLDB2.png)
+![LLDB2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB2.png)
  
 `p`即是`print`，也是`expression --`的缩写，与`po`不同，它不会打出对象的详细信息，只会打印出一个$符号，数字，再加上一段地址信息。打印对象的时候我们也可以指定特定格式
 - `x` ：十六进制打印
@@ -26,13 +26,13 @@ LLDB 是一个有着 REPL 的特性和 C++ ,Python 插件的开源调试器。LL
 - `t`:二进制形式打印
 - `f`:浮点数
 
-![LLDB3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/LLDB/LLDB3.png)
+![LLDB3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB3.png)
 
 
 ### 堆栈
 
 `bt`即是`thread backtrace`，作用是打印出当前线程的堆栈信息。
-![LLDB4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/LLDB/LLDB4.png)
+![LLDB4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB4.png)
 
 我们在打印断点的时候，我们可以在左侧看到一些堆栈信息，但是看不完全，这个时候使用`bt`指令可以打印出完整的堆栈信息
 
@@ -46,7 +46,7 @@ LLDB 是一个有着 REPL 的特性和 C++ ,Python 插件的开源调试器。LL
 `thread return <expr>`
 在这个断点中，我们可以执行 `thread return NO`让该函数调用直接返回`NO `，在调试中轻松覆盖任何函数的返回路径。
 
- ![LLDB5](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/LLDB/LLDB5.png)
+ ![LLDB5](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB5.png)
 
 `frame`即是帧，其实就是当前的程序堆栈，我们输入`bt`命令，打印出来的其实是当前线程的`frame`。
  - 展示当前作用域下的参数和局部变量
@@ -76,9 +76,9 @@ LLDB 是一个有着 REPL 的特性和 C++ ,Python 插件的开源调试器。LL
 ```
 frame select num（1，2，3.）
 ```
- ![LLDB7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/LLDB/LLDB7.png)
+ ![LLDB7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB7.png)
  
-  ![LLDB6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/LLDB/LLDB6.png)
+  ![LLDB6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB6.png)
 
 
 
@@ -88,7 +88,7 @@ frame select num（1，2，3.）
 所有调试都是由断点开始的，我们接触的最多，就是以breakpoint命令为基础的断点。
 一般我们对breakpoint命令使用得不多，而是在XCode的GUI界面中直接添加断点。除了直接触发程序暂停供调试外，我们可以进行进一步的配置。
 
-![LLDB8](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/LLDB/LLDB8.png)
+![LLDB8](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB8.png)
 
 - 添加condition，一般用于多次调用的函数或者循坏的代码中，在作用域内达到某个条件，才会触发程序暂停
 - 忽略次数，这个很容易理解，在忽略触发几次后再触发暂停

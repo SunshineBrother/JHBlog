@@ -46,7 +46,7 @@
 ```
 
 
-![Crash日志](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/Crash日志.png)
+![Crash日志](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/Crash日志.png)
 
 
 1、当编译器将源代码转换为机器代码时，它还会生成调试符号，这些符号将编译后的二进制文件中的每个机器指令映射回源自它的源代码行。根据Debug Information Format（DEBUG_INFORMATION_FORMAT）构建设置，这些调试符号存储在二进制文件或伴随的Debug Symbol（dSYM）文件中。默认情况下，应用程序的调试版本将调试符号存储在已编译的二进制文件中，而应用程序的发布版本将调试符号存储在配套dSYM文件中以减小二进制文件大小。
@@ -76,7 +76,7 @@ Bitcode是编译程序的中间表示。当您使用bitcode存档应用程序时
 
 
 
-![Crash日志1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/Crash日志1.png)
+![Crash日志1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/Crash日志1.png)
 
 
 由于二进制文件的最终编译发生在App Store上，因此Mac不会包含用于表示dSYM从App Review收到的崩溃报告或从其设备向您发送崩溃报告的用户所需的调试符号（）文件。虽然dSYM归档应用程序时会生成一个文件，但它是用于bitcode二进制文件，不能用于表示崩溃报告。App Store使dSYM您可以从Xcode或iTunes Connect网站下载bitcode编译期间生成的文件。您必须下载这些dSYM文件，以便表示从App Review或从其设备向您发送崩溃报告的用户收到的崩溃报告。通过崩溃报告服务收到的崩溃报告将自动进行符号化。
@@ -121,7 +121,7 @@ xcrun dsymutil -symbol-map~ / Library / Developer / Xcode / Archives / 2017-11-2
 显然，您应该尝试完全符合您收到的任何崩溃报告，因为它将提供有关崩溃的最深入见解。部分符号化的崩溃报告可能包含足够的信息来了解崩溃，具体取决于崩溃的类型以及成功符号化的回溯的哪些部分。非符号化的崩溃报告很少有用
 
 
-![Crash日志2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/Crash日志2.png)
+![Crash日志2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/Crash日志2.png)
 
 
 #### 用Xcode标记iOS崩溃报告
@@ -158,7 +158,7 @@ Xcode不接受没有.crash扩展名的崩溃报告。如果您收到没有扩展
 - 2、在崩溃报告底部的二进制图像列表中查找具有该名称的二进制图像。请注意二进制映像的体系结构和加载地址。
 
 
-![Crash日志3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/Crash日志3.png)
+![Crash日志3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/Crash日志3.png)
 
 
 
@@ -166,7 +166,7 @@ Xcode不接受没有.crash扩展名的崩溃报告。如果您收到没有扩展
 如果Xcode未能完全符合崩溃报告，可能是因为您的Mac缺少dSYM应用程序二进制dSYM文件的文件，应用程序链接的一个或多个框架的文件，或者应用程序运行的OS的设备符号它坠毁了。以下步骤显示如何使用Spotlight确定dSYM在Mac上是否存在表示二进制图像中的回溯地址所需的文件。
 
 
-![Crash日志4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/Crash日志4.png)
+![Crash日志4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/Crash日志4.png)
 
 - 1、在回溯中找到Xcode无法符号化的行。请注意第二列中二进制图像的名称
 - 2、在崩溃报告底部的二进制图像列表中查找具有该名称的二进制图像。此列表包含崩溃时加载到进程中的每个二进制映像的UUID。
