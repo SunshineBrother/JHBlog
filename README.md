@@ -104,6 +104,12 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - [9.7、GCD高级用法](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/7、GCD高级用法.md)
 - [10、内存管理]()  
     - [10.1、定时器target的内存泄漏](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/1、定时器.md)
+    - [10.2、Tagged Pointer](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/2、tagged%20pointer.md)
+    - [10.3、copy&retain&strong原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/3、copy%26retain%26strong原理.md)
+    - [10.4、weak&assign原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/4、weak%26assign原理.md)
+    - [10.5、@property 的本质是什么](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/5、%40property%20的本质是什么.md)
+    - [10.6、autorelease原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/6、autorelease原理.md)
+    - [10.7、ARC都帮我们做了什么](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/7、ARC都帮我们做了什么.md)
   
     
 
