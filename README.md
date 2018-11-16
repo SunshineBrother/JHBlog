@@ -109,16 +109,16 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 
 ### iOS大杂烩
 
-- 1、[LLDB使用](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/LLDB/LLDB.md)
+- 1、[LLDB使用](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB.md)
 - 2、[基本数据类型](https://github.com/SunshineBrother/JHBlog/blob/master/iOS%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%89%93%E5%8D%B0%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
-- 3、[App信息监控](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/App需要监控信息.md)
+- 3、[App信息监控](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/App需要监控信息.md)
 - 4、[Crash系列]()
-    - [1、Crash产生原因](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/1、Crash产生原因.md)
-    - [2、Crash日志收集](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/2、Crash日志收集.md)
-    - [3、Crash日志分析](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/3、Crash日志分析.md)
-    - [4、NSException抛出异常](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/Crash收集/4、NSException抛出异常.md)
-- 5、[armv7,armv7s,arm64,i386,x86_64 简单了解](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/armv7%2Carmv7s%2Carm64%2Ci386%2Cx86_64.md)
-- 6、[performSelector的原理以及用法](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/performSelector的原理以及用法.md)
+    - [1、Crash产生原因](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/1、Crash产生原因.md)
+    - [2、Crash日志收集](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/2、Crash日志收集.md)
+    - [3、Crash日志分析](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/3、Crash日志分析.md)
+    - [4、NSException抛出异常](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/4、NSException抛出异常.md)
+- 5、[armv7,armv7s,arm64,i386,x86_64 简单了解](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/armv7%2Carmv7s%2Carm64%2Ci386%2Cx86_64.md)
+- 6、[performSelector的原理以及用法](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/performSelector的原理以及用法.md)
   
 
 ******************************************************************************************************************
