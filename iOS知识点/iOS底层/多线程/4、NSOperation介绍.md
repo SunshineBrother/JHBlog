@@ -97,7 +97,7 @@ NSLog(@"当前线程:%@",[NSThread currentThread]);
 }
 ```
 
-![NSOperation1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/NSOperation1.png)
+![NSOperation1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/NSOperation1.png)
 
 
 
@@ -109,7 +109,7 @@ NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(Oper
 //启动线程
 [thread start];
 ```
-![NSOperation2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/NSOperation2.png)
+![NSOperation2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/NSOperation2.png)
 
 
 **总结**：在没有使用 `NSOperationQueue`、在主线程中单独使用使用子类 `NSInvocationOperation` 执行一个操作的情况下，操作是在当前线程执行的，并`没有开启新线程`。
@@ -130,7 +130,7 @@ NSLog(@"当前线程:%@",[NSThread currentThread]);
 }
 ```
 
-![NSOperation3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/NSOperation3.png)
+![NSOperation3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/NSOperation3.png)
 
 
 ```
@@ -140,7 +140,7 @@ NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(Oper
 //启动线程
 [thread start];
 ```
-![NSOperation4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/NSOperation4.png)
+![NSOperation4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/NSOperation4.png)
 
 
 **总结**：在没有使用 `NSOperationQueue`、在主线程中单独使用使用子类 `NSBlockOperation` 执行一个操作的情况下，操作是在当前线程执行的，并`没有开启新线程`。
@@ -176,7 +176,7 @@ NSLog(@"当前线程4：%@", [NSThread currentThread]); // 打印当前线程
 ```
 
 
-![NSOperation5](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/NSOperation5.png)
+![NSOperation5](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/NSOperation5.png)
 
 #### 自定义继承自 NSOperation 的子类
 
@@ -260,7 +260,7 @@ NSLog(@"当前线程3:%@",[NSThread currentThread]);
 }
 ```
 
-![NSOperation6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/NSOperation6.png)
+![NSOperation6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/NSOperation6.png)
 
 
 **addOperationWithBlock**
@@ -343,7 +343,7 @@ NSLog(@"当前线程3:%@",[NSThread currentThread]);
 上面`op3`依赖`op1&op2`执行完成才能执行
 
 
-![NSOperation7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/NSOperation7.png)
+![NSOperation7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/NSOperation7.png)
 
 
 

@@ -51,7 +51,7 @@ NSLog(@"Thread Task Complete");
 }
 ```
 
-![NSThread1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/NSThread1.png)
+![NSThread1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/NSThread1.png)
 
 
 #### 常见API
@@ -117,12 +117,12 @@ NSThread *current = [NSThread currentThread];
 
 当我们新建一条线程NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];，在内存中的表现为：
 
- ![NSThread2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/NSThread2.png)
+ ![NSThread2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/NSThread2.png)
 
 当调用[thread start];后，系统把线程对象放入可调度线程池中，线程对象进入就绪状态，如下图所示。
 
 
- ![NSThread3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/NSThread3.png)
+ ![NSThread3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/NSThread3.png)
 
 - 如果CPU现在调度当前线程对象，则当前线程对象进入运行状态，如果CPU调度其他线程对象，则当前线程对象回到就绪状态。
 - 如果CPU在运行当前线程对象的时候调用了sleep方法\等待同步锁，则当前线程对象就进入了阻塞状态，等到sleep到时\得到同步锁，则回到就绪状态。

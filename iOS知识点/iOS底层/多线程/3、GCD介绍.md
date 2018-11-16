@@ -94,7 +94,7 @@ dispatch_queue_t queue = dispatch_get_main_queue();
 dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 ```
 
-![GCD](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/GCD.png)
+![GCD](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/GCD.png)
 
 `使用sync函数往当前串行队列中添加任务，会卡住当前的串行队列（产生死锁`
 
@@ -122,7 +122,7 @@ NSLog(@"2---%@",[NSThread currentThread]);
 });
 ```
 
-![GCD1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/GCD1.png)
+![GCD1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/GCD1.png)
 
 根据打印结果可知，`同步串行队列即没有开启新的线程，也没有异步执行`
  
@@ -145,7 +145,7 @@ NSLog(@"2---%@",[NSThread currentThread]);
 }
 });
 ```
-![GCD1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/GCD1.png)
+![GCD1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/GCD1.png)
 
  
 根据两种打印我们发现：`同步函数`既不会开启新的线程，也不会执行并发任务
@@ -169,7 +169,7 @@ NSLog(@"2====%@",[NSThread currentThread]);      // 打印当前线程
 
 });
 ```
-![GCD2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/GCD2.png)
+![GCD2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/GCD2.png)
 
 结果：`有开启新的线程，串行执行任务`
 
@@ -194,7 +194,7 @@ NSLog(@"2====%@",[NSThread currentThread]);      // 打印当前线程
 });
 ```
 
-![GCD3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/GCD3.png)
+![GCD3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/GCD3.png)
 
 结果：`有开启新的线程，并发执行任务`。想要出现明显的并发执行效果，可以`sleep`一下
 
@@ -220,7 +220,7 @@ NSLog(@"执行任务3");
 ```
  
 
-![GCD4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/GCD4.png)
+![GCD4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/GCD4.png)
 
 `dispatch_sync立马在当前线程同步执行任务`
 
@@ -230,7 +230,7 @@ NSLog(@"执行任务3");
 
 其中在主队列`viewDidLoad`里面的`任务3`执行结束才会执行`任务2`；而主线程中是执行完`sync`才会执行`任务3`。也就是`任务2`等待`任务3`执行，`任务3`再也等待`任务2`执行，造成死锁
 
-![GCD5](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/GCD5.png)
+![GCD5](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/GCD5.png)
 
 
 【问题2】：以下代码是在主线程执行的，会不会产生死锁？不会！
@@ -273,7 +273,7 @@ NSLog(@"执行任务4");
 
 NSLog(@"执行任务5");
 ```
-![GCD6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/GCD6.png)
+![GCD6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/GCD6.png)
 
 其中`执行任务3`和`执行任务4`之间造成死锁
 
@@ -334,7 +334,7 @@ NSLog(@"2---%@",[NSThread currentThread]);      // 打印当前线程
 
 #### 5.1、GCD 栅栏方法：`dispatch_barrier_async`
 
-![GCD7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/GCD7.png)
+![GCD7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/GCD7.png)
 
 
 就是我们在异步执行一些操作的时候，我们使用`dispatch_barrier_async`函数把异步操作暂时性的做成同步操作，就行一个`栅栏`一样分开
@@ -370,7 +370,7 @@ NSLog(@"write");
 }
 
 ```
-![GCD8](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/GCD8.png)
+![GCD8](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/GCD8.png)
 我们观察时间可以看到在执行`dispatch_barrier_async`写操作的时候是同步执行的，不会出现异步情况
 
 #### 5.2、GCD 延时执行方法：dispatch_after
