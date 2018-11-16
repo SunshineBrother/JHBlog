@@ -79,30 +79,30 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 虽然GNUstep不是苹果官方源码，但还是具有一定的参考价值
 
 ### iOS底层
-- [1、一个NSObject对象占用多少内存](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/1、一个NSObject对象占用多少内存.md)
-- [2、OC对象的分类](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/2、OC对象的分类.md)
-- [3、KVO实现原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/3、KVO.md)
-- [4、KVC实现原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/4、KVC.md)
-- [5、分类](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/5、分类.md)
-- [6、Block底层解密](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/7、Block底层解密.md)
- - [7、RunLoop](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/8、RunLoop.md)
- - [8、RunTime](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/0、运行时.md)
-    - [8.1、isa解析](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/1、isa.md)
-    - [8.2、方法缓存](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/2、方法缓存.md)
-    - [8.3、objc_msgSend执行流程](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/3、objc_msgSend执行流程.md)
-    - [8.4、@dynamic关键字](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/4、@dynamic关键字.md)
-    - [8.5、Class和SuperClass区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/5、Class%26SuperClass.md)
-    - [8.6、isKindOfClass和isMemberOfClass区别 ](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/6、isMemberOfClass%26.isKindOfClassmd.md)
-    - [8.7、RunTime的相关API](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/RunTime/7、API.md)
+- [1、一个NSObject对象占用多少内存](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/1、一个NSObject对象占用多少内存.md)
+- [2、OC对象的分类](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/2、OC对象的分类.md)
+- [3、KVO实现原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/3、KVO.md)
+- [4、KVC实现原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/4、KVC.md)
+- [5、分类](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/5、分类.md)
+- [6、Block底层解密](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/7、Block底层解密.md)
+ - [7、RunLoop](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/8、RunLoop.md)
+ - [8、RunTime](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/0、运行时.md)
+    - [8.1、isa解析](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/1、isa.md)
+    - [8.2、方法缓存](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/2、方法缓存.md)
+    - [8.3、objc_msgSend执行流程](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/3、objc_msgSend执行流程.md)
+    - [8.4、@dynamic关键字](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/4、@dynamic关键字.md)
+    - [8.5、Class和SuperClass区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/5、Class%26SuperClass.md)
+    - [8.6、isKindOfClass和isMemberOfClass区别 ](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/6、isMemberOfClass%26.isKindOfClassmd.md)
+    - [8.7、RunTime的相关API](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/7、API.md)
 - [9、多线程](1、多线程面试题)
-    - [9.1、多线程面试题](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/1、多线程面试题.md)
-    - [9.2、多线程之NSThread](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/2、NSThread介绍.md)
-    - [9.3、多线程之GCD](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/3、GCD介绍.md)
-    - [9.4、多线程之NSOperation](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/4、NSOperation介绍.md)
-    - [9.5、多线程之线程安全](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/5、线程安全.md)
-    - [9.6、死锁](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/6、死锁.md)
+    - [9.1、多线程面试题](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/1、多线程面试题.md)
+    - [9.2、多线程之NSThread](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/iOS底层/2、NSThread介绍.md)
+    - [9.3、多线程之GCD](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/iOS底层/3、GCD介绍.md)
+    - [9.4、多线程之NSOperation](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/iOS底层/4、NSOperation介绍.md)
+    - [9.5、多线程之线程安全](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/iOS底层/5、线程安全.md)
+    - [9.6、死锁](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/多线程/iOS底层/6、死锁.md)
 - [10、内存管理]()  
-    - [10.1、定时器](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/内存管理/1、定时器.md)
+    - [10.1、定时器target的内存泄漏](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/内存管理/iOS底层/1、定时器.md)
   
     
 
@@ -136,7 +136,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 ## 实用文章
  **博客**
 - 1、[Swift 文章精选](https://github.com/ipader/SwiftGuide/blob/master/Featured-Articles.md)
-
+- 2、[一个国外视频学习网站](https://academy.realm.io/cn/section/apple/)
 
 
 **UI界面**
