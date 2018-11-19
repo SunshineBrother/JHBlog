@@ -102,6 +102,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - [9.5、多线程之线程安全](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/5、线程安全.md)
     - [9.6、死锁](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/6、死锁.md)
     - [9.7、GCD高级用法](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/7、GCD高级用法.md)
+    - [9.8、线程之间的通讯](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/8、线程之间的通讯.md)
 - [10、内存管理]()  
     - [10.1、定时器target的内存泄漏](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/1、定时器.md)
     - [10.2、Tagged Pointer](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/2、tagged%20pointer.md)
@@ -202,6 +203,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 8、[页面间跳转的性能优化(二)](https://www.jianshu.com/p/92532c2b1d55)
 - 9、[iOS 瘦包常见方式梳理](https://mp.weixin.qq.com/s?__biz=MzA5NzMwODI0MA==&mid=2647761547&idx=1&sn=2f84d8b9eeb134ed0c5cb7142ef0caa9&chksm=8887d9b4bff050a2cc850ab243282f25894cc5eae5596e1b3ad52a6a69de030bbc571d1f74be#rd)
 
+
 **性能检测工具**
 - 1、[Allocations:分析静态内存分配](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Instruments/Allocations.md)
 
@@ -254,6 +256,20 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
  
   **其他**
   - 1、[聊聊移动端跨平台开发的各种技术](http://fex.baidu.com/blog/2015/05/cross-mobile/)
+ 
+ 
+ ## 大公司架构
+ 
+ **支付宝客户端架构解析**
+- 1、[开篇 | 模块化与解耦式开发在蚂蚁金服 mPaaS 深度实践探讨](https://juejin.im/post/5bc41d80f265da0aaa053ca5)
+- 2、[口碑 App 各 Bundle 之间的依赖分析指南](https://juejin.im/post/5bc5c46be51d450e95105048)
+- 3、[源码剖析 | 蚂蚁金服 mPaaS 框架下的 RPC 调用历程](https://juejin.im/post/5bc850caf265da0abf7d195d)
+- 4、[支付宝移动端动态化方案实践](https://juejin.im/post/5bd3f516518825279a5f9694)
+- 5、[支付宝客户端架构解析：iOS 容器化框架初探](https://juejin.im/post/5bdc19cbf265da614b117217)
+- 5、[支付宝客户端架构解析：iOS 客户端启动性能优化初探](https://juejin.im/post/5bee3825e51d456d6b6f9486)
+
+
+
  
 *********************************************************
  
