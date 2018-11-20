@@ -223,7 +223,8 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 5、[iOS组件化方案](https://mp.weixin.qq.com/s?__biz=MzA5NzMwODI0MA==&mid=2647761549&idx=1&sn=90880890bb0de4c03bc94a9105ce78bc&chksm=8887d9b2bff050a4b42dbef4e69635dc53d3360e88ce7f6fef30bb8b257b59321c9a13ef0f34#rd)
 
 
-
+**设计模式**
+- 1、[深度重构UIViewController](https://zhuanlan.zhihu.com/p/23161172)
 
  **事件执行**
  - 1、[iOS触摸事件全家桶](https://www.jianshu.com/p/c294d1bd963d)
@@ -278,14 +279,10 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 
 
 - 1、[如何优雅地使用Sublime Text](https://github.com/SunshineBrother/JHBlog/blob/master/工具/如何优雅地使用Sublime%20Text.md)
-
 - 2、[官方 Swift 风格指南](https://github.com/SunshineBrother/JHBlog/blob/master/工具/官方%20Swift%20风格指南.md)
-
 - 3、[iOS 程序员效率提升利器之 AppleScript](http://mrpeak.cn/blog/ios-applescript/)
-
 - 4、[NPM 使用介绍](http://www.runoob.com/nodejs/nodejs-npm.html)
-
- 
+ - 5、[免费API](https://www.apishop.net/#/)
 
 
 
