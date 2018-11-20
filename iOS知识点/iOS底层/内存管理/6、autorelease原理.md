@@ -133,10 +133,111 @@ uint32_t hiwat;
 - 3、调用push方法会将一个`POOL_BOUNDARY`入栈，并且返回其存放的内存地址
 - 4、调用pop方法时传入一个`POOL_BOUNDARY`的内存地址，会从最后一个入栈的对象开始发送release消息，直到遇到这个`POOL_BOUNDARY`
 - 5、`id *next`指向了下一个能存放`autorelease对象地址`的区域  
+- 6、`AutoreleasePoolPage` 空间被占满时，会以链表的形式新建链接一个 `AutoreleasePoolPage` 对象，然后将`新的autorelease对象的地址`存在`child`指针
+
+
 
 ![AutoreleasePool2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/AutoreleasePool2.png)
 
 
+**push()函数实现**
+```
+static inline void *push() 
+{
+id *dest;
+if (DebugPoolAllocation) {
+// Each autorelease pool starts on a new pool page.
+dest = autoreleaseNewPage(POOL_BOUNDARY);
+} else {
+dest = autoreleaseFast(POOL_BOUNDARY);
+}
+assert(dest == EMPTY_POOL_PLACEHOLDER || *dest == POOL_BOUNDARY);
+return dest;
+}
+```
+- 1、在`DebugPoolAllocation`线程池满了以后，会调用`autoreleaseNewPage(POOL_BOUNDARY)`来创建一个新的线程池。
+- 2、线程池没有满的时候调用`autoreleaseFast`函数，以栈的形式压入线程池中。
+- 3、`POOL_BOUNDARY`的宏定义为`#define POOL_BOUNDARY nil`。
+
+**pop()函数**
+
+
+```
+// 简化后
+static inline void pop(void *token) 
+{   
+AutoreleasePoolPage *page;
+id *stop;
+page = pageForPointer(token);
+stop = (id *)token;
+// 1.根据 token，也就是上文的占位 POOL_BOUNDARY 释放 `autoreleased` 对象
+page->releaseUntil(stop);
+
+// hysteresis: keep one empty child if page is more than half full
+// 2.释放 `Autoreleased` 对象后，销毁多余的 page。
+if (page->lessThanHalfFull()) {
+page->child->kill();
+}
+else if (page->child->child) {
+page->child->child->kill();
+}
+}
+ 
+```
+来到 releaseUntil(...) 内部：
+```
+// 简化后
+void releaseUntil(id *stop) 
+{
+// 1.
+while (this->next != stop) {
+AutoreleasePoolPage *page = hotPage();
+// 2.
+while (page->empty()) {
+page = page->parent;
+setHotPage(page);
+}
+// 3.
+if (obj != POOL_BOUNDARY) {
+objc_release(obj);
+}
+}
+// 4.
+setHotPage(this);
+}
+```
+
+- 1、外部循环挨个遍历 autoreleased 对象，直到遍历到 stop 这个 `POOL_BOUNDARY` 。
+- 2、如果当前 `hatPage` 没有 `POOL_BOUNDARY`，将 `hatPage` 设置为父节点。
+- 3、给当前 `autoreleased` 对象发送` release `消息。
+- 4、再次配置 `hatPage`。
+
+
+ 代码大概就是这样
+ ```
+ int main(int argc, const char * argv[]) {
+ @autoreleasepool {//r1 = push()
+ Person *p1 = [[[Person alloc]init] autorelease];
+ Person *p2 = [[[Person alloc]init] autorelease];
+ @autoreleasepool {//r2 = push()
+ Person *p3 = [[[Person alloc]init] autorelease];
+ @autoreleasepool {//r3 = push()
+ Person *p4 = [[[Person alloc]init] autorelease];
+ }//pop(r3)
+ }//pop(r2)
+ }//pop(r1)
+ 
+ return 0;
+ }
+
+ ```
+每次 Push 后，都会先添加一个 POOL_BOUNDARY 来占位，是为了对应一次 Pop 的释放，例如图中的 page 就需要两次 Pop 然后完全的释放
+
+
+![AutoreleasePool3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/AutoreleasePool3.png)
+
+
+### AutoreleasePool 和 runloop
 
 
 
