@@ -117,12 +117,12 @@ AutoreleasePoolPage::pop(ctxt);
 ```
 class AutoreleasePoolPage 
 {
-magic_t const magic;
-id *next;
-pthread_t const thread;
-AutoreleasePoolPage * const parent;
-AutoreleasePoolPage *child;
-uint32_t const depth;
+magic_t const magic;//用于数据校验
+id *next;//栈顶地址
+pthread_t const thread;//所在的线程
+AutoreleasePoolPage * const parent;//父对象
+AutoreleasePoolPage *child;//子对象
+uint32_t const depth;//page的序号？
 uint32_t hiwat;
 // ...
 }
@@ -155,9 +155,29 @@ assert(dest == EMPTY_POOL_PLACEHOLDER || *dest == POOL_BOUNDARY);
 return dest;
 }
 ```
+
 - 1、在`DebugPoolAllocation`线程池满了以后，会调用`autoreleaseNewPage(POOL_BOUNDARY)`来创建一个新的线程池。
 - 2、线程池没有满的时候调用`autoreleaseFast`函数，以栈的形式压入线程池中。
-- 3、`POOL_BOUNDARY`的宏定义为`#define POOL_BOUNDARY nil`。
+
+```
+static inline id *autoreleaseFast(id obj)
+{
+AutoreleasePoolPage *page = hotPage();
+if (page && !page->full()) {
+return page->add(obj);
+} else if (page) {
+return autoreleaseFullPage(obj, page);
+} else {
+return autoreleaseNoPage(obj);
+}
+}
+```
+- 有 hotPage 并且当前 page 不满，调用 page->add(obj) 方法将对象添加至 AutoreleasePoolPage 的栈中
+- 有 hotPage 并且当前 page 已满，调用 autoreleaseFullPage 初始化一个新的页，调用 page->add(obj) 方法将对象添加至 AutoreleasePoolPage 的栈中
+- 无 hotPage，调用 autoreleaseNoPage 创建一个 hotPage，调用 page->add(obj) 方法将对象添加至 AutoreleasePoolPage 的栈中
+
+ 
+
 
 **pop()函数**
 
@@ -236,10 +256,109 @@ setHotPage(this);
 
 ![AutoreleasePool3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/AutoreleasePool3.png)
 
+有一个私有变量，我们可以打印线程池内容`extern void _objc_autoreleasePoolPrint(void);`
 
-### AutoreleasePool 和 runloop
+```
+int main(int argc, const char * argv[]) {
+@autoreleasepool {//r1 = push()
+Person *p1 = [[[Person alloc]init] autorelease];
+Person *p2 = [[[Person alloc]init] autorelease];
+@autoreleasepool {//r2 = push()
+Person *p3 = [[[Person alloc]init] autorelease];
+@autoreleasepool {//r3 = push()
+Person *p4 = [[[Person alloc]init] autorelease];
+_objc_autoreleasePoolPrint();
+}//pop(r3)
+}//pop(r2)
+}//pop(r1)
+
+return 0;
+}
 
 
+```
+
+![AutoreleasePool4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/AutoreleasePool4.png)
+
+
+### AutoreleasePool 和 Runloop
+
+在MRC下，这段代码的打印顺序
+```
+- (void)viewDidLoad {
+[super viewDidLoad];
+
+Person *p = [[[Person alloc]init] autorelease];
+NSLog(@"%s",__func__);
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+[super viewWillAppear:animated];
+NSLog(@"%s", __func__);
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+[super viewDidAppear:animated];
+NSLog(@"%s", __func__);
+}
+```
+什么时候打印`Person`的`dealloc`方法以及各个方法的打印顺序。
+
+![AutoreleasePool5](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/AutoreleasePool5.png)
+
+在ARC环境下打印结果为
+
+![AutoreleasePool6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/AutoreleasePool6.png)
+
+我们可以猜测在ARC环境下，编译器会帮我们做一些操作，就是在`viewDidLoad`结束之前帮我们`release`
+
+```
+- (void)viewDidLoad {
+[super viewDidLoad];
+Person *p = [[Person alloc]init];
+NSLog(@"%s",__func__);
+[p release];
+}
+```
+ 
+ 我们来探究一下ARC下什么时候`AutoreleasePool`的工作原理。我们打印一下当前RunLoop`[NSRunLoop currentRunLoop]`
+
+![AutoreleasePool7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/AutoreleasePool7.png)
+
+
+
+注意观察图中 Observer 观察的状态，上面的是 `activities = 0x1`，下面的是 `activities = 0xa0`。
+
+RunLoop的状态枚举
+```
+typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity) {
+kCFRunLoopEntry = (1UL << 0),              // 1
+kCFRunLoopBeforeTimers = (1UL << 1),       // 2
+kCFRunLoopBeforeSources = (1UL << 2),      // 4
+kCFRunLoopBeforeWaiting = (1UL << 5),      // 32
+kCFRunLoopAfterWaiting = (1UL << 6),       // 64
+kCFRunLoopExit = (1UL << 7),               // 128
+kCFRunLoopAllActivities = 0x0FFFFFFFU
+};
+
+```
+
+- `0x1 （等于1）`对应的是` kCFRunLoopEntry `，第一个 Observer 监视的即将进入Loop时，，其回调内会调用  `_objc_autoreleasePoolPush() `   创建一个自动释放池。其 order 是 `-2147483647`，优先级最高，保证创建缓存池发生在其他所有回调之前。
+- `0xa0`（16进制等于160，等于32+128） 对应的是 `kCFRunLoopBeforeWaiting&kCFRunLoopExit`，第二个 Observer 监视了两个事件： 准备进入休眠时调用 `_objc_autoreleasePoolPop() ` 和 `_objc_autoreleasePoolPush() `释放旧的池并创建新池；即将退出Loop时调用` _objc_autoreleasePoolPop() `来释放自动释放池。这个 Observer 的 order 是 `2147483647`，优先级最低，保证其释放缓存池发生在其他所有回调之后。
+
+ 
+ **具体步骤**
+ - 1、iOS在主线程的Runloop中注册了2个Observer
+ - 2、第1个Observer监听了kCFRunLoopEntry事件，会调用objc_autoreleasePoolPush()
+ - 3、第2个Observer监听了kCFRunLoopBeforeWaiting事件，会调用objc_autoreleasePoolPop()、objc_autoreleasePoolPush() 监听了kCFRunLoopBeforeExit事件，会调用objc_autoreleasePoolPop()
+ 
+ `autoreleased 对象是在 runloop 的即将进入休眠时进行释放的`
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
