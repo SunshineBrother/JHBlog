@@ -1,7 +1,7 @@
 ## Load和Initialize实现原理 
 
 
-### +Load方法
+### +Load实现原理
 
 > +load方法会在`runtime`加载`类`、`分类`时调用
 
@@ -250,8 +250,142 @@ loading = NO;
 
 
 
+### Initialize实现原理 
+
+> +initialize方法会在类`第一次接收到消息`时调用
+
+
+**调用顺序**
+- 先调用父类的+initialize，再调用子类的+initialize(先初始化父类，再初始化子类，每个类只会初始化1次)
+- +initialize和+load的很大区别是，+initialize是通过objc_msgSend进行调用的，所以有以下特点
+    - 如果子类没有实现+initialize，会调用父类的+initialize（所以父类的+initialize可能会被调用多次）
+    - 如果分类实现了+initialize，就覆盖类本身的+initialize调用
+
+**objc4源码解读过程**
+
+objc-runtime-new.mm
+- class_getInstanceMethod
+- lookUpImpOrNil
+- lookUpImpOrForward
+- _class_initialize
+- callInitialize
+- objc_msgSend(cls, SEL_initialize)
+
+我们在`objc-runtime-new.mm`文件中找到`class_getInstanceMethod`，里面就有一个主要实现方法`lookUpImpOrNil`
+
+```
+Method class_getInstanceMethod(Class cls, SEL sel)
+{
+if (!cls  ||  !sel) return nil;
+#warning fixme build and search caches
+lookUpImpOrNil(cls, sel, nil, 
+NO/*initialize*/, NO/*cache*/, YES/*resolver*/);
+#warning fixme build and search caches
+return _class_getMethod(cls, sel);
+}
+```
+里面没有什么实现我们继续点击`lookUpImpOrNil`进入实现
+```
+IMP lookUpImpOrNil(Class cls, SEL sel, id inst, 
+bool initialize, bool cache, bool resolver)
+{
+IMP imp = lookUpImpOrForward(cls, sel, inst, initialize, cache, resolver);
+if (imp == _objc_msgForward_impcache) return nil;
+else return imp;
+}
+```
+
+里面好像还是没有我们想要的具体实现，继续点击`lookUpImpOrForward`查看实现
+```
+if (initialize  &&  !cls->isInitialized()) {
+runtimeLock.unlockRead();
+_class_initialize (_class_getNonMetaClass(cls, inst));
+runtimeLock.read();
+}
+```
+这个里面有一个`if`判断里面有一些东西，就是在没有实现`isInitialized`的时候，调用`_class_initialize`方法，我们点击进入查看相关实现
+```
+if (supercls  &&  !supercls->isInitialized()) {
+_class_initialize(supercls);
+}
+```
+```
+callInitialize(cls);
+```
+里面有这两个主要的函数
+- 1、第一个是判断是否存在父类，以及父类是否实现`initialize`方法，如果没有实现就去实现
+- 2、去实现自己的`initialize`方法。
 
 
 
+我们在点击`callInitialize`发现具体是通过`objc_msgSend`来实现的。
+```
+void callInitialize(Class cls)
+{
+((void(*)(Class, SEL))objc_msgSend)(cls, SEL_initialize);
+asm("");
+}
+```
+
+**Demo**
+测试案例1
+我们创建父类`Person`，然后创建子类`Student`&`Teacher`，子类不实现`initialize`方法，父类实现该方法
+```
+[Teacher alloc];
+[Student alloc];
+```
+
+![initialize](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/分类/initialize.png)
+
+结果打印三次`[Person initialize]`方法，打印一次我们是能够想到了，因为实现过程是先看看父类有没有已经实现，如果没有实现就先实现父类的。但是另外两次是怎么来的呢。
+
+`[Student alloc]`的实现大概是这样的
+```
+objc_msgSend([Person class], @selector(initialize));
+objc_msgSend([Student class], @selector(initialize));
+```
+- 1、第一步就是实现父类的`initialize`方法
+- 2、第二步，Student先查找自己元类有没有`initialize`方法，如果自己元类没有实现，就向上查找父类元类有没有`initialize`方法，如果有就执行，没有继续向上查找 
+
+
+
+测试案例2
+
+我们创建父类`Person`，然后创建分类`Person+Eat`，都是实现`initialize`方法
+```
+[Person alloc];
+```
+
+![initialize2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/分类/initialize2.png)
+
+这句代码就是证明了`如果分类实现了+initialize，就覆盖类本身的+initialize调用`
+
+
+
+### 总结
+
+
+load、initialize方法的区别什么？
+- 1.调用方式
+ - 1> load是根据函数地址直接调用
+- 2> initialize是通过objc_msgSend调用
+
+-2.调用时刻
+    - 1> load是runtime加载类、分类的时候调用（只会调用1次）
+    - 2> initialize是类第一次接收到消息的时候调用，每一个类只会initialize一次（父类的initialize方法可能会被调用多次）
+
+load、initialize的调用顺序？
+
+1.load
+- 1> 先调用类的load
+    - a) 先编译的类，优先调用load
+    - b) 调用子类的load之前，会先调用父类的load
+
+- 2> 再调用分类的load
+    - a) 先编译的分类，优先调用load
+
+2.initialize
+- 1> 先初始化父类
+- 2> 再初始化子类（可能最终调用的是父类的initialize方法）
 
 
