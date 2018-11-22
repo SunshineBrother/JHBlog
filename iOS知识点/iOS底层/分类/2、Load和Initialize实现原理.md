@@ -224,19 +224,29 @@ loading = NO;
     - 2、`Teacher`
 
 
+编译顺序
+![Load1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/分类/Load1.png)
+
+  
+打印顺序
+
+![Load2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/分类/Load2.png)
 
 
+- 1、先编译`Teacher`但是最先打印`Person`
+- 2、分类`Person+Run`在子类`Student`之前编译，但是打印确实先打印`Student`
+
+所有上面总结是十分准确的
+- 1、先调用类的+load
+    - 按照编译先后顺序调用（先编译，先调用）
+    - 调用子类的+load之前会先调用父类的+load
+- 2、再调用分类的+load
+    - 按照编译先后顺序调用（先编译，先调用）
 
 
+我们是否注意到了另一个问题，为什么在有分类的时候还加载类的`load`方法，不应该是分类覆盖类吗？
 
-
-
-
-
-
-
-
-
+我们在查看`load`的源码实现的时候发现，+load方法是根据方法`地址`直接调用，并不是经过`objc_msgSend`函数调用，如果使用`objc_msgSend`会出现分类覆盖类，但是`load`直接是根据`指针`找方法的，所以不会覆盖。
 
 
 
