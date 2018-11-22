@@ -3,8 +3,231 @@
 
 ### +Load方法
 
->+load方法会在`runtime`加载`类`、`分类`时调用
-每个类、分类的+load，在程序运行过程中`只调用一次`
+> +load方法会在`runtime`加载`类`、`分类`时调用
+
+> 每个类、分类的+load，在程序运行过程中`只调用一次`
+
+> +load方法是根据方法`地址`直接调用，并不是经过objc_msgSend函数调用
+
+**调用顺序**
+
+- 1、先调用类的+load
+    - 按照编译先后顺序调用（先编译，先调用）
+    - 调用子类的+load之前会先调用父类的+load
+- 2、再调用分类的+load
+    - 按照编译先后顺序调用（先编译，先调用）
+
+
+**objc4源码解读过程**
+objc-os.mm 文件
+- _objc_init
+- load_images
+- prepare_load_methods
+    - schedule_class_load
+    - add_class_to_loadable_list
+    - add_category_to_loadable_list
+- call_load_methods
+    - call_class_loads
+    - call_category_loads
+
+
+`_objc_init`方法是RunTime运行的入口
+```
+void _objc_init(void)
+{
+static bool initialized = false;
+if (initialized) return;
+initialized = true;
+
+// fixme defer initialization until an objc-using image is found?
+environ_init();
+tls_init();
+static_init();
+lock_init();
+exception_init();
+
+_dyld_objc_notify_register(&map_images, load_images, unmap_image);
+}
+```
+>小知识：`images`是镜像的意思
+
+我们在`_objc_init`方法中找到`load_images`，`load_images`是Load加载镜像的意思，所有我们可以猜测这个里面应该有我们load的加载方法的相关实现
+
+
+我们点击进入`load_images`方法
+```
+load_images(const char *path __unused, const struct mach_header *mh)
+{
+// Return without taking locks if there are no +load methods here.
+if (!hasLoadMethods((const headerType *)mh)) return;
+
+recursive_mutex_locker_t lock(loadMethodLock);
+
+// Discover load methods
+{
+rwlock_writer_t lock2(runtimeLock);
+prepare_load_methods((const headerType *)mh);
+}
+
+// Call +load methods (without runtimeLock - re-entrant)
+call_load_methods();
+}
+```
+里面有两个需要我们注意的
+- 1、`prepare_load_methods((const headerType *)mh)`准备加载Load方法，我们也可以看到上面的官方文档解释也是这个意思
+- 2、`call_load_methods()` 加载load方法
+
+我们点击进入`prepare_load_methods((const headerType *)mh)`准备加载Load方法
+
+```
+void prepare_load_methods(const headerType *mhdr)
+{
+size_t count, i;
+
+runtimeLock.assertWriting();
+
+classref_t *classlist = 
+_getObjc2NonlazyClassList(mhdr, &count);
+for (i = 0; i < count; i++) {
+schedule_class_load(remapClass(classlist[i]));
+}
+
+category_t **categorylist = _getObjc2NonlazyCategoryList(mhdr, &count);
+for (i = 0; i < count; i++) {
+category_t *cat = categorylist[i];
+Class cls = remapClass(cat->cls);
+if (!cls) continue;  // category for ignored weak-linked class
+realizeClass(cls);
+assert(cls->ISA()->isRealized());
+add_category_to_loadable_list(cat);
+}
+}
+```
+
+我们可以看到执行顺序
+- 1、`schedule_class_load(remapClass(classlist[i]));`,这个是把类中的`Load`方法添加到数组中
+- 2、`add_category_to_loadable_list(cat);`这个是把分类中的`load`方法添加到数组中
+
+**查看类的load方法**
+
+我们查看`schedule_class_load(remapClass(classlist[i]));`方法里面还有哪些实现
+
+```
+static void schedule_class_load(Class cls)
+{
+if (!cls) return;
+assert(cls->isRealized());  // _read_images should realize
+
+if (cls->data()->flags & RW_LOADED) return;
+
+// Ensure superclass-first ordering
+schedule_class_load(cls->superclass);
+
+add_class_to_loadable_list(cls);
+cls->setInfo(RW_LOADED); 
+}
+```
+- 1、`schedule_class_load(cls->superclass);` 把父类load先添加到数组中
+- 2、`add_class_to_loadable_list(cls);`把自己的load方法添加到数组中
+
+
+走到这里我们大概是清楚了类中load方法的加载添加过程，就是先把`父类添加带数组中，然后再把自己添加到数组中`
+
+
+
+
+**查看分类的load方法**
+
+
+我们点击`add_category_to_loadable_list(cat)`进入查看方法实现
+```
+void add_category_to_loadable_list(Category cat)
+{
+IMP method;
+
+loadMethodLock.assertLocked();
+
+method = _category_getLoadMethod(cat);
+
+// Don't bother if cat has no +load method
+if (!method) return;
+
+if (PrintLoading) {
+_objc_inform("LOAD: category '%s(%s)' scheduled for +load", 
+_category_getClassName(cat), _category_getName(cat));
+}
+
+if (loadable_categories_used == loadable_categories_allocated) {
+loadable_categories_allocated = loadable_categories_allocated*2 + 16;
+loadable_categories = (struct loadable_category *)
+realloc(loadable_categories,
+loadable_categories_allocated *
+sizeof(struct loadable_category));
+}
+
+loadable_categories[loadable_categories_used].cat = cat;
+loadable_categories[loadable_categories_used].method = method;
+loadable_categories_used++;
+}
+```
+`loadable_categories_used++;`分类没有什么特殊的方法，应该就是按照编译顺序添加到数组的。
+
+
+**实现**
+
+我们刚才看到了类分类中的添加顺序，我们在来看看加载顺序
+点击`call_load_methods();`进入相关实现
+```
+void call_load_methods(void)
+{
+static bool loading = NO;
+bool more_categories;
+
+loadMethodLock.assertLocked();
+
+// Re-entrant calls do nothing; the outermost call will finish the job.
+if (loading) return;
+loading = YES;
+
+void *pool = objc_autoreleasePoolPush();
+
+do {
+// 1. Repeatedly call class +loads until there aren't any more
+while (loadable_classes_used > 0) {
+call_class_loads();
+}
+
+// 2. Call category +loads ONCE
+more_categories = call_category_loads();
+
+// 3. Run more +loads if there are classes OR more untried categories
+} while (loadable_classes_used > 0  ||  more_categories);
+
+objc_autoreleasePoolPop(pool);
+
+loading = NO;
+}
+```
+上面直接有官方文档给我们的顺序
+- 1、`call_class_loads();`加载类中load方法
+- 2、`more_categories = call_category_loads()`加载分类中load方法
+
+
+
+**Demo**
+我们这里来一个测试demo
+- 父类`Person`
+    - 1、分类`Person+Run.h`
+    - 2、分类`Person+Eat`
+- 2、子类
+    - 1、`Student`
+    - 2、`Teacher`
+
+
+
+
+
+
 
 
 
