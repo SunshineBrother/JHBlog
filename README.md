@@ -62,6 +62,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - [4、NSException抛出异常](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/4、NSException抛出异常.md)
 - 5、[armv7,armv7s,arm64,i386,x86_64 简单了解](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/armv7%2Carmv7s%2Carm64%2Ci386%2Cx86_64.md)
 - 6、[performSelector的原理以及用法](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/performSelector的原理以及用法.md)
+- 7、[更新cocoapod](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/更新cocoapod.md)
   
   *********************************************************
   ## RxSwift学习历程
@@ -272,6 +273,12 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 5、[支付宝客户端架构解析：iOS 容器化框架初探](https://juejin.im/post/5bdc19cbf265da614b117217)
 - 5、[支付宝客户端架构解析：iOS 客户端启动性能优化初探](https://juejin.im/post/5bee3825e51d456d6b6f9486)
 
+**iOS应用架构**
+- 1、[iOS应用架构谈 开篇](https://casatwy.com/iosying-yong-jia-gou-tan-kai-pian.html) 
+- 2、[iOS应用架构谈 view层的组织和调用方案](https://casatwy.com/iosying-yong-jia-gou-tan-viewceng-de-zu-zhi-he-diao-yong-fang-an.html) 
+- 3、[iOS应用架构谈 网络层设计方案](https://casatwy.com/iosying-yong-jia-gou-tan-wang-luo-ceng-she-ji-fang-an.html) 
+- 4、[iOS应用架构谈 本地持久化方案及动态部署](https://casatwy.com/iosying-yong-jia-gou-tan-ben-di-chi-jiu-hua-fang-an-ji-dong-tai-bu-shu.html) 
+- 5、[iOS应用架构谈 组件化方案](https://casatwy.com/iOS-Modulization.html)
 
 
  
