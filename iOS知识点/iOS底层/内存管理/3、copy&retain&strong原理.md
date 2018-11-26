@@ -23,6 +23,7 @@
 
 
 **test1**
+
 对不可变字符串进行`copy&mutableCopy`操作
 ```
 void test1()
@@ -33,20 +34,105 @@ NSMutableString *str3 = [str1 mutableCopy]; // 返回的是NSMutableString
 NSLog(@"%p %p %p", str1, str2, str3);
 }
 ```
+![copy1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/copy1.png)
+
+我们根据打印的地址可以看出`不可变字符串在copy时是浅拷贝，只拷贝了指针没有拷贝对象；mutableCopy则是深拷贝，产生了新的对象`
+
+**test2**
+
+对可变字符串进行`copy&mutableCopy`操作
+```
+void test2()
+{
+NSMutableString *str1 = [[NSMutableString alloc] initWithFormat:@"test"]; // 1
+NSString *str2 = [str1 copy]; // 深拷贝
+NSMutableString *str3 = [str1 mutableCopy]; // 深拷贝
+NSLog(@"%p %p %p", str1, str2, str3);
+}
+```
+
+![copy2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/copy2.png)
+
+我们根据打印的地址可以看出`对于可变字符串不论是copy还是mutableCopy都是深拷贝`
+
+**test3**
+
+对不可变数组进行`copy&mutableCopy`操作
+```
+void test3()
+{
+NSArray *array1 = [[NSArray alloc] initWithObjects:@"a", @"b", nil];
+NSArray *array2 = [array1 copy]; // 浅拷贝
+NSMutableArray *array3 = [array1 mutableCopy]; // 深拷贝
+
+NSLog(@"%p %p %p", array1, array2, array3);
+}
+```
+
+![copy3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/copy3.png)
 
 
+我们根据打印的地址可以看出`不可变数组在copy时是浅拷贝，只拷贝了指针没有拷贝对象；mutableCopy则是深拷贝，产生了新的对象`
+
+**test4**
+
+对可变数组进行`copy&mutableCopy`操作
+```
+void test4()
+{
+NSMutableArray *array1 = [[NSMutableArray alloc] initWithObjects:@"a", @"b", nil];
+NSArray *array2 = [array1 copy]; // 深拷贝
+NSMutableArray *array3 = [array1 mutableCopy]; // 深拷贝
+
+NSLog(@"%p %p %p", array1, array2, array3);
+}
+```
+![copy4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/copy4.png)
+
+我们根据打印的地址可以看出`对于可变数组不论是copy还是mutableCopy都是深拷贝`
+
+**test5**
+
+对不可变字典进行`copy&mutableCopy`操作
+```
+void test5()
+{
+NSDictionary *dict1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"jack", @"name", nil];
+NSDictionary *dict2 = [dict1 copy]; // 浅拷贝
+NSMutableDictionary *dict3 = [dict1 mutableCopy]; // 深拷贝
+
+NSLog(@"%p %p %p", dict1, dict2, dict3);
+}
+```
+
+![copy5](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/copy5.png)
+
+我们根据打印的地址可以看出`不可变字典在copy时是浅拷贝，只拷贝了指针没有拷贝对象；mutableCopy则是深拷贝，产生了新的对象`
 
 
+**test6**
+
+对可变字典进行`copy&mutableCopy`
+```
+void test6()
+{
+NSMutableDictionary *dict1 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"jack", @"name", nil];
+NSDictionary *dict2 = [dict1 copy]; // 深拷贝
+NSMutableDictionary *dict3 = [dict1 mutableCopy]; // 深拷贝
+
+NSLog(@"%p %p %p", dict1, dict2, dict3);
+
+}
+```
+![copy6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/copy6.png)
 
 
+根据上面结果我们可以总结出
+
+![copy7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/copy7.png)
 
 
-
-
-
-
-
-
+### 手动实现一个Copy
 
 
 
