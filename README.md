@@ -60,6 +60,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - [2、Crash日志收集](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/2、Crash日志收集.md)
     - [3、Crash日志分析](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/3、Crash日志分析.md)
     - [4、NSException抛出异常](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/4、NSException抛出异常.md)
+    - [5、符号表&dSYM](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Crash收集/5、符号表.md)
 - 5、[armv7,armv7s,arm64,i386,x86_64 简单了解](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/armv7%2Carmv7s%2Carm64%2Ci386%2Cx86_64.md)
 - 6、[performSelector的原理以及用法](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/performSelector的原理以及用法.md)
 - 7、[更新cocoapod](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/更新cocoapod.md)
