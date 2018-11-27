@@ -1,4 +1,9 @@
-## 定时器
+## Tagged Pointer
+
+
+
+### 内存布局
+在开始介绍`Tagged Pointer`之前我们先来介绍一下iOS程序的内存布局
 
 
 
@@ -11,4 +16,49 @@
 
 
 
-[【译】采用Tagged Pointer的字符串](http://www.cocoachina.com/ios/20150918/13449.html)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

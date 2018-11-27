@@ -14,8 +14,4 @@
  5、升级cocoapods：sudo gem install -n /usr/local/bin cocoapods --pre
  
  6、查看升级后的cocoapods版本：pod --version
- --------------------- 
- 作者：番薯大佬 
- 来源：CSDN 
- 原文：https://blog.csdn.net/potato512/article/details/62235282 
- 版权声明：本文为博主原创文章，转载请附上博文链接！
+
