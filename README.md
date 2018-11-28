@@ -156,7 +156,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 1、[UITableView]()
     - [如何在 iOS 中实现一个可展开的 Table View](https://swift.gg/2015/12/03/expandable-table-view/)
 - 2、[iOS设计指南](https://www.ui.cn/detail/32167.html)
-
+- 3、[iOS开发 将App内部功能块生成桌面快捷方式](https://www.jianshu.com/p/9fb0824f95fe?utm_source=desktop&utm_medium=timeline)
 
 **布局**
 - 1、[ios中的UI自适应](https://academy.realm.io/cn/posts/gotocph-sam-davies-adaptive-ui-ios/)
