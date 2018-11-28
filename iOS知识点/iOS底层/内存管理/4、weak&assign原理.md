@@ -188,7 +188,85 @@ weak_referrer_t  inline_referrers[WEAK_INLINE_COUNT];
 
 
 
+![weak](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/weak.png)
 
+
+### 3、释放调用clearDeallocating函数
+
+objc_clear_deallocating该函数的动作如下：
+- 1、从weak表中获取废弃对象的地址为键值的记录
+- 2、将包含在记录中的所有附有 weak修饰符变量的地址，赋值为nil
+- 3、将weak表中该记录删除
+- 4、从引用计数表中删除废弃对象的地址为键值的记录
+
+
+```
+objc_object::clearDeallocating_slow()
+{
+assert(isa.nonpointer  &&  (isa.weakly_referenced || isa.has_sidetable_rc));
+
+SideTable& table = SideTables()[this];//从weak表中获取废弃对象的地址为键值的记录
+table.lock();
+if (isa.weakly_referenced) {//如果存在引用计数
+weak_clear_no_lock(&table.weak_table, (id)this);
+}
+if (isa.has_sidetable_rc) {
+table.refcnts.erase(this);
+}
+table.unlock();
+}
+```
+`clearDeallocating_slow`中首先是找到`weak表中获取废弃对象的地址为键值的记录`，然后调用`weak_clear_no_lock`函数进行清除操作
+
+```
+void 
+weak_clear_no_lock(weak_table_t *weak_table, id referent_id) 
+{
+//找到对象
+objc_object *referent = (objc_object *)referent_id;
+
+weak_entry_t *entry = weak_entry_for_referent(weak_table, referent);
+if (entry == nil) {
+/// XXX shouldn't happen, but does with mismatched CF/objc
+//printf("XXX no entry for clear deallocating %p\n", referent);
+return;
+}
+
+// zero out references
+weak_referrer_t *referrers;
+size_t count;
+
+if (entry->out_of_line()) {
+referrers = entry->referrers;
+count = TABLE_SIZE(entry);
+} 
+else {
+referrers = entry->inline_referrers;
+count = WEAK_INLINE_COUNT;
+}
+
+for (size_t i = 0; i < count; ++i) {
+objc_object **referrer = referrers[i];
+if (referrer) {
+if (*referrer == referent) {
+//清除对象，赋值为nil
+*referrer = nil;
+}
+else if (*referrer) {
+_objc_inform("__weak variable at %p holds %p instead of %p. "
+"This is probably incorrect use of "
+"objc_storeWeak() and objc_loadWeak(). "
+"Break on objc_weak_error to debug.\n", 
+referrer, (void*)*referrer, (void*)referent);
+objc_weak_error();
+}
+}
+}
+//从引用计数表中删除废弃对象的地址为键值的记录
+weak_entry_remove(weak_table, entry);
+}
+
+```
 
 
 
@@ -240,12 +318,18 @@ weak_referrer_t  inline_referrers[WEAK_INLINE_COUNT];
 
 
 
+### assign
 
+assign一般用来修饰基本的数据类型，包括基础数据类型 （NSInteger，CGFloat）和C数据类型（int, float, double, char, 等等），为什么呢？assign声明的属性是不会增加引用计数的，也就是说声明的属性释放后，就没有了，即使其他对象用到了它，也无法留住它，只会crash。但是，即使被释放，指针却还在，成为了野指针，如果新的对象被分配到了这个内存地址上，又会crash，所以一般只用来声明基本的数据类型，因为它们会被分配到栈上，而栈会由系统自动处理，不会造成野指针
 
+**weak和assign的区别**
 
+- 1.修饰变量类型的区别
+    - `weak` 只可以修饰对象。如果修饰基本数据类型，编译器会报错-`Property with ‘weak’ attribute must be of object type`。
+    - `assign` 可修饰对象，和基本数据类型。当需要修饰对象类型时，MRC时代使用`unsafe_unretained`。当然，`unsafe_unretained`也可能产生野指针，所以它名字是`unsafe_`。
 
+- 2.是否产生野指针的区别
+    - `weak` 不会产生野指针问题。因为`weak`修饰的对象释放后（引用计数器值为0），指针会自动被置nil，之后再向该对象发消息也不会崩溃。 weak是安全的。
+    - `assign` 如果修饰对象，会产生野指针问题；如果修饰基本数据类型则是安全的。修饰的对象释放后，指针不会自动被置空，此时向对象发消息会崩溃。
 
-
-
-
-
+ 
