@@ -198,43 +198,44 @@ weak_referrer_t  inline_referrers[WEAK_INLINE_COUNT];
 
 [下面内容转载自：我就叫Sunny怎么了](https://weibo.com/u/1364395395?from=myfollow_all&is_all=1#_rnd1543404448122)
 
-【从历年weak看iOS面试】
-2013年
-面试官：代理用weak还是strong?
-我 ：weak 。 
+
+>【从历年weak看iOS面试】
+>2013年
+>面试官：代理用weak还是strong?
+>我 ：weak 。 
+>面试官：明天来上班吧
+>
+>2014年
+>面试官：代理为什么用weak不用strong?
+>我 ： 用strong会造成循环引用。
+>面试官：明天来上班吧
+>
+>2015年
+>面试官：weak是怎么实现的？
+>我 ：weak其实是 系统通过一个hash表来实现对象的弱引用
+>面试官：明天来上班吧
+>
+>2016年
+>面试官：weak是怎么实现的？
+>我 ：runtime维护了一个weak表，用于存储指向某个对象的所有weak指针。weak表其实是一个hash（哈希）表，key是所指对象的地址，Value是weak指针的地址（这个地址的值是所指对象指针的地址）数组。
+>面试官：明天来上班吧
+>
+>2017年
+>面试官：weak是怎么实现的？
+>我 ：    1    初始化时：runtime会调用objc_initWeak函数，初始化一个新的weak指针指向对象的地址。
+>2       添加引用时：objc_initWeak函数会调用 storeWeak() 函数， storeWeak() 的作用是更新指针指向，创建对应的弱引用表。
+>3    释放时,调用clearDeallocating函数。clearDeallocating函数首先根据对象地址获取所有weak指针地址的数组，然后遍历这个数组把其中的数据设为nil，最后把这个entry从weak表中删除，最后清理对象的记录。
 面试官：明天来上班吧
-
-2014年
-面试官：代理为什么用weak不用strong?
-我 ： 用strong会造成循环引用。
-面试官：明天来上班吧
-
-2015年
-面试官：weak是怎么实现的？
-我 ：weak其实是 系统通过一个hash表来实现对象的弱引用
-面试官：明天来上班吧
-
-2016年
-面试官：weak是怎么实现的？
-我 ：runtime维护了一个weak表，用于存储指向某个对象的所有weak指针。weak表其实是一个hash（哈希）表，key是所指对象的地址，Value是weak指针的地址（这个地址的值是所指对象指针的地址）数组。
-面试官：明天来上班吧
-
-2017年
-面试官：weak是怎么实现的？
-我 ：    1    初始化时：runtime会调用objc_initWeak函数，初始化一个新的weak指针指向对象的地址。
-2       添加引用时：objc_initWeak函数会调用 storeWeak() 函数， storeWeak() 的作用是更新指针指向，创建对应的弱引用表。
-3    释放时,调用clearDeallocating函数。clearDeallocating函数首先根据对象地址获取所有weak指针地址的数组，然后遍历这个数组把其中的数据设为nil，最后把这个entry从weak表中删除，最后清理对象的记录。
-面试官：明天来上班吧
-
-2018年
-面试官：weak是怎么实现的？
-我 ：跟2017年说的一样，还详细补充了objc_initWeak, storeWeak, clearDeallocating的实现细节。
-面试官：小伙子基础不错。13k ,996干不干？干就明天来上班。。   下一个
-
-2019年
-面试官：weak是怎么实现的？
-我 ：     别说了，拿纸来，我动手实现一个。
-面试官：等写完后，面试官慢悠悠的说，小伙子不错，我考虑考虑，你先回去吧
+>
+>2018年
+>面试官：weak是怎么实现的？
+>我 ：跟2017年说的一样，还详细补充了objc_initWeak, storeWeak, clearDeallocating的实现细节。
+>面试官：小伙子基础不错。13k ,996干不干？干就明天来上班。。   下一个
+>
+>2019年
+>面试官：weak是怎么实现的？
+>我 ：     别说了，拿纸来，我动手实现一个。
+>面试官：等写完后，面试官慢悠悠的说，小伙子不错，我考虑考虑，你先回去吧
 
 
 
