@@ -45,7 +45,8 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - [10.5、@property 的本质是什么](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/5、%40property%20的本质是什么.md)
     - [10.6、autorelease原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/6、autorelease原理.md)
     - [10.7、atomic 一定是线程安全的吗](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/7、atomic%20一定是线程安全的吗.md)
-    
+    - [10.8、dealoc原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/8、dealoc原理.md)
+    - [10.9、引用计数的存储](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/9、引用计数的存储.md)
   
     
 
