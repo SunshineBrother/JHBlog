@@ -1,4 +1,4 @@
-## Copy&Retain&Strong原理 
+ ## Copy&Strong原理 
 
 **问题**
 - 1、用@property声明的NSString（或NSArray，NSDictionary）经常使用copy关键字，为什么？如果改用strong关键字，可能造成什么问题？
@@ -132,22 +132,117 @@ NSLog(@"%p %p %p", dict1, dict2, dict3);
 ![copy7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/copy7.png)
 
 
-### 手动实现一个Copy
+**让自己的类用 copy 修饰符**
+
+我们`copy`属性一般只对`NSString NSArray NSDictionary NSSet`等这些可用，假如我们要对我们的类对象进行copy实现，我们应该怎么做呢
+
+`若想令自己所写的对象具有拷贝功能，则需实现 NSCopying 协议。如果自定义的对象分为可变版本与不可变版本，那么就要同时实现 NSCopying 与 NSMutableCopying 协议。`
+
+- 1、需声明该类遵从 NSCopying 协议
+- 2、实现 NSCopying 协议`- (id)copyWithZone:(NSZone *)zone;`
+- 3、在`- (id)copyWithZone:(NSZone *)zone;`方法中对类对象进行重新赋值
+
+
+```
+@interface Dog : NSObject<NSCopying>
+@property (nonatomic,assign) int age;
+@property (nonatomic,copy) NSString *name;
+@end
+
+- (id)copyWithZone:(NSZone *)zone{
+Dog *d = [[self class]allocWithZone:zone];
+d.age = _age;
+d.name = _name;
+return d;
+}
+```
+
+
+**如何重写带 copy 关键字的 setter**
+
+```
+- (void)setName:(NSString *)name {
+if (_name != name) {
+//[_name release];//MRC
+_name = [name copy];
+}
+}
+```
+ 
+### Strong
+
+我们添加属性
+```
+@property (strong, nonatomic) NSString *strStrong;
+@property (copy, nonatomic) NSString *strCopy;
+```
+**不可变字符串**
+```
+NSString *str = @"abc";
+self.strCopy = str;
+self.strStrong = str;
+
+NSLog(@"\nstr     = %@   内存地址 = %p 指针地址 = %p \nstrong  = %@   内存地址 = %p 指针地址 = %p \ncopy    = %@   内存地址 = %p 指针地址 = %p",
+str,str,&str,
+self.strStrong,self.strStrong,&_strStrong,
+self.strCopy,self.strCopy,&_strCopy);
+```
+
+我们打印内存地址和指针地址
+
+![strong](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/strong.png)
+
+我们修改`str`
+```
+NSString *str = @"abc";
+self.strCopy = str;
+self.strStrong = str;
+
+NSLog(@"\nstr     = %@   内存地址 = %p 指针地址 = %p \nstrong  = %@   内存地址 = %p 指针地址 = %p \ncopy    = %@   内存地址 = %p 指针地址 = %p",
+str,str,&str,
+self.strStrong,self.strStrong,&_strStrong,
+self.strCopy,self.strCopy,&_strCopy);
 
 
 
+str = @"123";
+NSLog(@"\nstr     = %@   内存地址 = %p 指针地址 = %p \nstrong  = %@   内存地址 = %p 指针地址 = %p \ncopy    = %@   内存地址 = %p 指针地址 = %p",
+str,str,&str,
+self.strStrong,self.strStrong,&_strStrong,
+self.strCopy,self.strCopy,&_strCopy);
+```
+
+![strong1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/strong1.png)
+
+
+`结论：源对象为不可变字符串而言，不论使用copy还是strong属性，所对应的值是不发生变化，strong和copy并没有开辟新的内存，即并不是深拷贝。此时，使用copy或是strong，并没有对数据产生影响`
+
+
+**可变字符串**
+```
+NSMutableString *str = [[NSMutableString alloc] initWithString:@"abc"];
+self.strCopy = str;
+self.strStrong = str;
+
+NSLog(@"\nstr     = %@   内存地址 = %p 指针地址 = %p \nstrong  = %@   内存地址 = %p 指针地址 = %p \ncopy    = %@   内存地址 = %p 指针地址 = %p",
+str,str,&str,
+self.strStrong,self.strStrong,&_strStrong,
+self.strCopy,self.strCopy,&_strCopy);
+
+[str appendString:@"123"];
+NSLog(@"\nstr     = %@   内存地址 = %p 指针地址 = %p \nstrong  = %@   内存地址 = %p 指针地址 = %p \ncopy    = %@   内存地址 = %p 指针地址 = %p",
+str,str,&str,
+self.strStrong,self.strStrong,&_strStrong,
+self.strCopy,self.strCopy,&_strCopy);
+```
+
+![strong2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/strong2.png)
+
+`结论：数据源为可变字符串而言，使用copy申明属性，会开辟一块新的内存空间存放值，源数据不论怎么变化，都不会影响copy属性中的值，属于深拷贝；使用strong申明属性，不会开辟新的内存空间，只会引用到源数据内存地址，因此源数据改变，则strong属性也会改变，属于浅拷贝`
 
 
 
-
-
-
-
-
-
-
-
-
+**在实际开发中，我们不希望源数据改变影响到属性中的值，故而使用copy来申明。**
 
 
 
