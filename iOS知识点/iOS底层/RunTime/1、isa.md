@@ -336,7 +336,7 @@ UIViewAutoresizingFlexibleBottomMargin = 1 << 5
 - 5、magic：用于在调试时分辨对象是否未完成初始化
 - 6、weakly_referenced：是否有被弱引用指向过，如果没有，释放时会更快
 - 7、deallocating：对象是否正在释放
-- 8、extra_rc：里面存储的值是引用计数器减1
+- 8、extra_rc：里面存储的值是引用计数器 
 - 9、has_sidetable_rc：引用计数器是否过大无法存储在isa中；如果为1，那么引用计数会存储在一个叫SideTable的类的属性中
 
     

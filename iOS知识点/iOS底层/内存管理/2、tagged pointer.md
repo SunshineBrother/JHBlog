@@ -55,7 +55,7 @@ obj = 0x608000012210 // 堆
 - 当指针不够存储数据时，才会使用动态分配内存的方式来存储数据
 - `objc_msgSend`能识别`Tagged Pointer`，比如NSNumber的intValue方法，直接从指针提取数据，节省了以前的调用开销
 
-![TaggedPointer3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/TaggedPointe3.png)
+![TaggedPointer3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/TaggedPointer3.png)
 
 
 ```
