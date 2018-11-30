@@ -1,5 +1,60 @@
 # JHBlog
-这里以后就是自己的博客地址啦，欢迎点赞
+ 
+iOS开发：我的初级到中级的晋级之路
+
+******************************************************************************************************************
+## 架构
+
+
+
+
+
+
+
+
+
+
+
+## 设计模式研究
+**什么是设计模式**
+在软件开发中，经过验证的，用于解决在特定环境下，重复出现的特定的问题的解决方案。
+注意上面的提到的限定词，下面来详细说下
+- 1、软件开发：其实各行各业都有模式可以套用，这里的设计模式指的是在软件开发领域
+- 2、经过验证的：必须是经过大家公认和验证过的解决方案才算得上是设计模式，而不是每个人随便总结的解决方案都能算
+- 3、特定环境：必须是在某个特定环境才可以使用该设计模式，因为不同的环境，就算同样的问题，解决方案也不同，所以不能脱离环境去谈使用设计模式
+- 4、重复出现：因为只有重复出现的问题才有必要总结经验，形成固定的解决方案，再次遇到这样的问题就不用从头开始寻找解决方案，而是直接套用就可以了。
+- 5、特定问题：软件开发领域没有银弹，不要指望一种设计模式就能包治百病。每种模式只是针对特定问题的解决方案，所以不要迷信设计模式，滥用设计模式。
+
+常见的设计模式有23种，根据目的，我们可以把模型分为三类：创建型，结构型，行为型
+- [UML了解](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/UML/UML类图几种关系的总结.md)
+
+- Creational 创建型 5
+- [Factory Method 工厂方法模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/1、工厂模式/工厂模式.md)
+- Abstract Factory 抽象工厂模式
+- Builder 建造者模式
+- Prototype 原型模式
+- Singleton 单例模式
+
+-  Structural 结构型 7
+- Adapter 适配器模式
+- Bridge 桥接模式
+- Composite 组合模式
+- Decorator 装饰者模式
+- Facade 外观模式
+- Flyweight 享元模式
+- Proxy 代理模式
+- Behavioral 行为型 11
+- Chain of responsibility 责任链模式
+- Command 命令模式
+- Interpreter 解释器模式
+- Iterator 迭代器模式
+- Mediator 中介模式
+- Memento 备忘录模式
+- Observer 观察者模式
+- State 状态模式
+- [Strategy 策略模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/2、策略模式/策略模式.md)
+- Template Method 模板方法模式
+- Visitor 访问者模式
 
 
 *********************************************************
@@ -35,8 +90,9 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - [9.4、多线程之NSOperation](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/4、NSOperation介绍.md)
     - [9.5、多线程之线程安全](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/5、线程安全.md)
     - [9.6、死锁](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/6、死锁.md)
-    - [9.7、GCD高级用法](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/7、GCD高级用法.md)
-    - [9.8、线程之间的通讯](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/8、线程之间的通讯.md)
+    - [9.7、线程之间的通讯](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/8、线程之间的通讯.md)
+    - [9.8、GCD高级用法](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/7、GCD高级用法.md)
+    - [9.9、深入浅出 iOS 并发编程](https://www.jianshu.com/p/39d6edb54d24)
 - [10、内存管理]()  
     - [10.1、定时器target的内存泄漏](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/1、定时器.md)
     - [10.2、Tagged Pointer](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/2、tagged%20pointer.md)
@@ -65,6 +121,8 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 5、[armv7,armv7s,arm64,i386,x86_64 简单了解](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/armv7%2Carmv7s%2Carm64%2Ci386%2Cx86_64.md)
 - 6、[performSelector的原理以及用法](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/performSelector的原理以及用法.md)
 - 7、[更新cocoapod](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/更新cocoapod.md)
+- 8、[为什么不能在子线程中刷新UI](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/为什么不能在子线程中刷新UI.md)
+- 9、[UIViewController的生命周期](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIViewController的生命周期.md)
   
   *********************************************************
   ## RxSwift学习历程
@@ -91,49 +149,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
   - [5、MVVM案例：登录](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/14、MVVM.md)
   - [6、UITableView 的基本用法](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/15、UITableView%20的基本用法.md)
   
-  ******************************************************************************************************************
-  
-  ## 设计模式研究
-  **什么是设计模式**
-  在软件开发中，经过验证的，用于解决在特定环境下，重复出现的特定的问题的解决方案。
-  注意上面的提到的限定词，下面来详细说下
-  - 1、软件开发：其实各行各业都有模式可以套用，这里的设计模式指的是在软件开发领域
-  - 2、经过验证的：必须是经过大家公认和验证过的解决方案才算得上是设计模式，而不是每个人随便总结的解决方案都能算
-  - 3、特定环境：必须是在某个特定环境才可以使用该设计模式，因为不同的环境，就算同样的问题，解决方案也不同，所以不能脱离环境去谈使用设计模式
-  - 4、重复出现：因为只有重复出现的问题才有必要总结经验，形成固定的解决方案，再次遇到这样的问题就不用从头开始寻找解决方案，而是直接套用就可以了。
-  - 5、特定问题：软件开发领域没有银弹，不要指望一种设计模式就能包治百病。每种模式只是针对特定问题的解决方案，所以不要迷信设计模式，滥用设计模式。
-  
-  常见的设计模式有23种，根据目的，我们可以把模型分为三类：创建型，结构型，行为型
-  - [UML了解](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/UML/UML类图几种关系的总结.md)
-  
-  - Creational 创建型 5
-  - [Factory Method 工厂方法模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/1、工厂模式/工厂模式.md)
-  - Abstract Factory 抽象工厂模式
-  - Builder 建造者模式
-  - Prototype 原型模式
-  - Singleton 单例模式
-  
-  -  Structural 结构型 7
-  - Adapter 适配器模式
-  - Bridge 桥接模式
-  - Composite 组合模式
-  - Decorator 装饰者模式
-  - Facade 外观模式
-  - Flyweight 享元模式
-  - Proxy 代理模式
-  - Behavioral 行为型 11
-  - Chain of responsibility 责任链模式
-  - Command 命令模式
-  - Interpreter 解释器模式
-  - Iterator 迭代器模式
-  - Mediator 中介模式
-  - Memento 备忘录模式
-  - Observer 观察者模式
-  - State 状态模式
-  - [Strategy 策略模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/2、策略模式/策略模式.md)
-  - Template Method 模板方法模式
-  - Visitor 访问者模式
-  
+
 
 ******************************************************************************************************************
 ## 第三方
