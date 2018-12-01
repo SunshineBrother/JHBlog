@@ -30,9 +30,7 @@
     model.image = @"cloud";
     
     //赋值
-    app.nameLabel.text = model.name;
-    app.iconView.image = [UIImage imageNamed:model.image];
-    
+    app.model = model;
 }
 
 #pragma mark -- view点击事件 --
