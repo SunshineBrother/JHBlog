@@ -115,6 +115,8 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 8、[为什么不能在子线程中刷新UI](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/为什么不能在子线程中刷新UI.md)
 - 9、[UIViewController的生命周期](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIViewController的生命周期.md)
 - 10、[ios真机调试包路径及配置文件路径](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/ios真机调试包路径及配置文件路径.md)
+- 11、[UIView的继承链](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIView的继承链.md)
+- 12、[frame和bounds的区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/frame和bounds的区别.md)
   
   *********************************************************
   ## RxSwift学习历程
