@@ -51,9 +51,9 @@ iOS开发：我的初级到中级的晋级之路
 ## 性能优化
 
 - [1、浅谈性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/性能优化.md)
-- [1、对UITableView进行性能调优](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/对UITableView进行性能调优.md)
-- [1、加载大图的优化算法](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/加载大图的优化算法.md)
-
+- [2、对UITableView进行性能调优](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/对UITableView进行性能调优.md)
+- [3、加载大图的优化算法](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/加载大图的优化算法.md)
+- [4、App启动流程](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/App启动流程.md)
 
  
 
