@@ -17,35 +17,28 @@ iOS开发：我的初级到中级的晋级之路
 - 5、特定问题：软件开发领域没有银弹，不要指望一种设计模式就能包治百病。每种模式只是针对特定问题的解决方案，所以不要迷信设计模式，滥用设计模式。
 
 常见的设计模式有23种，根据目的，我们可以把模型分为三类：创建型，结构型，行为型
-- [UML了解](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/UML/UML类图几种关系的总结.md)
 
-- Creational 创建型 5
-- [Factory Method 工厂方法模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/1、工厂模式/工厂模式.md)
-- Abstract Factory 抽象工厂模式
-- Builder 建造者模式
-- Prototype 原型模式
-- Singleton 单例模式
+- [1、StarUML使用简明教程](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/StarUML使用简明教程.md)
+- [2、面向对象设计的六大设计原则](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/面向对象设计的六大设计原则.md)
 
--  Structural 结构型 7
-- Adapter 适配器模式
-- Bridge 桥接模式
-- Composite 组合模式
-- Decorator 装饰者模式
-- Facade 外观模式
-- Flyweight 享元模式
-- Proxy 代理模式
-- Behavioral 行为型 11
-- Chain of responsibility 责任链模式
-- Command 命令模式
-- Interpreter 解释器模式
-- Iterator 迭代器模式
-- Mediator 中介模式
-- Memento 备忘录模式
-- Observer 观察者模式
-- State 状态模式
-- [Strategy 策略模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/2、策略模式/策略模式.md)
-- Template Method 模板方法模式
-- Visitor 访问者模式
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ******************************************************************************************************************
 ## 性能优化
