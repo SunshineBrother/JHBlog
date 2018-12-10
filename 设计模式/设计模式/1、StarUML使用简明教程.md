@@ -33,8 +33,6 @@ UML（Unified Modeling Language，统一建模语言）是一个支持模型化�
 
 
 
-
-
 **1、toolbox**
 
 在StarUML中默认打开的“toolbox”工具中就是类相关的一下基础功能组件，以及组件的功能简介基础组件中有类实例，以及描述类的各个功能组件。如图所示。

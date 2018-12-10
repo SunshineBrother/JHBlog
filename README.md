@@ -114,8 +114,8 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
   
   常见的设计模式有23种，根据目的，我们可以把模型分为三类：创建型，结构型，行为型
   
-  - [1、StarUML使用简明教程](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/StarUML使用简明教程.md)
-  - [2、面向对象设计的六大设计原则](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/面向对象设计的六大设计原则.md)
+  - [1、StarUML使用简明教程](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/1、StarUML使用简明教程.md)
+  - [2、面向对象设计的六大设计原则](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/2、面向对象设计的六大设计原则.md)
   
   
   
