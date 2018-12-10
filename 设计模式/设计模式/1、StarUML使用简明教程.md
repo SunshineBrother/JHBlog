@@ -25,6 +25,12 @@ UML（Unified Modeling Language，统一建模语言）是一个支持模型化�
 
 在右边的`Model Explorer`框中选定`Untitled`模块。通过`Model`主菜单，或右击选定的模型，可以`Add/Design Model`
 
+![UML2](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/image/UML2.png)
+
+我们点击`model`可以设置这个模块的名称
+
+![UML3](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/image/UML3.png)
+
 
 
 

@@ -2,53 +2,6 @@
  
 iOS开发：我的初级到中级的晋级之路
 
-******************************************************************************************************************
-## 架构
-- [1、浅谈MVC&变异MVC&MVP&MVVM](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/基础架构/1、MVC%26变异MVC%26MVP%26MVVM.md)
- 
-## 设计模式研究
-**什么是设计模式**
-在软件开发中，经过验证的，用于解决在特定环境下，重复出现的特定的问题的解决方案。
-注意上面的提到的限定词，下面来详细说下
-- 1、软件开发：其实各行各业都有模式可以套用，这里的设计模式指的是在软件开发领域
-- 2、经过验证的：必须是经过大家公认和验证过的解决方案才算得上是设计模式，而不是每个人随便总结的解决方案都能算
-- 3、特定环境：必须是在某个特定环境才可以使用该设计模式，因为不同的环境，就算同样的问题，解决方案也不同，所以不能脱离环境去谈使用设计模式
-- 4、重复出现：因为只有重复出现的问题才有必要总结经验，形成固定的解决方案，再次遇到这样的问题就不用从头开始寻找解决方案，而是直接套用就可以了。
-- 5、特定问题：软件开发领域没有银弹，不要指望一种设计模式就能包治百病。每种模式只是针对特定问题的解决方案，所以不要迷信设计模式，滥用设计模式。
-
-常见的设计模式有23种，根据目的，我们可以把模型分为三类：创建型，结构型，行为型
-
-- [1、StarUML使用简明教程](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/StarUML使用简明教程.md)
-- [2、面向对象设计的六大设计原则](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/面向对象设计的六大设计原则.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-******************************************************************************************************************
-## 性能优化
-
-- [1、浅谈性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/性能优化.md)
-- [2、对UITableView进行性能调优](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/对UITableView进行性能调优.md)
-- [3、加载大图的优化算法](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/加载大图的优化算法.md)
-- [4、App启动流程](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/App启动流程.md)
-
- 
 
 *********************************************************
 ## iOS高级进发
@@ -144,6 +97,53 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
   - [4、RxSwift接收事件](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/13、rxswift接收事件.md)
   - [5、MVVM案例：登录](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/14、MVVM.md)
   - [6、UITableView 的基本用法](https://github.com/SunshineBrother/JHBlog/blob/master/RxSwift学习/15、UITableView%20的基本用法.md)
+  
+  ******************************************************************************************************************
+  ## 架构
+  - [1、浅谈MVC&变异MVC&MVP&MVVM](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/基础架构/1、MVC%26变异MVC%26MVP%26MVVM.md)
+  
+  ## 设计模式研究
+  **什么是设计模式**
+  在软件开发中，经过验证的，用于解决在特定环境下，重复出现的特定的问题的解决方案。
+  注意上面的提到的限定词，下面来详细说下
+  - 1、软件开发：其实各行各业都有模式可以套用，这里的设计模式指的是在软件开发领域
+  - 2、经过验证的：必须是经过大家公认和验证过的解决方案才算得上是设计模式，而不是每个人随便总结的解决方案都能算
+  - 3、特定环境：必须是在某个特定环境才可以使用该设计模式，因为不同的环境，就算同样的问题，解决方案也不同，所以不能脱离环境去谈使用设计模式
+  - 4、重复出现：因为只有重复出现的问题才有必要总结经验，形成固定的解决方案，再次遇到这样的问题就不用从头开始寻找解决方案，而是直接套用就可以了。
+  - 5、特定问题：软件开发领域没有银弹，不要指望一种设计模式就能包治百病。每种模式只是针对特定问题的解决方案，所以不要迷信设计模式，滥用设计模式。
+  
+  常见的设计模式有23种，根据目的，我们可以把模型分为三类：创建型，结构型，行为型
+  
+  - [1、StarUML使用简明教程](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/StarUML使用简明教程.md)
+  - [2、面向对象设计的六大设计原则](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/面向对象设计的六大设计原则.md)
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ******************************************************************************************************************
+  ## 性能优化
+  
+  - [1、浅谈性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/性能优化.md)
+  - [2、对UITableView进行性能调优](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/对UITableView进行性能调优.md)
+  - [3、加载大图的优化算法](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/加载大图的优化算法.md)
+  - [4、App启动流程](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/App启动流程.md)
+  
   
 
 
