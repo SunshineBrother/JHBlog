@@ -292,6 +292,50 @@ rebase步骤先进行，需要把镜像读入内存，并以page为单位进行�
  
  
  
+ ### 总结
+ 
+ 为此，我专门建了一个类来负责启动事件，为什么呢？如果不这么做，那么此次优化以后，以后再引入第三方的时候，别的同事可能很直觉的就把第三方的初始化放到了 didFinishLaunchingWithOptions 方法里，这样久而久之， didFinishLaunchingWithOptions 又变得不堪重负，到时候又要专门花时间来做重复的优化。
+ 
+ ```
+ /**
+ * 注意: 这个类负责所有的 didFinishLaunchingWithOptions 延迟事件的加载.
+ * 以后引入第三方需要在 didFinishLaunchingWithOptions 里初始化或者我们自己的类需要在 didFinishLaunchingWithOptions 初始化的时候,
+ * 要考虑尽量少的启动时间带来好的用户体验, 所以应该根据需要减少 didFinishLaunchingWithOptions 里耗时的操作.
+ * 第一类: 比如日志 / 统计等需要第一时间启动的, 仍然放在 didFinishLaunchingWithOptions 中.
+ * 第二类: 比如用户数据需要在广告显示完成以后使用, 所以需要伴随广告页启动, 只需要将启动代码放到 startupEventsOnADTimeWithAppDelegate 方法里.
+ * 第三类: 比如直播和分享等业务, 肯定是用户能看到真正的主界面以后才需要启动, 所以推迟到主界面加载完成以后启动, 只需要将代码放到 startupEventsOnDidAppearAppContent 方法里.
+ */
+ 
+ #import <Foundation/Foundation.h>
+ 
+ NS_ASSUME_NONNULL_BEGIN
+ 
+ @interface BLDelayStartupTool : NSObject
+ 
+ /**
+ * 启动伴随 didFinishLaunchingWithOptions 启动的事件.
+ * 启动类型为:日志 / 统计等需要第一时间启动的.
+ */
+ + (void)startupEventsOnAppDidFinishLaunchingWithOptions;
+ 
+ /**
+ * 启动可以在展示广告的时候初始化的事件.
+ * 启动类型为: 用户数据需要在广告显示完成以后使用, 所以需要伴随广告页启动.
+ */
+ + (void)startupEventsOnADTime;
+ 
+ /**
+ * 启动在第一个界面显示完(用户已经进入主界面)以后可以加载的事件.
+ * 启动类型为: 比如直播和分享等业务, 肯定是用户能看到真正的主界面以后才需要启动, 所以推迟到主界面加载完成以后启动.
+ */
+ + (void)startupEventsOnDidAppearAppContent;
+ 
+ @end
+ 
+ NS_ASSUME_NONNULL_END
+ 
+ 
+ ```
  
  
  
