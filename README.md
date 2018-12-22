@@ -112,7 +112,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
  
 
 
-  - [1、StarUML使用简明教程](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/1、StarUML使用简明教程.md)
+  - [1、UML使用简明教程](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/1、StarUML使用简明教程.md)
   - [2、对象设计的六大原则SOLID](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/2、面向对象设计的六大设计原则.md)
   - [3、设计模式总结](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/设计模式总结.md)
   
