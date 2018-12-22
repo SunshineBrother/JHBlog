@@ -67,20 +67,20 @@ UML（Unified Modeling Language，统一建模语言）是一个支持模型化�
 ![泛化1](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/image/泛化1.png)
 
 功能介绍： 
-- 1. 用来标识Class的可见性（默认为public） 
-- 2. 用来添加note的，比如：类的说明 
-- 3. 增加类的属性 
-- 4. 增加类的操作方法。 
-- 5. 增加Reception 
-- 6. 增加子类 
-- 7. 增加父类 
-- 8. 添加已有的接口 
-- 9. 添加需要的接口 
-- 10. 添加关联 
-- 11. 添加聚合 
-- 12. 添加组合 
-- 13. 添加端口 
-- 14. 添加部件
+- 1、 用来标识Class的可见性（默认为public） 
+- 2、用来添加note的，比如：类的说明 
+- 3、增加类的属性 
+- 4、增加类的操作方法。 
+- 5、增加Reception 
+- 6、增加子类 
+- 7、 增加父类 
+- 8、 添加已有的接口 
+- 9、 添加需要的接口 
+- 10、 添加关联 
+- 11、 添加聚合 
+- 12、 添加组合 
+- 13、 添加端口 
+- 14、 添加部件
  
 
 
@@ -95,8 +95,44 @@ UML（Unified Modeling Language，统一建模语言）是一个支持模型化�
 在模型视图区域右键 --》 add --》 insterface（添加协议） --》 add --》operation（添加方法）
 
 
+#### 3、依赖关系
+
+依赖关系（dependency）:已知A类和B类，在A类中引用了B类，这种关系是`偶然性、临时性`，同时B类中发生了变化，影响到A类，这种关系就称之为依赖关系。
 
 
+例子：我到超市买东西，我买了东西，超市收入增加，超市收入的增加跟我买东西有一定的依赖关系
+
+
+![依赖关系](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/image/依赖关系.png)
+
+
+#### 4、关联关系
+
+关联关系可以分为两大类
+- 1、单向关联（Directed Association）
+- 2、双向关联（Association）
+
+关联关系是一种比较强的依赖
+
+例如：人喝水，这是单向关联
+用户和订单（用户保存订单号，订单对应用户） ，这是双向关联
+
+![关联关系](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/image/关联关系.png)
+
+#### 5、聚合关系
+
+聚合关系（Aggregration）：聚合关系是关联关系的特例，强调整体和部分，整体和部分可以分离，各自有各自的生命周期，互不干扰，部分强调共享
+
+例如：电脑和电池、手机和电池
+
+![聚合关系](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/image/聚合关系.png)
+
+#### 6、组合关系
+组合关系（Composition）：强调整体和部分，整体和部分不可以分离，共享生命周期，整体生命周期结束意味着部分生命周期结束    
+
+例如：公司和部门
+
+![组合关系](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/image/组合关系.png)
 
 
 
