@@ -141,13 +141,12 @@ UML（Unified Modeling Language，统一建模语言）是一个支持模型化�
 常见的模型图有
 - 1、用例图（Use Case Diagram）
 - 2、类图(Class Diagram)
-- 3、对象图( Object Diagram )
-- 4、顺序图(Sequence Diagram)
-- 5、协作图(Collaboration Diagram)
-- 6、状态图(State Chart Diagram)
-- 7、活动图(Activity Diagram)
-- 8、构件图(Component Diagram)
-- 9、部署图(Deployment Diagram)
+- 3、顺序图（时序图）(Sequence Diagram)
+- 4、协作图(Collaboration Diagram)
+- 5、状态图(State Chart Diagram)
+- 6、活动图(Activity Diagram)
+- 7、构件图(Component Diagram)
+- 8、部署图(Deployment Diagram)
 
 
 
@@ -185,25 +184,52 @@ UML（Unified Modeling Language，统一建模语言）是一个支持模型化�
 
 
 
+#### 2、类图(Class Diagram)
+
+类图以反映类的结构(属性、操作)以及类之间的关系为主要目的，描述了软件系统的结构，是一种静态建模方法
+
+类图中的“类”与面向对象语言中的“类”的概念是对应的，是对现实世界中的事物的抽象
+从上到下分为三部分，分别是类名、属性和操作。类名是必须有的
+
+注意：属性和方法修饰符
+`+`表示public修饰符
+`-`表示private修饰符
+`#`表示protected修饰符
+
+
+**`StarUML`使用步骤**
+- 1、在右侧右键 --> add Diagram --> Class Diagram(添加类图)
+
+
+![类图](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/image/类图.png)
 
 
 
 
+#### 3、顺序图（时序图）(Sequence Diagram)
+
+顺序图用来表示用例中的行为顺序。当执行一个用例行为时，顺序图中的每条消息对应了一个类操作或状态机中引起转换的事件。
+顺序图展示对象之间的交互，这些交互是指在场景或用例的事件流中发生的。 顺序图属于动态建模。 
+顺序图的重点在消息序列上，也就是说，描述消息是如何在对象间发送和接收的。表示了对象之间传送消息的时间顺序。
+浏览顺序图的方法是：从上到下查看对象间交换的消息。
+
+时序图主要包含
+- 1、参与者：与系统、子系统或类发生交互作用的外部用户(参见用例图定义)。
+- 2、对象：顺序图的横轴上是与序列有关的对象。对象的表示方法是：矩形框中写有对象或类名，且名字下面有下划线。
+- 3、生命线：坐标轴纵向的虚线表示对象在序列中的执行情况(即发送和接收的消息，对象的活动)这条虚线称为对象的“生命线”。
+- 4、消息符号：消息用从一个对象的生命线到另一个对象生命线的箭头表示。箭头以时间顺序在图中从上到下排列。
+    - 发送消息，有同步消息，异步消息，重复消息，自己给自己发送消息等等类型
+
+
+简单发送消息
+![时序图1](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/image/时序图1.png)
 
 
 
+下面这个是微信支付的时序图
+
+![时序图](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/image/时序图.png)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+ 
