@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "PhoneFactory.h"
+#import "IPhone.h"
+#import "MIPhone.h"
+#import "HWPhone.h"
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        PhoneFactory *phone = [PhoneFactory new];
-        [phone sellPhone:@"IPone"];
+        PhoneFactory *Factory = [PhoneFactory new];
+        IPhone *phone = (IPhone *)[Factory sellPhone:@"IPhone"];
+        [phone sellPhone];
     }
     return 0;
 }

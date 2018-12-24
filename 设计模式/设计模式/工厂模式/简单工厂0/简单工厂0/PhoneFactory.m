@@ -12,19 +12,28 @@
 #import "HWPhone.h"
 @implementation PhoneFactory
 
-- (void)sellPhone:(NSString *)type{
-    
-    if ([type isEqualToString:@"IPone"]) {
-        IPhone *phone = [IPhone new];
-        [phone sellPhone];
-    }else if ([type isEqualToString:@"MIPhone"]){
-        MIPhone *phone = [MIPhone new];
-        [phone sellPhone];
-    }else if ([type isEqualToString:@"HWPone"]){
-        HWPhone *phone = [HWPhone new];
-        [phone sellPhone];
+
+- (PhoneFactory *)sellPhone:(NSString *)type{
+    PhoneFactory *phone = (PhoneFactory *)[NSClassFromString(type) new];
+    if ([phone isKindOfClass:[PhoneFactory class]] && phone) {
+        return  phone;
+    }else{
+        return nil;
     }
-    
 }
+
+//- (PhoneFactory *)sellPhone:(NSString *)type{
+//    if ([type isEqualToString:@"IPone"]) {
+//        IPhone *phone = [IPhone new];
+//        return phone;
+//    }else if ([type isEqualToString:@"MIPhone"]){
+//        MIPhone *phone = [MIPhone new];
+//        return phone;
+//    }else if ([type isEqualToString:@"HWPone"]){
+//        HWPhone *phone = [HWPhone new];
+//        return phone;
+//    }
+//    return nil;
+//}
 
 @end
