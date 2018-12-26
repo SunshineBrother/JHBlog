@@ -119,7 +119,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
    **创建型**
    - 1、[Abstract Factory 抽象工厂模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/工厂模式/工厂模式.md)
    - 2、[Factory Method 工厂方法模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/工厂模式/工厂模式.md)
-   - 3、[Builder 建造者模式]()
+   - 3、[Builder 创建者模式]()
    - 4、[Prototype 原型模式]()
    - 5、[Singleton 单例模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/单例模式/单例模式.md)
    
