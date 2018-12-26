@@ -10,7 +10,7 @@
 
 @interface PhoneFactory : NSObject
 
-- (PhoneFactory *)sellPhone:(NSString *)type;
+- (void)sellPhone;
 
 @end
  

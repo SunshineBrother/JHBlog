@@ -7,36 +7,10 @@
 //
 
 #import "PhoneFactory.h"
-#import "IPhone.h"
-#import "MIPhone.h"
-#import "HWPhone.h"
+ 
 @implementation PhoneFactory
 
-
-//- (PhoneFactory *)sellPhone:(NSString *)type{
-//    PhoneFactory *phone = (PhoneFactory *)[NSClassFromString(type) new];
-//    if ([phone isKindOfClass:[PhoneFactory class]] && phone) {
-//        return  phone;
-//    }else{
-//        return nil;
-//    }
-//}
-
-- (PhoneFactory *)sellPhone:(NSString *)type{
-    if ([type isEqualToString:@"IPhone"]) {
-        IPhone *phone = [IPhone new];
-        [phone sellPhone];
-        return phone;
-    }else if ([type isEqualToString:@"MIPhone"]){
-        MIPhone *phone = [MIPhone new];
-        [phone sellPhone];
-        return phone;
-    }else if ([type isEqualToString:@"HWPone"]){
-        HWPhone *phone = [HWPhone new];
-        [phone sellPhone];
-        return phone;
-    }
-    return nil;
+- (void)sellPhone{
+    @throw ([NSException exceptionWithName:@"继承错误" reason:@"子类必须重写该方法" userInfo:nil]);
 }
-
 @end
