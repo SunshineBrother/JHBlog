@@ -13,4 +13,8 @@
 - (void)sellPhone{
     @throw ([NSException exceptionWithName:@"继承错误" reason:@"子类必须重写该方法" userInfo:nil]);
 }
+
+- (void)sellComputer{
+    @throw ([NSException exceptionWithName:@"继承错误" reason:@"子类必须重写该方法" userInfo:nil]);
+}
 @end

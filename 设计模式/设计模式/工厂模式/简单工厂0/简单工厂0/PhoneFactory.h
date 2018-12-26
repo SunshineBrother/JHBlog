@@ -11,6 +11,6 @@
 @interface PhoneFactory : NSObject
 
 - (void)sellPhone;
-
+- (void)sellComputer;
 @end
  

@@ -12,4 +12,12 @@
 - (void)sellPhone{
     NSLog(@"售卖华为手机");
 }
+
+- (void)sellComputer{
+    NSLog(@"售卖华为电脑");
+}
+
+
+
+
 @end
