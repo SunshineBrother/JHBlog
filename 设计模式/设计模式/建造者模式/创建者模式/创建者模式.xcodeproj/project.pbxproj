@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		284BC41F21D3B30B00A7C479 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 284BC41E21D3B30B00A7C479 /* main.m */; };
+		28B2274121E335B1009A3DCC /* Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B2274021E335B1009A3DCC /* Builder.m */; };
+		28B2274A21E33A17009A3DCC /* A_Construction.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B2274921E33A17009A3DCC /* A_Construction.m */; };
+		28B2274D21E33A1F009A3DCC /* B_Construction.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B2274C21E33A1F009A3DCC /* B_Construction.m */; };
+		28B2275021E33A2A009A3DCC /* C_Construction.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B2274F21E33A2A009A3DCC /* C_Construction.m */; };
+		28B2275321E33AC7009A3DCC /* A_Design.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B2275221E33AC7009A3DCC /* A_Design.m */; };
+		28B2275621E33AD0009A3DCC /* B_Design.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B2275521E33AD0009A3DCC /* B_Design.m */; };
+		28B2275921E33AD8009A3DCC /* C_Design.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B2275821E33AD8009A3DCC /* C_Design.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +32,23 @@
 /* Begin PBXFileReference section */
 		284BC41B21D3B30B00A7C479 /* 创建者模式 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "创建者模式"; sourceTree = BUILT_PRODUCTS_DIR; };
 		284BC41E21D3B30B00A7C479 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		28B2273D21E33487009A3DCC /* DesignProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignProtocol.h; sourceTree = "<group>"; };
+		28B2273E21E334DC009A3DCC /* ConstructionProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstructionProtocol.h; sourceTree = "<group>"; };
+		28B2273F21E335B1009A3DCC /* Builder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Builder.h; sourceTree = "<group>"; };
+		28B2274021E335B1009A3DCC /* Builder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Builder.m; sourceTree = "<group>"; };
+		28B2274221E33898009A3DCC /* BuilderProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuilderProtocol.h; sourceTree = "<group>"; };
+		28B2274821E33A17009A3DCC /* A_Construction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = A_Construction.h; sourceTree = "<group>"; };
+		28B2274921E33A17009A3DCC /* A_Construction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = A_Construction.m; sourceTree = "<group>"; };
+		28B2274B21E33A1F009A3DCC /* B_Construction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = B_Construction.h; sourceTree = "<group>"; };
+		28B2274C21E33A1F009A3DCC /* B_Construction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = B_Construction.m; sourceTree = "<group>"; };
+		28B2274E21E33A2A009A3DCC /* C_Construction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = C_Construction.h; sourceTree = "<group>"; };
+		28B2274F21E33A2A009A3DCC /* C_Construction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C_Construction.m; sourceTree = "<group>"; };
+		28B2275121E33AC7009A3DCC /* A_Design.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = A_Design.h; sourceTree = "<group>"; };
+		28B2275221E33AC7009A3DCC /* A_Design.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = A_Design.m; sourceTree = "<group>"; };
+		28B2275421E33AD0009A3DCC /* B_Design.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = B_Design.h; sourceTree = "<group>"; };
+		28B2275521E33AD0009A3DCC /* B_Design.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = B_Design.m; sourceTree = "<group>"; };
+		28B2275721E33AD8009A3DCC /* C_Design.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = C_Design.h; sourceTree = "<group>"; };
+		28B2275821E33AD8009A3DCC /* C_Design.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C_Design.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +82,10 @@
 			isa = PBXGroup;
 			children = (
 				284BC41E21D3B30B00A7C479 /* main.m */,
+				28B2274421E339DD009A3DCC /* Construction */,
+				28B2274321E339CA009A3DCC /* Design */,
+				28B2273B21E333FC009A3DCC /* AbstractBuilder */,
 				284BC42521D3B36800A7C479 /* Builder */,
-				284BC42621D3B36800A7C479 /* ConcreteBuilder */,
 			);
 			path = "创建者模式";
 			sourceTree = "<group>";
@@ -67,15 +93,46 @@
 		284BC42521D3B36800A7C479 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
+				28B2273F21E335B1009A3DCC /* Builder.h */,
+				28B2274021E335B1009A3DCC /* Builder.m */,
+				28B2274221E33898009A3DCC /* BuilderProtocol.h */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
 		};
-		284BC42621D3B36800A7C479 /* ConcreteBuilder */ = {
+		28B2273B21E333FC009A3DCC /* AbstractBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				28B2273D21E33487009A3DCC /* DesignProtocol.h */,
+				28B2273E21E334DC009A3DCC /* ConstructionProtocol.h */,
 			);
-			path = ConcreteBuilder;
+			path = AbstractBuilder;
+			sourceTree = "<group>";
+		};
+		28B2274321E339CA009A3DCC /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				28B2275121E33AC7009A3DCC /* A_Design.h */,
+				28B2275221E33AC7009A3DCC /* A_Design.m */,
+				28B2275421E33AD0009A3DCC /* B_Design.h */,
+				28B2275521E33AD0009A3DCC /* B_Design.m */,
+				28B2275721E33AD8009A3DCC /* C_Design.h */,
+				28B2275821E33AD8009A3DCC /* C_Design.m */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		28B2274421E339DD009A3DCC /* Construction */ = {
+			isa = PBXGroup;
+			children = (
+				28B2274821E33A17009A3DCC /* A_Construction.h */,
+				28B2274921E33A17009A3DCC /* A_Construction.m */,
+				28B2274B21E33A1F009A3DCC /* B_Construction.h */,
+				28B2274C21E33A1F009A3DCC /* B_Construction.m */,
+				28B2274E21E33A2A009A3DCC /* C_Construction.h */,
+				28B2274F21E33A2A009A3DCC /* C_Construction.m */,
+			);
+			path = Construction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +192,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				284BC41F21D3B30B00A7C479 /* main.m in Sources */,
+				28B2275921E33AD8009A3DCC /* C_Design.m in Sources */,
+				28B2274A21E33A17009A3DCC /* A_Construction.m in Sources */,
+				28B2274121E335B1009A3DCC /* Builder.m in Sources */,
+				28B2274D21E33A1F009A3DCC /* B_Construction.m in Sources */,
+				28B2275021E33A2A009A3DCC /* C_Construction.m in Sources */,
+				28B2275621E33AD0009A3DCC /* B_Design.m in Sources */,
+				28B2275321E33AC7009A3DCC /* A_Design.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
