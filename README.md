@@ -124,7 +124,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
    - 5、[Singleton 单例模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/单例模式/单例模式.md)
    
    **结构型**
-   - 6、[Adapter 适配器模式]()
+   - 6、[Adapter 适配器模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/适配器模式/适配器模式.md)
    - 7、[Bridge 桥接模式]()
    - 8、[Composite 组合模式]()
    - 9、[Decorator 装饰者模式]()
