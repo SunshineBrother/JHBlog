@@ -15,6 +15,9 @@
 		28B64E5E21E5C76B00F1DE50 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B64E5D21E5C76B00F1DE50 /* main.m */; };
 		28B64E6821E5C76B00F1DE50 /* AdapterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B64E6721E5C76B00F1DE50 /* AdapterTests.m */; };
 		28B64E7321E5C76B00F1DE50 /* AdapterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B64E7221E5C76B00F1DE50 /* AdapterUITests.m */; };
+		28B64E8221E5C90600F1DE50 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B64E8121E5C90600F1DE50 /* CardView.m */; };
+		28B64E8721E5CECC00F1DE50 /* OneAdapterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B64E8621E5CECC00F1DE50 /* OneAdapterModel.m */; };
+		28B64E8A21E5D1DA00F1DE50 /* TwoAdapterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B64E8921E5D1DA00F1DE50 /* TwoAdapterModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,13 @@
 		28B64E6E21E5C76B00F1DE50 /* AdapterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdapterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B64E7221E5C76B00F1DE50 /* AdapterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdapterUITests.m; sourceTree = "<group>"; };
 		28B64E7421E5C76B00F1DE50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28B64E8021E5C90600F1DE50 /* CardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
+		28B64E8121E5C90600F1DE50 /* CardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
+		28B64E8421E5CE8200F1DE50 /* AdapterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdapterProtocol.h; sourceTree = "<group>"; };
+		28B64E8521E5CECC00F1DE50 /* OneAdapterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneAdapterModel.h; sourceTree = "<group>"; };
+		28B64E8621E5CECC00F1DE50 /* OneAdapterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneAdapterModel.m; sourceTree = "<group>"; };
+		28B64E8821E5D1DA00F1DE50 /* TwoAdapterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoAdapterModel.h; sourceTree = "<group>"; };
+		28B64E8921E5D1DA00F1DE50 /* TwoAdapterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoAdapterModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +115,9 @@
 				28B64E4F21E5C76A00F1DE50 /* AppDelegate.m */,
 				28B64E5121E5C76A00F1DE50 /* ViewController.h */,
 				28B64E5221E5C76A00F1DE50 /* ViewController.m */,
+				28B64E8021E5C90600F1DE50 /* CardView.h */,
+				28B64E8121E5C90600F1DE50 /* CardView.m */,
+				28B64E8321E5CD3600F1DE50 /* Adapter */,
 				28B64E5421E5C76A00F1DE50 /* Main.storyboard */,
 				28B64E5721E5C76B00F1DE50 /* Assets.xcassets */,
 				28B64E5921E5C76B00F1DE50 /* LaunchScreen.storyboard */,
@@ -130,6 +143,18 @@
 				28B64E7421E5C76B00F1DE50 /* Info.plist */,
 			);
 			path = AdapterUITests;
+			sourceTree = "<group>";
+		};
+		28B64E8321E5CD3600F1DE50 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				28B64E8421E5CE8200F1DE50 /* AdapterProtocol.h */,
+				28B64E8521E5CECC00F1DE50 /* OneAdapterModel.h */,
+				28B64E8621E5CECC00F1DE50 /* OneAdapterModel.m */,
+				28B64E8821E5D1DA00F1DE50 /* TwoAdapterModel.h */,
+				28B64E8921E5D1DA00F1DE50 /* TwoAdapterModel.m */,
+			);
+			path = Adapter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,7 +289,10 @@
 			files = (
 				28B64E5321E5C76A00F1DE50 /* ViewController.m in Sources */,
 				28B64E5E21E5C76B00F1DE50 /* main.m in Sources */,
+				28B64E8A21E5D1DA00F1DE50 /* TwoAdapterModel.m in Sources */,
+				28B64E8221E5C90600F1DE50 /* CardView.m in Sources */,
 				28B64E5021E5C76A00F1DE50 /* AppDelegate.m in Sources */,
+				28B64E8721E5CECC00F1DE50 /* OneAdapterModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

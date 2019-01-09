@@ -7,7 +7,9 @@
 //
 
 #import "ViewController.h"
-
+#import "CardView.h"
+#import "OneAdapterModel.h"
+#import "TwoAdapterModel.h"
 @interface ViewController ()
 
 @end
@@ -16,7 +18,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    CardView *card = [[CardView alloc]initWithFrame:CGRectMake(0, 0, 200, 150)];
+    card.center = self.view.center;
+    [self.view addSubview:card];
+    TwoAdapterModel *model = [[TwoAdapterModel alloc]initWithData:@{@"name":@"辉哥",@"phone":@"19999999999"}];
+    [card loadData:model];
+    
+    
+    //    OneAdapterModel *model = [[OneAdapterModel alloc]initWithData:@[@"辉哥",@"19999999999"]];
+//    [card loadData:model];
+    
+    
 }
 
 
