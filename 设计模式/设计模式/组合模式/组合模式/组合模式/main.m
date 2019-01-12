@@ -42,12 +42,7 @@ int main(int argc, const char * argv[]) {
         // 客户端操作
         // 操作一：打印所有
         [rootFolder printAllChildFolder];
-        
-        
-        
-        
-        
-        
+   
         
     }
     return 0;

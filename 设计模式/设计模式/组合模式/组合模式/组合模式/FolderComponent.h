@@ -11,19 +11,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FolderComponent : NSObject
- 
 /**
  文件名称
  */
 @property (nonatomic,copy) NSString *FolderName;
 /**
  返回当前文件
-
  @param FolderName FolderName
  @return FolderName
  */
 + (FolderComponent *)getFolderNameWithFolderName:(NSString *)FolderName;
-
 /**
  所有子文的集合
  */
@@ -36,14 +33,10 @@ NS_ASSUME_NONNULL_BEGIN
  移除子文件
  */
 - (void)removeChildFolder:(FolderComponent *)ChildFolder;
-
-
 /**
  获取第几个编号的子节点
  */
 - (FolderComponent *)childFolderAtIndex:(NSInteger)index;
-
-
 /**
  打印所有子文件
  */
