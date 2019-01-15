@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		2841281E21ED78A300C2F6BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2841281D21ED78A300C2F6BB /* main.m */; };
 		2841282621ED7C8F00C2F6BB /* CalculateBonus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2841282521ED7C8F00C2F6BB /* CalculateBonus.m */; };
+		2841282E21EDB60F00C2F6BB /* PeopleComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2841282D21EDB60F00C2F6BB /* PeopleComponent.m */; };
+		2841283221EDB73D00C2F6BB /* Decorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2841283121EDB73D00C2F6BB /* Decorator.m */; };
+		2841283921EDB79200C2F6BB /* sumBonusDecatorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2841283421EDB79200C2F6BB /* sumBonusDecatorator.m */; };
+		2841283A21EDB79200C2F6BB /* monthBonusDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2841283521EDB79200C2F6BB /* monthBonusDecorator.m */; };
+		2841283B21EDB79200C2F6BB /* groupBonusDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2841283721EDB79200C2F6BB /* groupBonusDecorator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +33,16 @@
 		2841281D21ED78A300C2F6BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2841282421ED7C8F00C2F6BB /* CalculateBonus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculateBonus.h; sourceTree = "<group>"; };
 		2841282521ED7C8F00C2F6BB /* CalculateBonus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculateBonus.m; sourceTree = "<group>"; };
+		2841282C21EDB60F00C2F6BB /* PeopleComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeopleComponent.h; sourceTree = "<group>"; };
+		2841282D21EDB60F00C2F6BB /* PeopleComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeopleComponent.m; sourceTree = "<group>"; };
+		2841283021EDB73D00C2F6BB /* Decorator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Decorator.h; sourceTree = "<group>"; };
+		2841283121EDB73D00C2F6BB /* Decorator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Decorator.m; sourceTree = "<group>"; };
+		2841283321EDB79200C2F6BB /* sumBonusDecatorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sumBonusDecatorator.h; sourceTree = "<group>"; };
+		2841283421EDB79200C2F6BB /* sumBonusDecatorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sumBonusDecatorator.m; sourceTree = "<group>"; };
+		2841283521EDB79200C2F6BB /* monthBonusDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = monthBonusDecorator.m; sourceTree = "<group>"; };
+		2841283621EDB79200C2F6BB /* monthBonusDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monthBonusDecorator.h; sourceTree = "<group>"; };
+		2841283721EDB79200C2F6BB /* groupBonusDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = groupBonusDecorator.m; sourceTree = "<group>"; };
+		2841283821EDB79200C2F6BB /* groupBonusDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = groupBonusDecorator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +78,42 @@
 				2841281D21ED78A300C2F6BB /* main.m */,
 				2841282421ED7C8F00C2F6BB /* CalculateBonus.h */,
 				2841282521ED7C8F00C2F6BB /* CalculateBonus.m */,
+				2841282721EDB2D600C2F6BB /* 装饰者模式 */,
 			);
 			path = "装饰者模式";
+			sourceTree = "<group>";
+		};
+		2841282721EDB2D600C2F6BB /* 装饰者模式 */ = {
+			isa = PBXGroup;
+			children = (
+				2841282F21EDB71400C2F6BB /* Decorator */,
+				2841282821EDB59600C2F6BB /* Components */,
+			);
+			path = "装饰者模式";
+			sourceTree = "<group>";
+		};
+		2841282821EDB59600C2F6BB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2841282C21EDB60F00C2F6BB /* PeopleComponent.h */,
+				2841282D21EDB60F00C2F6BB /* PeopleComponent.m */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2841282F21EDB71400C2F6BB /* Decorator */ = {
+			isa = PBXGroup;
+			children = (
+				2841283021EDB73D00C2F6BB /* Decorator.h */,
+				2841283121EDB73D00C2F6BB /* Decorator.m */,
+				2841283821EDB79200C2F6BB /* groupBonusDecorator.h */,
+				2841283721EDB79200C2F6BB /* groupBonusDecorator.m */,
+				2841283621EDB79200C2F6BB /* monthBonusDecorator.h */,
+				2841283521EDB79200C2F6BB /* monthBonusDecorator.m */,
+				2841283321EDB79200C2F6BB /* sumBonusDecatorator.h */,
+				2841283421EDB79200C2F6BB /* sumBonusDecatorator.m */,
+			);
+			path = Decorator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +172,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2841282E21EDB60F00C2F6BB /* PeopleComponent.m in Sources */,
+				2841283B21EDB79200C2F6BB /* groupBonusDecorator.m in Sources */,
+				2841283221EDB73D00C2F6BB /* Decorator.m in Sources */,
+				2841283A21EDB79200C2F6BB /* monthBonusDecorator.m in Sources */,
 				2841282621ED7C8F00C2F6BB /* CalculateBonus.m in Sources */,
 				2841281E21ED78A300C2F6BB /* main.m in Sources */,
+				2841283921EDB79200C2F6BB /* sumBonusDecatorator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

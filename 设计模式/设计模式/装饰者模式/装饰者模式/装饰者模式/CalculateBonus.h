@@ -11,6 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CalculateBonus : NSObject
+//当月奖金
++ (NSInteger)monthBonus:(NSInteger)monthSales;
+//累积奖金
++ (NSInteger)sumBonus:(NSInteger)sumSales;
+//团队奖金
++ (NSInteger)groupBonus:(NSInteger)groupMoney;
+
 
 @end
 
