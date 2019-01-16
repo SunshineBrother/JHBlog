@@ -128,7 +128,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
    - 7、[Bridge 桥接模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/桥接模式/桥接模式.md)
    - 8、[Composite 组合模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/组合模式/组合模式.md)
    - 9、[Decorator 装饰者模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/装饰者模式/装饰者模式.md)
-   - 10、[Facade 外观模式]()
+   - 10、[Facade 外观模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/外观模式/外观模式.md)
    - 11、[Flyweight 享元模式]()
    - 12、[Proxy 代理模式]()
    
