@@ -135,7 +135,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
    **行为型**
    
    - 13、[Chain of responsibility 责任链模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/责任链模式/责任链模式.md)
-   - 14、[Command 命令模式]()
+   - 14、[Command 命令模式](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/命令模式/命令模式.md)
    - 15、[Interpreter 解释器模式]()
    - 16、[Iterator 迭代器模式]()
    - 17、[Mediator 中介模式]()
