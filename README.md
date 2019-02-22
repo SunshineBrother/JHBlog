@@ -6,6 +6,8 @@ iOS开发：我的初级到中级的晋级之路
 *********************************************************
 ## iOS高级进发
 [OC源码下载地址](https://opensource.apple.com/tarballs/)
+[苹果开发文档](https://developer.apple.com/documentation/)
+[如何阅读苹果开发文档](https://mp.weixin.qq.com/s/UgwSNSahYzQm14Zwtfk_2w)
 
 GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一遍
 源码地址：http://www.gnustep.org/resources/downloads.php
