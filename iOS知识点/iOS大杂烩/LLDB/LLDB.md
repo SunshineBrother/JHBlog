@@ -108,6 +108,119 @@ watchpoint delete // 删除所有watchpoint
 ```
 
 
+
+## Chisel
+
+
+[Chisel](https://github.com/facebook/chisel)是facebook开源的一个LLDB命令的集合，它里面简化和扩展了LLDB的命令。使用它会更方便的调试我们的程序。在它的GitHub上有详细的安装方式，这里就不赘述了。
+
+
+### 常用命令
+
+**1. pviews**
+
+
+这个命令可以按层级递归打印指定view的所有subView，相当于 UIView 的私有辅助方法 [view recursiveDescription]。如果不指定view的话就是默认window：
+
+![LLDB9](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB9.png)
+
+![LLDB10](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB10.png)
+
+
+**2. pvc**
+
+这个命令递归打印出viewController的层级，相当于 UIViewController 的一个私有辅助方法 [UIViewController _printHierarchy] ：
+
+![LLDB11](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB11.png)
+
+**3. visualize**
+
+
+它可以使用Mac的预览打开一个 UIImage, CGImageRef, UIView, 或 CALayer。 我们其实可以用这个功能来截图或者查看一个view的具体内容
+
+```
+(lldb) visualize 0x7feb5cf18210
+(lldb) visualize self.view
+```
+
+
+**4. mask/unmask**
+
+mask用来在view或者layer上覆盖一个半透明的矩形， unmask解除。当我们想找一个view的时候可以使用。
+
+```
+(lldb) mask self.imageView
+(lldb) unmask 0x7f8732e037b0
+```
+![LLDB12](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB12.png)
+
+**5. border/unborder**
+
+border可以给view或者layer添加边框，unborder解除。当我们想找一个view的时候可以使用
+```
+(lldb) border self.imageView
+(lldb) unborder 0x7f8732e037b0
+```
+
+**6. show/hide**
+
+显示隐藏一个view或者layer。
+
+```
+(lldb) hide self.imageView
+(lldb) show self.imageView
+```
+**7. caflush**
+
+这个命令用来刷新UI，当我们改变了UI的时候，不用重新启动，使用caflush刷新UI就行。
+
+**8. presponder**
+
+打印响应者链：
+
+
+![LLDB13](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB13.png)
+
+
+**9. pclass**
+
+
+打印指定对象的class的继承关系：
+
+![LLDB14](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB14.png)
+
+**10. pjson**
+
+打印一个字典或者数组的json样式。
+![LLDB15](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB15.png)
+
+
+**11. slowanim/unslowanim**
+
+减慢动画的效果，检查一个动画哪里有问题时可以使用。
+
+**12. pdocspath**
+
+打印App的Documents路径
+
+![LLDB16](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB16.png)
+
+**13. fv & fvc**
+
+这两个命令是用来搜索当前内存中存在的view和viewController实例的命令，支持正则搜索。
+
+![LLDB17](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB17.png)
+
+
+**14. taplog**
+
+点击某个view时，程序会暂停，会打印被点击的view。
+
+![LLDB18](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB18.png)
+
+
+
+
 *参考*
 
 [iOS调试-LLDB学习总结](https://www.jianshu.com/p/d6a0a5e39b0e)
