@@ -1,0 +1,39 @@
+{
+    "data": {
+        "id": 1,
+        "fullName": "Tom Sawyer",
+        "pictureUrl": "tom",
+        "email": "tomSawyer@gmail.com",
+        "about": "I like travelling along Missisipi!",
+        "friends": [
+                    {
+                    "name": "Huckleberry Finn",
+                    "pictureUrl": "finn"
+                    },
+                    {
+                    "name": "Becky Thatcher",
+                    "pictureUrl": "becky"
+                    },
+                    {
+                    "name": "Celeste Holm",
+                    "pictureUrl": "holm"
+                    }
+                    ],
+        "profileAttributes": [
+                              {
+                              "key": "Date of birth",
+                              "value": "November 30, 1835"
+                              },
+                              {
+                              "key": "Gender",
+                              "value": "male"
+                              },
+                              {
+                              "key": "Height",
+                              "value": "180"
+                              }
+                              ]
+    },
+    "error": 0,
+    "message": "Success"
+}

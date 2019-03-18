@@ -15,3 +15,6 @@
  
  6、查看升级后的cocoapods版本：pod --version
 
+
+
+![CocoaPods 历险 - 总览](https://www.desgard.com/cocoapods-1/)
