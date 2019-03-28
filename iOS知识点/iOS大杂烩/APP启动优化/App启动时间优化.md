@@ -13,7 +13,7 @@ APP的启动可以分为两大类
 
 想要了解冷启动，我们必须首先要知道APP冷启动的流程
 
-![冷启动1](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/APP启动优化/冷启动1.png)
+![冷启动1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/APP启动优化/冷启动1.png)
 
 
 APP冷启动可以概括为三个阶段
@@ -27,7 +27,7 @@ APP冷启动可以概括为三个阶段
 
 启动APP时，dyld所做的事情有
 
-![冷启动2](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/APP启动优化/冷启动2.png)
+![冷启动2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/APP启动优化/冷启动2.png)
 
 真正的加载过程从exec()函数开始，exec()是一个系统调用。操作系统首先为进程分配一段内存空间，然后执行如下操作：
 - 1、把App对应的可执行文件加载到内存。
@@ -44,7 +44,7 @@ APP冷启动可以概括为三个阶段
 
 **2、RunTime方法**
 
-![冷启动3](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/APP启动优化/冷启动3.png)
+![冷启动3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/APP启动优化/冷启动3.png)
 
 在Dyld阶段加载结束以后就进入了RunTime阶段
 
@@ -68,7 +68,7 @@ APP的启动由dyld主导，将可执行文件加载到内存，顺便加载所�
 
 这个里面往往是最占用启动时间的地方，同时也是我们最为可控的地方。
 
-![冷启动4](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/APP启动优化/冷启动4.png)
+![冷启动4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/APP启动优化/冷启动4.png)
 
 
 早期由于业务比较简单，所有启动项都是不加以区分，简单地堆积到didFinishLaunchingWithOptions方法中，但随着业务的增加，越来越多的启动项代码堆积在一起，性能越来越差，启动也越来越占用时间。
@@ -82,13 +82,13 @@ APP的启动由dyld主导，将可执行文件加载到内存，顺便加载所�
 - T1：main()函数之前，即操作系统加载App可执行文件到内存，然后执行一系列的加载&链接等工作，最后执行至App的main()函数。
 - T2：main()函数之后，即从main()开始，到appDelegate的didFinishLaunchingWithOptions方法执行完毕。
 
- ![冷启动6](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/APP启动优化/冷启动6.png)
+ ![冷启动6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/APP启动优化/冷启动6.png)
  
  **main()函数之前**
 
 对于如何测试启动时间，Xcode 提供了一个很赞的方法，只需要在 Edit scheme -> Run -> Arguments 中将环境变量 DYLD_PRINT_STATISTICS 设为 1，就可以看到 main 之前各个阶段的时间消耗。
 
-![冷启动5](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/APP启动优化/冷启动5.png)
+![冷启动5](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/APP启动优化/冷启动5.png)
 
 **main()函数之前**
 
@@ -126,12 +126,12 @@ Time Profiler是Xcode自带的时间性能分析工具，它按照固定的时�
  - T1：main()函数之前，即操作系统加载App可执行文件到内存，然后执行一系列的加载&链接等工作，最后执行至App的main()函数。
  - T2：main()函数之后，即从main()开始，到appDelegate的didFinishLaunchingWithOptions方法执行完毕。
  
- ![冷启动6](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/APP启动优化/冷启动6.png)
+ ![冷启动6](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/APP启动优化/冷启动6.png)
  
  
  #### main()函数之前 
  
- ![冷启动1](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/APP启动优化/冷启动1.png)
+ ![冷启动1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/APP启动优化/冷启动1.png)
  
 
 App开始启动后，系统首先加载可执行文件（自身App的所有.o文件的集合），然后加载动态链接库dyld，dyld是一个专门用来加载动态链接库的库。 执行从dyld开始，dyld从可执行文件的依赖开始, 递归加载所有的依赖动态链接库。 
@@ -244,7 +244,7 @@ rebase步骤先进行，需要把镜像读入内存，并以page为单位进行�
 
 生成LinkMap文件，可以查看可执行文件的具体组成
 
- ![冷启动7](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/APP启动优化/冷启动7.png)
+ ![冷启动7](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/APP启动优化/冷启动7.png)
 
 
 #### main()函数之后
@@ -252,7 +252,7 @@ rebase步骤先进行，需要把镜像读入内存，并以page为单位进行�
 其实在main()函数之前我们能够进行优化的部分并没有多少，而且操作性也不大，更多的优化其实还是我们对我们代码的优化，很多启动时间的占用更多的是因为我们代码布局的问题。
 
  
-![冷启动4](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/APP启动优化/冷启动4.png)
+![冷启动4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/APP启动优化/冷启动4.png)
 
 相当一部分的项目都是所有的启动项不加分类一股脑的堆积在了`didFinishLaunch`中，其实这是相当不合理的。
 
@@ -260,7 +260,7 @@ rebase步骤先进行，需要把镜像读入内存，并以page为单位进行�
 通过对SDK的梳理和分析，我们发现启动项也需要根据所完成的任务被分类，有些启动项是需要刚启动就执行的操作，如Crash监控、统计上报等，否则会导致信息收集的缺失；有些启动项需要在较早的时间节点完成，例如一些提供用户信息的SDK、定位功能的初始化、网络初始化等；有些启动项则可以被延迟执行，如一些自定义配置，一些业务服务的调用、支付SDK、地图SDK等。我们所做的分阶段启动，首先就是把启动流程合理地划分为若干个启动阶段，然后依据每个启动项所做的事情的优先级把它们分配到相应的启动阶段，优先级高的放在靠前的阶段，优先级低的放在靠后的阶段。
 
  
- ![冷启动8](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/APP启动优化/冷启动8.png)
+ ![冷启动8](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/APP启动优化/冷启动8.png)
  
  
  我们虽然把各个功能的优先级给整理了出来，但是我们启动还是需要很长时间，我们并没有减少启动时间。这个时候我们需要充分利用串行队列
@@ -273,7 +273,7 @@ rebase步骤先进行，需要把镜像读入内存，并以page为单位进行�
  
  现在许多App在启动时并不直接进入首页，而是会向用户展示一个持续一小段时间的闪屏页，如果使用恰当，这个闪屏页就能帮我们节省一些启动时间。因为当一个App比较复杂的时候，启动时首次构建App的UI就是一个比较耗时的过程，假定这个时间是0.2秒，如果我们是先构建首页UI，然后再在Window上加上这个闪屏页，那么冷启动时，App就会实实在在地卡住0.2秒，但是如果我们是先把闪屏页作为App的RootViewController，那么这个构建过程就会很快。因为闪屏页只有一个简单的ImageView，而这个ImageView则会向用户展示一小段时间，这时我们就可以利用这一段时间来构建首页UI了，一举两得
  
- ![冷启动9](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/APP启动优化/冷启动9.png)
+ ![冷启动9](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/APP启动优化/冷启动9.png)
  
  
  **广告页的利用**

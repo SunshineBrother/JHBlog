@@ -7,7 +7,7 @@ UITableView是iOS开发者最常用的一个控件了，虽然我们都用了好
 
 ### 如何构建具有多种Cell类型的表视图
 
-![多种Cell类型](https://github.com/SunshineBrother/JHBlog/blob/master/性能优化/对UITableView进行性能调优/多种Cell类型.png)
+![多种Cell类型](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/对UITableView进行性能调优/多种Cell类型.png)
 
 在具有静态 Cell 的表视图中，其 Cell 的数量和顺序是恒定的。要实现这样的表视图非常简单，与实现常规 UIView 没有太大的区别。
 
