@@ -83,7 +83,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 17、[App启动时间优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/APP启动优化/App启动时间优化.md)
 - 18、[drawRect为什么导致CPU飙升](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/动画/drawRect/drawRect为什么导致CPU飙升.md)
 - 19、[页面间跳转的性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/页面间跳转的性能优化/页面间跳转的性能优化.md)
-
+- 20、[常见耗电量检测方案调研](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/常见耗电量检测方案调研.md)
 
 
 

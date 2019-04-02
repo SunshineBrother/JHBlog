@@ -14,8 +14,6 @@
 		28B19910224C786E00B00124 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B1990E224C786E00B00124 /* LaunchScreen.storyboard */; };
 		28B1991B224C786E00B00124 /* MyTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1991A224C786E00B00124 /* MyTableViewTests.swift */; };
 		28B19926224C786E00B00124 /* MyTableViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19925224C786E00B00124 /* MyTableViewUITests.swift */; };
-		28B19947224C793000B00124 /* ListPrefetcherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19934224C793000B00124 /* ListPrefetcherViewModel.swift */; };
-		28B19948224C793000B00124 /* ListPrefetcherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19935224C793000B00124 /* ListPrefetcherModel.swift */; };
 		28B19949224C793000B00124 /* ListPrefetcherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19936224C793000B00124 /* ListPrefetcherController.swift */; };
 		28B1994A224C793000B00124 /* ManyCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B19938224C793000B00124 /* ManyCellController.swift */; };
 		28B1994B224C793000B00124 /* EmailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28B1993A224C793000B00124 /* EmailCell.xib */; };
@@ -67,8 +65,6 @@
 		28B19921224C786E00B00124 /* MyTableViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyTableViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B19925224C786E00B00124 /* MyTableViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewUITests.swift; sourceTree = "<group>"; };
 		28B19927224C786E00B00124 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28B19934224C793000B00124 /* ListPrefetcherViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPrefetcherViewModel.swift; sourceTree = "<group>"; };
-		28B19935224C793000B00124 /* ListPrefetcherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPrefetcherModel.swift; sourceTree = "<group>"; };
 		28B19936224C793000B00124 /* ListPrefetcherController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPrefetcherController.swift; sourceTree = "<group>"; };
 		28B19938224C793000B00124 /* ManyCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManyCellController.swift; sourceTree = "<group>"; };
 		28B1993A224C793000B00124 /* EmailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmailCell.xib; sourceTree = "<group>"; };
@@ -182,8 +178,6 @@
 		28B19933224C793000B00124 /* 实现列表预加载 */ = {
 			isa = PBXGroup;
 			children = (
-				28B19934224C793000B00124 /* ListPrefetcherViewModel.swift */,
-				28B19935224C793000B00124 /* ListPrefetcherModel.swift */,
 				28B19936224C793000B00124 /* ListPrefetcherController.swift */,
 				28B1995A224CA03B00B00124 /* ListPrefetcher.swift */,
 			);
@@ -400,13 +394,11 @@
 			files = (
 				28B19957224C793000B00124 /* ProfileModel.swift in Sources */,
 				28B19952224C793000B00124 /* FriendCell.swift in Sources */,
-				28B19947224C793000B00124 /* ListPrefetcherViewModel.swift in Sources */,
 				28B19949224C793000B00124 /* ListPrefetcherController.swift in Sources */,
 				28B1994F224C793000B00124 /* AboutCell.swift in Sources */,
 				28B19950224C793000B00124 /* NamePictureCell.swift in Sources */,
 				28B1994E224C793000B00124 /* AttributeCell.swift in Sources */,
 				28B19956224C793000B00124 /* ProfileViewModel.swift in Sources */,
-				28B19948224C793000B00124 /* ListPrefetcherModel.swift in Sources */,
 				28B1994C224C793000B00124 /* EmailCell.swift in Sources */,
 				28B19908224C786C00B00124 /* ViewController.swift in Sources */,
 				28B1994A224C793000B00124 /* ManyCellController.swift in Sources */,

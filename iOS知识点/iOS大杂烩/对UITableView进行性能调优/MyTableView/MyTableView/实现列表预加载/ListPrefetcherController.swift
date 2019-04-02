@@ -14,7 +14,8 @@ class ListPrefetcherController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.title = "列表预加载"
+        
     }
     
 
