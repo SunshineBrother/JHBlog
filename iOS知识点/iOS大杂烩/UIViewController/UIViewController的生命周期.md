@@ -1,7 +1,7 @@
 ## UIViewController的生命周期 
  
  
- 
+ ![生命周期](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIViewController/生命周期.png)
  
  
  
