@@ -91,7 +91,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 19、[页面间跳转的性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/页面间跳转的性能优化/页面间跳转的性能优化.md)
 - 20、[常见耗电量检测方案调研](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/常见耗电量检测方案调研.md)
 - 21、[5种常见的消息传递机制以及他们之间区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/5种常见的消息传递机制以及他们之间区别/5种常见的消息传递机制以及他们之间区别.md)
-
+- 22、[写一个好的单例](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/单例模式/单例模式.md)
 
 
 
