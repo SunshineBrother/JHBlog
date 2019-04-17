@@ -80,7 +80,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - 1、[UIViewController的生命周期](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIViewController/UIViewController的生命周期.md)
     - 2、[UIViewController重构](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIViewController/UIViewController重构.md)
 - 10、[ios真机调试包路径及配置文件路径](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/ios真机调试包路径及配置文件路径.md)
-- 11、[UIView的继承链](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIView的继承链.md)
+- 11、[UIView的继承链](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Cocoa框架Foundation和UIKit的区别.md)
 - 12、[UIView和CALayer的区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIView和CALayer的区别？.md)
 - 13、[frame和bounds的区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/frame和bounds的区别.md)
 - 14、[浅谈性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/简单性能优化/性能优化.md)
@@ -92,6 +92,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 20、[常见耗电量检测方案调研](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/常见耗电量检测方案调研.md)
 - 21、[5种常见的消息传递机制以及他们之间区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/5种常见的消息传递机制以及他们之间区别/5种常见的消息传递机制以及他们之间区别.md)
 - 22、[写一个好的单例](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/单例模式/单例模式.md)
+- 23、[事件响应机制](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/事件响应机制/事件响应机制.md)
 
 
 
