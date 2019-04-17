@@ -80,7 +80,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - 1、[UIViewController的生命周期](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIViewController/UIViewController的生命周期.md)
     - 2、[UIViewController重构](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIViewController/UIViewController重构.md)
 - 10、[ios真机调试包路径及配置文件路径](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/ios真机调试包路径及配置文件路径.md)
-- 11、[UIView的继承链](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Cocoa框架Foundation和UIKit的区别.md)
+- 11、[Cocoa框架Foundation和UIKit的区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Cocoa框架Foundation和UIKit的区别/Cocoa框架Foundation和UIKit的区别.md)
 - 12、[UIView和CALayer的区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIView和CALayer的区别？.md)
 - 13、[frame和bounds的区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/frame和bounds的区别.md)
 - 14、[浅谈性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/简单性能优化/性能优化.md)
