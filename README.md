@@ -82,7 +82,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 10、[ios真机调试包路径及配置文件路径](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/ios真机调试包路径及配置文件路径.md)
 - 11、[Cocoa框架Foundation和UIKit的区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Cocoa框架Foundation和UIKit的区别/Cocoa框架Foundation和UIKit的区别.md)
 - 12、[UIView和CALayer的区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIView和CALayer的区别？.md)
-- 13、[frame和bounds的区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/frame和bounds的区别.md)
+- 13、[frame和bounds的区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/frame和bounds的区别/frame和bounds的区别.md)
 - 14、[浅谈性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/简单性能优化/性能优化.md)
 - 15、[UITableView架构总结](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/对UITableView进行性能调优/UITableView架构总结.md)
 - 16、[加载大图的优化算法](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/加载大图的优化算法/加载大图的优化算法.md)
