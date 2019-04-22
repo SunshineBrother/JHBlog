@@ -124,6 +124,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
   ******************************************************************************************************************
   ## 架构
   - [1、浅谈MVC&变异MVC&MVP&MVVM](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/基础架构/1、MVC%26变异MVC%26MVP%26MVVM.md)
+  - [2、UIViewController重构](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIViewController/UIViewController重构.md)
   
   ## 设计模式研究
   
