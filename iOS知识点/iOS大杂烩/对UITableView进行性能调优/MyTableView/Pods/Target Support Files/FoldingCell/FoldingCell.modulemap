@@ -1,0 +1,6 @@
+framework module FoldingCell {
+  umbrella header "FoldingCell-umbrella.h"
+
+  export *
+  module * { export * }
+}

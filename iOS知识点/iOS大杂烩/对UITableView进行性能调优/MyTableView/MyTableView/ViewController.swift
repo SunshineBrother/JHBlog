@@ -21,13 +21,17 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    //实现列表预加载
+    // FoldingCell
     @IBAction func buttonEvent2(_ sender: Any) {
+        let vc = FoldingCellController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
-    //WebView和TableView混合使用
+    //复杂列表
     @IBAction func buttonEvent3(_ sender: Any) {
+        let vc = IGListController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

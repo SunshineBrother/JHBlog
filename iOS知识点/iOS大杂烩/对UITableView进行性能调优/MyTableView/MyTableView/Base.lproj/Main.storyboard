@@ -51,7 +51,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="iK9-IV-JYm"/>
                                 </constraints>
-                                <state key="normal" title="构建具有多种Cell类型"/>
+                                <state key="normal" title="FoldingCell"/>
                                 <connections>
                                     <action selector="buttonEvent2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PE1-ix-6cz"/>
                                 </connections>
@@ -62,7 +62,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="L6P-fQ-cxU"/>
                                 </constraints>
-                                <state key="normal" title="WebView和TableView混合使用"/>
+                                <state key="normal" title="复杂列表"/>
                                 <connections>
                                     <action selector="buttonEvent3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ae2-L0-6SP"/>
                                 </connections>
