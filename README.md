@@ -3,9 +3,9 @@
 iOS开发：我的初级到中级的晋级之路
 
 
-![iOS技术栈](https://github.com/SunshineBrother/JHBlog/blob/master/iOS技术栈.png)
+![iOS技术栈](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS技术栈.png)
 
-![iOS知识体系](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS知识体系.png)
+![iOS知识体系](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/ios知识体系.png)
 
 *********************************************************
 ## iOS高级进发
