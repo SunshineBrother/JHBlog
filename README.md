@@ -2,11 +2,7 @@
  
 iOS开发：我的初级到中级的晋级之路
 
-
-![iOS技术栈](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS技术栈.png)
-
-![iOS知识体系](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/ios知识体系.png)
-
+ 
 *********************************************************
 ## iOS高级进发
 [OC源码下载地址](https://opensource.apple.com/tarballs/)
@@ -219,9 +215,12 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 
 
 
+*********************************************************
+## 图片
 
+![iOS技术栈](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS技术栈.png)
 
-
+![iOS知识体系](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/ios知识体系.png)
 
 
 
