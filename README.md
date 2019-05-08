@@ -17,6 +17,8 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 虽然GNUstep不是苹果官方源码，但还是具有一定的参考价值
 
 
+******************************************************************************************************************
+
 ### iOS底层
 - [1、一个NSObject对象占用多少内存](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/1、一个NSObject对象占用多少内存.md)
 - [2、OC对象的分类](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/2、OC对象的分类.md)
@@ -57,6 +59,8 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - [10.9、引用计数的存储](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/9、引用计数的存储.md)
   
     
+    
+******************************************************************************************************************
 
 
 ### iOS大杂烩
@@ -93,6 +97,10 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 23、[事件响应机制](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/事件响应机制/事件响应机制.md)
 
 
+
+
+******************************************************************************************************************
+
 ### iOS高级
 
 
@@ -113,6 +121,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
   ******************************************************************************************************************
   ## 网络
   
+  - [HTTP详解](https://github.com/SunshineBrother/JHBlog/blob/master/网络/HTTP.md)
   - [深度优化iOS网络模块](https://github.com/SunshineBrother/JHBlog/blob/master/网络/深度优化iOS网络模块.md)
   
   
