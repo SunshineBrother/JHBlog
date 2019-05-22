@@ -220,7 +220,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 ## 网站
 - 1、[ 牛客网 — 面经和刷面试题](http://link.zhihu.com/?target=https%3A//www.nowcoder.com/)
 - 2、[程序员客栈:程序员自由工作平台](https://www.proginn.com)
-
+- 3、[标识996的插件，需要翻墙使用](https://chrome.google.com/webstore/detail/natasha/icnhghjkdcenmhomcfikdfpkmekhhlej)
 
 
 
