@@ -7,69 +7,113 @@
 
 最近老提示空间不够，这就比较讨厌了，为什么存储空间这么快就花完了。。。
 
+![](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mac系统占用空间大/1.png)
+
+如图，256的空间，就剩下几个G了，其中最大头的系统占用：160G，占比60%多，我勒个擦。。。
+
+正常情况下：我们可以点击管理，进入到系统磁盘优化界面：
+
+
+![](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mac系统占用空间大/2.png)
+
+
+这种适用于简单的文件占用分析，一般我们能够通过 清理文稿 和 回收箱 来解决空间不够的问题。
+- 1、清空回收站。
+- 2、在文稿里，按文件大小排序，删除不需要的文件。
+- 3、对于GarageBand，这个是系统上的模拟乐器，一般都使用不到。
+
+清除方法：
+```
+rm -rf /Library/Application\ Support/GarageBand
+rm -rf /Library/Application\ Support/Logic
+rm -rf /Library/Audio/Apple\ Loops
+```
+
+
+不过，对于罪魁祸首，系统的160G，我们怎么才能知道她的内部存储分布呢？
+
+### 正文
+
+呐、下面就是重点了：关于如何查看系统的文件占用详情。
+
+**一、首先打开终端，输入**
+
+```
+du -sh *
+```
+
+这个命令用来查看根目录下，所有文件的大小分布，如图所示：
 
 
 
+![](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mac系统占用空间大/3.png)
+
+其中，我们很容易能看到每个文件的大小占比，快速定位到最大占比的文件：Library
+
+**二、输入命令，进入到Library文件路径**
+
+```
+cd ~/Library
+```
+
+
+![](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mac系统占用空间大/4.png)
+
+然后，查看Library下的所有文件大小分布。
+
+输入：
+```
+du -d 1 -h
+```
+
+
+![](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mac系统占用空间大/5.png)
+
+
+很容易我们可以找到最大的文件：／Developer
+
+当然，其他的文件大小，我们也都能看到，一目了然。
+
+**三、到这里，我们基本就能知道下面的套路了，我们可以继续往下查看**
+
+比如，我这里继续进入到Developer文件，再查看他的每个子文件大小：
+
+![](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mac系统占用空间大/6.png)
+
+基本，查看个两三层，就基本能知道大概的原因了，我这边由于是程序猿，所以Xcode是根本原因，占了系统160G的一半大小。
+
+到这里为止，如果你也是程序猿，有兴趣的，可以继续看；如果没有兴趣的可以直接跳第四步。
 
 
 
+![](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mac系统占用空间大/7.png)
+
+
+![](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mac系统占用空间大/8.png)
+
+
+基本这就到底了，大概的空间占用分布从上面几张图，也基本有数了。
 
 
 
+以上是讲如何查看及分析文件，如果你是iOS程序猿，这边附上几个清理步骤（清理Xcode缓存）
+
+经过测试，我暂时发现这几个文件可以适当清理下
 
 
+![](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mac系统占用空间大/9.png)
+
+1  ./Archives  这个文件存储的是你所有的历史打包文件，你可以将一些历史的包删掉，最近的如果不放心可以先留着，不过全部删除也是没问题的，但是，如果你删除了，我们Xcode打包上传界面就看不到东西了（如下图所示，该界面的东西就没了）
+
+![](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mac系统占用空间大/10.png)
 
 
+2  ./DerivedData 这个文件大家应该比较熟悉了，存储的是所有项目的一些缓存数据、包括编译缓存文件等等，这个文件是可以全部清理的，当然，你也可以保留一些最近的项目，先暂时清理历史项目的缓存。
+
+3  ./iOS DeviceSupport 这个文件里面存储的是xcode对手机各个版本的支持文件，这里如果你的项目不再需要支持iOS6、iOS7等，可以先把里面的基于iOS6、iOS7的支持文件清除
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**四、经过第三步的层层分析，我们基本能知道了每个文件的大小分布，也能找到一些不需要用的垃圾文件，其中大多以缓存文件居多，大家可以适当进行清理～**
 
 
 
