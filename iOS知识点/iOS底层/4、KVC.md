@@ -43,7 +43,7 @@ KVC（Key-value coding）键值编码，指iOS的开发中，可以允许开发�
 
 ### 2、KVC的内部实现机制
 
-#### KVO的`setValue:forKey`原理
+#### KVC的`setValue:forKey`原理
 
 我们先来一张图片可以直接明了的看清楚实现原理
  ![KVC2](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/KVC2.png)
@@ -54,7 +54,7 @@ KVC（Key-value coding）键值编码，指iOS的开发中，可以允许开发�
     - 返回NO，直接调用`setValue:forUndefinedKey:`，抛出异常
 
 
-#### KVO的`ValueforKey`原理
+#### KVC的`ValueforKey`原理
  ![KVC3](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/KVC3.png)
  - 1、按照`getKey,key,isKey,_key`的顺序查找`成员方法`，如果找到直接调用`取值`
  - 2、如果没有找到，查看`accessInstanceVariablesDirectly`的返回值
