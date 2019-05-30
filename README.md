@@ -206,7 +206,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 ## 代码风格
 
 - [代码可读性](https://github.com/SunshineBrother/JHBlog/blob/master/代码风格/代码可读性.md)
- 
+- [代码规范](https://github.com/SunshineBrother/JHBlog/blob/master/代码风格/代码规范.md)
 
 
 *********************************************************
