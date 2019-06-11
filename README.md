@@ -95,22 +95,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 21、[5种常见的消息传递机制以及他们之间区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/5种常见的消息传递机制以及他们之间区别/5种常见的消息传递机制以及他们之间区别.md)
 - 22、[写一个好的单例](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/设计模式/单例模式/单例模式.md)
 - 23、[事件响应机制](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/事件响应机制/事件响应机制.md)
-
-
-
-
-******************************************************************************************************************
-
-### iOS高级
-
-
-
-
-
-
-
-
-
+- 24、[iOS 单元测试和 UI 测试快速入门](https://github.com/xietao3/Study-Plan/blob/master/TestingTutorial/README.md)
   
   ******************************************************************************************************************
   ## 架构
