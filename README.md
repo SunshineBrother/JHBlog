@@ -208,7 +208,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 6、[APP Store官方网站](https://help.apple.com/app-store-connect/#/dev4df155cc4)
 - 7、[如何在mac上创建txt文档](https://github.com/SunshineBrother/JHBlog/blob/master/工具/如何在mac上创建txt文档/如何在mac上创建txt文档.md)
 - 8、[Mac清理内存](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mac系统占用空间大/Mac系统占用空间大、空间不够、查看系统文件大小分布.md)
-
+- 9、[一个比较详细的抓包工具](http://wproxy.org/whistle/)
 
 
 
@@ -217,7 +217,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 1、[ 牛客网 — 面经和刷面试题](http://link.zhihu.com/?target=https%3A//www.nowcoder.com/)
 - 2、[程序员客栈:程序员自由工作平台](https://www.proginn.com)
 - 3、[标识996的插件，需要翻墙使用](https://chrome.google.com/webstore/detail/natasha/icnhghjkdcenmhomcfikdfpkmekhhlej)
-
+- 4、[github使用中文翻译](https://help.github.com/cn)
 
 
 *********************************************************
