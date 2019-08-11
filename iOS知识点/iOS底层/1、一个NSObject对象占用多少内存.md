@@ -34,17 +34,17 @@ int main(int argc, const char * argv[]) {
 /* @autoreleasepool */ { __AtAutoreleasePool __autoreleasepool; 
 
 
-}
-return 0;
+	}
+	return 0;
 }
 ```
 这一段代码就是我们OC代码中的`mian`函数的实现
 ```
 int main(int argc, const char * argv[]) {
-@autoreleasepool {
+	@autoreleasepool {
 
-}
-return 0;
+	}
+	return 0;
 }
 
 ```
@@ -56,14 +56,14 @@ NSObject *obj = [[NSObject alloc] init];
 点击`NSObject`进入内部，可以看到NSObject底层实现
 ```
 struct NSObject {
-Class isa;  
+	Class isa;  
 };
 ```
 我们用`NSObject_IMPL`查找在c++文件中具体的实现
 
 ```
 struct NSObject_IMPL {
-Class isa;
+	Class isa;
 };
 ```
 
@@ -75,11 +75,11 @@ xcrun  -sdk  iphoneos  clang  -arch  arm64  -rewrite-objc mian.m
 生成的C++代码为
 ```
 int main(int argc, const char * argv[]) {
-/* @autoreleasepool */ { __AtAutoreleasePool __autoreleasepool; 
-NSObject *obj = ((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("NSObject"), sel_registerName("alloc")), sel_registerName("init"));
+	/* @autoreleasepool */ { __AtAutoreleasePool __autoreleasepool; 
+	NSObject *obj = ((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("NSObject"), sel_registerName("alloc")), sel_registerName("init"));
 
-}
-return 0;
+	}
+	return 0;
 }
 ```
 有两个方法可以打印内存大小
@@ -101,13 +101,13 @@ NSLog(@"%zd", malloc_size((__bridge const void *)obj));
 OC代码
 ```
 struct NSObject {
-Class isa;  
+	Class isa;  
 };
 ```
 c++代码
 ```
 struct NSObject_IMPL {
-Class isa;
+	Class isa;
 };
 ```
 我们知道一个指针是`8个字节`，但是NSObject对象打印`16个字节`,他们是怎么样布局的呢
@@ -147,9 +147,9 @@ stu->_age = 5;
 我们先执行命令，查看一下c++源码
 ```
 struct Student_IMPL {
-struct NSObject_IMPL NSObject_IVARS;
-int _number;
-int _age;
+	struct NSObject_IMPL NSObject_IVARS;
+	int _number;
+	int _age;
 };
 ```
 我们在知道结果之前大概猜猜内存是多大呢？16，24，32...
@@ -183,9 +183,9 @@ a9 11 00 00 01 80 1d 00 04 00 00 00 05 00 00 00
 **如果是这样呢，占用内存是多少**
 ```
 @interface Person : NSObject{
-@public
-int _number;
-int _age;
+	@public
+	int _number;
+	int _age;
 }
 @end
 
@@ -194,9 +194,9 @@ int _age;
 @end
 
 @interface Student : Person{
-@public
-int _height;
-}
+	@public
+		int _height;
+	}
 @end
 
 @implementation Student
@@ -210,28 +210,28 @@ int _height;
 我们生成C++代码
 ```
 struct Student_IMPL {
-struct Person_IMPL Person_IVARS;
-int _height;
+	struct Person_IMPL Person_IVARS;
+	int _height;
 };
 
 struct Person_IMPL {
-struct NSObject_IMPL NSObject_IVARS;
-int _number;
-int _age;
+	struct NSObject_IMPL NSObject_IVARS;
+	int _number;
+	int _age;
 };
 
 struct NSObject_IMPL {
-Class isa;
+	Class isa;
 };
 
 ```
 整理一下就是这样
 ```
 struct Student_IMPL {
-Class isa;
-int _number;
-int _age;
-int _height;
+	Class isa;
+	int _number;
+	int _age;
+	int _height;
 };
 
 ```
