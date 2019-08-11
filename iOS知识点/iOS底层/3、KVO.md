@@ -68,32 +68,32 @@ context为监听上下文，由add方法回传
 @implementation ViewController
 
 - (void)viewDidLoad {
-[super viewDidLoad];
+	[super viewDidLoad];
 
-self.p1 = [[Person alloc]init];
-self.p2 = [[Person alloc]init];
-self.p1.age = 10;
-self.p2.age = 20;
+	self.p1 = [[Person alloc]init];
+	self.p2 = [[Person alloc]init];
+	self.p1.age = 10;
+	self.p2.age = 20;
 
-// 给person1对象添加KVO监听
-NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
-[self.p1 addObserver:self forKeyPath:@"age" options:options context:@"123"];
+	// 给person1对象添加KVO监听
+	NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
+	[self.p1 addObserver:self forKeyPath:@"age" options:options context:@"123"];
 
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-self.p1.age = arc4random()%100;
-self.p2.age = arc4random()%100;
+	self.p1.age = arc4random()%100;
+	self.p2.age = arc4random()%100;
 }
 
 - (void)dealloc {
-[self.p1 removeObserver:self forKeyPath:@"age"];
+	[self.p1 removeObserver:self forKeyPath:@"age"];
 
 }
 // 当监听对象的属性值发生改变时，就会调用
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
-NSLog(@"监听到%@的%@属性值改变了 - %@ - %@", object, keyPath, change, context);
+	NSLog(@"监听到%@的%@属性值改变了 - %@ - %@", object, keyPath, change, context);
 }
 
 ```
@@ -132,22 +132,22 @@ object_getClass(self.p2));
 ```
 - (void)printMethodNamesOfClass:(Class)cls
 {
-unsigned int count;
-// 获得方法数组
-Method *methodList = class_copyMethodList(cls, &count);
+	unsigned int count;
+	// 获得方法数组
+	Method *methodList = class_copyMethodList(cls, &count);
 
-// 存储方法名
-NSMutableString *methodNames = [NSMutableString string];
+	// 存储方法名
+	NSMutableString *methodNames = [NSMutableString string];
 
-// 遍历所有的方法
-for (int i = 0; i < count; i++) {
-// 获得方法
-Method method = methodList[i];
-// 获得方法名
-NSString *methodName = NSStringFromSelector(method_getName(method));
-// 拼接方法名
-[methodNames appendString:methodName];
-[methodNames appendString:@", "];
+	// 遍历所有的方法
+	for (int i = 0; i < count; i++) {
+	// 获得方法
+	Method method = methodList[i];
+	// 获得方法名
+	NSString *methodName = NSStringFromSelector(method_getName(method));
+	// 拼接方法名
+	[methodNames appendString:methodName];
+	[methodNames appendString:@", "];
 }
 
 // 释放
@@ -236,23 +236,23 @@ context:(void *)context
 
 ```
 - (void)setAge:(NSInteger)age{
-_age = age;
-NSLog(@"调用set方法");
+	_age = age;
+	NSLog(@"调用set方法");
 }
 
 
 - (void)willChangeValueForKey:(NSString *)key{
-[super willChangeValueForKey:key];
-NSLog(@"willChangeValueForKey");
+	[super willChangeValueForKey:key];
+	NSLog(@"willChangeValueForKey");
 }
 
 - (void)didChangeValueForKey:(NSString *)key{
 
-NSLog(@"didChangeValueForKey - begin");
+	NSLog(@"didChangeValueForKey - begin");
 
-[super didChangeValueForKey:key];
+	[super didChangeValueForKey:key];
 
-NSLog(@"didChangeValueForKey - end");
+	NSLog(@"didChangeValueForKey - end");
 }
 
 ```
@@ -268,15 +268,15 @@ NSLog(@"didChangeValueForKey - end");
 // 伪代码
 void _NSSetIntValueAndNotify()
 {
-[self willChangeValueForKey:@"age"];
-[super setAge:age];
-[self didChangeValueForKey:@"age"];
+	[self willChangeValueForKey:@"age"];
+	[super setAge:age];
+	[self didChangeValueForKey:@"age"];
 }
 
 - (void)didChangeValueForKey:(NSString *)key
 {
-// 通知监听器，某某属性值发生了改变
-[oberser observeValueForKeyPath:key ofObject:self change:nil context:nil];
+	// 通知监听器，某某属性值发生了改变
+	[oberser observeValueForKeyPath:key ofObject:self change:nil context:nil];
 }
 ```
 

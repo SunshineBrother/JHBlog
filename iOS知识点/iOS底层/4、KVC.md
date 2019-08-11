@@ -136,10 +136,10 @@ NSLog(@"%@",p.list);
 
 ```
 - (void)viewDidLoad {
-[super viewDidLoad];
-NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
-_p = [[Person alloc]init];
-[_p addObserver:self forKeyPath:@"list" options:options context:nil];
+	[super viewDidLoad];
+	NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
+	_p = [[Person alloc]init];
+	[_p addObserver:self forKeyPath:@"list" options:options context:nil];
 
 }
 
@@ -148,17 +148,17 @@ _p = [[Person alloc]init];
 //    NSLog(@"打印内存地址：%x",self.p.list);
 //    NSLog(@"打印内容:%@",self.p.list);
 
-[[self.p mutableArrayValueForKey:@"list"] addObject:@(arc4random()%255)];
-NSLog(@"打印内存地址：%x",self.p.list);
-NSLog(@"打印内容:%@",self.p.list);
+	[[self.p mutableArrayValueForKey:@"list"] addObject:@(arc4random()%255)];
+	NSLog(@"打印内存地址：%x",self.p.list);
+	NSLog(@"打印内容:%@",self.p.list);
 
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-NSLog(@"%@",change);
+	NSLog(@"%@",change);
 }
 
 -(void)dealloc{
-[_p removeObserver:self forKeyPath:@"list"]; //一定要在dealloc里面移除观察
+	[_p removeObserver:self forKeyPath:@"list"]; //一定要在dealloc里面移除观察
 }
 
 ```

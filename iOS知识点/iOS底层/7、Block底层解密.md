@@ -5,7 +5,7 @@ block想必做过一段iOS开发的同学都用过吧，但是大部分人都是
 
 ```
 void (^block)(void) =  ^(){
-NSLog(@"this is a block!");
+	NSLog(@"this is a block!");
 };
 ```
 
@@ -40,21 +40,21 @@ struct __block_impl impl;
 struct __main_block_desc_0* Desc;
 // 构造函数（类似于OC的init方法），返回结构体对象
 __main_block_impl_0(void *fp, struct __main_block_desc_0 *desc, int flags=0) {
-impl.isa = &_NSConcreteStackBlock;
-impl.Flags = flags;
-impl.FuncPtr = fp;
-Desc = desc;
-}
+	impl.isa = &_NSConcreteStackBlock;
+	impl.Flags = flags;
+	impl.FuncPtr = fp;
+	Desc = desc;
+ }
 };
 ```
 
 我们查看一下`__block_impl`里面是什么
 ```
 struct __block_impl {
-void *isa;
-int Flags;
-int Reserved;
-void *FuncPtr;
+	void *isa;
+	int Flags;
+	int Reserved;
+	void *FuncPtr;
 };
 ```
 
@@ -64,14 +64,14 @@ void *FuncPtr;
 // 封装了block执行逻辑的函数
 static void __main_block_func_0(struct __main_block_impl_0 *__cself) {
 
-NSLog((NSString *)&__NSConstantStringImpl__var_folders_2r__m13fp2x2n9dvlr8d68yry500000gn_T_main_c60393_mi_0);
+	NSLog((NSString *)&__NSConstantStringImpl__var_folders_2r__m13fp2x2n9dvlr8d68yry500000gn_T_main_c60393_mi_0);
 }
 ```
 **__main_block_desc_0_DATA**
 ```
 static struct __main_block_desc_0 {
-size_t reserved;
-size_t Block_size;//内存大小描述
+	size_t reserved;
+	size_t Block_size;//内存大小描述
 } __main_block_desc_0_DATA
 ```
 
@@ -81,10 +81,10 @@ size_t Block_size;//内存大小描述
 - 2、初始化
 ```
 __main_block_impl_0(void *fp, struct __main_block_desc_0 *desc, int flags=0) {
-impl.isa = &_NSConcreteStackBlock;
-impl.Flags = flags;
-impl.FuncPtr = fp;
-Desc = desc;
+	impl.isa = &_NSConcreteStackBlock;
+	impl.Flags = flags;
+	impl.FuncPtr = fp;
+	Desc = desc;
 }
 ```
 我们在来查看Block方法
@@ -115,16 +115,16 @@ int main(int argc, const char * argv[]) {
 @autoreleasepool {
 
 
-int age = 10;
-static int weight = 65;
-void (^block)(void) =  ^(){
-NSLog(@"age---------%d",age);
-NSLog(@"weight---------%d",weight);
-NSLog(@"height---------%d",height);
-};
-block();
-}
-return 0;
+	int age = 10;
+	static int weight = 65;
+	void (^block)(void) =  ^(){
+		NSLog(@"age---------%d",age);
+		NSLog(@"weight---------%d",weight);
+		NSLog(@"height---------%d",height);
+	};
+	 block();
+	}
+	return 0;
 }
 ```
 我们直接找到c++代码里面存放变量的结构体`__main_block_impl_0`
