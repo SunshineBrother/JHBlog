@@ -229,16 +229,19 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 ## 面试
 - [反向面试](https://github.com/SunshineBrother/JHBlog/blob/master/面试/反向面试.md)
 
+- [iOS实践检查清单](https://github.com/SunshineBrother/JHBlog/blob/master/面试/iOS实践检查清单.md)
 
+- [iOS面试题整理](https://ios.nobady.cn)
+
+- [日常积累所看到的面试题集锦](https://github.com/SunshineBrother/JHBlog/blob/master/面试/日常积累所看到的面试题集锦.md)
 *********************************************************
 ## 图片
 
-![iOS技术栈](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS技术栈.png)
+- ![iOS技术栈](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS技术栈.png)
 
-![iOS知识体系](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/ios知识体系.png)
+- ![iOS知识体系](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/ios知识体系.png)
 
-
-
+ 
 
 
 
