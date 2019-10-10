@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>YunNa.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>84B366B8EBE6D8F25668356F82B150499622981E</string>
+				<key>dateExpires</key>
+				<string>2018/9/13</string>
+				<key>type</key>
+				<string>iOS Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>Z69Q2FEZS9.com.cloudpick.yunna</string>
+				<key>aps-environment</key>
+				<string>production</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>Z69Q2FEZS9</string>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>YunNa.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>b62bdb72-fa91-4ce8-9a03-4ef16b591f15</string>
+				<key>name</key>
+				<string>yunna_adhoc</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>Z69Q2FEZS9</string>
+				<key>name</key>
+				<string>Shanghai Yunna Intelligent Technology Co., Ltd.</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

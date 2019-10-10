@@ -1,0 +1,101 @@
+[{
+   "type": 1,
+   "data": {
+       "feedId": 1,
+       "avatar": "http://tse4.mm.bing.net/th?id=OIP.pYkSDAPsbJdgrdN_Oub2QgAAAA&w=196&h=196&c=7&o=5&dpr=2&pid=1.7",
+       "userName": "Bruce",
+       "content": "this is a content",
+       "images": [
+           "red",
+           "blue"
+       ],
+       "isFavor": true,
+       "favor": 10,
+       "comments": [
+           {
+             "comment": "comment 1",
+             "person": "jack"
+           }
+       ]
+   }
+},
+ {
+   "type": 2,
+   "data": {
+       "adTitle": "这是广告1",
+       "adUrl": ""
+   }
+ },
+ {
+   "type": 1,
+   "data": {
+       "feedId": 2,
+       "avatar": "http://tse4.mm.bing.net/th?id=OIP.pYkSDAPsbJdgrdN_Oub2QgAAAA&w=196&h=196&c=7&o=5&dpr=2&pid=1.7",
+       "userName": "Bruce",
+       "content": "11",
+       "images": [],
+       "isFavor": false,
+       "favor": 10,
+       "comments": []
+   }
+ },
+ {
+   "type": 1,
+   "data": {
+       "feedId": 3,
+       "avatar": "http://tse4.mm.bing.net/th?id=OIP.pYkSDAPsbJdgrdN_Oub2QgAAAA&w=196&h=196&c=7&o=5&dpr=2&pid=1.7",
+       "userName": "Bruce",
+       "content": "this is a long long long long long long long long long long long long long long long content",
+       "images": [
+           "red",
+           "blue",
+           "yellow"
+       ],
+       "isFavor": false,
+       "favor": 10,
+       "comments": [
+           {
+             "comment": "comment 3",
+             "person": "jane"
+           }
+       ]
+   }
+ },
+ {
+   "type": 1,
+   "data": {
+       "feedId": 4,
+       "avatar": "http://tse4.mm.bing.net/th?id=OIP.pYkSDAPsbJdgrdN_Oub2QgAAAA&w=196&h=196&c=7&o=5&dpr=2&pid=1.7",
+       "userName": "Bruce",
+       "content": "11",
+       "images": [
+           "red",
+           "blue",
+           "yellow",
+           "green"
+       ],
+       "isFavor": true,
+       "favor": 10,
+       "comments": [
+           {
+             "comment": "cav",
+             "person": "james"
+           },
+           {
+             "comment": "boston",
+             "person": "irving"
+           },
+           {
+             "comment": "cav",
+             "person": "love"
+           }
+       ]
+   }
+ },
+ {
+   "type": 2,
+   "data": {
+       "adTitle": "这是广告2",
+       "adUrl": ""
+   }
+ }]

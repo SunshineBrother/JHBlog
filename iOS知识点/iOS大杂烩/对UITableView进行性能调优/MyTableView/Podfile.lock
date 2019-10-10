@@ -1,0 +1,24 @@
+PODS:
+  - FoldingCell (4.0.2)
+  - IGListKit (3.4.0):
+    - IGListKit/Default (= 3.4.0)
+  - IGListKit/Default (3.4.0):
+    - IGListKit/Diffing
+  - IGListKit/Diffing (3.4.0)
+
+DEPENDENCIES:
+  - FoldingCell
+  - IGListKit (~> 3.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FoldingCell
+    - IGListKit
+
+SPEC CHECKSUMS:
+  FoldingCell: 352f0211a53f957b885a1b37d5ffa875da90bca5
+  IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
+
+PODFILE CHECKSUM: 1a50cea05c92461314e2b700f2b4021e15ac5b17
+
+COCOAPODS: 1.6.0.beta.2
