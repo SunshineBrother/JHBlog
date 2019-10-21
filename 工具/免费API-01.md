@@ -1,6 +1,6 @@
 # 免费API
 
-[转载地址：](https://github.com/MZCretin/RollToolsApi)
+[原文地址：https://github.com/MZCretin/RollToolsApi](https://github.com/MZCretin/RollToolsApi)
 
 一个提供开发中常用数据的一个稳定聚合Api接口源，运行于独立服务器，免费，且长期维护，会持续添加新的接口！
 
