@@ -209,14 +209,14 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 2、[官方 Swift 风格指南](https://github.com/SunshineBrother/JHBlog/blob/master/工具/官方%20Swift%20风格指南.md)
 - 3、[iOS 程序员效率提升利器之 AppleScript](http://mrpeak.cn/blog/ios-applescript/)
 - 4、[NPM 使用介绍](http://www.runoob.com/nodejs/nodejs-npm.html)
- - 5、[免费API](https://www.apishop.net/#/)
+ - 5、 
 - 6、[APP Store官方网站](https://help.apple.com/app-store-connect/#/dev4df155cc4)
 - 7、[如何在mac上创建txt文档](https://github.com/SunshineBrother/JHBlog/blob/master/工具/如何在mac上创建txt文档/如何在mac上创建txt文档.md)
 - 8、[Mac清理内存](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mac系统占用空间大/Mac系统占用空间大、空间不够、查看系统文件大小分布.md)
 - 9、[一个比较详细的抓包工具](http://wproxy.org/whistle/)
 - 10、[正则表达式](https://github.com/SunshineBrother/JHBlog/blob/master/工具/正则表达式/正则表达式.md)
-- 11、[免费API](https://github.com/SunshineBrother/JHBlog/blob/master/工具/正则表达式/免费API.md)
-    - 11.1、[免费API](https://github.com/SunshineBrother/JHBlog/blob/master/工具/正则表达式/免费API.md)
+- 11、[免费API](https://www.apishop.net/#/)
+    - 11.1、[免费API](https://github.com/SunshineBrother/JHBlog/blob/master/工具/免费API.md)
     - 11.2、[免费API-01](https://github.com/SunshineBrother/JHBlog/blob/master/工具/免费API-01.md)
     
 
@@ -241,6 +241,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - [关于iOS 性能优化梳理](https://github.com/SunshineBrother/JHBlog/blob/master/面试/关于iOS性能优化梳理.md)
 
 - [互联网公司的开发流程](https://github.com/SunshineBrother/JHBlog/blob/master/面试/互联网公司的开发流程.md)
+- [iOS开发请您面向未来学习](https://juejin.im/post/5da6d14ae51d4524b601b78a)
 
 *********************************************************
 ## 图片
