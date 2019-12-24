@@ -98,7 +98,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 24、[iOS 单元测试和 UI 测试快速入门](https://github.com/xietao3/Study-Plan/blob/master/TestingTutorial/README.md)
 - 25、[配置.gitignore忽略文件](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/忽略文件/iOS%20配置.gitignore忽略文件.md)
 - 26、[git使用](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/git使用/git使用.md)
-  - 27、[]()
+  - 27、[iOS内购](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/iOS内购.md)
   
   
   
@@ -241,7 +241,10 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - [关于iOS 性能优化梳理](https://github.com/SunshineBrother/JHBlog/blob/master/面试/关于iOS性能优化梳理.md)
 
 - [互联网公司的开发流程](https://github.com/SunshineBrother/JHBlog/blob/master/面试/互联网公司的开发流程.md)
+
 - [iOS开发请您面向未来学习](https://juejin.im/post/5da6d14ae51d4524b601b78a)
+
+- [关于面试的一些个人看法](https://mp.weixin.qq.com/s/bOQZRiJX_DHRsZjyAeAHEg)
 
 *********************************************************
 ## 图片
