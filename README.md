@@ -249,6 +249,12 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 
 - [关于面试的一些个人看法](https://mp.weixin.qq.com/s/bOQZRiJX_DHRsZjyAeAHEg)
 
+- [阿里、字节：一套高效的iOS面试题](https://juejin.im/post/5e397ccaf265da570b3f1b02)
+
+- [iOS 新东方面试](https://juejin.im/post/5e44e060e51d4526fb5dd149)
+
+- [iOS 头条一面 面试题](https://juejin.im/post/5e43ab846fb9a07c7e3d87e2)
+
 *********************************************************
 ## 图片
 
