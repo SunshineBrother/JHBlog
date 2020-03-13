@@ -226,10 +226,13 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 2、[程序员客栈:程序员自由工作平台](https://www.proginn.com)
 - 3、[标识996的插件，需要翻墙使用](https://chrome.google.com/webstore/detail/natasha/icnhghjkdcenmhomcfikdfpkmekhhlej)
 - 4、[github使用中文翻译](https://help.github.com/cn)
-- 5、[mac开发](http://mac.bestswifter.com)
+- 5、[mac开发 提高效率](http://mac.bestswifter.com)
+    - [优酷视频](http://v.youku.com/v_show/id_XMTU4Nzg3NjAwMA==.html)
 
 *********************************************************
 ## 面试
+
+- [让 BAT 的 Offer 不再难拿](https://github.com/bestswifter/blog/blob/master/articles/bat-offer.md)
 
 - [写简历](https://github.com/geekcompany/ResumeSample)
 

@@ -112,6 +112,9 @@ du -d 1 -h
 
 3  ./iOS DeviceSupport 这个文件里面存储的是xcode对手机各个版本的支持文件，这里如果你的项目不再需要支持iOS6、iOS7等，可以先把里面的基于iOS6、iOS7的支持文件清除
 
+4 ./Device Logs
+
+此文件夹存储了devices链接真机后下载的真机log，包含crashlog。可以全部删除，建议备份。
 
 **四、经过第三步的层层分析，我们基本能知道了每个文件的大小分布，也能找到一些不需要用的垃圾文件，其中大多以缓存文件居多，大家可以适当进行清理～**
 
@@ -144,3 +147,22 @@ du -d 1 -h
 7、移除旧的Docsets
 影响：不可恢复；将删除旧的Docsets文档
 路径：~/Library/Developer/Shared/Documentation/DocSets
+
+
+8、真机log  Device Logs
+
+影响：此文件夹存储了devices链接真机后下载的真机log，包含crashlog。可以全部删除，建议备份
+路径：~/Library/Developer/Xcode/iOS Device Logs
+
+
+
+
+
+
+
+
+
+
+
+
+
