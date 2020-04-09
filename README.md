@@ -81,6 +81,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 9、[UIViewController](https://github.com/SunshineBrother/JHBlog/tree/master/iOS知识点/iOS大杂烩/UIViewController)
     - 1、[UIViewController的生命周期](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIViewController/UIViewController的生命周期.md)
     - 2、[UIViewController重构](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIViewController/UIViewController重构.md)
+    - 3、[layoutSubviews总结](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIViewController/layoutSubviews总结.md)
 - 10、[ios真机调试包路径及配置文件路径](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/ios真机调试包路径及配置文件路径.md)
 - 11、[Cocoa框架Foundation和UIKit的区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/Cocoa框架Foundation和UIKit的区别/Cocoa框架Foundation和UIKit的区别.md)
 - 12、[UIView和CALayer的区别](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIView和CALayer的区别？.md)
@@ -100,7 +101,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 26、[git使用](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/git使用/git使用.md)
 - 27、[iOS内购](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/iOS内购.md)
   
-  - 28、[NSArray原理及遍历方法探究](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/NSArray原理及遍历方法探究.md)
+- 28、[NSArray原理及遍历方法探究](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/NSArray原理及遍历方法探究.md)
   
   ******************************************************************************************************************
   ## 架构
@@ -208,16 +209,15 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 1、[如何优雅地使用Sublime Text](https://github.com/SunshineBrother/JHBlog/blob/master/工具/如何优雅地使用Sublime%20Text.md)
 - 2、[官方 Swift 风格指南](https://github.com/SunshineBrother/JHBlog/blob/master/工具/官方%20Swift%20风格指南.md)
 - 3、[iOS 程序员效率提升利器之 AppleScript](http://mrpeak.cn/blog/ios-applescript/)
-- 4、[NPM 使用介绍](http://www.runoob.com/nodejs/nodejs-npm.html)
- - 5、 
-- 6、[APP Store官方网站](https://help.apple.com/app-store-connect/#/dev4df155cc4)
-- 7、[如何在mac上创建txt文档](https://github.com/SunshineBrother/JHBlog/blob/master/工具/如何在mac上创建txt文档/如何在mac上创建txt文档.md)
-- 8、[Mac清理内存](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mac系统占用空间大/Mac系统占用空间大、空间不够、查看系统文件大小分布.md)
-- 9、[一个比较详细的抓包工具](http://wproxy.org/whistle/)
-- 10、[正则表达式](https://github.com/SunshineBrother/JHBlog/blob/master/工具/正则表达式/正则表达式.md)
-- 11、[免费API](https://www.apishop.net/#/)
-    - 11.1、[免费API](https://github.com/SunshineBrother/JHBlog/blob/master/工具/免费API.md)
-    - 11.2、[免费API-01](https://github.com/SunshineBrother/JHBlog/blob/master/工具/免费API-01.md)
+- 4、[NPM 使用介绍](http://www.runoob.com/nodejs/nodejs-npm.html) 
+- 5、[APP Store官方网站](https://help.apple.com/app-store-connect/#/dev4df155cc4)
+- 6、[如何在mac上创建txt文档](https://github.com/SunshineBrother/JHBlog/blob/master/工具/如何在mac上创建txt文档/如何在mac上创建txt文档.md)
+- 7、[Mac清理内存](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mac系统占用空间大/Mac系统占用空间大、空间不够、查看系统文件大小分布.md)
+- 8、[一个比较详细的抓包工具](http://wproxy.org/whistle/)
+- 9、[正则表达式](https://github.com/SunshineBrother/JHBlog/blob/master/工具/正则表达式/正则表达式.md)
+- 10、[免费API](https://www.apishop.net/#/)
+    - 10.1、[免费API](https://github.com/SunshineBrother/JHBlog/blob/master/工具/免费API.md)
+    - 10.2、[免费API-01](https://github.com/SunshineBrother/JHBlog/blob/master/工具/免费API-01.md)
     
 
 *********************************************************
