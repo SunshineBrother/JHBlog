@@ -100,7 +100,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 26、[git使用](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/git使用/git使用.md)
 - 27、[iOS内购](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/iOS内购.md)
   
-  
+  - 28、[NSArray原理及遍历方法探究](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/NSArray原理及遍历方法探究.md)
   
   ******************************************************************************************************************
   ## 架构
@@ -257,6 +257,10 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - [iOS 新东方面试](https://juejin.im/post/5e44e060e51d4526fb5dd149)
 
 - [iOS 头条一面 面试题](https://juejin.im/post/5e43ab846fb9a07c7e3d87e2)
+
+- [互联网公司面试流程&面试技巧](https://www.jianshu.com/p/7dd0280ff36f)
+
+- [技术岗位如何写简历](https://www.paincker.com/how-to-write-a-resume)
 
 *********************************************************
 ## 图片
