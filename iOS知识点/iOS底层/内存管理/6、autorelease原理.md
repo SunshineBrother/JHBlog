@@ -11,13 +11,13 @@
 ```
 int main(int argc, const char * argv[]) {
 @autoreleasepool {
-NSLog(@"****A***");
-Person *p = [[Person alloc]init];
-[p release];
-NSLog(@"***B***");
-}
-NSLog(@"***C***");
-return 0;
+	NSLog(@"****A***");
+		Person *p = [[Person alloc]init];
+		[p release];
+		NSLog(@"***B***");
+	}
+	NSLog(@"***C***");
+	return 0;
 }
 ```
 打印结果
@@ -27,12 +27,12 @@ return 0;
 ```
 int main(int argc, const char * argv[]) {
 @autoreleasepool {
-NSLog(@"****A***");
-Person *p = [[[Person alloc]init] autorelease];
-NSLog(@"***B***");
-}
-NSLog(@"***C***");
-return 0;
+		NSLog(@"****A***");
+		Person *p = [[[Person alloc]init] autorelease];
+		NSLog(@"***B***");
+	}
+	NSLog(@"***C***");
+	return 0;
 }
 ```
 打印结果
@@ -102,13 +102,13 @@ objc_autoreleasePoolPop(atautoreleasepoolobj);
 ```
 objc_autoreleasePoolPush(void)
 {
-return AutoreleasePoolPage::push();
+	return AutoreleasePoolPage::push();
 }
 
 void
 objc_autoreleasePoolPop(void *ctxt)
 {
-AutoreleasePoolPage::pop(ctxt);
+	AutoreleasePoolPage::pop(ctxt);
 }
 ```
 我们研究可以发现，`push()`函数和`pop(ctxt)`函数都是有`AutoreleasePoolPage`类来调用的。
@@ -117,14 +117,14 @@ AutoreleasePoolPage::pop(ctxt);
 ```
 class AutoreleasePoolPage 
 {
-magic_t const magic;//用于数据校验
-id *next;//栈顶地址
-pthread_t const thread;//所在的线程
-AutoreleasePoolPage * const parent;//父对象
-AutoreleasePoolPage *child;//子对象
-uint32_t const depth;//page的序号？
-uint32_t hiwat;
-// ...
+	magic_t const magic;//用于数据校验
+	id *next;//栈顶地址
+	pthread_t const thread;//所在的线程
+	AutoreleasePoolPage * const parent;//父对象
+	AutoreleasePoolPage *child;//子对象
+	uint32_t const depth;//page的序号？
+	uint32_t hiwat;
+	// ...
 }
 ```
 
@@ -144,15 +144,15 @@ uint32_t hiwat;
 ```
 static inline void *push() 
 {
-id *dest;
-if (DebugPoolAllocation) {
-// Each autorelease pool starts on a new pool page.
-dest = autoreleaseNewPage(POOL_BOUNDARY);
-} else {
-dest = autoreleaseFast(POOL_BOUNDARY);
-}
-assert(dest == EMPTY_POOL_PLACEHOLDER || *dest == POOL_BOUNDARY);
-return dest;
+	id *dest;
+	if (DebugPoolAllocation) {
+		// Each autorelease pool starts on a new pool page.
+		dest = autoreleaseNewPage(POOL_BOUNDARY);
+	} else {
+		dest = autoreleaseFast(POOL_BOUNDARY);
+	}
+	assert(dest == EMPTY_POOL_PLACEHOLDER || *dest == POOL_BOUNDARY);
+	return dest;
 }
 ```
 
@@ -162,14 +162,14 @@ return dest;
 ```
 static inline id *autoreleaseFast(id obj)
 {
-AutoreleasePoolPage *page = hotPage();
-if (page && !page->full()) {
-return page->add(obj);
-} else if (page) {
-return autoreleaseFullPage(obj, page);
-} else {
-return autoreleaseNoPage(obj);
-}
+	AutoreleasePoolPage *page = hotPage();
+	if (page && !page->full()) {
+		return page->add(obj);
+	} else if (page) {
+		return autoreleaseFullPage(obj, page);
+	} else {
+		return autoreleaseNoPage(obj);
+	}
 }
 ```
 - 有 hotPage 并且当前 page 不满，调用 page->add(obj) 方法将对象添加至 AutoreleasePoolPage 的栈中
@@ -186,21 +186,21 @@ return autoreleaseNoPage(obj);
 // 简化后
 static inline void pop(void *token) 
 {   
-AutoreleasePoolPage *page;
-id *stop;
-page = pageForPointer(token);
-stop = (id *)token;
-// 1.根据 token，也就是上文的占位 POOL_BOUNDARY 释放 `autoreleased` 对象
-page->releaseUntil(stop);
+	AutoreleasePoolPage *page;
+	id *stop;
+	page = pageForPointer(token);
+	stop = (id *)token;
+	// 1.根据 token，也就是上文的占位 POOL_BOUNDARY 释放 `autoreleased` 对象
+	page->releaseUntil(stop);
 
-// hysteresis: keep one empty child if page is more than half full
-// 2.释放 `Autoreleased` 对象后，销毁多余的 page。
-if (page->lessThanHalfFull()) {
-page->child->kill();
-}
-else if (page->child->child) {
-page->child->child->kill();
-}
+	// hysteresis: keep one empty child if page is more than half full
+	// 2.释放 `Autoreleased` 对象后，销毁多余的 page。
+	if (page->lessThanHalfFull()) {
+		page->child->kill();
+	}
+	else if (page->child->child) {
+		page->child->child->kill();
+	}
 }
  
 ```
@@ -209,21 +209,21 @@ page->child->child->kill();
 // 简化后
 void releaseUntil(id *stop) 
 {
-// 1.
-while (this->next != stop) {
-AutoreleasePoolPage *page = hotPage();
-// 2.
-while (page->empty()) {
-page = page->parent;
-setHotPage(page);
-}
-// 3.
-if (obj != POOL_BOUNDARY) {
-objc_release(obj);
-}
-}
-// 4.
-setHotPage(this);
+	// 1.
+	while (this->next != stop) {
+	AutoreleasePoolPage *page = hotPage();
+	// 2.
+	while (page->empty()) {
+	page = page->parent;
+		setHotPage(page);
+	}
+	// 3.
+	if (obj != POOL_BOUNDARY) {
+		objc_release(obj);
+		}
+	}
+	// 4.
+	setHotPage(this);
 }
 ```
 
@@ -237,17 +237,17 @@ setHotPage(this);
  ```
  int main(int argc, const char * argv[]) {
  @autoreleasepool {//r1 = push()
- Person *p1 = [[[Person alloc]init] autorelease];
- Person *p2 = [[[Person alloc]init] autorelease];
- @autoreleasepool {//r2 = push()
- Person *p3 = [[[Person alloc]init] autorelease];
- @autoreleasepool {//r3 = push()
- Person *p4 = [[[Person alloc]init] autorelease];
- }//pop(r3)
- }//pop(r2)
- }//pop(r1)
- 
- return 0;
+	 Person *p1 = [[[Person alloc]init] autorelease];
+	 Person *p2 = [[[Person alloc]init] autorelease];
+	 @autoreleasepool {//r2 = push()
+	 Person *p3 = [[[Person alloc]init] autorelease];
+	 @autoreleasepool {//r3 = push()
+	 Person *p4 = [[[Person alloc]init] autorelease];
+	 }//pop(r3)
+	 }//pop(r2)
+	 }//pop(r1)
+	 
+	 return 0;
  }
 
  ```

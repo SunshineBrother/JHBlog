@@ -41,17 +41,17 @@ OC中的方法调用，其实都是转化为`objc_msgSend`函数的调用，`obj
 
 ```
 - (void)other{
-NSLog(@"%s",__func__);
-}
-+ (BOOL)resolveInstanceMethod:(SEL)sel{
-if (sel == @selector(test)) {
-//获取其他方法
-Method method = class_getInstanceMethod(self, @selector(other));
-//动态添加test的方法
-class_addMethod(self, sel, method_getImplementation(method), method_getTypeEncoding(method));
-}
+	NSLog(@"%s",__func__);
+	}
+	+ (BOOL)resolveInstanceMethod:(SEL)sel{
+		if (sel == @selector(test)) {
+		//获取其他方法
+		Method method = class_getInstanceMethod(self, @selector(other));
+		//动态添加test的方法
+		class_addMethod(self, sel, method_getImplementation(method), method_getTypeEncoding(method));
+	}
 
-return [super resolveInstanceMethod:sel];
+	return [super resolveInstanceMethod:sel];
 }
 
 @end
@@ -67,30 +67,30 @@ return [super resolveInstanceMethod:sel];
 这里我们在随便验证一下`method`的结构是不是这种
 ```
 struct method_t {
-SEL sel;
-char *types;
-IMP imp;
+	SEL sel;
+	char *types;
+	IMP imp;
 };
 ```
 我们代码改成这样
 ```
 struct method_t {
-SEL sel;
-char *types;
-IMP imp;
+	SEL sel;
+	char *types;
+	IMP imp;
 };
 + (BOOL)resolveInstanceMethod:(SEL)sel{
 
-if (sel == @selector(test)) {
-//获取其他方法
-struct method_t *method = (struct method_t *)class_getInstanceMethod(self, @selector(other));
-//动态添加test的方法
-class_addMethod(self, sel, method->imp, method->types);
+	if (sel == @selector(test)) {
+		//获取其他方法
+		struct method_t *method = (struct method_t *)class_getInstanceMethod(self, @selector(other));
+		//动态添加test的方法
+		class_addMethod(self, sel, method->imp, method->types);
 
-return  YES;
-}
+		return  YES;
+	}
 
-return [super resolveInstanceMethod:sel];
+	return [super resolveInstanceMethod:sel];
 }
 ```
 
@@ -104,17 +104,17 @@ return [super resolveInstanceMethod:sel];
 ```
 void c_other(id self, SEL _cmd)
 {
-NSLog(@"c_other - %@ - %@", self, NSStringFromSelector(_cmd));
+	NSLog(@"c_other - %@ - %@", self, NSStringFromSelector(_cmd));
 }
 + (BOOL)resolveInstanceMethod:(SEL)sel{
 
-if (sel == @selector(test)) {
+	if (sel == @selector(test)) {
 
-class_addMethod(self, sel, (IMP)c_other, "v16@0:8");
-return YES;
-}
+		class_addMethod(self, sel, (IMP)c_other, "v16@0:8");
+		return YES;
+	}
 
-return [super resolveInstanceMethod:sel];
+	return [super resolveInstanceMethod:sel];
 }
 
 ```
@@ -149,7 +149,7 @@ return [super resolveInstanceMethod:sel];
 
 @implementation Student
 - (void)test{
-NSLog(@"%s",__func__);
+	NSLog(@"%s",__func__);
 }
 @end
 ```
@@ -158,10 +158,10 @@ NSLog(@"%s",__func__);
 如果我们在`person`里面实现这个方法
 ```
 - (id)forwardingTargetForSelector:(SEL)aSelector{
-if (aSelector == @selector(test)) {
-return [[Student alloc]init];
-}
-return nil;
+	if (aSelector == @selector(test)) {
+	return [[Student alloc]init];
+	}
+	return nil;
 }
 ```
  
@@ -192,11 +192,11 @@ return nil;
  ```
  - (void)forwardInvocation:(NSInvocation *)anInvocation
  {
- NSLog(@"========");
- anInvocation.target = [[Student alloc]init];
- [anInvocation invoke];
- 
- //    [anInvocation invokeWithTarget:[[Student alloc] init]];
+	 NSLog(@"========");
+	 anInvocation.target = [[Student alloc]init];
+	 [anInvocation invoke];
+	 
+	 //    [anInvocation invokeWithTarget:[[Student alloc] init]];
  }
  ```
   ![消息发送9](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/RunTime/消息发送9.png)

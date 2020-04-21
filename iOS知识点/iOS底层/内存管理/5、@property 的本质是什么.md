@@ -14,12 +14,12 @@
 unsigned int count;
 objc_property_t *propertyList = class_copyPropertyList([Person class], &count);
 for (unsigned int i = 0; i< count; i++)
-{
-const char *name = property_getName(propertyList[i]);
-NSLog(@"__%@",[NSString stringWithUTF8String:name]);
-objc_property_t property = propertyList[i];
-const char *a = property_getAttributes(property);
-NSLog(@"属性信息__%@",[NSString stringWithUTF8String:a]);
+	{
+	const char *name = property_getName(propertyList[i]);
+	NSLog(@"__%@",[NSString stringWithUTF8String:name]);
+	objc_property_t property = propertyList[i];
+	const char *a = property_getAttributes(property);
+	NSLog(@"属性信息__%@",[NSString stringWithUTF8String:a]);
 }
 ```
 
@@ -45,9 +45,9 @@ NSMutableArray *methodList = [NSMutableArray array];
 Method *methods = class_copyMethodList([Person class], &methodCount);
 for (int i = 0; i < methodCount; i++)
 {
-SEL name = method_getName(methods[i]);
-NSString *strName = [NSString stringWithCString:sel_getName(name) encoding:NSUTF8StringEncoding];
-[methodList addObject:strName];
+	SEL name = method_getName(methods[i]);
+	NSString *strName = [NSString stringWithCString:sel_getName(name) encoding:NSUTF8StringEncoding];
+	[methodList addObject:strName];
 }
 free(methods);
 
@@ -117,20 +117,20 @@ if (oldName != newName) object_setIvar(self, ivar, [newName copy]);
 
 if(class_addMethod([self class],  NSSelectorFromString(@"name"), (IMP)nameGetter, "@@:"))
 {
-NSLog(@"name get 方法添加成功");
+	NSLog(@"name get 方法添加成功");
 }
 else
 {
-NSLog(@"name get 方法添加失败");
+	NSLog(@"name get 方法添加失败");
 }
 
 if(class_addMethod([self class], NSSelectorFromString(@"setName:"), (IMP)nameSetter, "v@:@"))
 {
-NSLog(@"name set 方法添加成功");
+	NSLog(@"name set 方法添加成功");
 }
 else
 {
-NSLog(@"name set 方法添加失败");
+	NSLog(@"name set 方法添加失败");
 }
 
  

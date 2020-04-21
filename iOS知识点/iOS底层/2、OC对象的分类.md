@@ -1,4 +1,5 @@
  ## OC对象的分类
+ 
  OC对象主要可以分为3种
  - 1、instance对象（实例对象）：instance实例对象就是通过alloc出来的对象，每次调用alloc都会产生新的instance对象
  - 2、class对象（类对象）：每个类的内存中有且只有一个类对象

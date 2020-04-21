@@ -17,27 +17,27 @@
  我们还是我们还是在源码中查找一下,我们搜索`NSObject`，然后在`.mm`文件中找到了一些实现
  ```
  + (id)self {
- return (id)self;
+ 	return (id)self;
  }
  
  - (id)self {
- return self;
+ 	return self;
  }
  
  + (Class)class {
- return self;
+ 	return self;
  }
  
  - (Class)class {
- return object_getClass(self);
+ 	return object_getClass(self);
  }
  
  + (Class)superclass {
- return self->superclass;
+ 	return self->superclass;
  }
  
  - (Class)superclass {
- return [self class]->superclass;
+ 	return [self class]->superclass;
  }
 
  ```
@@ -50,8 +50,8 @@
  ```
  Class object_getClass(id obj)
  {
- if (obj) return obj->getIsa();
- else return Nil;
+	 if (obj) return obj->getIsa();
+	 else return Nil;
  }
  ```
  但是我们好像没有找到`super`，这时候我们可以重新写一个继承自`person`的`student`类，然后重写里面的方法，然后转化为c++，我们来查看里面的实现

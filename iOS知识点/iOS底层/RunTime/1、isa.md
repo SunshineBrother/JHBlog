@@ -6,17 +6,17 @@
 我们在[这里](https://opensource.apple.com/tarballs/objc4/)下载runtime源码，然后查找`struct objc_object`里面的`isa`,这里我们只研究arm64架构`isa`
 ```
 struct {
-uintptr_t nonpointer        : 1;
-uintptr_t has_assoc         : 1;
-uintptr_t has_cxx_dtor      : 1;
-uintptr_t shiftcls          : 33; // MACH_VM_MAX_ADDRESS 0x1000000000
-uintptr_t magic             : 6;
-uintptr_t weakly_referenced : 1;
-uintptr_t deallocating      : 1;
-uintptr_t has_sidetable_rc  : 1;
-uintptr_t extra_rc          : 19;
-#       define RC_ONE   (1ULL<<45)
-#       define RC_HALF  (1ULL<<18)
+	uintptr_t nonpointer        : 1;
+	uintptr_t has_assoc         : 1;
+	uintptr_t has_cxx_dtor      : 1;
+	uintptr_t shiftcls          : 33; // MACH_VM_MAX_ADDRESS 0x1000000000
+	uintptr_t magic             : 6;
+	uintptr_t weakly_referenced : 1;
+	uintptr_t deallocating      : 1;
+	uintptr_t has_sidetable_rc  : 1;
+	uintptr_t extra_rc          : 19;
+	#       define RC_ONE   (1ULL<<45)
+	#       define RC_HALF  (1ULL<<18)
 };
 ```
 我们发现`isa`的结构是这种`共用体（union）`结构，其实使用这种共用体是一种优化，`isa`不在单独存放的是一个指针信息了，里面存放了更多的其他信息。

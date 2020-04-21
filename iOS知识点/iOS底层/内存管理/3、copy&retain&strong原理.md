@@ -28,10 +28,10 @@
 ```
 void test1()
 {
-NSString *str1 = [NSString stringWithFormat:@"test"];
-NSString *str2 = [str1 copy]; // 返回的是NSString
-NSMutableString *str3 = [str1 mutableCopy]; // 返回的是NSMutableString
-NSLog(@"%p %p %p", str1, str2, str3);
+	NSString *str1 = [NSString stringWithFormat:@"test"];
+	NSString *str2 = [str1 copy]; // 返回的是NSString
+	NSMutableString *str3 = [str1 mutableCopy]; // 返回的是NSMutableString
+	NSLog(@"%p %p %p", str1, str2, str3);
 }
 ```
 ![copy1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/copy1.png)
@@ -44,10 +44,10 @@ NSLog(@"%p %p %p", str1, str2, str3);
 ```
 void test2()
 {
-NSMutableString *str1 = [[NSMutableString alloc] initWithFormat:@"test"]; // 1
-NSString *str2 = [str1 copy]; // 深拷贝
-NSMutableString *str3 = [str1 mutableCopy]; // 深拷贝
-NSLog(@"%p %p %p", str1, str2, str3);
+	NSMutableString *str1 = [[NSMutableString alloc] initWithFormat:@"test"]; // 1
+	NSString *str2 = [str1 copy]; // 深拷贝
+	NSMutableString *str3 = [str1 mutableCopy]; // 深拷贝
+	NSLog(@"%p %p %p", str1, str2, str3);
 }
 ```
 
@@ -61,11 +61,11 @@ NSLog(@"%p %p %p", str1, str2, str3);
 ```
 void test3()
 {
-NSArray *array1 = [[NSArray alloc] initWithObjects:@"a", @"b", nil];
-NSArray *array2 = [array1 copy]; // 浅拷贝
-NSMutableArray *array3 = [array1 mutableCopy]; // 深拷贝
+	NSArray *array1 = [[NSArray alloc] initWithObjects:@"a", @"b", nil];
+	NSArray *array2 = [array1 copy]; // 浅拷贝
+	NSMutableArray *array3 = [array1 mutableCopy]; // 深拷贝
 
-NSLog(@"%p %p %p", array1, array2, array3);
+	NSLog(@"%p %p %p", array1, array2, array3);
 }
 ```
 
@@ -80,11 +80,11 @@ NSLog(@"%p %p %p", array1, array2, array3);
 ```
 void test4()
 {
-NSMutableArray *array1 = [[NSMutableArray alloc] initWithObjects:@"a", @"b", nil];
-NSArray *array2 = [array1 copy]; // 深拷贝
-NSMutableArray *array3 = [array1 mutableCopy]; // 深拷贝
+	NSMutableArray *array1 = [[NSMutableArray alloc] initWithObjects:@"a", @"b", nil];
+	NSArray *array2 = [array1 copy]; // 深拷贝
+	NSMutableArray *array3 = [array1 mutableCopy]; // 深拷贝
 
-NSLog(@"%p %p %p", array1, array2, array3);
+	NSLog(@"%p %p %p", array1, array2, array3);
 }
 ```
 ![copy4](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/copy4.png)
@@ -97,11 +97,11 @@ NSLog(@"%p %p %p", array1, array2, array3);
 ```
 void test5()
 {
-NSDictionary *dict1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"jack", @"name", nil];
-NSDictionary *dict2 = [dict1 copy]; // 浅拷贝
-NSMutableDictionary *dict3 = [dict1 mutableCopy]; // 深拷贝
+	NSDictionary *dict1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"jack", @"name", nil];
+	NSDictionary *dict2 = [dict1 copy]; // 浅拷贝
+	NSMutableDictionary *dict3 = [dict1 mutableCopy]; // 深拷贝
 
-NSLog(@"%p %p %p", dict1, dict2, dict3);
+	NSLog(@"%p %p %p", dict1, dict2, dict3);
 }
 ```
 
@@ -116,11 +116,11 @@ NSLog(@"%p %p %p", dict1, dict2, dict3);
 ```
 void test6()
 {
-NSMutableDictionary *dict1 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"jack", @"name", nil];
-NSDictionary *dict2 = [dict1 copy]; // 深拷贝
-NSMutableDictionary *dict3 = [dict1 mutableCopy]; // 深拷贝
+	NSMutableDictionary *dict1 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"jack", @"name", nil];
+	NSDictionary *dict2 = [dict1 copy]; // 深拷贝
+	NSMutableDictionary *dict3 = [dict1 mutableCopy]; // 深拷贝
 
-NSLog(@"%p %p %p", dict1, dict2, dict3);
+	NSLog(@"%p %p %p", dict1, dict2, dict3);
 
 }
 ```
@@ -150,10 +150,10 @@ NSLog(@"%p %p %p", dict1, dict2, dict3);
 @end
 
 - (id)copyWithZone:(NSZone *)zone{
-Dog *d = [[self class]allocWithZone:zone];
-d.age = _age;
-d.name = _name;
-return d;
+	Dog *d = [[self class]allocWithZone:zone];
+	d.age = _age;
+	d.name = _name;
+	return d;
 }
 ```
 
@@ -162,10 +162,10 @@ return d;
 
 ```
 - (void)setName:(NSString *)name {
-if (_name != name) {
-//[_name release];//MRC
-_name = [name copy];
-}
+	if (_name != name) {
+		//[_name release];//MRC
+		_name = [name copy];
+	}
 }
 ```
  

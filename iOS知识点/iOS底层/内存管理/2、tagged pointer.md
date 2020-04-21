@@ -20,16 +20,16 @@ int a = 10;
 int b;
 int main(int argc, char * argv[]) {
 @autoreleasepool {
-static int c = 20;
-static int d;
-int e;
-int f = 20;
-NSString *str = @"123";
-NSObject *obj = [[NSObject alloc] init];
-NSLog(@"\n&a=%p\n&b=%p\n&c=%p\n&d=%p\n&e=%p\n&f=%p\nstr=%p\nobj=%p\n",
-&a, &b, &c, &d, &e, &f, str, obj);
-return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
-}
+		static int c = 20;
+		static int d;
+		int e;
+		int f = 20;
+		NSString *str = @"123";
+		NSObject *obj = [[NSObject alloc] init];
+		NSLog(@"\n&a=%p\n&b=%p\n&c=%p\n&d=%p\n&e=%p\n&f=%p\nstr=%p\nobj=%p\n",
+		&a, &b, &c, &d, &e, &f, str, obj);
+		return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+	}
 }
 
 
@@ -62,14 +62,14 @@ obj = 0x608000012210 // 堆
 int main(int argc, const char * argv[]) {
 @autoreleasepool {
 
-NSNumber *number1 = @4;
-NSNumber *number2 = @5;
-NSNumber *number3 = @(0xFFFFFFFFFFFFFFF);
+		NSNumber *number1 = @4;
+		NSNumber *number2 = @5;
+		NSNumber *number3 = @(0xFFFFFFFFFFFFFFF);
 
-NSLog(@"\nnumber1=%p\nnumber2=%p\nnumber3=%p", number1, number2, number3);
+		NSLog(@"\nnumber1=%p\nnumber2=%p\nnumber3=%p", number1, number2, number3);
 
-}
-return 0;
+	}
+	return 0;
 }
 ```
 
@@ -86,27 +86,27 @@ return 0;
 dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
 
 for (int i = 0; i < 100; i++) {
-dispatch_async(queue, ^{
-self.name = [NSString stringWithFormat:@"abcdefghijk"];
-});
+	dispatch_async(queue, ^{
+		self.name = [NSString stringWithFormat:@"abcdefghijk"];
+	});
 }
 
 dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
 
 for (int i = 0; i < 100; i++) {
-dispatch_async(queue, ^{
-self.name = [NSString stringWithFormat:@"abc"];
-});
+	dispatch_async(queue, ^{
+		self.name = [NSString stringWithFormat:@"abc"];
+	});
 }
 ```
 
 我们运行下面一段代码
 ```
 dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
-for (int i = 0; i < 1000; i++) {
-dispatch_async(queue, ^{
-self.name = [NSString stringWithFormat:@"abcdefghijk"];
-});
+	for (int i = 0; i < 1000; i++) {
+	dispatch_async(queue, ^{
+		self.name = [NSString stringWithFormat:@"abcdefghijk"];
+	});
 }
 ```
 
@@ -118,27 +118,27 @@ self.name = [NSString stringWithFormat:@"abcdefghijk"];
 ```
 - (void)setName:(NSString *)name
 {
-if (_name != name) {
-[_name release];
-_name = [name retain];
-}
+	if (_name != name) {
+		[_name release];
+		_name = [name retain];
+	}
 }
 
 ```
 应该就是在`set`方法时出现了线程安全问题造成了程序崩溃。想要解决，加锁就可以了
 ```
 @synchronized (self) {
-self.name = [NSString stringWithFormat:@"abcdefghijk"];
+	self.name = [NSString stringWithFormat:@"abcdefghijk"];
 }
 ```
 
 我们在来实现下面的代码
 ```
 dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
-for (int i = 0; i < 100; i++) {
-dispatch_async(queue, ^{
-self.name = [NSString stringWithFormat:@"abc"];
-});
+	for (int i = 0; i < 100; i++) {
+	dispatch_async(queue, ^{
+		self.name = [NSString stringWithFormat:@"abc"];
+	});
 }
 ```
 发现并没有出现问题。
@@ -157,7 +157,7 @@ NSLog(@"\n[str1 class]=%@\n[str2 class]=%@",[str1 class],[str2 class]);
 - 1、在`NSObject.mm`中查找`retain`方法的实现
 ```
 - (id)retain {
-return ((id)self)->rootRetain();
+	return ((id)self)->rootRetain();
 }
 ```
 - 2、点击进入`rootRetain`方法，我们可以在里面找到`if (isTaggedPointer()) return (id)this;`也就是说如果是`TaggedPointer`类型，直接返回，不需要根据指针查找。
@@ -168,7 +168,7 @@ return ((id)self)->rootRetain();
 ```
 _objc_isTaggedPointer(const void * _Nullable ptr) 
 {
-return ((uintptr_t)ptr & _OBJC_TAG_MASK) == _OBJC_TAG_MASK;
+	return ((uintptr_t)ptr & _OBJC_TAG_MASK) == _OBJC_TAG_MASK;
 }
 
 ```

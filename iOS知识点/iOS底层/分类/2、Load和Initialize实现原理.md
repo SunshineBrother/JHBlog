@@ -35,18 +35,18 @@ objc-os.mm 文件
 ```
 void _objc_init(void)
 {
-static bool initialized = false;
-if (initialized) return;
-initialized = true;
+    static bool initialized = false;
+    if (initialized) return;
+    initialized = true;
 
-// fixme defer initialization until an objc-using image is found?
-environ_init();
-tls_init();
-static_init();
-lock_init();
-exception_init();
+    // fixme defer initialization until an objc-using image is found?
+    environ_init();
+    tls_init();
+    static_init();
+    lock_init();
+    exception_init();
 
-_dyld_objc_notify_register(&map_images, load_images, unmap_image);
+    _dyld_objc_notify_register(&map_images, load_images, unmap_image);
 }
 ```
 >小知识：`images`是镜像的意思
@@ -58,19 +58,19 @@ _dyld_objc_notify_register(&map_images, load_images, unmap_image);
 ```
 load_images(const char *path __unused, const struct mach_header *mh)
 {
-// Return without taking locks if there are no +load methods here.
-if (!hasLoadMethods((const headerType *)mh)) return;
+    // Return without taking locks if there are no +load methods here.
+    if (!hasLoadMethods((const headerType *)mh)) return;
 
-recursive_mutex_locker_t lock(loadMethodLock);
+    recursive_mutex_locker_t lock(loadMethodLock);
 
-// Discover load methods
-{
-rwlock_writer_t lock2(runtimeLock);
-prepare_load_methods((const headerType *)mh);
-}
+    // Discover load methods
+    {
+        rwlock_writer_t lock2(runtimeLock);
+        prepare_load_methods((const headerType *)mh);
+    }
 
-// Call +load methods (without runtimeLock - re-entrant)
-call_load_methods();
+    // Call +load methods (without runtimeLock - re-entrant)
+    call_load_methods();
 }
 ```
 里面有两个需要我们注意的
@@ -82,25 +82,25 @@ call_load_methods();
 ```
 void prepare_load_methods(const headerType *mhdr)
 {
-size_t count, i;
+    size_t count, i;
 
-runtimeLock.assertWriting();
+    runtimeLock.assertWriting();
 
-classref_t *classlist = 
-_getObjc2NonlazyClassList(mhdr, &count);
-for (i = 0; i < count; i++) {
-schedule_class_load(remapClass(classlist[i]));
-}
+    classref_t *classlist = 
+    _getObjc2NonlazyClassList(mhdr, &count);
+    for (i = 0; i < count; i++) {
+        schedule_class_load(remapClass(classlist[i]));
+    }
 
-category_t **categorylist = _getObjc2NonlazyCategoryList(mhdr, &count);
-for (i = 0; i < count; i++) {
-category_t *cat = categorylist[i];
-Class cls = remapClass(cat->cls);
-if (!cls) continue;  // category for ignored weak-linked class
-realizeClass(cls);
-assert(cls->ISA()->isRealized());
-add_category_to_loadable_list(cat);
-}
+    category_t **categorylist = _getObjc2NonlazyCategoryList(mhdr, &count);
+    for (i = 0; i < count; i++) {
+    category_t *cat = categorylist[i];
+    Class cls = remapClass(cat->cls);
+    if (!cls) continue;  // category for ignored weak-linked class
+        realizeClass(cls);
+        assert(cls->ISA()->isRealized());
+        add_category_to_loadable_list(cat);
+    }
 }
 ```
 
@@ -115,16 +115,16 @@ add_category_to_loadable_list(cat);
 ```
 static void schedule_class_load(Class cls)
 {
-if (!cls) return;
-assert(cls->isRealized());  // _read_images should realize
+    if (!cls) return;
+    assert(cls->isRealized());  // _read_images should realize
 
-if (cls->data()->flags & RW_LOADED) return;
+    if (cls->data()->flags & RW_LOADED) return;
 
-// Ensure superclass-first ordering
-schedule_class_load(cls->superclass);
+    // Ensure superclass-first ordering
+    schedule_class_load(cls->superclass);
 
-add_class_to_loadable_list(cls);
-cls->setInfo(RW_LOADED); 
+    add_class_to_loadable_list(cls);
+    cls->setInfo(RW_LOADED); 
 }
 ```
 - 1、`schedule_class_load(cls->superclass);` 把父类load先添加到数组中
@@ -143,31 +143,31 @@ cls->setInfo(RW_LOADED);
 ```
 void add_category_to_loadable_list(Category cat)
 {
-IMP method;
+    IMP method;
 
-loadMethodLock.assertLocked();
+    loadMethodLock.assertLocked();
 
-method = _category_getLoadMethod(cat);
+    method = _category_getLoadMethod(cat);
 
-// Don't bother if cat has no +load method
-if (!method) return;
+    // Don't bother if cat has no +load method
+    if (!method) return;
 
-if (PrintLoading) {
-_objc_inform("LOAD: category '%s(%s)' scheduled for +load", 
-_category_getClassName(cat), _category_getName(cat));
-}
+    if (PrintLoading) {
+        _objc_inform("LOAD: category '%s(%s)' scheduled for +load", 
+        _category_getClassName(cat), _category_getName(cat));
+    }
 
-if (loadable_categories_used == loadable_categories_allocated) {
-loadable_categories_allocated = loadable_categories_allocated*2 + 16;
-loadable_categories = (struct loadable_category *)
-realloc(loadable_categories,
-loadable_categories_allocated *
-sizeof(struct loadable_category));
-}
+    if (loadable_categories_used == loadable_categories_allocated) {
+        loadable_categories_allocated = loadable_categories_allocated*2 + 16;
+        loadable_categories = (struct loadable_category *)
+        realloc(loadable_categories,
+        loadable_categories_allocated *
+        sizeof(struct loadable_category));
+    }
 
-loadable_categories[loadable_categories_used].cat = cat;
-loadable_categories[loadable_categories_used].method = method;
-loadable_categories_used++;
+    loadable_categories[loadable_categories_used].cat = cat;
+    loadable_categories[loadable_categories_used].method = method;
+    loadable_categories_used++;
 }
 ```
 `loadable_categories_used++;`分类没有什么特殊的方法，应该就是按照编译顺序添加到数组的。
@@ -180,32 +180,32 @@ loadable_categories_used++;
 ```
 void call_load_methods(void)
 {
-static bool loading = NO;
-bool more_categories;
+    static bool loading = NO;
+    bool more_categories;
 
-loadMethodLock.assertLocked();
+    loadMethodLock.assertLocked();
 
-// Re-entrant calls do nothing; the outermost call will finish the job.
-if (loading) return;
-loading = YES;
+    // Re-entrant calls do nothing; the outermost call will finish the job.
+    if (loading) return;
+    loading = YES;
 
-void *pool = objc_autoreleasePoolPush();
+    void *pool = objc_autoreleasePoolPush();
 
-do {
-// 1. Repeatedly call class +loads until there aren't any more
-while (loadable_classes_used > 0) {
-call_class_loads();
-}
+    do {
+        // 1. Repeatedly call class +loads until there aren't any more
+        while (loadable_classes_used > 0) {
+        call_class_loads();
+    }
 
-// 2. Call category +loads ONCE
-more_categories = call_category_loads();
+    // 2. Call category +loads ONCE
+    more_categories = call_category_loads();
 
-// 3. Run more +loads if there are classes OR more untried categories
-} while (loadable_classes_used > 0  ||  more_categories);
+    // 3. Run more +loads if there are classes OR more untried categories
+    } while (loadable_classes_used > 0  ||  more_categories);
 
-objc_autoreleasePoolPop(pool);
+    objc_autoreleasePoolPop(pool);
 
-loading = NO;
+    loading = NO;
 }
 ```
 上面直接有官方文档给我们的顺序
@@ -276,37 +276,37 @@ objc-runtime-new.mm
 ```
 Method class_getInstanceMethod(Class cls, SEL sel)
 {
-if (!cls  ||  !sel) return nil;
-#warning fixme build and search caches
-lookUpImpOrNil(cls, sel, nil, 
-NO/*initialize*/, NO/*cache*/, YES/*resolver*/);
-#warning fixme build and search caches
-return _class_getMethod(cls, sel);
+    if (!cls  ||  !sel) return nil;
+    #warning fixme build and search caches
+    lookUpImpOrNil(cls, sel, nil, 
+    NO/*initialize*/, NO/*cache*/, YES/*resolver*/);
+    #warning fixme build and search caches
+    return _class_getMethod(cls, sel);
 }
 ```
 里面没有什么实现我们继续点击`lookUpImpOrNil`进入实现
 ```
 IMP lookUpImpOrNil(Class cls, SEL sel, id inst, 
 bool initialize, bool cache, bool resolver)
-{
-IMP imp = lookUpImpOrForward(cls, sel, inst, initialize, cache, resolver);
-if (imp == _objc_msgForward_impcache) return nil;
-else return imp;
+    {
+    IMP imp = lookUpImpOrForward(cls, sel, inst, initialize, cache, resolver);
+    if (imp == _objc_msgForward_impcache) return nil;
+    else return imp;
 }
 ```
 
 里面好像还是没有我们想要的具体实现，继续点击`lookUpImpOrForward`查看实现
 ```
 if (initialize  &&  !cls->isInitialized()) {
-runtimeLock.unlockRead();
-_class_initialize (_class_getNonMetaClass(cls, inst));
-runtimeLock.read();
+    runtimeLock.unlockRead();
+    _class_initialize (_class_getNonMetaClass(cls, inst));
+    runtimeLock.read();
 }
 ```
 这个里面有一个`if`判断里面有一些东西，就是在没有实现`isInitialized`的时候，调用`_class_initialize`方法，我们点击进入查看相关实现
 ```
 if (supercls  &&  !supercls->isInitialized()) {
-_class_initialize(supercls);
+    _class_initialize(supercls);
 }
 ```
 ```
