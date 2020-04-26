@@ -110,9 +110,9 @@ struct 位域结构名
 其中位域列表的形式为： 类型说明符 位域名：位域长度;
 ```
 struct {
-char tall : 1;
-char rich : 1;
-char handsome : 1;
+	char tall : 1;
+	char rich : 1;
+	char handsome : 1;
 } _tallRichHandsome;
 ```
 
@@ -142,42 +142,42 @@ union量的存放顺序是所有成员都从低地址开始存放的。
 {
 // 位域
 struct {
-char tall : 1;
-char rich : 1;
-char handsome : 1;
-} _tallRichHandsome;
+	char tall : 1;
+	char rich : 1;
+	char handsome : 1;
+	} _tallRichHandsome;
 }
 @end
 @implementation Person
 
 - (void)setTall:(BOOL)tall
 {
-_tallRichHandsome.tall = tall;
+	_tallRichHandsome.tall = tall;
 }
 
 - (BOOL)isTall
 {
-return !!_tallRichHandsome.tall;
+	return !!_tallRichHandsome.tall;
 }
 
 - (void)setRich:(BOOL)rich
 {
-_tallRichHandsome.rich = rich;
+	_tallRichHandsome.rich = rich;
 }
 
 - (BOOL)isRich
 {
-return !!_tallRichHandsome.rich;
+	return !!_tallRichHandsome.rich;
 }
 
 - (void)setHandsome:(BOOL)handsome
 {
-_tallRichHandsome.handsome = handsome;
+	_tallRichHandsome.handsome = handsome;
 }
 
 - (BOOL)isHandsome
 {
-return !!_tallRichHandsome.handsome;
+	return !!_tallRichHandsome.handsome;
 }
 ```
 
@@ -194,14 +194,14 @@ return !!_tallRichHandsome.handsome;
 
 @interface Person()
 {
-union {
-int bits;
-struct {
-char tall : 1;
-char rich : 1;
-char handsome : 1;
-};
-} _tallRichHandsome;
+	union {
+		int bits;
+		struct {
+			char tall : 1;
+			char rich : 1;
+			char handsome : 1;
+		};
+	} _tallRichHandsome;
 }
 @end
 
@@ -209,53 +209,53 @@ char handsome : 1;
 
 - (void)setTall:(BOOL)tall
 {
-if (tall) {
-_tallRichHandsome.bits |= TallMask;
-} else {
-_tallRichHandsome.bits &= ~TallMask;
-}
+	if (tall) {
+		_tallRichHandsome.bits |= TallMask;
+	} else {
+		_tallRichHandsome.bits &= ~TallMask;
+	}
 }
 
 - (BOOL)isTall
 {
-return !!(_tallRichHandsome.bits & TallMask);
+	return !!(_tallRichHandsome.bits & TallMask);
 }
 
 - (void)setRich:(BOOL)rich
 {
-if (rich) {
-_tallRichHandsome.bits |= RichMask;
-} else {
-_tallRichHandsome.bits &= ~RichMask;
-}
+	if (rich) {
+		_tallRichHandsome.bits |= RichMask;
+	} else {
+		_tallRichHandsome.bits &= ~RichMask;
+	}
 }
 
 - (BOOL)isRich
 {
-return !!(_tallRichHandsome.bits & RichMask);
+	return !!(_tallRichHandsome.bits & RichMask);
 }
 
 - (void)setHandsome:(BOOL)handsome
 {
-if (handsome) {
-_tallRichHandsome.bits |= HandsomeMask;
-} else {
-_tallRichHandsome.bits &= ~HandsomeMask;
-}
+	if (handsome) {
+		_tallRichHandsome.bits |= HandsomeMask;
+	} else {
+		_tallRichHandsome.bits &= ~HandsomeMask;
+	}
 }
 
 - (BOOL)isHandsome
 {
-return !!(_tallRichHandsome.bits & HandsomeMask);
+	return !!(_tallRichHandsome.bits & HandsomeMask);
 }
 ```
 
 `#define TallMask (1<<0)`这是掩码，为了方便阅读。
 ```
 struct {
-char tall : 1;
-char rich : 1;
-char handsome : 1;
+	char tall : 1;
+	char rich : 1;
+	char handsome : 1;
 };
 ```
 其实也仅仅是方便阅读的作用，让我们知道`tall`、`rich`、`handsome`是在哪一位上，去掉并不影响代码。
@@ -266,13 +266,13 @@ char handsome : 1;
 ```
 typedef NS_ENUM(NSInteger, LXDAuthorizationType)
 {
-LXDAuthorizationTypeNone = 0,
-LXDAuthorizationTypePush = 1 << 0,  ///<    推送授权
-LXDAuthorizationTypeLocation = 1 << 1,  ///<    定位授权
-LXDAuthorizationTypeCamera = 1 << 2,    ///<    相机授权
-LXDAuthorizationTypePhoto = 1 << 3,     ///<    相册授权
-LXDAuthorizationTypeAudio = 1 << 4,  ///<    麦克风授权
-LXDAuthorizationTypeContacts = 1 << 5,  ///<    通讯录授权
+	LXDAuthorizationTypeNone = 0,
+	LXDAuthorizationTypePush = 1 << 0,  ///<    推送授权
+	LXDAuthorizationTypeLocation = 1 << 1,  ///<    定位授权
+	LXDAuthorizationTypeCamera = 1 << 2,    ///<    相机授权
+	LXDAuthorizationTypePhoto = 1 << 3,     ///<    相册授权
+	LXDAuthorizationTypeAudio = 1 << 4,  ///<    麦克风授权
+	LXDAuthorizationTypeContacts = 1 << 5,  ///<    通讯录授权
 };
 
 ```
@@ -280,42 +280,42 @@ LXDAuthorizationTypeContacts = 1 << 5,  ///<    通讯录授权
 
 ```
 typedef NS_OPTIONS(NSUInteger, UIViewAutoresizing) {
-UIViewAutoresizingNone                 = 0,
-UIViewAutoresizingFlexibleLeftMargin   = 1 << 0,
-UIViewAutoresizingFlexibleWidth        = 1 << 1,
-UIViewAutoresizingFlexibleRightMargin  = 1 << 2,
-UIViewAutoresizingFlexibleTopMargin    = 1 << 3,
-UIViewAutoresizingFlexibleHeight       = 1 << 4,
-UIViewAutoresizingFlexibleBottomMargin = 1 << 5
+	UIViewAutoresizingNone                 = 0,
+	UIViewAutoresizingFlexibleLeftMargin   = 1 << 0,
+	UIViewAutoresizingFlexibleWidth        = 1 << 1,
+	UIViewAutoresizingFlexibleRightMargin  = 1 << 2,
+	UIViewAutoresizingFlexibleTopMargin    = 1 << 3,
+	UIViewAutoresizingFlexibleHeight       = 1 << 4,
+	UIViewAutoresizingFlexibleBottomMargin = 1 << 5
 };
 ```
 太多了，我就不一一列举了。其实我们在有些情况下也可以参考这样的设计。
  例如
  ```
  typedef enum {
- OptionsOne = 1<<0,   // 0b0001
- OptionsTwo = 1<<1,   // 0b0010
- OptionsThree = 1<<2, // 0b0100
- OptionsFour = 1<<3   // 0b1000
+	 OptionsOne = 1<<0,   // 0b0001
+	 OptionsTwo = 1<<1,   // 0b0010
+	 OptionsThree = 1<<2, // 0b0100
+	 OptionsFour = 1<<3   // 0b1000
  } Options
  
  - (void)setOptions:(Options)options
  {
- if (options & OptionsOne) {
- NSLog(@"包含了OptionsOne");
- }
- 
- if (options & OptionsTwo) {
- NSLog(@"包含了OptionsTwo");
- }
- 
- if (options & OptionsThree) {
- NSLog(@"包含了OptionsThree");
- }
- 
- if (options & OptionsFour) {
- NSLog(@"包含了OptionsFour");
- }
+	 if (options & OptionsOne) {
+		 NSLog(@"包含了OptionsOne");
+	 }
+	 
+	 if (options & OptionsTwo) {
+	 	NSLog(@"包含了OptionsTwo");
+	 }
+	 
+	 if (options & OptionsThree) {
+	 	NSLog(@"包含了OptionsThree");
+	 }
+	 
+	 if (options & OptionsFour) {
+		 NSLog(@"包含了OptionsFour");
+	 }
  }
  
  
