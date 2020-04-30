@@ -28,7 +28,7 @@ Auto Layout 不只有布局算法 Cassowary，还包含了布局在运行时的�
 每个视图在得到自己的布局之前，`Layout Engine` 会将视图、约束、优先级、固定大小通过计算转换成最终的大小和位置。在 `Layout Engine `里，每当约束发生变化，就会触发 `Deffered Layout Pass`，完成后进入监听约束变化的状态。当再次监听到约束变化，即进入下一轮循环中
 
 
-![]()
+![界面布局过程](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS进阶/Auto%20Layout%20是怎么进行自动布局的/界面布局过程.png)
 
 
 `Constraints Change` 表示的就是约束变化，添加、删除视图时会触发约束变化。`Activating 或 Deactivating`，设置 `Constant 或 Priority `时也会触发约束变化。`Layout Engine`在碰到约束变化后会重新计算布局，获取到布局后调用 `superview.setNeedLayout()`，然后进入 `Deferred Layout Pass`

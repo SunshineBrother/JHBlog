@@ -70,9 +70,15 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 
 ### 他人文章
 - [Swift5.0的Runtime机制浅析](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS进阶/Swift5.0的Runtime机制浅析/Swift5.0的Runtime机制浅析.md)
+
+
+### 启动优化
+
 - [iOS启动时间优化](http://www.zoomfeng.com/blog/launch-time.html)
 
+- [抖音研发实践：基于二进制文件重排的解决方案 APP启动速度提升超15%](https://mp.weixin.qq.com/s/Drmmx5JtjG3UtTFksL6Q8Q)
 
+- [我是如何让微博绿洲的启动速度提升30%的](https://juejin.im/post/5ea79839f265da7bba509590)
 
 
 
@@ -278,7 +284,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 
 - [技术岗位如何写简历](https://www.paincker.com/how-to-write-a-resume)
 
-
+- [救救自己，别再这样写简历了｜掘金技术征文](https://juejin.im/post/5ea59d91518825736512f3b8)
 
 
 *********************************************************
