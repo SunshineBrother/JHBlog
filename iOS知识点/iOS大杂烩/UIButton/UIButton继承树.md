@@ -4,7 +4,7 @@
 
 UIButton -> UIControl -> UIView -> UIResponder -> NSObject
 
-![UIKit]()
+![UIKit](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/UIKit.png)
 
 
 - NSObject：所有 Objective-C 对象的基类，封装了内存管理，消息的传递机制等底层逻辑。
