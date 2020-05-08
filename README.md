@@ -131,6 +131,11 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - [UIButton的绘制](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/UIButton的绘制.md)
     
     - [UIButton的imageEdgeInsets和titleEdgeInsets原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/UIButton的imageEdgeInsets和titleEdgeInsets原理.md)
+- 30、[UIResponder](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIResponder/UIResponder.md)
+- 31、[UIControl](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIControl/UIControl.md)
+- 32、[UI绘制的原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UI绘制的原理/UI绘制的原理.md)
+- 33、[UI卡顿、掉帧的原理是怎样的](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UI卡顿、掉帧的原理是怎样的/UI卡顿、掉帧的原理是怎样的.md)
+- 34、[什么是离屏渲染](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/什么是离屏渲染/什么是离屏渲染.md)
   
   ******************************************************************************************************************
   ## 架构
