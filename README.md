@@ -86,6 +86,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 ### iOS大杂烩
 
 - 1、[LLDB使用](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/LLDB.md)
+    - [如何快速列出App的所有+load方法](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/如何快速列出App的所有%2Bload方法/如何快速列出App的所有%2Bload方法.md)
 - 2、[基本数据类型](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/打印各种数据类型.md)
 - 3、[App信息监控](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/App需要监控信息.md)
 - 4、[Crash系列]()

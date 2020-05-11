@@ -9,6 +9,8 @@ br s -r "\+\[.+ load\]$"
 br list
 ```
 
+![load](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/LLDB/如何快速列出App的所有%2Bload方法/load.png)
+
 ```
 br s -r "正则"
 就是
