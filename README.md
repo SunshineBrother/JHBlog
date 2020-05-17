@@ -153,6 +153,16 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - [我是如何让微博绿洲的启动速度提升30%的](https://juejin.im/post/5ea79839f265da7bba509590)
 
 
+### 关于Hook Method类的
+
+- [Apple 操作系统可执行文件 Mach-O](https://mp.weixin.qq.com/s/3YcoWwkKBs2YG-84MorpMQ)
+- [静态插桩的方式来实现Hook Method](https://mp.weixin.qq.com/s/wS_ex3P2m_Zeqb2ceAz6ZQ)
+- [fishhook 原理探究](https://mp.weixin.qq.com/s/tJr7cAOjj1rO-NenNJnDHA)
+- [开源 | Objective-C & Swift 最轻量级 Hook 方案](https://mp.weixin.qq.com/s/rYZijUlmLzyfbl-DPfYVIQ)
+- [静态拦截iOS对象方法调用的简易实现](https://mp.weixin.qq.com/s/ad66IGy1u7nCl1A6bQ7y1A)
+
+
+
 
 ******************************************************************************************************************
 
