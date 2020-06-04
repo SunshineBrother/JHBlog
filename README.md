@@ -194,16 +194,15 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 
 - 1、[UIButton](https://github.com/SunshineBrother/JHBlog/tree/master/iOS知识点/iOS大杂烩/UIButton)
     - [UIButton继承树](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/UIButton继承树.md)
-    
     - [UIButton的绘制](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/UIButton的绘制.md)
-    
     - [UIButton的imageEdgeInsets和titleEdgeInsets原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/UIButton的imageEdgeInsets和titleEdgeInsets原理.md)
 - 2、[UILabel绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UILabel/UILabel绘制以及性能优化.md)
 - 3、[UITextField绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UITextField/UITextField绘制以及性能优化.md)
 - 4、[UITextView绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UITextView/UITextView绘制以及性能优化.md)
 - 4、[UIImageView绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIImageView/UIImageView绘制以及性能优化.md)
 - 5、[UISwitch绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UISwitch/UISwitch绘制以及性能优化.md)
-
+- 6、[UI绘制的原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UI绘制的原理/UI绘制的原理.md)
+- 7、[UI卡顿、掉帧的原理是怎样的](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UI卡顿、掉帧的原理是怎样的/UI卡顿、掉帧的原理是怎样的.md)
 
 
 ***************************************************************************
@@ -245,18 +244,13 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 23、[事件响应机制](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/事件响应机制/事件响应机制.md)
 - 24、[iOS 单元测试和 UI 测试快速入门](https://github.com/xietao3/Study-Plan/blob/master/TestingTutorial/README.md)
 - 25、[配置.gitignore忽略文件](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/忽略文件/iOS%20配置.gitignore忽略文件.md)
-- 26、[git使用](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/git使用/git使用.md)
+- 26、[git使用](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/git使用/git使用.md
 - 27、[iOS内购](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/iOS内购.md)
-  
 - 28、[NSArray原理及遍历方法探究](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/NSArray原理及遍历方法探究.md)
-
 - 30、[UIResponder](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/事件响应机制/事件响应机制.md)
 - 31、[UIControl](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIControl/UIControl.md)
-- 32、[UI绘制的原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UI绘制的原理/UI绘制的原理.md)
-- 33、[UI卡顿、掉帧的原理是怎样的](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UI卡顿、掉帧的原理是怎样的/UI卡顿、掉帧的原理是怎样的.md)
-- 34、[什么是离屏渲染](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/什么是离屏渲染/什么是离屏渲染.md)
-  
-- 35、[Universal Link 前端部署采坑记](https://awhisper.github.io/2017/09/02/universallink/)
+- 32、[什么是离屏渲染](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/什么是离屏渲染/什么是离屏渲染.md)
+- 33、[Universal Link 前端部署采坑记](https://awhisper.github.io/2017/09/02/universallink/)
 
 
 
