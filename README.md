@@ -15,6 +15,9 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 虽然GNUstep不是苹果官方源码，但还是具有一定的参考价值
 
 
+[iOS知识点](https://www.processon.com/view/link/5e69f598e4b07fc7a6845da5#outline)
+
+
 ******************************************************************************************************************
 
 ### iOS底层
@@ -195,11 +198,11 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - [UIButton的绘制](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/UIButton的绘制.md)
     
     - [UIButton的imageEdgeInsets和titleEdgeInsets原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/UIButton的imageEdgeInsets和titleEdgeInsets原理.md)
-
 - 2、[UILabel绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UILabel/UILabel绘制以及性能优化.md)
 - 3、[UITextField绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UITextField/UITextField绘制以及性能优化.md)
+- 4、[UITextView绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UITextView/UITextView绘制以及性能优化.md)
 - 4、[UIImageView绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIImageView/UIImageView绘制以及性能优化.md)
-
+- 5、[UISwitch绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UISwitch/UISwitch绘制以及性能优化.md)
 
 
 
