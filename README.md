@@ -144,7 +144,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - [Swift5.0的Runtime机制浅析](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS进阶/Swift5.0的Runtime机制浅析/Swift5.0的Runtime机制浅析.md)
 
 
-### 启动优化
+#### 启动优化
 
 - [iOS启动时间优化](http://www.zoomfeng.com/blog/launch-time.html)
 
@@ -153,18 +153,56 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - [我是如何让微博绿洲的启动速度提升30%的](https://juejin.im/post/5ea79839f265da7bba509590)
 
 
-### 关于Hook Method类的
+#### 关于Hook Method类的
 
+- [Mach-O文件结构](https://www.jianshu.com/p/1f22d1e667e3)
+- [探秘 Mach-O 文件](https://hawk0620.github.io/blog/2018/03/22/study-mach-o-file/)
 - [Apple 操作系统可执行文件 Mach-O](https://mp.weixin.qq.com/s/3YcoWwkKBs2YG-84MorpMQ)
 - [静态插桩的方式来实现Hook Method](https://mp.weixin.qq.com/s/wS_ex3P2m_Zeqb2ceAz6ZQ)
 - [fishhook 原理探究](https://mp.weixin.qq.com/s/tJr7cAOjj1rO-NenNJnDHA)
 - [开源 | Objective-C & Swift 最轻量级 Hook 方案](https://mp.weixin.qq.com/s/rYZijUlmLzyfbl-DPfYVIQ)
 - [静态拦截iOS对象方法调用的简易实现](https://mp.weixin.qq.com/s/ad66IGy1u7nCl1A6bQ7y1A)
+- [iOS逆向工程 - fishhook原理](https://www.jianshu.com/p/4d86de908721)
+
+
+#### WKWebView
+
+- [WKWebView默认缓存策略与HTTP缓存协议](https://juejin.im/post/5df75e3a6fb9a016266459da)
+
+#### 网络层设计
+
+- [谈谈 iOS 网络层设计](https://mp.weixin.qq.com/s/OE87Qvtjt5ADRJt785LUzg)
+
+#### 渲染原理
+
+- [iOS Rendering 渲染全解析（长文干货）](https://juejin.im/post/5ec35cc55188256d92438174)
+
+
+#### 通知
+
+- [一文全解iOS通知机制(经典收藏)](https://juejin.im/post/5e5fc16df265da575155723b)
 
 
 
 
-******************************************************************************************************************
+***************************************************************************
+
+### UI组件以及内部实现
+
+- 1、[UIButton](https://github.com/SunshineBrother/JHBlog/tree/master/iOS知识点/iOS大杂烩/UIButton)
+    - [UIButton继承树](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/UIButton继承树.md)
+    
+    - [UIButton的绘制](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/UIButton的绘制.md)
+    
+    - [UIButton的imageEdgeInsets和titleEdgeInsets原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/UIButton的imageEdgeInsets和titleEdgeInsets原理.md)
+
+- 2、[]()
+- 3、[]()
+
+
+
+
+***************************************************************************
 
 
 ### iOS大杂烩
@@ -208,18 +246,17 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
   
 - 28、[NSArray原理及遍历方法探究](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/NSArray原理及遍历方法探究.md)
 
-- 29、[UIButton](https://github.com/SunshineBrother/JHBlog/tree/master/iOS知识点/iOS大杂烩/UIButton)
-    - [UIButton继承树](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/UIButton继承树.md)
-    
-    - [UIButton的绘制](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/UIButton的绘制.md)
-    
-    - [UIButton的imageEdgeInsets和titleEdgeInsets原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/UIButton的imageEdgeInsets和titleEdgeInsets原理.md)
 - 30、[UIResponder](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/事件响应机制/事件响应机制.md)
 - 31、[UIControl](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIControl/UIControl.md)
 - 32、[UI绘制的原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UI绘制的原理/UI绘制的原理.md)
 - 33、[UI卡顿、掉帧的原理是怎样的](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UI卡顿、掉帧的原理是怎样的/UI卡顿、掉帧的原理是怎样的.md)
 - 34、[什么是离屏渲染](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/什么是离屏渲染/什么是离屏渲染.md)
   
+- 35、[Universal Link 前端部署采坑记](https://awhisper.github.io/2017/09/02/universallink/)
+
+
+
+
   ******************************************************************************************************************
   ## 架构
   - [1、浅谈MVC&变异MVC&MVP&MVVM](https://github.com/SunshineBrother/JHBlog/blob/master/设计模式/基础架构/1、MVC%26变异MVC%26MVP%26MVVM.md)
@@ -335,7 +372,8 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 10、[免费API](https://www.apishop.net/#/)
     - 10.1、[免费API](https://github.com/SunshineBrother/JHBlog/blob/master/工具/免费API.md)
     - 10.2、[免费API-01](https://github.com/SunshineBrother/JHBlog/blob/master/工具/免费API-01.md)
-    
+
+
 
 *********************************************************
 ## 网站
@@ -380,6 +418,9 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - [技术岗位如何写简历](https://www.paincker.com/how-to-write-a-resume)
 
 - [救救自己，别再这样写简历了｜掘金技术征文](https://juejin.im/post/5ea59d91518825736512f3b8)
+
+- [一二线城市知名IT互联网公司名单、大厂职级薪酬了解一下](https://mp.weixin.qq.com/s/NEyKE1Q56_55XRzAtO2wug)
+
 
 
 *********************************************************
