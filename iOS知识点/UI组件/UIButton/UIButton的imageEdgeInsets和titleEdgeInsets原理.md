@@ -60,7 +60,7 @@ typedef NS_ENUM(NSInteger, UIControlContentVerticalAlignment) {
 
 创建一个按钮，设置文字和图片，按钮的内容默认排布如图：为了便于理解，我给的`titleLabel`和`imageView`是等宽的
 
-![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/1.jpg)
+![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/1.jpg)
 
 
 截图中：
@@ -80,12 +80,12 @@ button.imageEdgeInsets = UIEdgeInsetsMake(0，50， 0，0);
 思考 1s、2s、3s、.......
 大家心中差不多有想法了，图片的原x值为50，现在设置UIEdgeInsetsMake(0，50， 0，0)，相当于整个图片向右平移50，那么现在图片的x值应该为100，大家想象的结果是不是这样的，如图
 
-![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/2.jpg)
+![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/2.jpg)
 
 
 我要告诉大家，上面的结果是错的，**正确的结果**如图：
 
-![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/3.jpg)
+![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/3.jpg)
 
 
 实际上，图片只向右平移了50的一半，即25，这是为什么？
@@ -107,7 +107,7 @@ button.imageEdgeInsets = UIEdgeInsetsMake(0，50， 0，0);
  
 根据这个正确结论，当设置了`button.imageEdgeInsets = UIEdgeInsetsMake(0，50， 0，0)`时，那么imageView的安全区域就是如下图中的红色区域
 
-![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/4.jpg)
+![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/4.jpg)
 
 
 图片的区域我们知道了，根据水平排列方式默认为`UIControlContentHorizontalAlignmentCenter`，图片应当在红色区域的中间位置，然而，我们要深刻明白：
@@ -123,7 +123,7 @@ UIControlContentHorizontalAlignmentCenter的指的是内容(图片+文字)整体
 
 因此，尽管titleLabel没有设置titleEdgeInsets，但是我们在对imageView进行某种对齐时，不应该只考虑imageView，应该将imageView+titleLabel这个整体作为考虑对象; 如图
 
-![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/5.jpg)
+![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/5.jpg)
 
 
 **核心解释**
@@ -150,7 +150,7 @@ button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
  
 设置后如图
 
-![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/6.jpg)
+![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/6.jpg)
 
 
 再设置
@@ -164,7 +164,7 @@ button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 50);
 原因很简单：上面那行代码的意思是，图片的安全区域为：在contentRect的基础上，原区域右边往左内缩50距离，即下图中的红色区域
 
  
-![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/7.jpg)
+![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/7.jpg)
 
 
 在这个红色区域当中，将imageView+(虚拟)titleLabel这个整体进行左对齐，大家明显能看到，现在就是左对齐的，所以设置right为50是不会有任何变化的，那么如果我们修改一下，设置
@@ -176,14 +176,14 @@ button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 50);
 
 上面那行代码的意思是，图片的安全区域为：在contentRect的基础上，原区域右边往左内缩175距离，即下图中的红色区域
 
-![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/8.jpg)
+![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/8.jpg)
 
 
 
 在这个红色区域内，要把imageView+(虚拟)titleLabel这个整体进行左对齐，但是我们发现，红色区域的宽度容不下imageView+titleLabel这个整体，这个时候，系统先会把titleLabel的宽度压缩，如果压缩为0之后，发现连imageView都容不下，那么继续压缩imageView，直到宽度降为红色区域宽为止，titleLabel保持不动， 最终显示结果如图
 
  
-![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/9.jpg)
+![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/9.jpg)
 
 
 ### 再次训练
@@ -206,14 +206,14 @@ button.imageEdgeInsets = UIEdgeInsetsMake(50, 0, 0, 0);
 上面那行代码的意思是，图片的安全区域为：在contentRect的基础上，原区域顶部向下内缩50距离，即下图中的红色区域：
 
 
-![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/10.jpg)
+![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/10.jpg)
 
 
 
 在这个红色区域当中，要依然保证imageView+(虚拟)titleLabel这个整体进行垂直居中， 因此最终结果如图
 
 
-![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/11.jpg)
+![](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/11.jpg)
 
 
 从这里我们可以萌生一个思想

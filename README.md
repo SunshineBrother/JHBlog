@@ -190,14 +190,15 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 ### UI组件以及内部实现
 
 - 1、[UIButton](https://github.com/SunshineBrother/JHBlog/tree/master/iOS知识点/iOS大杂烩/UIButton)
-    - [UIButton继承树](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/UIButton继承树.md)
+    - [UIButton继承树](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/UIButton继承树.md)
     
-    - [UIButton的绘制](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/UIButton的绘制.md)
+    - [UIButton的绘制](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/UIButton的绘制.md)
     
-    - [UIButton的imageEdgeInsets和titleEdgeInsets原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UIButton/UIButton的imageEdgeInsets和titleEdgeInsets原理.md)
+    - [UIButton的imageEdgeInsets和titleEdgeInsets原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/UIButton的imageEdgeInsets和titleEdgeInsets原理.md)
 
-- 2、[]()
-- 3、[]()
+- 2、[UILabel绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UILabel/UILabel绘制以及性能优化.md)
+- 3、[UITextField绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UITextField/UITextField绘制以及性能优化.md)
+- 4、[UIImageView绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIImageView/UIImageView绘制以及性能优化.md)
 
 
 
