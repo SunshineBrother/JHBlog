@@ -59,106 +59,25 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - [10.8、dealloc原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/8、dealoc原理.md)
     - [10.9、引用计数的存储](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/内存管理/9、引用计数的存储.md)
   
+ 
+ 
   
-
-
-**********************************************************
-### 收集的一些面试题
-
-很多还没有给出答案，以后会慢慢总结的。
-
-#### 图片
-- 1、[3张图片下载完了之后合并一张图](https://www.yuque.com/docs/share/5011fd3e-51c5-4cb7-b12e-a1b9396cb6cf?# 《同时下载多张图片，下载完成后合成一张图片》)
-- 2、[讲如何将一张内存极大的图片可以像地图一样的加载出来](https://www.yuque.com/docs/share/3f75ca6f-9460-4693-ac41-20db784cb580?# 《讲如何将一张内存极大的图片可以像地图一样的加载出来》)
-- 3、[iOS 中图片的解压缩到渲染过程](https://www.jianshu.com/p/72dd074728d8)
-- 4、[iOS图像优化](https://juejin.im/post/5daaf8b3f265da5b6f074c98)
-
-
-
-**核心动画**
-
-- 1、[iOS核心动画高级技巧-1](http://www.cocoachina.com/articles/455500)
-- 2、[iOS核心动画高级技巧-2](http://www.cocoachina.com/articles/464391)
-- 3、[iOS核心动画高级技巧-3](http://www.cocoachina.com/articles/464421)
-- 4、[iOS核心动画高级技巧-4](http://www.cocoachina.com/articles/485309)
-- 5、[iOS核心动画高级技巧-5](http://www.cocoachina.com/articles/485757)
-- 6、[iOS核心动画高级技巧-6](http://www.cocoachina.com/articles/490705)
-- 7、[iOS核心动画高级技巧-7](http://www.cocoachina.com/articles/491987)
-- 8、[iOS核心动画高级技巧-8](https://www.cnblogs.com/Julday/p/12083669.html)
-- 9、[用UIKit和UIView在视图上执行iOS动画](https://www.cnblogs.com/Julday/p/12566829.html)
-
-
-
-
-
-*********************************************************
-
-### iOS开发课程笔记
-
-- [Auto Layout是怎么进行自动布局的](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS进阶/Auto%20Layout%20是怎么进行自动布局的/Auto%20Layout%20是怎么进行自动布局的.md)
-
-
-
-### 他人文章
-- [Swift5.0的Runtime机制浅析](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS进阶/Swift5.0的Runtime机制浅析/Swift5.0的Runtime机制浅析.md)
-
-
-#### 启动优化
-
-- [iOS启动时间优化](http://www.zoomfeng.com/blog/launch-time.html)
-
-- [抖音研发实践：基于二进制文件重排的解决方案 APP启动速度提升超15%](https://mp.weixin.qq.com/s/Drmmx5JtjG3UtTFksL6Q8Q)
-
-- [我是如何让微博绿洲的启动速度提升30%的](https://juejin.im/post/5ea79839f265da7bba509590)
-
-
-#### 关于Hook Method类的
-
-- [Mach-O文件结构](https://www.jianshu.com/p/1f22d1e667e3)
-- [探秘 Mach-O 文件](https://hawk0620.github.io/blog/2018/03/22/study-mach-o-file/)
-- [Apple 操作系统可执行文件 Mach-O](https://mp.weixin.qq.com/s/3YcoWwkKBs2YG-84MorpMQ)
-- [静态插桩的方式来实现Hook Method](https://mp.weixin.qq.com/s/wS_ex3P2m_Zeqb2ceAz6ZQ)
-- [fishhook 原理探究](https://mp.weixin.qq.com/s/tJr7cAOjj1rO-NenNJnDHA)
-- [开源 | Objective-C & Swift 最轻量级 Hook 方案](https://mp.weixin.qq.com/s/rYZijUlmLzyfbl-DPfYVIQ)
-- [静态拦截iOS对象方法调用的简易实现](https://mp.weixin.qq.com/s/ad66IGy1u7nCl1A6bQ7y1A)
-- [iOS逆向工程 - fishhook原理](https://www.jianshu.com/p/4d86de908721)
-
-
-#### WKWebView
-
-- [WKWebView默认缓存策略与HTTP缓存协议](https://juejin.im/post/5df75e3a6fb9a016266459da)
-
-#### 网络层设计
-
-- [谈谈 iOS 网络层设计](https://mp.weixin.qq.com/s/OE87Qvtjt5ADRJt785LUzg)
-
-#### 渲染原理
-
-- [iOS Rendering 渲染全解析（长文干货）](https://juejin.im/post/5ec35cc55188256d92438174)
-
-
-#### 通知
-
-- [一文全解iOS通知机制(经典收藏)](https://juejin.im/post/5e5fc16df265da575155723b)
-
-
-
+ 
 
 ***************************************************************************
 
 ### UI组件以及内部实现
 
-- 1、[UIButton](https://github.com/SunshineBrother/JHBlog/tree/master/iOS知识点/iOS大杂烩/UIButton)
-    - [UIButton继承树](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/UIButton继承树.md)
-    - [UIButton的绘制](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/UIButton的绘制.md)
-    - [UIButton的imageEdgeInsets和titleEdgeInsets原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIButton/UIButton的imageEdgeInsets和titleEdgeInsets原理.md)
-- 2、[UILabel绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UILabel/UILabel绘制以及性能优化.md)
-- 3、[UITextField绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UITextField/UITextField绘制以及性能优化.md)
-- 4、[UITextView绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UITextView/UITextView绘制以及性能优化.md)
-- 4、[UIImageView绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UIImageView/UIImageView绘制以及性能优化.md)
-- 5、[UISwitch绘制以及性能优化](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/UI组件/UISwitch/UISwitch绘制以及性能优化.md)
-- 6、[UI绘制的原理](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UI绘制的原理/UI绘制的原理.md)
-- 7、[UI卡顿、掉帧的原理是怎样的](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/UI卡顿、掉帧的原理是怎样的/UI卡顿、掉帧的原理是怎样的.md)
+- 1、[UIButton](https://www.yuque.com/docs/share/0dc26d95-a81e-45d1-8d03-7352705fa21e)
+ 
+- 2、[UILabel绘制以及性能优化](https://www.yuque.com/docs/share/a33d9b36-46c1-479a-9235-973c43cbcd4d)
+ 
+- 3、[UIImageView]()
+    - [iOS 中图片的解压缩到渲染过程](https://www.yuque.com/docs/share/2d1034dd-b3ff-47a6-8c6f-e17e18990e87)
+    - [iOS 图像优化](https://www.yuque.com/docs/share/f521b21d-6324-456e-acd8-5efb591fb7ec)
+    - [同时下载多张图片，下载完成后合成一张图片](https://www.yuque.com/docs/share/5011fd3e-51c5-4cb7-b12e-a1b9396cb6cf)
+    - [讲如何将一张内存极大的图片可以像地图一样的加载出来](https://www.yuque.com/docs/share/3f75ca6f-9460-4693-ac41-20db784cb580)
+ 
 
 
 ***************************************************************************
