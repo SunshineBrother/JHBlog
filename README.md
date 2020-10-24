@@ -119,7 +119,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 23、[事件响应机制](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/事件响应机制/事件响应机制.md)
 - 24、[iOS 单元测试和 UI 测试快速入门](https://github.com/xietao3/Study-Plan/blob/master/TestingTutorial/README.md)
 - 25、[配置.gitignore忽略文件](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/忽略文件/iOS%20配置.gitignore忽略文件.md)
-- 26、[git使用](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/git使用/git使用.md
+- 26、[git使用](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/git使用/git使用.md)
 - 27、[iOS内购](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/iOS内购.md)
 - 28、[NSArray原理及遍历方法探究](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/NSArray原理及遍历方法探究.md)
 - 30、[UIResponder](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS大杂烩/事件响应机制/事件响应机制.md)
@@ -245,7 +245,7 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 10、[免费API](https://www.apishop.net/#/)
     - 10.1、[免费API](https://github.com/SunshineBrother/JHBlog/blob/master/工具/免费API.md)
     - 10.2、[免费API-01](https://github.com/SunshineBrother/JHBlog/blob/master/工具/免费API-01.md)
-
+- 11、[Mock工具]()
 
 
 *********************************************************
