@@ -245,8 +245,8 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 - 10、[免费API](https://www.apishop.net/#/)
     - 10.1、[免费API](https://github.com/SunshineBrother/JHBlog/blob/master/工具/免费API.md)
     - 10.2、[免费API-01](https://github.com/SunshineBrother/JHBlog/blob/master/工具/免费API-01.md)
-- 11、[Mock工具]()
-
+- 11、[Mock工具](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mock.md)
+- 12、[App Store Connect 帮助 中文](https://help.apple.com/app-store-connect/?lang=zh-cn#/dev1b4647c5b)
 
 *********************************************************
 ## 网站
