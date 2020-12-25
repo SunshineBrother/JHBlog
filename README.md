@@ -247,7 +247,8 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
     - 10.2、[免费API-01](https://github.com/SunshineBrother/JHBlog/blob/master/工具/免费API-01.md)
 - 11、[Mock工具](https://github.com/SunshineBrother/JHBlog/blob/master/工具/Mock.md)
 - 12、[App Store Connect 帮助 中文](https://help.apple.com/app-store-connect/?lang=zh-cn#/dev1b4647c5b)
-
+- 13、[ Mac 终端如何科学上网](https://su.ybutech.com)
+- 14、[在线json转model，支持多种语言](https://app.quicktype.io)
 *********************************************************
 ## 网站
 - 1、[ 牛客网 — 面经和刷面试题](http://link.zhihu.com/?target=https%3A//www.nowcoder.com/)
