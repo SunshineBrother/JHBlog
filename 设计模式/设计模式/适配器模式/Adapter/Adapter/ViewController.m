@@ -26,7 +26,7 @@
     [card loadData:model];
     
     
-    //    OneAdapterModel *model = [[OneAdapterModel alloc]initWithData:@[@"辉哥",@"19999999999"]];
+//    OneAdapterModel *model = [[OneAdapterModel alloc]initWithData:@[@"辉哥",@"19999999999"]];
 //    [card loadData:model];
     
     
