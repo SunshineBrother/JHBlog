@@ -1,5 +1,7 @@
 ## RunLoop
 
+![RunLoop](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/RunLoop.png)
+
 RunLoop 运行循环，在程序运行过程中循环做一些事情
 **应用范畴**
 - 1、定时器（Timer）、PerformSelector

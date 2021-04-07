@@ -1,4 +1,8 @@
 ## Block底层解密 
+
+
+![Block1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/images/Block.png)
+
 block想必做过一段iOS开发的同学都用过吧，但是大部分人都是仅仅会用，不怎么理解他是怎么实现的，今天就让我们来一步一步的分析一下底层是怎么实现的吧。
 
 ### 查看源码

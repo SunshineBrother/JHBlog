@@ -305,10 +305,5 @@ GNUstep是GNU计划的项目之一，它将Cocoa的OC库重新开源实现了一
 
 - ![iOS技术栈](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS技术栈.png)
 
-- ![iOS知识体系](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/ios知识体系.png)
-
- 
-
-
 
 
