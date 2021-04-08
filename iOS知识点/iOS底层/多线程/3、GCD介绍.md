@@ -108,17 +108,17 @@ dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAU
 ```
 dispatch_queue_t queue = dispatch_queue_create("test", DISPATCH_QUEUE_SERIAL);
 dispatch_sync(queue, ^{
-// 追加任务1
-for (int i = 0; i < 2; ++i) {
-NSLog(@"1---%@",[NSThread currentThread]);
-}
+	// 追加任务1
+	for (int i = 0; i < 2; ++i) {
+		NSLog(@"1---%@",[NSThread currentThread]);
+	}
 });
 
 dispatch_sync(queue, ^{
-// 追加任务2
-for (int i = 0; i < 2; ++i) {
-NSLog(@"2---%@",[NSThread currentThread]);
-}
+	// 追加任务2
+	for (int i = 0; i < 2; ++i) {
+		NSLog(@"2---%@",[NSThread currentThread]);
+	}
 });
 ```
 
@@ -132,17 +132,17 @@ NSLog(@"2---%@",[NSThread currentThread]);
 ```
 dispatch_queue_t queue = dispatch_queue_create("test", DISPATCH_QUEUE_CONCURRENT);
 dispatch_sync(queue, ^{
-// 追加任务1
-for (int i = 0; i < 2; ++i) {
-NSLog(@"1---%@",[NSThread currentThread]);
-}
+	// 追加任务1
+	for (int i = 0; i < 2; ++i) {
+		NSLog(@"1---%@",[NSThread currentThread]);
+	}
 });
 
 dispatch_sync(queue, ^{
-// 追加任务2
-for (int i = 0; i < 2; ++i) {
-NSLog(@"2---%@",[NSThread currentThread]);
-}
+	// 追加任务2
+	for (int i = 0; i < 2; ++i) {
+		NSLog(@"2---%@",[NSThread currentThread]);
+	}
 });
 ```
 ![GCD1](https://github.com/SunshineBrother/JHBlog/blob/master/iOS知识点/iOS底层/多线程/GCD1.png)
@@ -157,15 +157,15 @@ NSLog(@"2---%@",[NSThread currentThread]);
 NSLog(@"主线程：%@",[NSThread currentThread]);
 dispatch_queue_t queue = dispatch_queue_create("test", DISPATCH_QUEUE_CONCURRENT);
 dispatch_async(queue, ^{
-for (int i = 0; i < 2; ++i) {
-NSLog(@"1====%@",[NSThread currentThread]);      // 打印当前线程
-}
-
+	for (int i = 0; i < 2; ++i) {
+		NSLog(@"1====%@",[NSThread currentThread]);      // 打印当前线程
+	}
 });
+
 dispatch_async(queue, ^{
-for (int i = 0; i < 2; ++i) {
-NSLog(@"2====%@",[NSThread currentThread]);      // 打印当前线程
-}
+	for (int i = 0; i < 2; ++i) {
+		NSLog(@"2====%@",[NSThread currentThread]);      // 打印当前线程
+	}
 
 });
 ```
@@ -179,17 +179,17 @@ NSLog(@"2====%@",[NSThread currentThread]);      // 打印当前线程
 NSLog(@"主线程：%@",[NSThread currentThread]);
 dispatch_queue_t queue = dispatch_queue_create("test", DISPATCH_QUEUE_CONCURRENT);
 dispatch_async(queue, ^{
-for (int i = 0; i < 2; ++i) {
-[NSThread sleepForTimeInterval:2];
-NSLog(@"1====%@",[NSThread currentThread]);      // 打印当前线程
-}
+	for (int i = 0; i < 2; ++i) {
+		[NSThread sleepForTimeInterval:2];
+		NSLog(@"1====%@",[NSThread currentThread]);      // 打印当前线程
+	}
 
 });
 dispatch_async(queue, ^{
-for (int i = 0; i < 2; ++i) {
-[NSThread sleepForTimeInterval:2];
-NSLog(@"2====%@",[NSThread currentThread]);      // 打印当前线程
-}
+	for (int i = 0; i < 2; ++i) {
+		[NSThread sleepForTimeInterval:2];
+		NSLog(@"2====%@",[NSThread currentThread]);      // 打印当前线程
+	}
 
 });
 ```
@@ -213,7 +213,7 @@ NSLog(@"2====%@",[NSThread currentThread]);      // 打印当前线程
 NSLog(@"执行任务1");
 dispatch_queue_t queue = dispatch_get_main_queue();
 dispatch_sync(queue, ^{
-NSLog(@"执行任务2");
+	NSLog(@"执行任务2");
 });
 
 NSLog(@"执行任务3");
@@ -238,16 +238,16 @@ NSLog(@"执行任务3");
 - (void)interview02
 {
  
-NSLog(@"执行任务1");
+	NSLog(@"执行任务1");
 
-dispatch_queue_t queue = dispatch_get_main_queue();
-dispatch_async(queue, ^{
-NSLog(@"执行任务2");
-});
+	dispatch_queue_t queue = dispatch_get_main_queue();
+	dispatch_async(queue, ^{
+		NSLog(@"执行任务2");
+	});
 
-NSLog(@"执行任务3");
+	NSLog(@"执行任务3");
 
-// dispatch_async不要求立马在当前线程同步执行任务
+	// dispatch_async不要求立马在当前线程同步执行任务
 }
 ```
 
@@ -262,13 +262,13 @@ NSLog(@"执行任务1");
 
 dispatch_queue_t queue = dispatch_queue_create("myqueu", DISPATCH_QUEUE_SERIAL);
 dispatch_async(queue, ^{ // 0
-NSLog(@"执行任务2");
+	NSLog(@"执行任务2");
 
-dispatch_sync(queue, ^{ // 1
-NSLog(@"执行任务3");
-});
+	dispatch_sync(queue, ^{ // 1
+		NSLog(@"执行任务3");
+	});
 
-NSLog(@"执行任务4");
+	NSLog(@"执行任务4");
 });
 
 NSLog(@"执行任务5");
@@ -282,21 +282,21 @@ NSLog(@"执行任务5");
 - (void)interview04
 {
  
-NSLog(@"执行任务1");
+	NSLog(@"执行任务1");
 
-dispatch_queue_t queue = dispatch_queue_create("myqueu", DISPATCH_QUEUE_CONCURRENT);
+	dispatch_queue_t queue = dispatch_queue_create("myqueu", DISPATCH_QUEUE_CONCURRENT);
 
-dispatch_async(queue, ^{ // 0
-NSLog(@"执行任务2");
+	dispatch_async(queue, ^{ // 0
+		NSLog(@"执行任务2");
 
-dispatch_sync(queue, ^{ // 1
-NSLog(@"执行任务3");
-});
+		dispatch_sync(queue, ^{ // 1
+			NSLog(@"执行任务3");
+		});
 
-NSLog(@"执行任务4");
-});
+		NSLog(@"执行任务4");
+	});
 
-NSLog(@"执行任务5");
+	NSLog(@"执行任务5");
 }
 ```
 
@@ -305,25 +305,25 @@ NSLog(@"执行任务5");
 在iOS开发过程中，我们一般在主线程里边进行UI刷新，例如：点击、滚动、拖拽等事件。我们通常把一些耗时的操作放在其他线程，比如说图片下载、文件上传等耗时操作。而当我们有时候在其他线程完成了耗时操作时，需要回到主线程，那么就用到了线程之间的通讯。
 ```
 - (void)communication {
-// 获取全局并发队列
-dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0); 
-// 获取主队列
-dispatch_queue_t mainQueue = dispatch_get_main_queue(); 
+	// 获取全局并发队列
+	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0); 
+	// 获取主队列
+	dispatch_queue_t mainQueue = dispatch_get_main_queue(); 
 
-dispatch_async(queue, ^{
-// 异步追加任务
-for (int i = 0; i < 2; ++i) {
-[NSThread sleepForTimeInterval:2];              // 模拟耗时操作
-NSLog(@"1---%@",[NSThread currentThread]);      // 打印当前线程
-}
+	dispatch_async(queue, ^{
+		// 异步追加任务
+		for (int i = 0; i < 2; ++i) {
+			[NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+			NSLog(@"1---%@",[NSThread currentThread]);      // 打印当前线程
+		}
 
-// 回到主线程
-dispatch_async(mainQueue, ^{
-// 追加在主线程中执行的任务
-[NSThread sleepForTimeInterval:2];              // 模拟耗时操作
-NSLog(@"2---%@",[NSThread currentThread]);      // 打印当前线程
-});
-});
+		// 回到主线程
+		dispatch_async(mainQueue, ^{
+			// 追加在主线程中执行的任务
+			[NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+			NSLog(@"2---%@",[NSThread currentThread]);      // 打印当前线程
+		});
+	});
 }
  
 ```
@@ -341,32 +341,32 @@ NSLog(@"2---%@",[NSThread currentThread]);      // 打印当前线程
 
 ```
 - (void)viewDidLoad {
-[super viewDidLoad];
+	[super viewDidLoad];
 
-self.queue = dispatch_queue_create("rw_queue", DISPATCH_QUEUE_CONCURRENT);
+	self.queue = dispatch_queue_create("rw_queue", DISPATCH_QUEUE_CONCURRENT);
 
-for (int i = 0; i < 10; i++) {
-[self read];
-[self read];
-[self read];
-[self write];
-}
+	for (int i = 0; i < 10; i++) {
+		[self read];
+		[self read];
+		[self read];
+		[self write];
+	}
 }
 
 
 - (void)read {
-dispatch_async(self.queue, ^{
-sleep(1);
-NSLog(@"read");
-});
+	dispatch_async(self.queue, ^{
+		sleep(1);
+		NSLog(@"read");
+	});
 }
 
 - (void)write
 {
-dispatch_barrier_async(self.queue, ^{
-sleep(1);
-NSLog(@"write");
-});
+	dispatch_barrier_async(self.queue, ^{
+		sleep(1);
+		NSLog(@"write");
+	});
 }
 
 ```
@@ -383,13 +383,13 @@ NSLog(@"write");
  * 延时执行方法 dispatch_after
  */
  - (void)after {
- NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
- NSLog(@"asyncMain---begin");
- 
- dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
- // 2.0秒后异步追加任务代码到主队列，并开始执行
- NSLog(@"after---%@",[NSThread currentThread]);  // 打印当前线程
- });
+	 NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
+	 NSLog(@"asyncMain---begin");
+	 
+	 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		 // 2.0秒后异步追加任务代码到主队列，并开始执行
+		 NSLog(@"after---%@",[NSThread currentThread]);  // 打印当前线程
+	 });
  }
  
  
@@ -420,35 +420,35 @@ dispatch_once(&onceToken, ^{
 * 队列组 dispatch_group_notify
 */
 - (void)groupNotify {
-NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
-NSLog(@"group---begin");
+	NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
+	NSLog(@"group---begin");
 
-dispatch_group_t group =  dispatch_group_create();
+	dispatch_group_t group =  dispatch_group_create();
 
-dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-// 追加任务1
-for (int i = 0; i < 2; ++i) {
-[NSThread sleepForTimeInterval:2];              // 模拟耗时操作
-NSLog(@"1---%@",[NSThread currentThread]);      // 打印当前线程
-}
-});
+	dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		// 追加任务1
+		for (int i = 0; i < 2; ++i) {
+			[NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+			NSLog(@"1---%@",[NSThread currentThread]);      // 打印当前线程
+		}
+	});
 
-dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-// 追加任务2
-for (int i = 0; i < 2; ++i) {
-[NSThread sleepForTimeInterval:2];              // 模拟耗时操作
-NSLog(@"2---%@",[NSThread currentThread]);      // 打印当前线程
-}
-});
+	dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		// 追加任务2
+		for (int i = 0; i < 2; ++i) {
+			[NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+			NSLog(@"2---%@",[NSThread currentThread]);      // 打印当前线程
+		}
+	});
 
-dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-// 等前面的异步任务1、任务2都执行完毕后，回到主线程执行下边任务
-for (int i = 0; i < 2; ++i) {
-[NSThread sleepForTimeInterval:2];              // 模拟耗时操作
-NSLog(@"3---%@",[NSThread currentThread]);      // 打印当前线程
-}
-NSLog(@"group---end");
-});
+	dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+		// 等前面的异步任务1、任务2都执行完毕后，回到主线程执行下边任务
+		for (int i = 0; i < 2; ++i) {
+			[NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+			NSLog(@"3---%@",[NSThread currentThread]);      // 打印当前线程
+		}
+		NSLog(@"group---end");
+	});
 }
 
 ```

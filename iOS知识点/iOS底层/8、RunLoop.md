@@ -15,7 +15,7 @@ RunLoop 运行循环，在程序运行过程中循环做一些事情
 ```
 int main(int argc, const char * argv[]) {
 @autoreleasepool {
-NSLog(@"Hello, World!");
+    NSLog(@"Hello, World!");
 }
 return 0;
 }
@@ -23,24 +23,24 @@ return 0;
 执行完`NSLog(@"Hello, World!");`这个代码以后，程序立即退出，但是在我们的正常项目`main`函数里面
 ```
 int main(int argc, char * argv[]) {
-@autoreleasepool {
-return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
-}
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    }
 }
 ```
  如果用一个伪代码来简单的解释一下上面代码的意思，就是
  ```
  int main(int argc, char * argv[]) {
- @autoreleasepool {
- 
- int retVal = 0;
- do {
- //休眠等待消息
- int message = sleep_and_wait();
- //处理消息
- retVal = process_message(message)
- } while (0 == retVal);
- }
+     @autoreleasepool {
+     
+     int retVal = 0;
+     do {
+         //休眠等待消息
+         int message = sleep_and_wait();
+         //处理消息
+         retVal = process_message(message)
+         } while (0 == retVal);
+     }
  }
  ```
  程序不会马上退出，而是保持运行状态，RunLoop的基本作用：
@@ -83,22 +83,22 @@ Core Foundation中关于RunLoop一共有5个类
 我们下载`RunLoop`，然后搜索`CFRunLoop`的组成
 ```
 struct __CFRunLoop {
-CFRuntimeBase _base;
-pthread_mutex_t _lock;            /* locked for accessing mode list */
-__CFPort _wakeUpPort;            // used for CFRunLoopWakeUp 
-Boolean _unused;
-volatile _per_run_data *_perRunData;              // reset for runs of the run loop
-pthread_t _pthread;
-uint32_t _winthread;
-CFMutableSetRef _commonModes;
-CFMutableSetRef _commonModeItems;
-CFRunLoopModeRef _currentMode;
-CFMutableSetRef _modes;
-struct _block_item *_blocks_head;
-struct _block_item *_blocks_tail;
-CFAbsoluteTime _runTime;
-CFAbsoluteTime _sleepTime;
-CFTypeRef _counterpart;
+    CFRuntimeBase _base;
+    pthread_mutex_t _lock;            /* locked for accessing mode list */
+    __CFPort _wakeUpPort;            // used for CFRunLoopWakeUp 
+    Boolean _unused;
+    volatile _per_run_data *_perRunData;              // reset for runs of the run loop
+    pthread_t _pthread;
+    uint32_t _winthread;
+    CFMutableSetRef _commonModes;
+    CFMutableSetRef _commonModeItems;
+    CFRunLoopModeRef _currentMode;
+    CFMutableSetRef _modes;
+    struct _block_item *_blocks_head;
+    struct _block_item *_blocks_tail;
+    CFAbsoluteTime _runTime;
+    CFAbsoluteTime _sleepTime;
+    CFTypeRef _counterpart;
 };
 ```
 
@@ -170,13 +170,13 @@ RunLoop的几种状态
 ```
 /* Run Loop Observer Activities */
 typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity) {
-kCFRunLoopEntry = (1UL << 0), //即将进入runloop
-kCFRunLoopBeforeTimers = (1UL << 1), //即将处理timer
-kCFRunLoopBeforeSources = (1UL << 2), //即将处理source
-kCFRunLoopBeforeWaiting = (1UL << 5), //即将进入休眠
-kCFRunLoopAfterWaiting = (1UL << 6),  //刚从休眠中唤醒
-kCFRunLoopExit = (1UL << 7),          //即将退出Loop
-kCFRunLoopAllActivities = 0x0FFFFFFFU
+    kCFRunLoopEntry = (1UL << 0), //即将进入runloop
+    kCFRunLoopBeforeTimers = (1UL << 1), //即将处理timer
+    kCFRunLoopBeforeSources = (1UL << 2), //即将处理source
+    kCFRunLoopBeforeWaiting = (1UL << 5), //即将进入休眠
+    kCFRunLoopAfterWaiting = (1UL << 6),  //刚从休眠中唤醒
+    kCFRunLoopExit = (1UL << 7),          //即将退出Loop
+    kCFRunLoopAllActivities = 0x0FFFFFFFU
 };
 
 ```
@@ -184,28 +184,28 @@ kCFRunLoopAllActivities = 0x0FFFFFFFU
 ```
 // 创建Observer
 CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
-switch (activity) {
-case kCFRunLoopEntry:
-NSLog(@"kCFRunLoopEntry");
-break;
-case kCFRunLoopBeforeTimers:
-NSLog(@"kCFRunLoopBeforeTimers");
-break;
-case kCFRunLoopBeforeSources:
-NSLog(@"kCFRunLoopBeforeSources");
-break;
-case kCFRunLoopBeforeWaiting:
-NSLog(@"kCFRunLoopBeforeWaiting");
-break;
-case kCFRunLoopAfterWaiting:
-NSLog(@"kCFRunLoopAfterWaiting");
-break;
-case kCFRunLoopExit:
-NSLog(@"kCFRunLoopExit");
-break;
-default:
-break;
-}
+    switch (activity) {
+        case kCFRunLoopEntry:
+            NSLog(@"kCFRunLoopEntry");
+            break;
+        case kCFRunLoopBeforeTimers:
+            NSLog(@"kCFRunLoopBeforeTimers");
+            break;
+        case kCFRunLoopBeforeSources:
+            NSLog(@"kCFRunLoopBeforeSources");
+            break;
+        case kCFRunLoopBeforeWaiting:
+            NSLog(@"kCFRunLoopBeforeWaiting");
+            break;
+        case kCFRunLoopAfterWaiting:
+            NSLog(@"kCFRunLoopAfterWaiting");
+            break;
+        case kCFRunLoopExit:
+            NSLog(@"kCFRunLoopExit");
+            break;
+        default:
+            break;
+    }
 });
 // 添加Observer到RunLoop中
 CFRunLoopAddObserver(CFRunLoopGetMain(), observer, kCFRunLoopCommonModes);
@@ -229,24 +229,24 @@ CFRelease(observer);
 ```
 //创建observer
 CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
-switch (activity) {
-case kCFRunLoopEntry: {
-CFRunLoopMode mode = CFRunLoopCopyCurrentMode(CFRunLoopGetCurrent());
-NSLog(@"kCFRunLoopEntry - %@", mode);
-CFRelease(mode);
-break;
-}
+    switch (activity) {
+        case kCFRunLoopEntry: {
+            CFRunLoopMode mode = CFRunLoopCopyCurrentMode(CFRunLoopGetCurrent());
+            NSLog(@"kCFRunLoopEntry - %@", mode);
+            CFRelease(mode);
+            break;
+        }
 
-case kCFRunLoopExit: {
-CFRunLoopMode mode = CFRunLoopCopyCurrentMode(CFRunLoopGetCurrent());
-NSLog(@"kCFRunLoopExit - %@", mode);
-CFRelease(mode);
-break;
-}
+        case kCFRunLoopExit: {
+            CFRunLoopMode mode = CFRunLoopCopyCurrentMode(CFRunLoopGetCurrent());
+            NSLog(@"kCFRunLoopExit - %@", mode);
+            CFRelease(mode);
+            break;
+        }
 
-default:
-break;
-}
+        default:
+        break;
+    }
 });
 
 //添加observer到runloop中
@@ -308,7 +308,7 @@ CFRelease(observer);
 ```
 static int count = 0;
 [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
-NSLog(@"%d",count++);
+    NSLog(@"%d",count++);
 }];
 ```
 
@@ -364,8 +364,8 @@ while (isLoopRunning && [myLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate 
 //关闭runloop的地方
 - (void)quitLoop
 {
-isLoopRunning = NO;
-CFRunLoopStop(CFRunLoopGetCurrent());
+    isLoopRunning = NO;
+    CFRunLoopStop(CFRunLoopGetCurrent());
 }
 ```
 

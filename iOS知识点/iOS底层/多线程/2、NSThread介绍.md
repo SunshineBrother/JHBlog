@@ -31,14 +31,14 @@ NSThread 是苹果官方提供的，使用起来比 pthread 更加面向对象�
 
 ```
 - (void)viewDidLoad {
-[super viewDidLoad];
+	[super viewDidLoad];
 
 
-NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(firstThread:) object:@"Hello, World"];
-//设置线程的名字，方便查看
-[thread setName:@"firstThread"];
-//启动线程
-[thread start];
+	NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(firstThread:) object:@"Hello, World"];
+	//设置线程的名字，方便查看
+	[thread setName:@"firstThread"];
+	//启动线程
+	[thread start];
 
 }
 
@@ -46,8 +46,8 @@ NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(firs
 //线程的任务执行体并接收一个参数arg
 - (void)firstThread:(id)arg
 {
-NSLog(@"Task %@ %@", [NSThread currentThread], arg);
-NSLog(@"Thread Task Complete");
+	NSLog(@"Task %@ %@", [NSThread currentThread], arg);
+	NSLog(@"Thread Task Complete");
 }
 ```
 

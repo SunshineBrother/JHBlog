@@ -83,17 +83,17 @@ NSOperation 是个抽象类，不能用来封装操作。我们只有使用它�
 在主线程中操作
 ```
 - (void)Operation1{
-//1、创建NSInvocationOperation对象
-NSInvocationOperation *op = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(test) object:nil];
-//2、开始调用
-[op start];
+    //1、创建NSInvocationOperation对象
+    NSInvocationOperation *op = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(test) object:nil];
+    //2、开始调用
+    [op start];
 }
 
 
 - (void)test{
-for (NSInteger i = 0; i < 2; i++) {
-NSLog(@"当前线程:%@",[NSThread currentThread]);
-}
+    for (NSInteger i = 0; i < 2; i++) {
+        NSLog(@"当前线程:%@",[NSThread currentThread]);
+    }
 }
 ```
 
@@ -121,12 +121,12 @@ NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(Oper
 在主线程中
 ```
 - (void)Operation2{
-//1、使用NSBlockOperation
-NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
-NSLog(@"当前线程:%@",[NSThread currentThread]);
-}];
-//2、开始调用
-[op start];
+    //1、使用NSBlockOperation
+    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"当前线程:%@",[NSThread currentThread]);
+    }];
+    //2、开始调用
+    [op start];
 }
 ```
 
@@ -152,22 +152,22 @@ NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(Oper
 ```
 //1、使用NSBlockOperation
 NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
-NSLog(@"当前线程:%@",[NSThread currentThread]);
+    NSLog(@"当前线程:%@",[NSThread currentThread]);
 }];
 [op addExecutionBlock:^{
-for (int i = 0; i < 2; i++) {
-NSLog(@"当前线程2：%@", [NSThread currentThread]); // 打印当前线程
-}
+    for (int i = 0; i < 2; i++) {
+        NSLog(@"当前线程2：%@", [NSThread currentThread]); // 打印当前线程
+    }
 }];
 [op addExecutionBlock:^{
-for (int i = 0; i < 2; i++) {
-NSLog(@"当前线程3：%@", [NSThread currentThread]); // 打印当前线程
-}
+    for (int i = 0; i < 2; i++) {
+        NSLog(@"当前线程3：%@", [NSThread currentThread]); // 打印当前线程
+    }
 }];
 [op addExecutionBlock:^{
-for (int i = 0; i < 2; i++) {
-NSLog(@"当前线程4：%@", [NSThread currentThread]); // 打印当前线程
-}
+    for (int i = 0; i < 2; i++) {
+        NSLog(@"当前线程4：%@", [NSThread currentThread]); // 打印当前线程
+    }
 }];
 
 
@@ -190,12 +190,12 @@ NSLog(@"当前线程4：%@", [NSThread currentThread]); // 打印当前线程
 
 @implementation JHOperation
 - (void)main {
-if (!self.isCancelled) {
-for (int i = 0; i < 2; i++) {
+    if (!self.isCancelled) {
+        for (int i = 0; i < 2; i++) {
 
-NSLog(@"当前线程：%@", [NSThread currentThread]);
-}
-}
+             NSLog(@"当前线程：%@", [NSThread currentThread]);
+        }
+    }
 }
 
 @end
@@ -203,10 +203,10 @@ NSLog(@"当前线程：%@", [NSThread currentThread]);
 调用
 ```
 - (void)Operation3{
-// 1.创建 JHOperation 对象
-JHOperation *op = [[JHOperation alloc] init];
-// 2.调用 start 方法开始执行操作
-[op start];
+    // 1.创建 JHOperation 对象
+    JHOperation *op = [[JHOperation alloc] init];
+    // 2.调用 start 方法开始执行操作
+    [op start];
 }
 ```
 
@@ -239,24 +239,24 @@ NSOperation 需要配合 NSOperationQueue 来实现多线程，总共有两种�
 
 ```
 - (void)Operation4{
-//1、创建队列
-NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+    //1、创建队列
+    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
 
-//2、创建操作
-NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
-NSLog(@"当前线程1:%@",[NSThread currentThread]);
-}];
-NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
-NSLog(@"当前线程2:%@",[NSThread currentThread]);
-}];
-NSBlockOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
-NSLog(@"当前线程3:%@",[NSThread currentThread]);
-}];
+    //2、创建操作
+    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"当前线程1:%@",[NSThread currentThread]);
+    }];
+    NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"当前线程2:%@",[NSThread currentThread]);
+    }];
+    NSBlockOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"当前线程3:%@",[NSThread currentThread]);
+    }];
 
-//3、添加操作
-[queue addOperation:op1];
-[queue addOperation:op2];
-[queue addOperation:op3];
+    //3、添加操作
+    [queue addOperation:op1];
+    [queue addOperation:op2];
+    [queue addOperation:op3];
 }
 ```
 
@@ -269,16 +269,16 @@ NSLog(@"当前线程3:%@",[NSThread currentThread]);
 
 ```
 - (void)Operation5{
-NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-[queue addOperationWithBlock:^{
-NSLog(@"当前线程1:%@",[NSThread currentThread]);
-}];
-[queue addOperationWithBlock:^{
-NSLog(@"当前线程2:%@",[NSThread currentThread]);
-}];
-[queue addOperationWithBlock:^{
-NSLog(@"当前线程3:%@",[NSThread currentThread]);
-}];
+    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+    [queue addOperationWithBlock:^{
+        NSLog(@"当前线程1:%@",[NSThread currentThread]);
+    }];
+    [queue addOperationWithBlock:^{
+        NSLog(@"当前线程2:%@",[NSThread currentThread]);
+    }];
+    [queue addOperationWithBlock:^{
+        NSLog(@"当前线程3:%@",[NSThread currentThread]);
+    }];
 }
 
 ```
@@ -294,13 +294,13 @@ NSLog(@"当前线程3:%@",[NSThread currentThread]);
  queue.maxConcurrentOperationCount = 1; // 串行队列
  queue.maxConcurrentOperationCount = 2; // 并发队列，一次只能执行两个并发队列
  [queue addOperationWithBlock:^{
- NSLog(@"当前线程1:%@",[NSThread currentThread]);
+    NSLog(@"当前线程1:%@",[NSThread currentThread]);
  }];
  [queue addOperationWithBlock:^{
- NSLog(@"当前线程2:%@",[NSThread currentThread]);
+    NSLog(@"当前线程2:%@",[NSThread currentThread]);
  }];
  [queue addOperationWithBlock:^{
- NSLog(@"当前线程3:%@",[NSThread currentThread]);
+    NSLog(@"当前线程3:%@",[NSThread currentThread]);
  }];
  ```
  
@@ -315,28 +315,28 @@ NSOperation、NSOperationQueue 最吸引人的地方是它能添加操作之间�
  
 ```
 - (void)Operation6{
-NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-//2、创建操作
-NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
-[NSThread sleepForTimeInterval:1];
-NSLog(@"当前线程1:%@",[NSThread currentThread]);
-}];
-NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
-[NSThread sleepForTimeInterval:2];
-NSLog(@"当前线程2:%@",[NSThread currentThread]);
-}];
-NSBlockOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
-NSLog(@"当前线程3:%@",[NSThread currentThread]);
-}];
+    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+    //2、创建操作
+    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+    [NSThread sleepForTimeInterval:1];
+        NSLog(@"当前线程1:%@",[NSThread currentThread]);
+    }];
+    NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+        [NSThread sleepForTimeInterval:2];
+        NSLog(@"当前线程2:%@",[NSThread currentThread]);
+    }];
+    NSBlockOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"当前线程3:%@",[NSThread currentThread]);
+    }];
 
 
-//3、添加依赖
-[op3 addDependency:op1];
-[op3 addDependency:op2];
-//4、添加操作
-[queue addOperation:op1];
-[queue addOperation:op2];
-[queue addOperation:op3];
+    //3、添加依赖
+    [op3 addDependency:op1];
+    [op3 addDependency:op2];
+    //4、添加操作
+    [queue addOperation:op1];
+    [queue addOperation:op2];
+    [queue addOperation:op3];
 
 }
 ```

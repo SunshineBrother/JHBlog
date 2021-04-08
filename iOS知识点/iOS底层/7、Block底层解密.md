@@ -178,16 +178,16 @@ block有3种类型，可以通过调用class方法或者isa指针查看具体的
 我们来写一小段代码证明一下
 ```
 void (^block1)(void) =  ^(){
-NSLog(@"block1");
+	NSLog(@"block1");
 };
 int age = 10;
 void (^block2)(void) =  ^(){
-NSLog(@"block2");
-NSLog(@"age---------%d",age);
+	NSLog(@"block2");
+	NSLog(@"age---------%d",age);
 };
 void (^block3)(void) = [ ^(){
-NSLog(@"block3");
-NSLog(@"age---------%d",age);
+	NSLog(@"block3");
+	NSLog(@"age---------%d",age);
 } copy];
 
 NSLog(@"block1:%@---->block2:%@----->block3:%@",[block1 class],[block2 class],[block3 class]);
@@ -219,15 +219,15 @@ NSLog(@"block1:%@---->block2:%@----->block3:%@",[block1 class],[block2 class],[b
 我们写一个`Person`类，在MRC环境，重写`dealloc`方法
 ```
 - (void)dealloc{
-[super dealloc];
-NSLog(@"person--->dealloc");
+	[super dealloc];
+	NSLog(@"person--->dealloc");
 }
 ```
 我们在`main`函数里面写下这个方法
 ```
 {
-Person *p = [[Person alloc] init];
-[p release];
+	Person *p = [[Person alloc] init];
+	[p release];
 }
 NSLog(@"--------");
 ```
@@ -239,11 +239,11 @@ typedef void (^Block)(void);
 
 Block block;
 {
-Person *p = [[Person alloc] init];
-block = ^{
-NSLog(@"%@",p);
-};
-[p release];
+	Person *p = [[Person alloc] init];
+	block = ^{
+		NSLog(@"%@",p);
+	};
+	[p release];
 }
 block();
 NSLog(@"--------");
@@ -257,10 +257,10 @@ NSLog(@"--------");
 ```
 Block block;
 {
-Person *p = [[Person alloc] init];
-block = ^{
-NSLog(@"%@",p);
-};
+	Person *p = [[Person alloc] init];
+	block = ^{
+		NSLog(@"%@",p);
+	};
 
 }
 block();
@@ -302,8 +302,8 @@ NSLog(@"--------");
 __block int age = 10;
 NSLog(@"block前age地址1：%p",&age);
 Block block = ^{
-age = 20;
-NSLog(@"block内%d-->age地址2：%p",age,&age);
+	age = 20;
+	NSLog(@"block内%d-->age地址2：%p",age,&age);
 };
 block();
 NSLog(@"block后%d-->age地址3：%p",age,&age);
@@ -344,22 +344,22 @@ NSLog(@"block后%d-->age地址3：%p",age,&age);
  
  //为了便于观察，我们可以将强制转化去掉
  __Block_byref_age_0 age = {
- 0,
- &age,
- 0,
- sizeof(__Block_byref_age_0),
- 10};
+							 0,
+							 &age,
+							 0,
+							 sizeof(__Block_byref_age_0),
+							 10};
  
 ```
 唯一我们不太清除的就是`__Block_byref_age_0`了，我们查找一下发现
 ```
 typedef void (*Block)(void);
 struct __Block_byref_age_0 {
-void *__isa;
-__Block_byref_age_0 *__forwarding;
-int __flags;
-int __size;
-int age;
+	void *__isa;
+	__Block_byref_age_0 *__forwarding;
+	int __flags;
+	int __size;
+	int age;
 };
 ```
 
@@ -400,7 +400,7 @@ NSLog((NSString *)&__NSConstantStringImpl__var_folders_nb_9qtf99yd2qlbx2m97hdjf2
 ```
 __block id weakSelf = self;
 self.block = ^{
-weakSelf = nil;
+	weakSelf = nil;
 }
 self.block();
 ```

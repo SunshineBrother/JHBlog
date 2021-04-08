@@ -166,10 +166,10 @@
  */
  __block NSUInteger totalComplete = 0;
  dispatch_source_set_event_handler(_processingQueueSource, ^{
- //当处理事件被最终执行时，计算后的数据可以通过dispatch_source_get_data来获取。这个数据的值在每次响应事件执行后会被重置，所以totalComplete的值是最终累积的值。
- NSUInteger value = dispatch_source_get_data(_processingQueueSource);
- totalComplete += value;
- NSLog(@"进度：%@", @((CGFloat)totalComplete/100));
+	 //当处理事件被最终执行时，计算后的数据可以通过dispatch_source_get_data来获取。这个数据的值在每次响应事件执行后会被重置，所以totalComplete的值是最终累积的值。
+	 NSUInteger value = dispatch_source_get_data(_processingQueueSource);
+	 totalComplete += value;
+	 NSLog(@"进度：%@", @((CGFloat)totalComplete/100));
  });
  ```
  
@@ -208,45 +208,45 @@
  
  ```Objective-C
  - (void)viewDidLoad {
- [super viewDidLoad];
- 
- dispatch_queue_t queue1 = dispatch_queue_create("com.iOSChengXuYuan.queue1", 0);
- dispatch_queue_t queue2 = dispatch_queue_create("com.iOSChengXuYuan.queue2", 0);
- dispatch_group_t group = dispatch_group_create();
- 
- dispatch_async(queue1, ^{
- NSLog(@"任务 1 ： queue 1...");
- sleep(1);
- NSLog(@"✅完成任务 1");
- });
- 
- dispatch_async(queue2, ^{
- NSLog(@"任务 1 ： queue 2...");
- sleep(1);
- NSLog(@"✅完成任务 2");
- });
- 
- dispatch_group_async(group, queue1, ^{
- NSLog(@"🚫正在暂停 1");
- dispatch_suspend(queue1);
- });
- dispatch_group_async(group, queue2, ^{
- NSLog(@"🚫正在暂停 2");
- dispatch_suspend(queue2);
- });
- 
- dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
- NSLog(@"＝＝＝＝＝＝＝等待两个queue完成, 再往下进行...");
- dispatch_async(queue1, ^{
- NSLog(@"任务 2 ： queue 1");
- });
- dispatch_async(queue2, ^{
- NSLog(@"任务 2 ： queue 2");
- });
- NSLog(@"🔴为什么这个NSLog会在上面两个NSLog之前打印❓❓答：dispatch_suspend的作用‼️");
- 
- dispatch_resume(queue1);
- dispatch_resume(queue2);
+	 [super viewDidLoad];
+	 
+	 dispatch_queue_t queue1 = dispatch_queue_create("com.iOSChengXuYuan.queue1", 0);
+	 dispatch_queue_t queue2 = dispatch_queue_create("com.iOSChengXuYuan.queue2", 0);
+	 dispatch_group_t group = dispatch_group_create();
+	 
+	 dispatch_async(queue1, ^{
+		 NSLog(@"任务 1 ： queue 1...");
+		 sleep(1);
+		 NSLog(@"✅完成任务 1");
+	 });
+	 
+	 dispatch_async(queue2, ^{
+		 NSLog(@"任务 1 ： queue 2...");
+		 sleep(1);
+		 NSLog(@"✅完成任务 2");
+	 });
+	 
+	 dispatch_group_async(group, queue1, ^{
+		 NSLog(@"🚫正在暂停 1");
+		 dispatch_suspend(queue1);
+	 });
+	 dispatch_group_async(group, queue2, ^{
+		 NSLog(@"🚫正在暂停 2");
+		 dispatch_suspend(queue2);
+	 });
+	 
+	 dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+	 NSLog(@"＝＝＝＝＝＝＝等待两个queue完成, 再往下进行...");
+	 dispatch_async(queue1, ^{
+		 NSLog(@"任务 2 ： queue 1");
+	 });
+	 dispatch_async(queue2, ^{
+	 	NSLog(@"任务 2 ： queue 2");
+	 });
+	 NSLog(@"🔴为什么这个NSLog会在上面两个NSLog之前打印❓❓答：dispatch_suspend的作用‼️");
+	 
+	 dispatch_resume(queue1);
+	 dispatch_resume(queue2);
  }
  ```
  
@@ -280,10 +280,10 @@
  //详见Demo1、Demo2
  dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
  for (NSUInteger index = 0; index < 100; index++) {
- dispatch_async(queue, ^{
- dispatch_source_merge_data(_processingQueueSource, 1);
- usleep(20000);//0.02秒
- });
+	 dispatch_async(queue, ^{
+		 dispatch_source_merge_data(_processingQueueSource, 1);
+		 usleep(20000);//0.02秒
+	 });
  }
  ```
  
@@ -308,32 +308,32 @@
  //
  
  - (void)viewDidLoad {
- [super viewDidLoad];
- //1.
- // 指定DISPATCH_SOURCE_TYPE_DATA_ADD，做成Dispatch Source(分派源)。设定Main Dispatch Queue 为追加处理的Dispatch Queue
- _processingQueueSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_ADD, 0, 0,
- dispatch_get_main_queue());
- __block NSUInteger totalComplete = 0;
- dispatch_source_set_event_handler(_processingQueueSource, ^{
- //当处理事件被最终执行时，计算后的数据可以通过dispatch_source_get_data来获取。这个数据的值在每次响应事件执行后会被重置，所以totalComplete的值是最终累积的值。
- NSUInteger value = dispatch_source_get_data(_processingQueueSource);
- totalComplete += value;
- NSLog(@"进度：%@", @((CGFloat)totalComplete/100));
- NSLog(@"🔵线程号：%@", [NSThread currentThread]);
- });
- //分派源创建时默认处于暂停状态，在分派源分派处理程序之前必须先恢复。
- [self resume];
- 
- //2.
- //恢复源后，就可以通过dispatch_source_merge_data向Dispatch Source(分派源)发送事件:
- dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
- dispatch_async(queue, ^{
- for (NSUInteger index = 0; index < 100; index++) {
- dispatch_source_merge_data(_processingQueueSource, 1);
- NSLog(@"♻️线程号：%@", [NSThread currentThread]);
- usleep(20000);//0.02秒
- }
- });
+	 [super viewDidLoad];
+	 //1.
+	 // 指定DISPATCH_SOURCE_TYPE_DATA_ADD，做成Dispatch Source(分派源)。设定Main Dispatch Queue 为追加处理的Dispatch Queue
+	 _processingQueueSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_ADD, 0, 0,
+	 dispatch_get_main_queue());
+	 __block NSUInteger totalComplete = 0;
+	 dispatch_source_set_event_handler(_processingQueueSource, ^{
+		 //当处理事件被最终执行时，计算后的数据可以通过dispatch_source_get_data来获取。这个数据的值在每次响应事件执行后会被重置，所以totalComplete的值是最终累积的值。
+		 NSUInteger value = dispatch_source_get_data(_processingQueueSource);
+		 totalComplete += value;
+		 NSLog(@"进度：%@", @((CGFloat)totalComplete/100));
+		 NSLog(@"🔵线程号：%@", [NSThread currentThread]);
+	 });
+	 //分派源创建时默认处于暂停状态，在分派源分派处理程序之前必须先恢复。
+	 [self resume];
+	 
+	 //2.
+	 //恢复源后，就可以通过dispatch_source_merge_data向Dispatch Source(分派源)发送事件:
+	 dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+	 dispatch_async(queue, ^{
+		 for (NSUInteger index = 0; index < 100; index++) {
+			 dispatch_source_merge_data(_processingQueueSource, 1);
+			 NSLog(@"♻️线程号：%@", [NSThread currentThread]);
+			 usleep(20000);//0.02秒
+		 }
+	 });
  }
  
  ```
@@ -382,33 +382,33 @@
  
  ```Objective-C
  - (void)viewDidLoad {
- [super viewDidLoad];
- //1.
- // 指定DISPATCH_SOURCE_TYPE_DATA_ADD，做成Dispatch Source(分派源)。设定Main Dispatch Queue 为追加处理的Dispatch Queue
- _processingQueueSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_ADD, 0, 0,
- dispatch_get_main_queue());
- __block NSUInteger totalComplete = 0;
- dispatch_source_set_event_handler(_processingQueueSource, ^{
- //当处理事件被最终执行时，计算后的数据可以通过dispatch_source_get_data来获取。这个数据的值在每次响应事件执行后会被重置，所以totalComplete的值是最终累积的值。
- NSUInteger value = dispatch_source_get_data(_processingQueueSource);
- totalComplete += value;
- NSLog(@"进度：%@", @((CGFloat)totalComplete/100));
- NSLog(@"🔵线程号：%@", [NSThread currentThread]);
- 
- });
- //分派源创建时默认处于暂停状态，在分派源分派处理程序之前必须先恢复。
- [self resume];
- 
- //2.
- //恢复源后，就可以通过dispatch_source_merge_data向Dispatch Source(分派源)发送事件:
- dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
- for (NSUInteger index = 0; index < 100; index++) {
- dispatch_async(queue, ^{
- dispatch_source_merge_data(_processingQueueSource, 1);
- NSLog(@"♻️线程号：%@", [NSThread currentThread]);
- usleep(20000);//0.02秒
- });
- }
+	 [super viewDidLoad];
+	 //1.
+	 // 指定DISPATCH_SOURCE_TYPE_DATA_ADD，做成Dispatch Source(分派源)。设定Main Dispatch Queue 为追加处理的Dispatch Queue
+	 _processingQueueSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_ADD, 0, 0,
+	 dispatch_get_main_queue());
+	 __block NSUInteger totalComplete = 0;
+	 dispatch_source_set_event_handler(_processingQueueSource, ^{
+		 //当处理事件被最终执行时，计算后的数据可以通过dispatch_source_get_data来获取。这个数据的值在每次响应事件执行后会被重置，所以totalComplete的值是最终累积的值。
+		 NSUInteger value = dispatch_source_get_data(_processingQueueSource);
+		 totalComplete += value;
+		 NSLog(@"进度：%@", @((CGFloat)totalComplete/100));
+		 NSLog(@"🔵线程号：%@", [NSThread currentThread]);
+		 
+	 });
+	 //分派源创建时默认处于暂停状态，在分派源分派处理程序之前必须先恢复。
+	 [self resume];
+	 
+	 //2.
+	 //恢复源后，就可以通过dispatch_source_merge_data向Dispatch Source(分派源)发送事件:
+	 dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+		 for (NSUInteger index = 0; index < 100; index++) {
+			 dispatch_async(queue, ^{
+			 dispatch_source_merge_data(_processingQueueSource, 1);
+			 NSLog(@"♻️线程号：%@", [NSThread currentThread]);
+			 usleep(20000);//0.02秒
+		 });
+	 }
  }
  ```
  
@@ -527,34 +527,34 @@
  
  ```Objective-C
  - (void)didReceiveMemoryWarning {
- [super didReceiveMemoryWarning];
- [self changeStatus:self.running];
+	 [super didReceiveMemoryWarning];
+	 [self changeStatus:self.running];
  }
  
  - (void)changeStatus:(BOOL)shouldPause {
- if (shouldPause) {
- [self pause];
- } else {
- [self resume];
- }
+	 if (shouldPause) {
+	 	[self pause];
+	 } else {
+	 	[self resume];
+	 }
  }
  
  - (void)resume {
- if (self.running) {
- return;
- }
- NSLog(@"✅恢复Dispatch Source(分派源)");
- self.running = YES;
- dispatch_resume(_processingQueueSource);
+	 if (self.running) {
+	 	return;
+	 }
+	 NSLog(@"✅恢复Dispatch Source(分派源)");
+	 self.running = YES;
+	 dispatch_resume(_processingQueueSource);
  }
  
  - (void)pause {
- if (!self.running) {
- return;
- }
- NSLog(@"🚫暂停Dispatch Source(分派源)");
- self.running = NO;
- dispatch_suspend(_processingQueueSource);
+	 if (!self.running) {
+	 	return;
+	 }
+	 NSLog(@"🚫暂停Dispatch Source(分派源)");
+	 self.running = NO;
+	 dispatch_suspend(_processingQueueSource);
  }
  ```
  
@@ -617,11 +617,11 @@
  __block BOOL isCanceled = NO;
  dispatch_async(queue, ^{
  
- if (isCanceled) {
- return;
- }
- 
- NSData *thumbnailData = [NSURLConnection sendSynchronousRequest:request];
+	 if (isCanceled) {
+	 	return;
+	 }
+	 
+	 NSData *thumbnailData = [NSURLConnection sendSynchronousRequest:request];
  ...
  });
  ```
@@ -630,71 +630,71 @@
  
  ```Objective-C
  - (void)viewDidLoad {
- [super viewDidLoad];
- //1.
- // 指定DISPATCH_SOURCE_TYPE_DATA_ADD，做成Dispatch Source(分派源)。设定Main Dispatch Queue 为追加处理的Dispatch Queue
- _processingQueueSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_ADD, 0, 0,
- dispatch_get_main_queue());
- __block NSUInteger totalComplete = 0;
- dispatch_source_set_event_handler(_processingQueueSource, ^{
- //当处理事件被最终执行时，计算后的数据可以通过dispatch_source_get_data来获取。这个数据的值在每次响应事件执行后会被重置，所以totalComplete的值是最终累积的值。
- NSUInteger value = dispatch_source_get_data(_processingQueueSource);
- totalComplete += value;
- NSLog(@"进度：%@", @((CGFloat)totalComplete/CYLTotalNumber));
- });
- //分派源创建时默认处于暂停状态，在分派源分派处理程序之前必须先恢复。
- [self resume];
- 
- 
- //2.
- //恢复源后，就可以通过dispatch_source_merge_data向Dispatch Source(分派源)发送事件:
- //为了便于观察，将_queue做成“串行队列”
- _queue = dispatch_queue_create("com.ioschengxuyuan.queue1", 0);
- NSLog(@"🔴类名与方法名：%s（在第%d行），描述：%@", __PRETTY_FUNCTION__, __LINE__, @"启动队列");
- for (NSUInteger index = 0; index < CYLTotalNumber; index++) {
- dispatch_async(_queue, ^{
- if (!self.running) {
- return;
- }
- dispatch_source_merge_data(_processingQueueSource, 1);
- usleep(200000);//0.2秒
- });
- }
+	 [super viewDidLoad];
+	 //1.
+	 // 指定DISPATCH_SOURCE_TYPE_DATA_ADD，做成Dispatch Source(分派源)。设定Main Dispatch Queue 为追加处理的Dispatch Queue
+	 _processingQueueSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_ADD, 0, 0,
+	 dispatch_get_main_queue());
+	 __block NSUInteger totalComplete = 0;
+	 dispatch_source_set_event_handler(_processingQueueSource, ^{
+		 //当处理事件被最终执行时，计算后的数据可以通过dispatch_source_get_data来获取。这个数据的值在每次响应事件执行后会被重置，所以totalComplete的值是最终累积的值。
+		 NSUInteger value = dispatch_source_get_data(_processingQueueSource);
+		 totalComplete += value;
+		 NSLog(@"进度：%@", @((CGFloat)totalComplete/CYLTotalNumber));
+	 });
+	 //分派源创建时默认处于暂停状态，在分派源分派处理程序之前必须先恢复。
+	 [self resume];
+	 
+	 
+	 //2.
+	 //恢复源后，就可以通过dispatch_source_merge_data向Dispatch Source(分派源)发送事件:
+	 //为了便于观察，将_queue做成“串行队列”
+	 _queue = dispatch_queue_create("com.ioschengxuyuan.queue1", 0);
+	 NSLog(@"🔴类名与方法名：%s（在第%d行），描述：%@", __PRETTY_FUNCTION__, __LINE__, @"启动队列");
+	 for (NSUInteger index = 0; index < CYLTotalNumber; index++) {
+		 dispatch_async(_queue, ^{
+		 if (!self.running) {
+		 	return;
+		 }
+		 dispatch_source_merge_data(_processingQueueSource, 1);
+		 	usleep(200000);//0.2秒
+		 });
+	 }
  }
  
  - (void)didReceiveMemoryWarning {
- [super didReceiveMemoryWarning];
- [self changeStatus:self.running];
+	 [super didReceiveMemoryWarning];
+	 [self changeStatus:self.running];
  }
  
  - (void)changeStatus:(BOOL)shouldPause {
- if (shouldPause) {
- [self pause];
- } else {
- [self resume];
- }
+	 if (shouldPause) {
+	 	[self pause];
+	 } else {
+	 	[self resume];
+	 }
  }
  
  - (void)resume {
- if (self.running) {
- return;
- }
- NSLog(@"✅恢复Dispatch Source(分派源)以及_queue");
- self.running = YES;
- dispatch_resume(_processingQueueSource);
- if (_queue) {
- dispatch_resume(_queue);
- }
+	 if (self.running) {
+	 	return;
+	 }
+	 NSLog(@"✅恢复Dispatch Source(分派源)以及_queue");
+	 self.running = YES;
+	 dispatch_resume(_processingQueueSource);
+	 if (_queue) {
+	 	dispatch_resume(_queue);
+	 }
  }
  
  - (void)pause {
- if (!self.running) {
- return;
- }
- NSLog(@"🚫暂停Dispatch Source(分派源)以及_queue");
- self.running = NO;
- dispatch_suspend(_processingQueueSource);
- dispatch_suspend(_queue);
+	 if (!self.running) {
+	 	return;
+	 }
+	 NSLog(@"🚫暂停Dispatch Source(分派源)以及_queue");
+	 self.running = NO;
+	 dispatch_suspend(_processingQueueSource);
+	 dispatch_suspend(_queue);
  }
  ```
  
@@ -710,7 +710,7 @@
  
  ```Objective-C
  dispatch_source_set_event_handler(_processingQueueSource, ^{
- [self _runCommands];
+ 	[self _runCommands];
  });
  ```
  
@@ -718,10 +718,10 @@
  
  ```Objective-C
  - (void)start {
- dispatch_source_set_event_handler(_processingQueueSource, ^{
- [self _runCommands];
- });
- [self resume];
+	 dispatch_source_set_event_handler(_processingQueueSource, ^{
+	 	[self _runCommands];
+	 });
+	 [self resume];
  }
  ```
  
@@ -730,12 +730,12 @@
  
  ```Objective-C
  - (void)resume {
- if (self.running) {
- return;
- }
- self.running = YES;
- dispatch_resume(_processingQueueSource);
- dispatch_source_merge_data(_processingQueueSource, 1);
+	 if (self.running) {
+	 	return;
+	 }
+	 self.running = YES;
+	 dispatch_resume(_processingQueueSource);
+	 dispatch_source_merge_data(_processingQueueSource, 1);
  }
  ```
  
@@ -745,26 +745,26 @@
  ```Objective-C
  /*! Manually sets the network connection status. */
  - (void)setConnected:(BOOL)connected {
- BFTaskCompletionSource *barrier = [BFTaskCompletionSource taskCompletionSource];
- dispatch_async(_processingQueue, ^{
- dispatch_sync(_synchronizationQueue, ^{
- if (self.connected != connected) {
- _connected = connected;
- if (connected) {
- dispatch_source_merge_data(_processingQueueSource, 1);
- }
- }
- });
- barrier.result = nil;
- });
- if (connected) {
- dispatch_async(_synchronizationQueue, ^{
- if (_retryingSemaphore) {
- dispatch_semaphore_signal(_retryingSemaphore);
- }
- });
- }
- [barrier.task waitForResult:nil];
+	 BFTaskCompletionSource *barrier = [BFTaskCompletionSource taskCompletionSource];
+	 dispatch_async(_processingQueue, ^{
+			 dispatch_sync(_synchronizationQueue, ^{
+				 if (self.connected != connected) {
+					 _connected = connected;
+					 if (connected) {
+					 	dispatch_source_merge_data(_processingQueueSource, 1);
+					 }
+				 }
+			 });
+			 barrier.result = nil;
+		 });
+		 if (connected) {
+			 dispatch_async(_synchronizationQueue, ^{
+				 if (_retryingSemaphore) {
+				 	dispatch_semaphore_signal(_retryingSemaphore);
+				 }
+		 });
+	 }
+	 [barrier.task waitForResult:nil];
  }
  
  ```
@@ -839,9 +839,9 @@
  dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
  NSMutableArray *array = [[NSMutableArray alloc] init];
  for(int i = 0; i< 100000; ++i) {
- dispatch_sync(queue, ^{
- [array addObject:[NSNumber numberWithInt:i]];
- });
+	 dispatch_sync(queue, ^{
+	 	[array addObject:[NSNumber numberWithInt:i]];
+	 });
  
  }
  NSLog(@"%@", @([array count]));
@@ -858,64 +858,64 @@
  
  ```Objective-C
  - (void)viewDidLoad {
- [super viewDidLoad];
- //因为用到了dispatch_barrier_async，该函数只能搭配自定义并行队列dispatch_queue_t使用。所以不能使用：dispatch_get_global_queue
- dispatch_queue_t queue = dispatch_queue_create("com.ioschengxuyuan.gcd.ForBarrier", DISPATCH_QUEUE_CONCURRENT);
- /*
- *
- *生成Dispatch Semaphore
- Dispatch Semaphore 的计数初始值设定为“1”
- (该初始值的1与下文中两个函数dispatch_semaphore_wait与dispatch_semaphore_signal进行的减1、加1里的1没有必然联系。
- 
- 就算初始值是100，两个函数dispatch_semaphore_wait与dispatch_semaphore_signal还是会减“1”、加“1”)。
- 保证可访问 NSMutableArray 类对象的线程
- 同时只能有1个
- *
- */
- dispatch_semaphore_t semaphore = dispatch_semaphore_create(1) ;
- NSMutableArray *array = [[NSMutableArray alloc] init];
- for(int i = 0; i< 100000; ++i) {
- dispatch_async(queue, ^{
- /*
- *
- *等待Dispatch Semaphore
- *一直等待，直到Dispatch Semaphore的计数值达到大于等于1
- */
- dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER) ;
- /*
- *由于Dispatch Semaphore的计数值达到大于等于1
- *所以将Dispatch Semaphore的计数值减去1
- *dispatch_semaphore_wait 函数执行返回。
- *即执行到此时的
- *Dispatch Semaphore 的计数值恒为0
- *
- *由于可访问NSMutaleArray类对象的线程
- *只有一个
- *因此可安全地进行更新
- *
- */
- NSLog(@"🔴%@",[NSThread currentThread]);
- [array addObject:[NSNumber numberWithInt:i]];
- /*
- *
- *排他控制处理结束，
- *所以通过dispatch_semaphore_signal函数
- *将Dispatch Semaphore的计数值加1
- *如果有通过dispatch_semaphore_wait函数
- *等待Dispatch Semaphore的计数值增加的线程，
- ★就由最先等待的线程执行。
- */
- dispatch_semaphore_signal(semaphore);
- });
- }
- /*
- *
- 等为数组遍历添加元素后，检查下数组的成员个数是否正确
- *
- */
- dispatch_barrier_async(queue, ^{
- NSLog(@"🔴类名与方法名：%s（在第%d行），描述：%@", __PRETTY_FUNCTION__, __LINE__, @([array count]));
- });
+	 [super viewDidLoad];
+	 //因为用到了dispatch_barrier_async，该函数只能搭配自定义并行队列dispatch_queue_t使用。所以不能使用：dispatch_get_global_queue
+	 dispatch_queue_t queue = dispatch_queue_create("com.ioschengxuyuan.gcd.ForBarrier", DISPATCH_QUEUE_CONCURRENT);
+	 /*
+	 *
+	 *生成Dispatch Semaphore
+	 Dispatch Semaphore 的计数初始值设定为“1”
+	 (该初始值的1与下文中两个函数dispatch_semaphore_wait与dispatch_semaphore_signal进行的减1、加1里的1没有必然联系。
+	 
+	 就算初始值是100，两个函数dispatch_semaphore_wait与dispatch_semaphore_signal还是会减“1”、加“1”)。
+	 保证可访问 NSMutableArray 类对象的线程
+	 同时只能有1个
+	 *
+	 */
+	 dispatch_semaphore_t semaphore = dispatch_semaphore_create(1) ;
+	 NSMutableArray *array = [[NSMutableArray alloc] init];
+	 for(int i = 0; i< 100000; ++i) {
+		 dispatch_async(queue, ^{
+			 /*
+			 *
+			 *等待Dispatch Semaphore
+			 *一直等待，直到Dispatch Semaphore的计数值达到大于等于1
+			 */
+			 dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER) ;
+			 /*
+			 *由于Dispatch Semaphore的计数值达到大于等于1
+			 *所以将Dispatch Semaphore的计数值减去1
+			 *dispatch_semaphore_wait 函数执行返回。
+			 *即执行到此时的
+			 *Dispatch Semaphore 的计数值恒为0
+			 *
+			 *由于可访问NSMutaleArray类对象的线程
+			 *只有一个
+			 *因此可安全地进行更新
+			 *
+			 */
+			 NSLog(@"🔴%@",[NSThread currentThread]);
+			 [array addObject:[NSNumber numberWithInt:i]];
+			 /*
+			 *
+			 *排他控制处理结束，
+			 *所以通过dispatch_semaphore_signal函数
+			 *将Dispatch Semaphore的计数值加1
+			 *如果有通过dispatch_semaphore_wait函数
+			 *等待Dispatch Semaphore的计数值增加的线程，
+			 ★就由最先等待的线程执行。
+			 */
+			 dispatch_semaphore_signal(semaphore);
+		 });
+	 }
+	 /*
+	 *
+	 等为数组遍历添加元素后，检查下数组的成员个数是否正确
+	 *
+	 */
+	 dispatch_barrier_async(queue, ^{
+	 	NSLog(@"🔴类名与方法名：%s（在第%d行），描述：%@", __PRETTY_FUNCTION__, __LINE__, @([array count]));
+	 });
  }
  ```
  
@@ -940,47 +940,47 @@
  
  ```Objective-C
  - (void)viewDidLoad {
- [super viewDidLoad];
- 
- dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
- //    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
- 
- dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 1ull * NSEC_PER_SEC);//等待一秒
- //dispatch_time_t time = DISPATCH_TIME_FOREVER;//永久等待
- NSLog(@"begin ==>  车库开始营业了！");
- /*
- *
- 如果 semphore 的值等于0，就阻塞1秒钟，才会往下照常进行；
- 如果大于等于1则往下进行并将 semphore 进行减1处理。
- *
- */
- long result = dispatch_semaphore_wait(semaphore, time);
- if (result == 0) {
- /*
- *
- *由子Dispatch Semaphore的计数值达到大于等于1
- *或者在待机中的指定时间内
- *Dispatch Semaphore的计数值达到大于等于1
- 所以Dispatch Semaphore的计数值减去1
- 可执行需要进行排他控制的处理.
- 可以理解为：没有阻塞的线程了。
- 就好比：车库有一个或一个以上的车位，只来了一辆车，所以“无需等待”
- *
- */
- NSLog(@"result = 0 ==> 有车位，无需等待！==> 在这里可安全地执行【需要排他控制的处理（比如只允许一条线程为mutableArray进行addObj操作）】");
- dispatch_semaphore_signal(semaphore);//使用signal以确保编译器release掉dispatch_semaphore_t时的值与初始值一致， 否则会EXC_BAD_INSTRUCTION ,见http://is.gd/EaJgk5
- } else {
- /*
- *
- *由于Dispatch Semaphore的计数值为0
- .因此在达到指定时间为止待机
- 这个else里发生的事情，就好比：车库没车位，来了一辆车，等待了半个小时后，做出的一些事情。
- 比如：忍受不了，走了。。
- *
- */
- NSLog(@"result != 0 ==> timeout，deadline，忍受不了，走了。。");
- 
- }
+	 [super viewDidLoad];
+	 
+	 dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+	 //    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+	 
+	 dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 1ull * NSEC_PER_SEC);//等待一秒
+	 //dispatch_time_t time = DISPATCH_TIME_FOREVER;//永久等待
+	 NSLog(@"begin ==>  车库开始营业了！");
+	 /*
+	 *
+	 如果 semphore 的值等于0，就阻塞1秒钟，才会往下照常进行；
+	 如果大于等于1则往下进行并将 semphore 进行减1处理。
+	 *
+	 */
+	 long result = dispatch_semaphore_wait(semaphore, time);
+	 if (result == 0) {
+	 /*
+	 *
+	 *由子Dispatch Semaphore的计数值达到大于等于1
+	 *或者在待机中的指定时间内
+	 *Dispatch Semaphore的计数值达到大于等于1
+	 所以Dispatch Semaphore的计数值减去1
+	 可执行需要进行排他控制的处理.
+	 可以理解为：没有阻塞的线程了。
+	 就好比：车库有一个或一个以上的车位，只来了一辆车，所以“无需等待”
+	 *
+	 */
+	 NSLog(@"result = 0 ==> 有车位，无需等待！==> 在这里可安全地执行【需要排他控制的处理（比如只允许一条线程为mutableArray进行addObj操作）】");
+	 dispatch_semaphore_signal(semaphore);//使用signal以确保编译器release掉dispatch_semaphore_t时的值与初始值一致， 否则会EXC_BAD_INSTRUCTION ,见http://is.gd/EaJgk5
+	 } else {
+	 /*
+	 *
+	 *由于Dispatch Semaphore的计数值为0
+	 .因此在达到指定时间为止待机
+	 这个else里发生的事情，就好比：车库没车位，来了一辆车，等待了半个小时后，做出的一些事情。
+	 比如：忍受不了，走了。。
+	 *
+	 */
+	 NSLog(@"result != 0 ==> timeout，deadline，忍受不了，走了。。");
+	 
+	 }
  }
  ```
  
@@ -1019,15 +1019,15 @@
  
  ```Objective-C
  - (void)testInstallationMutated {
- NSDictionary *dict = [self jsonWithFileName:@"TestInstallationSave"];
- AVInstallation *installation = [AVInstallation currentInstallation];
- [installation objectFromDictionary:dict];
- [installation setObject:@(YES) forKey:@"enableNoDisturb"];
- [installation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
- XCTAssertNil(error);
- NOTIFY;
- }];
- WAIT;
+	 NSDictionary *dict = [self jsonWithFileName:@"TestInstallationSave"];
+	 AVInstallation *installation = [AVInstallation currentInstallation];
+	 [installation objectFromDictionary:dict];
+	 [installation setObject:@(YES) forKey:@"enableNoDisturb"];
+	 [installation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+		 XCTAssertNil(error);
+		 NOTIFY;
+	 }];
+	 WAIT;
  } 
  ```
  
@@ -1104,16 +1104,16 @@
  //使用 dispatch_once而非 lazy 模式，防止可能的多线程抢占问题
  static dispatch_once_t onceToken;
  dispatch_once(&onceToken, ^{
- limitSemaphore = dispatch_semaphore_create(limitSemaphoreCount);
+ 	limitSemaphore = dispatch_semaphore_create(limitSemaphoreCount);
  });
  
  
  //可用信号量后才能继续，否则等待
  dispatch_semaphore_wait(limitSemaphore, DISPATCH_TIME_FOREVER);
  dispatch_async(queue, ^{
- !block ? : block();
- //在该工作线程执行完成后释放信号量
- dispatch_semaphore_signal(limitSemaphore);
+	 !block ? : block();
+	 //在该工作线程执行完成后释放信号量
+	 dispatch_semaphore_signal(limitSemaphore);
  });
  
  }
@@ -1127,24 +1127,24 @@
  
  ```Objective-C
  + (NSData *)sendSynchronousRequest:(NSURLRequest *)request returningResponse:(NSURLResponse *__autoreleasing *)response error:(NSError *__autoreleasing *)error {
- __block NSData *data = nil;
- dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
- 
- [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *taskData, NSURLResponse *taskResponse, NSError *taskError) {
- data = taskData;
- 
- if (response)
- *response = taskResponse;
- 
- if (error)
- *error = taskError;
- 
- dispatch_semaphore_signal(semaphore);
- }] resume];
- 
- dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
- 
- return data;
+	 __block NSData *data = nil;
+	 dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+	 
+	 [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *taskData, NSURLResponse *taskResponse, NSError *taskError) {
+		 data = taskData;
+		 
+		 if (response)
+		 *response = taskResponse;
+		 
+		 if (error)
+		 *error = taskError;
+		 
+		 dispatch_semaphore_signal(semaphore);
+	 }] resume];
+	 
+	 dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+	 
+	 return data;
  }
  ```
  
@@ -1172,7 +1172,7 @@
  
  ```Objective-C
  - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
- return YES;
+ 	return YES;
  }
  
  - (void)applicationWillResignActive:(UIApplication *)application {
@@ -1210,9 +1210,9 @@
  
  ```Objective-C
  -(IBAction)cancelUpload:(id)sender {
- if (_uploadTask.state == NSURLSessionTaskStateRunning) {
- [_uploadTask cancel];
- }
+	 if (_uploadTask.state == NSURLSessionTaskStateRunning) {
+	 	[_uploadTask cancel];
+	 }
  }
  ```
  
