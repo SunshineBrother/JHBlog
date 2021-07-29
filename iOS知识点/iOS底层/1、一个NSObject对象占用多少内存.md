@@ -38,7 +38,7 @@ int main(int argc, const char * argv[]) {
 	return 0;
 }
 ```
-这一段代码就是我们OC代码中的`mian`函数的实现
+这一段代码就是我们OC代码中的`main`函数的实现
 ```
 int main(int argc, const char * argv[]) {
 	@autoreleasepool {
@@ -49,7 +49,7 @@ int main(int argc, const char * argv[]) {
 
 ```
 
-这时我们在`mian`函数写入这一段代码，然后我们点击进入，查看代码实现
+这时我们在`main`函数写入这一段代码，然后我们点击进入，查看代码实现
 ```
 NSObject *obj = [[NSObject alloc] init];
 ```
@@ -70,7 +70,7 @@ struct NSObject_IMPL {
 
 我们再一次执行命令
 ```
-xcrun  -sdk  iphoneos  clang  -arch  arm64  -rewrite-objc mian.m
+xcrun  -sdk  iphoneos  clang  -arch  arm64  -rewrite-objc main.m
 ```
 生成的C++代码为
 ```
@@ -235,5 +235,6 @@ struct Student_IMPL {
 };
 
 ```
+
 [参考demo](https://github.com/SunshineBrother/iOSDemo)
 
